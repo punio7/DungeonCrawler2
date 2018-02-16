@@ -3,11 +3,11 @@ class Command {
     constructor() {
         this.game = null;
     };
-    execute(game) {
+    Execute(game, command) {
         this.game = game;
-        this.executeBody();
+        this.ExecuteBody(command);
     };
-    executeBody() {
+    ExecuteBody(command) {
 
     }
 }

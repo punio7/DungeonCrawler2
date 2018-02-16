@@ -14,21 +14,16 @@ namespace DungeonCrawler2
         static void Main(string[] args)
         {
             Console.WriteLine("Starting engine");
-            using (var engine = new V8ScriptEngine())
+            using (var script = new V8ScriptEngine())
             {
+                ScriptContext.Current = script;
                 Console.WriteLine("Loading scripts");
-                var script = File.ReadAllText("src/commands/command.js");
-                engine.Execute(script);
-                script =  File.ReadAllText("src/commands/test.js");
-                engine.Execute(script);
-
-                engine.AddHostType("Engine", typeof(Engine.Engine));
+                GameEngine gameEngine = new GameEngine();
+                script.AddHostObject("Engine", gameEngine);
+                gameEngine.Init();
 
                 Console.WriteLine("Executing command");
-                engine.Execute(@"let test = new Test();
-                                 test.execute({name: 'name'});");
-
-                //engine.Script.test.execute();
+                script.Execute(@"Commands.Execute({name: 'name'}, 'test');");
             }
             Console.WriteLine("Finish");
             Console.ReadKey();

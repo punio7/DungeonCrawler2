@@ -51,7 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Engine\GameEngine.cs" />
+    <Compile Include="Engine\ScriptContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,11 +62,20 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="src\commands\command.js">
+    <Content Include="src\CommandParser.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="src\commands\test.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="src\Commands.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="src\commands\Command.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="src\commands\Test.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="src\Init.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
