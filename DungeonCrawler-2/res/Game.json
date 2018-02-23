@@ -1,0 +1,5 @@
+﻿{
+  "$schema": "game-schema.json#",
+  "Name": "nazwa gry",
+  "Rooms": [0, 1, 2, 3]
+}

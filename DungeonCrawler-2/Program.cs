@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DungeonCrawler2.Engine;
+using Microsoft.ClearScript;
 using Microsoft.ClearScript.V8;
 
 namespace DungeonCrawler2
@@ -14,16 +15,11 @@ namespace DungeonCrawler2
         static void Main(string[] args)
         {
             Console.WriteLine("Starting engine");
-            using (var script = new V8ScriptEngine())
+            using (GameEngine gameEngine = new GameEngine())
             {
-                ScriptContext.Current = script;
                 Console.WriteLine("Loading scripts");
-                GameEngine gameEngine = new GameEngine();
-                script.AddHostObject("Engine", gameEngine);
                 gameEngine.Init();
-
-                Console.WriteLine("Executing command");
-                script.Execute(@"Commands.Execute({name: 'name'}, 'test');");
+                gameEngine.Run();
             }
             Console.WriteLine("Finish");
             Console.ReadKey();

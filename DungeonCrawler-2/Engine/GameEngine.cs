@@ -8,16 +8,72 @@ using Microsoft.ClearScript.V8;
 
 namespace DungeonCrawler2.Engine
 {
-    public class GameEngine
+    public class GameEngine : IGameEngine, IDisposable
     {
         private HashSet<string> loadedScripts;
+        private V8ScriptEngine scriptEngine;
+        private V8Script executeScript;
+
+        private bool ExitRaised { get; set; }
 
         public GameEngine()
         {
             loadedScripts = new HashSet<string>();
         }
 
-        public void Output(string message)
+        public void Dispose()
+        {
+            if (executeScript != null)
+            {
+                executeScript.Dispose();
+            }
+            if (scriptEngine != null)
+            {
+                scriptEngine.Dispose();
+            }
+        }
+
+        #region Internal Members
+
+        internal void Init()
+        {
+            Dispose();
+            scriptEngine = new V8ScriptEngine();
+            loadedScripts = new HashSet<string>();
+            scriptEngine.AddHostObject("Engine", new GameEngineProxy(this));
+            LoadScript("src/Init.js");
+            executeScript = scriptEngine.Compile("Execute(Engine.Input);");
+        }
+
+        internal void Execute(string command)
+        {
+            Input = command;
+            scriptEngine.Execute(executeScript);
+        }
+
+        internal void Run()
+        {
+            while (!ExitRaised)
+            {
+                try
+                {
+                    string command = Console.ReadLine();
+                    Execute(command);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            }
+        }
+
+        #endregion
+
+        #region IGameEngine Members
+
+        public string Input { get; private set; } = "";
+
+        public void Output(object message)
         {
             Console.WriteLine(message);
         }
@@ -26,14 +82,43 @@ namespace DungeonCrawler2.Engine
         {
             if (!loadedScripts.Contains(location))
             {
-                var script = File.ReadAllText(location);
-                ScriptContext.Current.Execute(location, script); 
+                if (location.StartsWith("src"))
+                {
+                    location = @"..\..\" + location;
+                }
+                var file = new FileInfo(location);
+                Console.WriteLine(string.Format("Loading script file {0}", file.FullName));
+
+                var script = File.ReadAllText(file.FullName);
+                scriptEngine.Execute(location, script);
+                loadedScripts.Add(location);
             }
         }
 
-        public void Init()
+        public string LoadData(string location)
         {
-            LoadScript("src/Init.js");
+            if (location.StartsWith("res"))
+            {
+                location = @"..\..\" + location;
+            }
+
+            var file = new FileInfo(location);
+            Console.WriteLine(string.Format("Loading data file {0}", file.FullName));
+
+            var data = File.ReadAllText(file.FullName); ;
+            return data;
         }
+
+        public void Exit()
+        {
+            ExitRaised = true;
+        }
+
+        public void Reload()
+        {
+            Init();
+        }
+
+        #endregion
     }
 }

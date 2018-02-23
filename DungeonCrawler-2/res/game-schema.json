@@ -1,0 +1,21 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Schema for main Game state object",
+
+  "type": "object",
+
+  "properties": {
+    "Name": {
+      "type": "string",
+      "description": "Nazwa gry, dunno po co to komu"
+    },
+    "Rooms": {
+      "type": "array",
+      "description": "An array of version numbers.",
+      "minItems": 1,
+      "items": {
+        "type": "number"
+      }
+    }
+  }
+}
