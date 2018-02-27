@@ -1,16 +1,27 @@
 ﻿"use strict";
 class CommandsManager {
     constructor() {
-        this.CommandsList = [];    
+        this.List = [];    
     };
 
     Execute(command) {
         let parser = new CommandParser(command);
         let commandName = parser.getCommand();
-        this.CommandsList[commandName].Execute(Game, parser);
-    };
-};
 
-var Commands = new CommandsManager();
-Commands.CommandsList["test"] = new Test();
-Commands.CommandsList["reload"] = new Reload();
+        let commandObject = this.List[commandName];
+        if (commandObject != undefined) {
+            commandObject.Execute(Game, parser);
+        }
+        else {
+            Engine.Output("Chyba ty.");
+        }
+    };
+
+    RegisterCommand(commandName, commandObject) {
+        if (!(commandObject instanceof Command)) {
+            throw "Command object must extend Command class";
+        }
+
+        this.List[commandName] = commandObject;
+    }
+};

@@ -20,7 +20,7 @@ class CommandParser {
     };
 
     getArgument(index) {
-        return this.commandString;
+        return this.commandString.split(" ")[index + 1];
     };
 
     getNumber(index) {

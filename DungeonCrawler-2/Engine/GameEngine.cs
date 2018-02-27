@@ -4,7 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.ClearScript;
 using Microsoft.ClearScript.V8;
+using NLog;
 
 namespace DungeonCrawler2.Engine
 {
@@ -13,12 +15,14 @@ namespace DungeonCrawler2.Engine
         private HashSet<string> loadedScripts;
         private V8ScriptEngine scriptEngine;
         private V8Script executeScript;
+        private Logger logger;
 
         private bool ExitRaised { get; set; }
 
         public GameEngine()
         {
             loadedScripts = new HashSet<string>();
+            logger = LogManager.GetLogger(this.GetType().FullName);
         }
 
         public void Dispose()
@@ -55,16 +59,45 @@ namespace DungeonCrawler2.Engine
         {
             while (!ExitRaised)
             {
-                try
+                TryCatch(() =>
                 {
                     string command = Console.ReadLine();
                     Execute(command);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
+                });
             }
+        }
+
+        private void TryCatch(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (ScriptEngineException see)
+            {
+                logger.Error(see.ErrorDetails);
+            }
+            catch (Exception e)
+            {
+                logger.Error(e);
+            }
+        }
+
+        private T TryCatch<T>(Func<T> function)
+        {
+            try
+            {
+                return function();
+            }
+            catch (ScriptEngineException see)
+            {
+                logger.Error(see.ErrorDetails);
+            }
+            catch (Exception e)
+            {
+                logger.Error(e);
+            }
+            return default(T);
         }
 
         #endregion
@@ -75,38 +108,47 @@ namespace DungeonCrawler2.Engine
 
         public void Output(object message)
         {
-            Console.WriteLine(message);
+            TryCatch(() =>
+            {
+                Console.WriteLine(message);
+            });
         }
 
         public void LoadScript(string location)
         {
-            if (!loadedScripts.Contains(location))
+            TryCatch(() =>
             {
-                if (location.StartsWith("src"))
+                if (!loadedScripts.Contains(location))
                 {
-                    location = @"..\..\" + location;
-                }
-                var file = new FileInfo(location);
-                Console.WriteLine(string.Format("Loading script file {0}", file.FullName));
+                    if (location.StartsWith("src"))
+                    {
+                        location = @"..\..\" + location;
+                    }
+                    var file = new FileInfo(location);
+                    logger.Debug(string.Format("Loading script file {0}", file.FullName));
 
-                var script = File.ReadAllText(file.FullName);
-                scriptEngine.Execute(location, script);
-                loadedScripts.Add(location);
-            }
+                    var script = File.ReadAllText(file.FullName);
+                    scriptEngine.Execute(location, script);
+                    loadedScripts.Add(location);
+                }
+            });
         }
 
         public string LoadData(string location)
         {
-            if (location.StartsWith("res"))
+            return TryCatch(() =>
             {
-                location = @"..\..\" + location;
-            }
+                if (location.StartsWith("res"))
+                {
+                    location = @"..\..\" + location;
+                }
 
-            var file = new FileInfo(location);
-            Console.WriteLine(string.Format("Loading data file {0}", file.FullName));
+                var file = new FileInfo(location);
+                logger.Debug(string.Format("Loading data file {0}", file.FullName));
 
-            var data = File.ReadAllText(file.FullName); ;
-            return data;
+                var data = File.ReadAllText(file.FullName); ;
+                return data;
+            });
         }
 
         public void Exit()

@@ -1,0 +1,11 @@
+﻿{
+  "$schema": "item-schema.json#",
+  "ItemsTemplates": [
+    {
+      "Id": 0,
+      "Name": "Drewniany Drąg",
+      "Description": "Opis drewnianego dręgu.",
+      "Type": "Weapon1H"
+    }
+  ]
+}

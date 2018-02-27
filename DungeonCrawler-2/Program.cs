@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DungeonCrawler2.Engine;
 using Microsoft.ClearScript;
 using Microsoft.ClearScript.V8;
+using NLog;
 
 namespace DungeonCrawler2
 {
@@ -14,14 +15,18 @@ namespace DungeonCrawler2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Starting engine");
+            NLogConfiguration.Configure();
+            Logger logger = LogManager.GetLogger(typeof(Program).FullName);
+
+            logger.Debug("Starting engine");
             using (GameEngine gameEngine = new GameEngine())
             {
-                Console.WriteLine("Loading scripts");
+                logger.Debug("Initialise");
                 gameEngine.Init();
+                logger.Debug("Ready to go");
                 gameEngine.Run();
             }
-            Console.WriteLine("Finish");
+            logger.Debug("Finish");
             Console.ReadKey();
         }
     }
