@@ -14,7 +14,7 @@
         "properties": {
 
           "Id": {
-            "type": "number",
+            "type": "string",
             "description": "Item's template id"
           },
 
