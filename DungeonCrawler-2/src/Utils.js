@@ -11,3 +11,15 @@ if (!String.prototype.format) {
     });
   };
 }
+
+if (!String.prototype.startWithUpper) {
+    String.prototype.startWithUpper = function () {
+        return this[0].toUpperCase() + this.slice(1);
+    };
+}
+
+if (!String.prototype.isNumber) {
+    String.prototype.isNumber = function () {
+        return /^\d+$/.test(this);
+    };
+}

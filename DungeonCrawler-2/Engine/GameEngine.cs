@@ -42,7 +42,12 @@ namespace DungeonCrawler2.Engine
         internal void Init()
         {
             Dispose();
-            scriptEngine = new V8ScriptEngine();
+            V8ScriptEngineFlags flags = V8ScriptEngineFlags.None;
+#if DEBUG
+            flags |= V8ScriptEngineFlags.EnableDebugging;
+            flags |= V8ScriptEngineFlags.EnableRemoteDebugging;
+#endif
+            scriptEngine = new V8ScriptEngine(flags);
             loadedScripts = new HashSet<string>();
             scriptEngine.AddHostObject("Engine", new GameEngineProxy(this));
             LoadScript("src/Init.js");
