@@ -64,8 +64,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="res\game-schema.json" />
-    <None Include="res\game.json" />
+    <None Include="res\Game-Schema.json" />
+    <None Include="res\Game.json" />
     <None Include="res\Item-Schema.json" />
     <None Include="res\Items.json" />
     <None Include="res\ItemTypes.json" />
@@ -84,6 +84,9 @@
     <Content Include="src\commands\Eval.js" />
     <Content Include="src\commands\NoCommand.js" />
     <Content Include="src\commands\Reload.js" />
+    <Content Include="src\commands\Json.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="src\commands\Test.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -95,6 +98,7 @@
     <Content Include="src\InitGameData.js" />
     <Content Include="src\model\Game.js" />
     <Content Include="src\model\ItemTypes.js" />
+    <Content Include="src\model\Room.js" />
     <Content Include="src\Utils.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

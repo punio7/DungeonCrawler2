@@ -1,5 +1,20 @@
 ﻿{
-  "$schema": "game-schema.json#",
+  "$schema": "Game-Schema.json#",
   "Name": "nazwa gry",
-  "Rooms": [0, 1, 2, 3]
+  "Rooms": [
+    {
+      "Id": 0
+    },
+    {
+      "Id": 1,
+      "Name": "Pokój startowy",
+      "Description": "Opis pokoju startowego",
+      "Exits": [
+        {
+          "Direction": "north",
+          "RoomId": 2
+        }
+      ]
+    }
+  ]
 }

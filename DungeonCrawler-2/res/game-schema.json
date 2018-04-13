@@ -4,17 +4,67 @@
 
   "type": "object",
 
+  "required": [ "StartingRoom", "Rooms" ],
   "properties": {
     "Name": {
       "type": "string",
       "description": "Nazwa gry, dunno po co to komu"
     },
+    "StartingRoom": {
+      "type": "number",
+      "description": "Pokój startowy"
+    },
     "Rooms": {
       "type": "array",
-      "description": "An array of version numbers.",
+      "description": "Tablica pomieszczeń",
       "minItems": 1,
       "items": {
-        "type": "number"
+        "type": "object",
+        "required": [ "Id" ],
+        "properties": {
+          "Id": { "type": "number" },
+          "Name": { "type": "string" },
+          "Description": { "type": "string" },
+          "IsNaturalLight": {
+            "type": "boolean",
+            "default": "false"
+          },
+          "Exits": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [ "Direction", "RoomId" ],
+              "properties": {
+                "Direction": {
+                  "type": "string",
+                  "enum": [ "north", "south", "east", "west", "up", "down" ]
+                },
+                "RoomId" : {"type": "number"},
+                "IsDoor": {
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "IsClosed": {
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "IsLocked": {
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "KeyNumber": { "type": "number" }
+              }
+            }
+          },
+          "Items": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "Characters": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
       }
     }
   }

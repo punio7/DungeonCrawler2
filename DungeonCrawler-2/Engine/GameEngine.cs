@@ -56,6 +56,13 @@ namespace DungeonCrawler2.Engine
 
         internal void Execute(string command)
         {
+#if DEBUG
+            if (command.ToLower() == "reload")
+            {
+                Reload();
+                return;
+            }
+#endif
             Input = command;
             scriptEngine.Execute(executeScript);
         }
@@ -133,7 +140,7 @@ namespace DungeonCrawler2.Engine
                     logger.Debug(string.Format("Loading script file {0}", file.FullName));
 
                     var script = File.ReadAllText(file.FullName);
-                    scriptEngine.Execute(location, script);
+                    scriptEngine.Execute(file.Name, script);
                     loadedScripts.Add(location);
                 }
             });
