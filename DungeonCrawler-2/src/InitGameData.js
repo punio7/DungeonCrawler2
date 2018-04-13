@@ -1,5 +1,7 @@
 ﻿"use strict";
 
+var Game = {};
+
 function InitGameData() {
     Engine.LoadScript('src/model/Game.js');
     Engine.LoadScript('src/model/ItemTypes.js');

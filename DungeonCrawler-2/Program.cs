@@ -21,7 +21,7 @@ namespace DungeonCrawler2
             logger.Debug("Starting engine");
             using (GameEngine gameEngine = new GameEngine())
             {
-                logger.Debug("Initialise");
+                logger.Debug("Initialize");
                 gameEngine.Init();
                 logger.Debug("Ready to go");
                 gameEngine.Run();

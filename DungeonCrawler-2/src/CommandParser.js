@@ -55,20 +55,22 @@ class CommandParser {
 
         while (startIndex !== -1) {
             startIndex++;
-            currentCommand = currentCommand.slice(startIndex);
             currentArgumentNumber++;
             let parsedNumber = null;
 
-            while (!currentCommand === '' && currentCommand[0] === ' ') {
-                currentCommand = currentCommand.slice(1);
+            //usuwamy niepotrzebne spacje
+            while (startIndex < currentCommand.length && currentCommand[startIndex] === ' ') {
+                startIndex++;
             }
+            currentCommand = currentCommand.slice(startIndex);
             if (currentCommand === '') {
                 break;
             }
+
             // wyciąganie numeru dla argumentu
             if (currentCommand[0].isNumber()) {
                 let currentIndex = 1;
-                while (currentCommand[currentIndex].isNumber()) {
+                while (currentIndex < currentCommand.length && currentCommand[currentIndex].isNumber()) {
                     currentIndex++;
                 }
                 if (currentCommand[currentIndex] === '.') {

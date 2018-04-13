@@ -2,6 +2,10 @@
 
 var Commands = {};
 
+function Execute(command) {
+    Commands.Execute(command);
+};
+
 function InitCommands() {
     Engine.LoadScript('src/CommandParser.js');
     Engine.LoadScript('src/commands/Command.js');
