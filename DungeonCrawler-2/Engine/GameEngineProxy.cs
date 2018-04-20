@@ -18,6 +18,7 @@ namespace DungeonCrawler2.Engine
             this.gameEngine = gameEngine;
         }
         public string Input => gameEngine.Input;
+        public string EndLine => gameEngine.EndLine;
         public void Output(object message) => gameEngine.Output(message);
         public void LoadScript(string location) => gameEngine.LoadScript(location);
         public string LoadData(string location) => gameEngine.LoadData(location);

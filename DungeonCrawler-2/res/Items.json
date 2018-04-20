@@ -2,8 +2,17 @@
   "$schema": "item-schema.json#",
   "ItemsTemplates": [
     {
-      "Id": "bron-drag-drewniany",
-      "Name": "Drewniany Drąg",
+      "Id": "drewno-drag",
+      "Name": [
+        "drewniany drąg",
+        "drewnianego drąga",
+        "drewnianemu drągowi",
+        "drewniany drąg",
+        "drewnianym drągiem",
+        "drewnianym drągu",
+        "drewniany drągu"
+      ],
+      "Idle": "leży na ziemi",
       "Description": "Opis drewnianego dręgu.",
       "Type": "Weapon1H"
     }

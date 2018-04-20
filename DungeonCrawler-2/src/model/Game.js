@@ -1,9 +1,18 @@
 ﻿"use strict";
 class GameModel {
     constructor(template) {
+        if (template === undefined) {
+            return;
+        }
+
         this.Name = '';
         this.StartingRoom = 0;
         this.Rooms = [];
+
+        this.Player = new Player();
+        this.ItemTypes = new ItemTypesModel();
+        this.ItemTemplates = new ItemTemplatesModel();
+
         Object.assign(this, template);
 
         for (var i = 0; i < this.Rooms.length; i++) {
@@ -27,5 +36,14 @@ class GameModel {
             room.LoadRoomData();
         }
         return room;
+    }
+
+    spawnItem(itemId) {
+        let template = this.ItemTemplates.getTemplate(itemId);
+        return new Item(template);
+    }
+
+    getItemType(itemTypeName) {
+        return this.ItemTypes.getItemType(itemTypeName);
     }
 };

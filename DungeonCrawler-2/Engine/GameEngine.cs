@@ -118,6 +118,8 @@ namespace DungeonCrawler2.Engine
 
         public string Input { get; private set; } = "";
 
+        public string EndLine { get; private set; } = Environment.NewLine;
+
         public void Output(object message)
         {
             TryCatch(() =>

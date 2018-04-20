@@ -82,6 +82,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="src\commands\Eval.js" />
+    <Content Include="src\commands\Look.js" />
     <Content Include="src\commands\NoCommand.js" />
     <Content Include="src\commands\Reload.js" />
     <Content Include="src\commands\Json.js">
@@ -91,14 +92,19 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="src\CommandTree.js" />
+    <Content Include="src\commonLogic\ItemsListPrinter.js" />
     <Content Include="src\enums\Directions.js" />
+    <Content Include="src\enums\GramaCase.js" />
     <Content Include="src\Init.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="src\InitCommands.js" />
     <Content Include="src\InitGameData.js" />
     <Content Include="src\model\Game.js" />
+    <Content Include="src\model\Item.js" />
+    <Content Include="src\model\ItemTemplates.js" />
     <Content Include="src\model\ItemTypes.js" />
+    <Content Include="src\model\Player.js" />
     <Content Include="src\model\Room.js" />
     <Content Include="src\model\RoomExit.js" />
     <Content Include="src\Utils.js" />

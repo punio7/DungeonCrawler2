@@ -9,6 +9,7 @@ namespace DungeonCrawler2.Engine
     public interface IGameEngine
     {
         string Input { get; }
+        string EndLine { get; }
         void Output(object message);
         void LoadScript(string location);
         string LoadData(string location);

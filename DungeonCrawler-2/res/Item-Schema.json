@@ -10,7 +10,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["Id", "Name", "Description", "Type"],
+        "required": ["Id", "Name", "Description", "Idle", "Type"],
         "properties": {
 
           "Id": {
@@ -19,8 +19,17 @@
           },
 
           "Name": {
-            "type": "string",
-            "description": "Item's display name"
+            "type": "array",
+            "description": "Item's display name in all grama cases",
+            "minItems": 7,
+            "maxItems": 7,
+            "items": {
+              "type": "string"
+            }
+          },
+
+          "Idle": {
+            "type": "string"
           },
 
           "Description": {

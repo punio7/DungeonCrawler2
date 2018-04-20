@@ -1,21 +1,20 @@
 ﻿"use strict";
 class DirectionsEnum {
     constructor() {
-        this.North = "north";
-        this.South = "south";
-        this.East = "east";
-        this.West = "west";
-        this.Up = "up";
-        this.Down = "down";
+        this.north = "north";
+        this.south = "south";
+        this.east = "east";
+        this.west = "west";
+        this.up = "up";
+        this.down = "down";
     }
 
     parse(directionString) {
         let parsedDirection = directionString.toLowerCase();
         for (const key in this) {
             if (this.hasOwnProperty(key)) {
-                const value = this[key];
-                if (value.includes(parsedDirection)) {
-                    return value;
+                if (key.includes(parsedDirection)) {
+                    return key;
                 }
             }
         }

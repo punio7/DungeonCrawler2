@@ -2,6 +2,10 @@
 
 class ItemTypesModel {
     constructor(itemTypesTemplate) {
+        if (itemTypesTemplate === undefined) {
+            return;
+        }
+
         if (!Array.isArray(itemTypesTemplate)) {
             throw "Item types template must be an array";
         }
@@ -19,4 +23,11 @@ class ItemTypesModel {
         }
         this[itemTypeName] = this.currentNewIndex++;
     };
+
+    getItemType(itemTypeName) {
+        if (this[itemTypeName] === undefined) {
+            throw "Item type " + itemTypeName + " is not defined!";
+        }
+        return this[itemTypeName];
+    }
 };

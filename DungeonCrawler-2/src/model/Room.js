@@ -17,10 +17,28 @@ class Room {
             newExits[direction] = new RoomExit(exit);
         });
         this.Exits = newExits;
+        let newItems = [];
+        this.Items.forEach(itemId => {
+            newItems.push(Game.spawnItem(itemId));
+        });
+        this.Items = newItems;
         this.IsLoaded = true;
     }
 
     isLoaded() {
         return this.IsLoaded;
+    }
+
+    getItems() {
+        if (this.Items === undefined) {
+            return [];
+        }
+        return this.Items;
+    }
+
+    getCharacters() {
+        if (this.Characters === undefined) {
+            return [];
+        }
     }
 };

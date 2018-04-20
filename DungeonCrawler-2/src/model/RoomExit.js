@@ -7,15 +7,18 @@ class RoomExit {
     }
 
     isDoor() {
-        return this.IsDoor;
+        return this.IsDoor == true;
     }
     isClosed() {
-        return this.IsClosed;
+        return this.IsClosed == true;
     }
     isLocked() {
-        return this.IsLocked;
+        return this.IsLocked == true;
     }
     getKeyNumber() {
+        if (this.KeyNumber == undefined) {
+            return null;
+        }
         return this.KeyNumber;
     }
 }

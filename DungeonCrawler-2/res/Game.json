@@ -1,6 +1,7 @@
 ﻿{
   "$schema": "Game-Schema.json#",
   "Name": "nazwa gry",
+  "StartingRoom": 1,
   "Rooms": [
     {
       "Id": 0
@@ -14,6 +15,12 @@
           "Direction": "north",
           "RoomId": 2
         }
+      ],
+      "Items": [
+        "drewno-drag"
+      ],
+      "Characters": [
+        "Szczur kanałowy"
       ]
     }
   ]
