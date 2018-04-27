@@ -18,7 +18,7 @@ class GameModel {
         for (var i = 0; i < this.Rooms.length; i++) {
             this.Rooms[i] = new Room(this.Rooms[i]);
             if (this.Rooms[i].Id != i) {
-                throw 'Room with Id {0} is placed on {1} position, fix Rooms data'.format(this.Rooms[i].Id, i);
+                throw 'Room with Id {0} is placed on index {1}, fix Rooms data'.format(this.Rooms[i].Id, i);
             }
         }
     };

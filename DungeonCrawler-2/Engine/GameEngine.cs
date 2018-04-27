@@ -120,11 +120,18 @@ namespace DungeonCrawler2.Engine
 
         public string EndLine { get; private set; } = Environment.NewLine;
 
-        public void Output(object message)
+        public void Output(object message, bool isNewLine = true)
         {
             TryCatch(() =>
             {
-                Console.WriteLine(message);
+                if (isNewLine)
+                {
+                    Console.WriteLine(message); 
+                }
+                else
+                {
+                    Console.Write(message);
+                }
             });
         }
 

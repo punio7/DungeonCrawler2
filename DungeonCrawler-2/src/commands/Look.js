@@ -1,11 +1,19 @@
 "use strict";
 class Look extends Command {
     ExecuteBody(command) {
+        let room = Game.getRoom(Game.Player.Location);
         if (command.getArgument(1) == null) {
-            let room = Game.getRoom(Game.Player.Location);
             this.LookRoom(room);
         }
-        
+        else {
+            let item = room.getItems().Find(command.getArgument(1), command.getNumber(1));
+            if (item != null) {
+                this.LookItem(item);
+            }
+            else {
+                Engine.Output("Tu nie ma nic takiego.");
+            }
+        }
     }
 
     LookRoom(room) {
@@ -13,10 +21,14 @@ class Look extends Command {
         message += this.exitsString(room.Exits) + Engine.EndLine;
         message += Engine.EndLine;
         message += room.Description;
-        if (room.getItems().length > 0) {
-            message += Engine.EndLine + Engine.EndLine + ItemsListPrinter.PrintLongFormat(room.getItems());
+        if (room.getItems().Any()) {
+            message += Engine.EndLine + Engine.EndLine + room.getItems().PrintLongFormat();
         }
         Engine.Output(message);
+    }
+
+    LookItem(item) {
+        Engine.Output(item.getDescription());
     }
 
     exitsString(exits) {

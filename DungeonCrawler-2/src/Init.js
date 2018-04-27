@@ -7,3 +7,5 @@ InitGameData();
 
 Engine.LoadScript('src/InitCommands.js')
 InitCommands();
+
+Prompt.Print();

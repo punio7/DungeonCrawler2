@@ -19,7 +19,7 @@ namespace DungeonCrawler2.Engine
         }
         public string Input => gameEngine.Input;
         public string EndLine => gameEngine.EndLine;
-        public void Output(object message) => gameEngine.Output(message);
+        public void Output(object message, bool isNewLine = true) => gameEngine.Output(message, isNewLine);
         public void LoadScript(string location) => gameEngine.LoadScript(location);
         public string LoadData(string location) => gameEngine.LoadData(location);
         public void Exit() => gameEngine.Exit();

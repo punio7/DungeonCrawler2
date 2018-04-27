@@ -17,9 +17,9 @@ class Room {
             newExits[direction] = new RoomExit(exit);
         });
         this.Exits = newExits;
-        let newItems = [];
+        let newItems = new ItemList();
         this.Items.forEach(itemId => {
-            newItems.push(Game.spawnItem(itemId));
+            newItems.Add(Game.spawnItem(itemId));
         });
         this.Items = newItems;
         this.IsLoaded = true;
