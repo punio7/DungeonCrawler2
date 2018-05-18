@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonCrawler-2", "DungeonCrawler-2\DungeonCrawler-2.csproj", "{D3724560-B153-4AEE-9259-4240419F54DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonCrawler2.Console", "DungeonCrawler2.Console\DungeonCrawler2.Console.csproj", "{D3724560-B153-4AEE-9259-4240419F54DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonCrawler2.Logic", "DungeonCrawler2.Logic\DungeonCrawler2.Logic.csproj", "{407EB50A-C226-44C1-8591-490D91D00707}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D3724560-B153-4AEE-9259-4240419F54DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3724560-B153-4AEE-9259-4240419F54DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3724560-B153-4AEE-9259-4240419F54DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407EB50A-C226-44C1-8591-490D91D00707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407EB50A-C226-44C1-8591-490D91D00707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407EB50A-C226-44C1-8591-490D91D00707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407EB50A-C226-44C1-8591-490D91D00707}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

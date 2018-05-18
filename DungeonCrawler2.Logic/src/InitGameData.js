@@ -11,8 +11,6 @@ Engine.LoadScript('src/model/ItemTemplates.js');
 Engine.LoadScript('src/model/Item.js');
 Engine.LoadScript('src/model/ItemList.js');
 
-var Game = new GameModel();
-
 function InitGameData() {
     let gameTemplate = JSON.parse(Engine.LoadData('res/Game.json'));
     Game = new GameModel(gameTemplate);

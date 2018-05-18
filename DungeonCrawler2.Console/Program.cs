@@ -4,12 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DungeonCrawler2.Engine;
+using DungeonCrawler2.Console.Engine;
 using Microsoft.ClearScript;
 using Microsoft.ClearScript.V8;
 using NLog;
 
-namespace DungeonCrawler2
+namespace DungeonCrawler2.Console
 {
     class Program
     {
@@ -27,7 +27,7 @@ namespace DungeonCrawler2
                 gameEngine.Run();
             }
             logger.Debug("Finish");
-            Console.ReadKey();
+            System.Console.ReadKey();
         }
     }
 }

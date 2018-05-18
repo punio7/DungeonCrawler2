@@ -8,7 +8,7 @@ using Microsoft.ClearScript;
 using Microsoft.ClearScript.V8;
 using NLog;
 
-namespace DungeonCrawler2.Engine
+namespace DungeonCrawler2.Console.Engine
 {
     public class GameEngine : IGameEngine, IDisposable
     {
@@ -51,6 +51,7 @@ namespace DungeonCrawler2.Engine
             loadedScripts = new HashSet<string>();
             scriptEngine.AddHostObject("Engine", new GameEngineProxy(this));
             LoadScript("src/Init.js");
+            scriptEngine.Execute("Init()");
             executeScript = scriptEngine.Compile("Execute(Engine.Input);");
         }
 
@@ -73,7 +74,7 @@ namespace DungeonCrawler2.Engine
             {
                 TryCatch(() =>
                 {
-                    string command = Console.ReadLine();
+                    string command = System.Console.ReadLine();
                     Execute(command);
                 });
             }
@@ -126,11 +127,11 @@ namespace DungeonCrawler2.Engine
             {
                 if (isNewLine)
                 {
-                    Console.WriteLine(message); 
+                    System.Console.WriteLine(message); 
                 }
                 else
                 {
-                    Console.Write(message);
+                    System.Console.Write(message);
                 }
             });
         }
@@ -141,10 +142,6 @@ namespace DungeonCrawler2.Engine
             {
                 if (!loadedScripts.Contains(location))
                 {
-                    if (location.StartsWith("src"))
-                    {
-                        location = @"..\..\" + location;
-                    }
                     var file = new FileInfo(location);
                     logger.Debug(string.Format("Loading script file {0}", file.FullName));
 
@@ -159,11 +156,6 @@ namespace DungeonCrawler2.Engine
         {
             return TryCatch(() =>
             {
-                if (location.StartsWith("res"))
-                {
-                    location = @"..\..\" + location;
-                }
-
                 var file = new FileInfo(location);
                 logger.Debug(string.Format("Loading data file {0}", file.FullName));
 

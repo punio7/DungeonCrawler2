@@ -7,7 +7,7 @@ using NLog;
 using NLog.Config;
 using NLog.Targets;
 
-namespace DungeonCrawler2
+namespace DungeonCrawler2.Console
 {
     public static class NLogConfiguration
     {

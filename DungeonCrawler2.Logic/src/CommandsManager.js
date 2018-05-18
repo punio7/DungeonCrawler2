@@ -29,3 +29,5 @@ class CommandsManager {
         this[commandName] = commandObject;
     }
 };
+
+var Commands = new CommandsManager();

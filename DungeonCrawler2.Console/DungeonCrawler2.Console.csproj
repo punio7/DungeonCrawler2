@@ -7,15 +7,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D3724560-B153-4AEE-9259-4240419F54DE}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DungeonCrawler2</RootNamespace>
+    <RootNamespace>DungeonCrawler2.Console</RootNamespace>
     <AssemblyName>DungeonCrawler-2</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TypeScriptTarget>ES6</TypeScriptTarget>
     <TypeScriptModuleKind>CommonJs</TypeScriptModuleKind>
     <TypeScriptOutDir>.\src</TypeScriptOutDir>
     <TypeScriptRootDir>.\src-ts</TypeScriptRootDir>
+    <TargetFrameworkProfile />
     <!-- <TypeScriptOutFile>src/dc.js</TypeScriptOutFile> -->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -64,51 +65,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="res\Game-Schema.json" />
-    <None Include="res\Game.json" />
-    <None Include="res\Item-Schema.json" />
-    <None Include="res\Items.json" />
-    <None Include="res\ItemTypes.json" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="src\CommandParser.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="src\CommandsManager.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="src\commands\Command.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="src\commands\Eval.js" />
-    <Content Include="src\commands\Look.js" />
-    <Content Include="src\commands\NoCommand.js" />
-    <Content Include="src\commands\Reload.js" />
-    <Content Include="src\commands\Json.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="src\commands\Test.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="src\CommandTree.js" />
-    <Content Include="src\commonLogic\Prompt.js" />
-    <Content Include="src\enums\Directions.js" />
-    <Content Include="src\enums\GrammaCase.js" />
-    <Content Include="src\Init.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="src\InitCommands.js" />
-    <Content Include="src\InitGameData.js" />
-    <Content Include="src\model\Game.js" />
-    <Content Include="src\model\Item.js" />
-    <Content Include="src\model\ItemList.js" />
-    <Content Include="src\model\ItemTemplates.js" />
-    <Content Include="src\model\ItemTypes.js" />
-    <Content Include="src\model\Player.js" />
-    <Content Include="src\model\Room.js" />
-    <Content Include="src\model\RoomExit.js" />
-    <Content Include="src\Utils.js" />
+    <ProjectReference Include="..\DungeonCrawler2.Logic\DungeonCrawler2.Logic.csproj">
+      <Project>{407eb50a-c226-44c1-8591-490d91d00707}</Project>
+      <Name>DungeonCrawler2.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DungeonCrawler2.Engine
+namespace DungeonCrawler2.Console.Engine
 {
     public interface IGameEngine
     {

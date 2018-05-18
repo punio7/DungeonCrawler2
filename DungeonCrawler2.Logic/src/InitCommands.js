@@ -17,8 +17,6 @@ Engine.LoadScript('src/commands/Look.js');
 Engine.LoadScript('src/CommandTree.js');
 Engine.LoadScript('src/CommandsManager.js');
 
-var Commands = new CommandsManager();
-
 function Execute(command) {
     Commands.Execute(command);
 };

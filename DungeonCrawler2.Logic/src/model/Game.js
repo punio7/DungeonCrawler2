@@ -47,3 +47,5 @@ class GameModel {
         return this.ItemTypes.getItemType(itemTypeName);
     }
 };
+
+var Game = new GameModel();
