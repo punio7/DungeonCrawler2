@@ -14,4 +14,8 @@ class Item {
     getDescription() {
         return this.Description;
     }
+
+    isLightSource() {
+        return this.IsLightSource === true;
+    }
 }

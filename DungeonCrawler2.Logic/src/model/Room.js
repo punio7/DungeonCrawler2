@@ -41,4 +41,16 @@ class Room {
             return [];
         }
     }
+
+    hasLightSource() {
+        if (this.IsNaturalLight === true) {
+            return true;
+        }
+        if (this.getItems().HasLightSource()) {
+            return true;
+        }
+        //TODO: characters
+
+        return false;
+    }
 };

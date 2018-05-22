@@ -2,12 +2,18 @@
 class Look extends Command {
     ExecuteBody(command) {
         let room = Game.getRoom(Game.Player.Location);
-        if (command.getArgument(1) == null) {
+
+        if (!Game.Player.canSee()) {
+            Engine.Output("Nic nie widzisz w tej ciemności.");
+            return;
+        }
+
+        if (command.getArgument(1) === null) {
             this.LookRoom(room);
         }
         else {
             let item = room.getItems().Find(command.getArgument(1), command.getNumber(1));
-            if (item != null) {
+            if (item !== null) {
                 this.LookItem(item);
             }
             else {

@@ -44,6 +44,12 @@
               "Weapon1H",
               "Weapon2H"
             ]
+          },
+
+          "IsLightSource": {
+            "type": "boolean",
+            "default": "false",
+            "description": "Specifies if item lights up the room"
           }
         }
       }

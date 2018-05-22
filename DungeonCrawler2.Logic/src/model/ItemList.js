@@ -35,6 +35,10 @@ class ItemList {
         return found;
     }
 
+    HasLightSource() {
+        return this.itemsArray.some(i => i.isLightSource() === true);
+    }
+
     PrintLongFormat() {
         let returnString = "";
         this.itemsArray.forEach(item => {

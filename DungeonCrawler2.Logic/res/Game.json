@@ -10,6 +10,7 @@
       "Id": 1,
       "Name": "Pokój startowy",
       "Description": "Opis pokoju startowego",
+      "IsNaturalLight": true,
       "Exits": [
         {
           "Direction": "north",
