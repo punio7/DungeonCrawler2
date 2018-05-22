@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dungeon crawler 2!</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="Engine.js"></script>
+    <script src="src/Init.js"></script>
+    <script>if (window.module) module = window.module;</script>
+
+  </head>
+  <body>
+      <script src="index.js"></script>
+
+      <div class="container">
+      <div class="row">
+        <div class="col-md">
+            <h1>Dungeon crawler 2!</h1>
+        </div>
+      </div>
+      <div class="row container" style="height: 500px; overflow-y: scroll">
+        <div id="consoleOutput" class="console" class="col">
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-9">
+            <input type="text" id="consoleInput" class="form-control"/>
+          </div>
+          <div class="col-md-3">
+            <button type="button" id="executeButton" class="btn btn-primary">Wykonaj</button>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
