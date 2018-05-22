@@ -16,4 +16,6 @@ window.onload = function() {
             $("#executeButton").click();
         }
     });
+
+    $("#consoleInput").focus();
 }

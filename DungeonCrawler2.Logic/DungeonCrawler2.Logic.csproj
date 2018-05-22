@@ -183,4 +183,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)src" "$(SolutionDir)DungeonCrawler2.Electron\src\" /s /d /Y
+xcopy "$(ProjectDir)res" "$(SolutionDir)DungeonCrawler2.Electron\res\" /s /d /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
