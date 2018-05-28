@@ -3,6 +3,14 @@ class Character {
     constructor(template) {
         Object.assign(this, template);
 
+        let newInventory = new ItemList();
+        if (this.Inventory !== undefined) {
+            this.Inventory.forEach(itemId => {
+                newInventory.add(Game.spawnItem(itemId));
+            });
+        }
+        this.Inventory = newInventory;
+
         let newEquipment = new Equipment();
         if (this.Equipment !== undefined) {
             this.Equipment.forEach(eq => {

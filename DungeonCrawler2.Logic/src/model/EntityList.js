@@ -9,7 +9,7 @@ class EntityList {
     }
 
     remove(item) {
-        let index = array.indexOf(item);
+        let index = this.Array.indexOf(item);
         if (index > -1) {
             this.Array.splice(index, 1);
         }
@@ -36,6 +36,14 @@ class EntityList {
     }
 
     printLongFormat(indent = true) {
+        return this.print(indent, true);
+    }
+
+    printShortFormat(indent = true) {
+        return this.print(indent, false);
+    }
+
+    print(indent = true, longFormat = true) {
         let returnString = "";
         this.Array.forEach(entity => {
             if (returnString !== "") {
@@ -44,7 +52,10 @@ class EntityList {
             if (indent === true) {
                 returnString += Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace;
             }
-            returnString += entity.getName().startWithUpper() + " " + entity.getIdle() + ".";
+            returnString += entity.getName().startWithUpper();
+            if (longFormat === true) {
+                returnString += " " + entity.getIdle() + "."
+            }
         });
         return returnString;
     }

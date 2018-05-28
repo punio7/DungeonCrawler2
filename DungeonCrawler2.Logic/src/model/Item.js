@@ -25,4 +25,9 @@ class Item {
     isLightSource() {
         return this.IsLightSource === true;
     }
+
+    isTakeable() {
+        //TODO: przedmioty nie do wzięcia
+        return true;
+    }
 }

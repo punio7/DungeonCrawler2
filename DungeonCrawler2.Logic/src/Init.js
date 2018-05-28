@@ -41,6 +41,8 @@ Engine.LoadScript('src/commands/East.js');
 Engine.LoadScript('src/commands/West.js');
 Engine.LoadScript('src/commands/Up.js');
 Engine.LoadScript('src/commands/Down.js');
+Engine.LoadScript('src/commands/Take.js');
+Engine.LoadScript('src/commands/Inventory.js');
 
 Engine.LoadScript('src/CommandTree.js');
 Engine.LoadScript('src/CommandsManager.js');

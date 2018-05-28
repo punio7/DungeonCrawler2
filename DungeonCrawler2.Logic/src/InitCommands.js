@@ -14,6 +14,8 @@ function InitCommands() {
 
     Commands.RegisterCommand("Go", new Go());
 
+    Commands.RegisterCommand("Inventory", new Inventory());
+
     Commands.RegisterCommand("Json", new Json());
 
     Commands.RegisterCommand("Look", new Look());
@@ -24,6 +26,7 @@ function InitCommands() {
 
     Commands.RegisterCommand("South", new South());
 
+    Commands.RegisterCommand("Take", new Take());
     Commands.RegisterCommand("Test", new Test());
 
     Commands.RegisterCommand("Up", new Up());
