@@ -8,6 +8,7 @@ function InitCommands() {
     Commands.SetDefaultCommand(new NoCommand());
 
     Commands.RegisterCommand("Down", new Down());
+    Commands.RegisterCommand("Drop", new Drop());
 
     Commands.RegisterCommand("East", new East());
     Commands.RegisterCommand("Eval", new Eval());
