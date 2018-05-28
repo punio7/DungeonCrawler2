@@ -41,7 +41,7 @@ class EngineClass {
     }
     
     Reload() {
-    
+        location.reload();
     }
     
     Exit() {
