@@ -1,24 +1,24 @@
 class EngineClass {
     constructor() {
         this.Input;
-        this.EndLine = '\n';
+        this.EndLine = '<br/>';
+        this.NonBreakingSpace = "&nbsp;"
         this.fileSystem = require('fs');
         this.loadScript = require('load-script');
         this.lineFinished = true;
     }
 
     Output(message, isNewLine = true) {
-        //if (isNewLine === undefined) isNewLine = true;
-        if (message == "") message = " ";
+        if (message == "") message = this.EndLine;
 
         let element = null;
         if (this.lineFinished === true) {
-            element = $('<pre>');
+            element = $('<div>');
             element.html(message);
             $('#consoleOutput').append(element);
         }
         else {
-            element = $('#consoleOutput pre:last-child');
+            element = $('#consoleOutput div:last-child');
             element.html(element.html() + message);
         }
         this.lineFinished = isNewLine;

@@ -12,9 +12,23 @@
         "drewnianym drągu",
         "drewniany drągu"
       ],
-      "Idle": "leży na ziemi",
-      "Description": "Opis drewnianego dręgu.",
+      "Idle": "leży u twoich stóp",
+      "Description": "Ten kawał kija wygląda na oderwaną i wyschniętą gałęź jakiegoś drzewa. Nie jest on całkiem prosty, zawiera kilka sęków i nieregularności ale jest długi na kilka łokci i może całkiem sprawnie posłużyć jako improwizowana broń.",
       "Type": "Weapon1H"
+    },
+    {
+      "Id": "skora-szczura",
+      "Name": [
+        "szczurza skóra",
+        "szczurzej skóry",
+        "szczurzej skórze",
+        "szczurzą skóre",
+        "szczurzą skórą",
+        "szczurzej skórze",
+        "szczurza skóro"
+      ],
+      "Description": "Opis skóry szczura.",
+      "Type": "ArmorWild"
     }
   ]
 }

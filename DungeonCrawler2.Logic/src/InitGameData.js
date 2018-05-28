@@ -1,16 +1,5 @@
 ﻿"use strict";
 
-Engine.LoadScript('src/model/Game.js');
-Engine.LoadScript('src/enums/Directions.js');
-Engine.LoadScript('src/enums/GrammaCase.js');
-Engine.LoadScript('src/model/Room.js');
-Engine.LoadScript('src/model/RoomExit.js');
-Engine.LoadScript('src/model/Player.js');
-Engine.LoadScript('src/model/ItemTypes.js');
-Engine.LoadScript('src/model/ItemTemplates.js');
-Engine.LoadScript('src/model/Item.js');
-Engine.LoadScript('src/model/ItemList.js');
-
 function InitGameData() {
     let gameTemplate = JSON.parse(Engine.LoadData('res/Game.json'));
     Game = new GameModel(gameTemplate);
@@ -20,6 +9,9 @@ function InitGameData() {
 
     let itemTemplates = JSON.parse(Engine.LoadData('res/Items.json')).ItemsTemplates;
     Game.ItemTemplates = new ItemTemplatesModel(itemTemplates);
+
+    let characterTemplates = JSON.parse(Engine.LoadData('res/Characters.json')).CharactersTemplates;
+    Game.CharacterTemplates = new CharacterTemplatesModel(characterTemplates);
 
     Game.Player = new Player();
     Game.Player.Location = Game.StartingRoom;

@@ -1,3 +1,11 @@
-﻿.console pre {
+﻿.console {
+    width: inherit;
+    background-color: black;
+    display: block;
+}
+
+.console div {
+    background-color: inherit;
+    color: white;
     margin: 0px;
 }

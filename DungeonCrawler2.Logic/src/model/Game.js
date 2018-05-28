@@ -12,6 +12,7 @@ class GameModel {
         this.Player = new Player();
         this.ItemTypes = new ItemTypesModel();
         this.ItemTemplates = new ItemTemplatesModel();
+        this.CharacterTemplates = new CharacterTemplatesModel();
 
         Object.assign(this, template);
 
@@ -41,6 +42,11 @@ class GameModel {
     spawnItem(itemId) {
         let template = this.ItemTemplates.getTemplate(itemId);
         return new Item(template);
+    }
+
+    spawnCharacter(characterId) {
+        let template = this.CharacterTemplates.getTemplate(characterId);
+        return new Character(template);
     }
 
     getItemType(itemTypeName) {

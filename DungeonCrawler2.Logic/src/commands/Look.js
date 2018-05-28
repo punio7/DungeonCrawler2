@@ -12,12 +12,18 @@ class Look extends Command {
             this.LookRoom(room);
         }
         else {
-            let item = room.getItems().Find(command.getArgument(1), command.getNumber(1));
+            let item = room.getItems().find(command.getArgument(1), command.getNumber(1));
             if (item !== null) {
                 this.LookItem(item);
             }
             else {
-                Engine.Output("Tu nie ma nic takiego.");
+                let character = room.getCharacters().find(command.getArgument(1), command.getNumber(1));
+                if (character !== null) {
+                    this.LookCharacter(character);
+                }
+                else {
+                    Engine.Output("Tu nie ma nic takiego.");
+                }
             }
         }
     }
@@ -27,14 +33,24 @@ class Look extends Command {
         message += this.exitsString(room.Exits) + Engine.EndLine;
         message += Engine.EndLine;
         message += room.Description;
-        if (room.getItems().Any()) {
-            message += Engine.EndLine + Engine.EndLine + room.getItems().PrintLongFormat();
+        if (room.getCharacters().any()) {
+            message += Engine.EndLine + Engine.EndLine + room.getCharacters().printLongFormat();
+        }
+        if (room.getItems().any()) {
+            message += Engine.EndLine + Engine.EndLine + room.getItems().printLongFormat();
         }
         Engine.Output(message);
     }
 
     LookItem(item) {
+        Engine.Output("Przyglądasz się {0}.".format(item.getName(GrammaCase.Celownik)));
         Engine.Output(item.getDescription());
+    }
+
+    LookCharacter(character) {
+        Engine.Output("Przyglądasz się {0}.".format(character.getName(GrammaCase.Celownik)));
+        Engine.Output(character.getDescription());
+        //TODO: stan zdrowia
     }
 
     exitsString(exits) {

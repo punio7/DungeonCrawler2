@@ -1,6 +1,7 @@
 "use strict";
-class Player {
+class Player extends Character {
     constructor() {
+        super();
         this.Location = 0;
     }
 

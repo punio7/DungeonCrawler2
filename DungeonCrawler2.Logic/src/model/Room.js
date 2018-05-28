@@ -17,11 +17,23 @@ class Room {
             newExits[direction] = new RoomExit(exit);
         });
         this.Exits = newExits;
+
         let newItems = new ItemList();
-        this.Items.forEach(itemId => {
-            newItems.Add(Game.spawnItem(itemId));
-        });
+        if (this.Items !== undefined) {
+            this.Items.forEach(itemId => {
+                newItems.add(Game.spawnItem(itemId));
+            });
+        }
         this.Items = newItems;
+
+        let newCharacters = new CharacterList();
+        if (this.Characters !== undefined) {
+            this.Characters.forEach(characterId => {
+                newCharacters.add(Game.spawnCharacter(characterId));
+            });
+        }
+        this.Characters = newCharacters;
+
         this.IsLoaded = true;
     }
 
@@ -40,16 +52,20 @@ class Room {
         if (this.Characters === undefined) {
             return [];
         }
+        return this.Characters;
     }
 
     hasLightSource() {
         if (this.IsNaturalLight === true) {
             return true;
         }
-        if (this.getItems().HasLightSource()) {
+        if (this.getItems().hasLightSource()) {
             return true;
         }
-        //TODO: characters
+        //TODO: Lista postaci
+        //if (this.getCharacters().hasLightSource()) {
+        //    return true;
+        //}
 
         return false;
     }

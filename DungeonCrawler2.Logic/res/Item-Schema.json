@@ -10,7 +10,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["Id", "Name", "Description", "Idle", "Type"],
+        "required": ["Id", "Name", "Description", "Type"],
         "properties": {
 
           "Id": {
@@ -29,7 +29,8 @@
           },
 
           "Idle": {
-            "type": "string"
+            "type": "string",
+            "description": "Text shown on items list"
           },
 
           "Description": {
@@ -42,7 +43,9 @@
             "description": "Item's type",
             "enum": [
               "Weapon1H",
-              "Weapon2H"
+              "Weapon2H",
+              "Armor",
+              "ArmorWild"
             ]
           },
 

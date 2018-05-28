@@ -15,6 +15,13 @@ class Item {
         return this.Description;
     }
 
+    getIdle() {
+        if (this.Idle === undefined) {
+            return "leży tutaj";
+        }
+        return this.Idle;
+    }
+
     isLightSource() {
         return this.IsLightSource === true;
     }

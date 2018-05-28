@@ -121,6 +121,8 @@ namespace DungeonCrawler2.Console.Engine
 
         public string EndLine { get; private set; } = Environment.NewLine;
 
+        public string NonBreakingSpace { get; private set; } = " ";
+
         public void Output(object message, bool isNewLine = true)
         {
             TryCatch(() =>
