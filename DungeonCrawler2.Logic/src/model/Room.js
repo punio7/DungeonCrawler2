@@ -6,6 +6,7 @@ class Room {
         this.Description = '';
         this.IsNaturalLight = false;
         this.Exits = [];
+        this.IsVisited = false;
         Object.assign(this, template);
     };
     
@@ -41,6 +42,10 @@ class Room {
         return this.IsLoaded;
     }
 
+    getName() {
+        return this.Name;
+    }
+
     getItems() {
         if (this.Items === undefined) {
             return [];
@@ -55,6 +60,13 @@ class Room {
         return this.Characters;
     }
 
+    getExit(direction) {
+        if (this.Exits[direction] === undefined) {
+            return null;
+        }
+        return this.Exits[direction];
+    }
+
     hasLightSource() {
         if (this.IsNaturalLight === true) {
             return true;
@@ -62,10 +74,9 @@ class Room {
         if (this.getItems().hasLightSource()) {
             return true;
         }
-        //TODO: Lista postaci
-        //if (this.getCharacters().hasLightSource()) {
-        //    return true;
-        //}
+        if (this.getCharacters().hasLightSource()) {
+            return true;
+        }
 
         return false;
     }

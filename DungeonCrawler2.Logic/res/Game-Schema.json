@@ -52,6 +52,10 @@
                   "type": "boolean",
                   "default": "true"
                 },
+                "IsHidden": {
+                  "type": "boolean",
+                  "default": "false"
+                },
                 "KeyNumber": { "type": "number" }
               }
             }

@@ -42,7 +42,7 @@ class EntityList {
                 returnString += Engine.EndLine;
             }
             returnString += Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace;
-            returnString += entity.getName().startWithUpper() + " " + entity.getIdle();
+            returnString += entity.getName().startWithUpper() + " " + entity.getIdle() + ".";
         });
         return returnString;
     }

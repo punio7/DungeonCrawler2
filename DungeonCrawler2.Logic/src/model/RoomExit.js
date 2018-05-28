@@ -6,15 +6,26 @@ class RoomExit {
         delete this.Direction;
     }
 
+    getRoomId() {
+        return this.RoomId;
+    }
+
     isDoor() {
-        return this.IsDoor == true;
+        return this.IsDoor === true;
     }
+
     isClosed() {
-        return this.IsClosed == true;
+        return this.IsClosed === true;
     }
+
     isLocked() {
-        return this.IsLocked == true;
+        return this.IsLocked === true;
     }
+
+    isHidden() {
+        return this.IsHidden === true;
+    }
+
     getKeyNumber() {
         if (this.KeyNumber == undefined) {
             return null;

@@ -37,4 +37,8 @@ class Character {
         }
         return this.Equipment;
     }
+
+    hasLightSource() {
+        return this.getEquipment().hasLightSource();
+    }
 }

@@ -9,17 +9,17 @@ class Look extends Command {
         }
 
         if (command.getArgument(1) === null) {
-            this.LookRoom(room);
+            this.lookRoom(room);
         }
         else {
             let item = room.getItems().find(command.getArgument(1), command.getNumber(1));
             if (item !== null) {
-                this.LookItem(item);
+                this.lookItem(item);
             }
             else {
                 let character = room.getCharacters().find(command.getArgument(1), command.getNumber(1));
                 if (character !== null) {
-                    this.LookCharacter(character);
+                    this.lookCharacter(character);
                 }
                 else {
                     Engine.Output("Tu nie ma nic takiego.");
@@ -28,8 +28,9 @@ class Look extends Command {
         }
     }
 
-    LookRoom(room) {
+    lookRoom(room) {
         let message = "";
+        message += room.getName() + Engine.EndLine;
         message += this.exitsString(room.Exits) + Engine.EndLine;
         message += Engine.EndLine;
         message += room.Description;
@@ -42,12 +43,12 @@ class Look extends Command {
         Engine.Output(message);
     }
 
-    LookItem(item) {
+    lookItem(item) {
         Engine.Output("Przyglądasz się {0}.".format(item.getName(GrammaCase.Celownik)));
         Engine.Output(item.getDescription());
     }
 
-    LookCharacter(character) {
+    lookCharacter(character) {
         Engine.Output("Przyglądasz się {0}.".format(character.getName(GrammaCase.Celownik)));
         Engine.Output(character.getDescription());
         //TODO: stan zdrowia

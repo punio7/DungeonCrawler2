@@ -6,10 +6,27 @@ function Execute(command) {
 
 function InitCommands() {
     Commands.SetDefaultCommand(new NoCommand());
+
+    Commands.RegisterCommand("Down", new Down());
+
+    Commands.RegisterCommand("East", new East());
     Commands.RegisterCommand("Eval", new Eval());
+
+    Commands.RegisterCommand("Go", new Go());
+
     Commands.RegisterCommand("Json", new Json());
+
     Commands.RegisterCommand("Look", new Look());
-    Commands.RegisterCommand("Test", new Test());
+
+    Commands.RegisterCommand("North", new North());
+
     Commands.RegisterCommand("Reload", new Reload());
-    //Commands.RegisterCommand("error", {});
+
+    Commands.RegisterCommand("South", new South());
+
+    Commands.RegisterCommand("Test", new Test());
+
+    Commands.RegisterCommand("Up", new Up());
+
+    Commands.RegisterCommand("West", new West());
 }

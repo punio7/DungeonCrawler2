@@ -10,4 +10,8 @@ class CharacterList extends EntityList {
         }
         super.add(character);
     }
+
+    hasLightSource() {
+        return this.Array.some(c => c.hasLightSource() === true);
+    }
 }

@@ -34,6 +34,13 @@ Engine.LoadScript('src/commands/Test.js');
 Engine.LoadScript('src/commands/Eval.js');
 Engine.LoadScript('src/commands/Json.js');
 Engine.LoadScript('src/commands/Look.js');
+Engine.LoadScript('src/commands/Go.js');
+Engine.LoadScript('src/commands/North.js');
+Engine.LoadScript('src/commands/South.js');
+Engine.LoadScript('src/commands/East.js');
+Engine.LoadScript('src/commands/West.js');
+Engine.LoadScript('src/commands/Up.js');
+Engine.LoadScript('src/commands/Down.js');
 
 Engine.LoadScript('src/CommandTree.js');
 Engine.LoadScript('src/CommandsManager.js');
@@ -41,5 +48,7 @@ Engine.LoadScript('src/CommandsManager.js');
 function Init() {
     InitGameData();
     InitCommands();
+    Commands.Go.changePlayerLocation(Game.getRoom(Game.StartingRoom));
+    Engine.Output("");
     Prompt.Print();
 }
