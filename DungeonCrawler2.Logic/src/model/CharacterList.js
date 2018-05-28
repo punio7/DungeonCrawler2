@@ -14,4 +14,8 @@ class CharacterList extends EntityList {
     hasLightSource() {
         return this.Array.some(c => c.hasLightSource() === true);
     }
+
+    printLongFormat() {
+        return super.printLongFormat(false);
+    }
 }

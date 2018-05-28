@@ -35,13 +35,15 @@ class EntityList {
         return found;
     }
 
-    printLongFormat() {
+    printLongFormat(indent = true) {
         let returnString = "";
         this.Array.forEach(entity => {
             if (returnString !== "") {
                 returnString += Engine.EndLine;
             }
-            returnString += Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace;
+            if (indent === true) {
+                returnString += Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace;
+            }
             returnString += entity.getName().startWithUpper() + " " + entity.getIdle() + ".";
         });
         return returnString;
