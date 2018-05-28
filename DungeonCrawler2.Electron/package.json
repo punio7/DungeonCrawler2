@@ -20,6 +20,7 @@
     "electron": "^2.0.0"
   },
   "dependencies": {
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "load-script": "^1.0.0"
   }
 }
