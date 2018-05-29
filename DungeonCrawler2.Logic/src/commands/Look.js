@@ -10,22 +10,28 @@ class Look extends Command {
 
         if (command.getArgument(1) === null) {
             this.lookRoom(room);
+            return;
         }
-        else {
-            let item = room.getItems().find(command.getArgument(1), command.getNumber(1));
-            if (item !== null) {
-                this.lookItem(item);
-            }
-            else {
-                let character = room.getCharacters().find(command.getArgument(1), command.getNumber(1));
-                if (character !== null) {
-                    this.lookCharacter(character);
-                }
-                else {
-                    Engine.Output("Tu nie ma nic takiego.");
-                }
-            }
+
+        let character = room.getCharacters().find(command.getArgument(1), command.getNumber(1));
+        if (character !== null) {
+            this.lookCharacter(character);
+            return;
         }
+
+        let item = room.getItems().find(command.getArgument(1), command.getNumber(1));
+        if (item !== null) {
+            this.lookItem(item);
+            return;
+        }
+
+        item = Game.Player.getInventory().find(command.getArgument(1), command.getNumber(1));
+        if (item !== null) {
+            this.lookItem(item);
+            return;
+        }
+
+        Engine.Output("Tu nie ma nic takiego jak {0}.".format(command.getArgument(1)));
     }
 
     lookRoom(room) {
