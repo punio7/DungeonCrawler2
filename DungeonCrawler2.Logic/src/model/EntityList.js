@@ -19,6 +19,17 @@ class EntityList {
         return this.Array.length > 0;
     }
 
+    elementAt(index) {
+        if (this.Array[index] === undefined) {
+            return null;
+        }
+        return this.Array[index];
+    }
+
+    length() {
+        return this.Array.length;
+    }
+
     find(name, number = 1) {
         let found = null;
         this.Array.forEach(item => {

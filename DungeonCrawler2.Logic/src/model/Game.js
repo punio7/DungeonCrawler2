@@ -39,9 +39,32 @@ class GameModel {
         return room;
     }
 
-    spawnItem(itemId) {
-        let template = this.ItemTemplates.getTemplate(itemId);
-        return new Item(template);
+    spawnItem(itemDefinition) {
+        if (typeof itemDefinition === "string") {
+            let template = this.ItemTemplates.getTemplate(itemDefinition);
+            return new Item(template);
+        }
+        else {
+            let template = this.ItemTemplates.getTemplate(itemDefinition.ItemId);
+            //TODO: spawn chance
+            let item = new Item(template);
+            item.setStack(this.stackValue(itemDefinition.Stack));
+            return item;
+        }
+        
+    }
+
+    stackValue(stack) {
+        if (stack === undefined) {
+            return 1;
+        }
+
+        if (typeof stack === "number") {
+            return stack;
+        }
+        else {
+            return Random.nextInt(stack.Min, stack.Max);
+        }
     }
 
     spawnCharacter(characterId) {

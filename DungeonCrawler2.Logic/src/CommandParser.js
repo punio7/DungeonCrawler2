@@ -5,6 +5,7 @@ class CommandParser {
         this.parsedCommand = '';
         this.parsedArguments = null;
         this.parsedNumbers = null;
+        this.parsedCount = null;
     };
 
     getCommand() {
@@ -45,9 +46,20 @@ class CommandParser {
         return this.parsedNumbers[index];
     };
 
+    getCount(index) {
+        if (this.parsedCount === null) {
+            this.parsedArguments();
+        }
+        if (this.parsedCount[index] === undefined) {
+            return null;
+        }
+        return this.parsedCount[index];
+    }
+
     parseArguments() {
         this.parsedArguments = [];
         this.parsedNumbers = [];
+        this.parsedCount = [];
         let startIndex = this.commandString.indexOf(' ')
         let endIndex;
         let currentCommand = this.commandString;
@@ -57,6 +69,7 @@ class CommandParser {
             startIndex++;
             currentArgumentNumber++;
             let parsedNumber = null;
+            let parsedCount = null;
 
             //usuwamy niepotrzebne spacje
             while (startIndex < currentCommand.length && currentCommand[startIndex] === ' ') {
@@ -86,6 +99,9 @@ class CommandParser {
             //jezeli nie wskazano liczby, to domyślnie jest 1
             if (parsedNumber === null) {
                 this.parsedNumbers[currentArgumentNumber] = 1;
+            }
+            if (parsedCount === null) {
+                this.parsedCount[currentArgumentNumber] = 1;
             }
 
             //wyciąganie treści argumentu

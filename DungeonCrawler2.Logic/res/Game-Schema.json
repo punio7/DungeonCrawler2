@@ -1,10 +1,5 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "Schema for main Game state object",
-
-  "type": "object",
-
-  "required": [ "StartingRoom", "Rooms" ],
   "properties": {
     "Name": {
       "type": "string",
@@ -39,7 +34,7 @@
                   "type": "string",
                   "enum": [ "north", "south", "east", "west", "up", "down" ]
                 },
-                "RoomId" : {"type": "number"},
+                "RoomId": { "type": "number" },
                 "IsDoor": {
                   "type": "boolean",
                   "default": "false"
@@ -62,7 +57,9 @@
           },
           "Items": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "$ref": "Common-Schema.json#/definitions/ItemListElement"
+            }
           },
           "Characters": {
             "type": "array",
@@ -71,5 +68,8 @@
         }
       }
     }
-  }
+  },
+  "required": [ "StartingRoom", "Rooms" ],
+  "title": "Schema for main Game state object",
+  "type": "object"
 }

@@ -1,7 +1,13 @@
 ﻿"use strict";
 class ItemList extends EntityList {
-    constructor() {
+    constructor(template) {
         super();
+
+        if (template !== undefined) {
+            template.forEach(itemDefinition => {
+                this.add(Game.spawnItem(itemDefinition));
+            });
+        }
     }
 
     add(item) {

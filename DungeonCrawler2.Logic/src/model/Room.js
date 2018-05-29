@@ -19,13 +19,7 @@ class Room {
         });
         this.Exits = newExits;
 
-        let newItems = new ItemList();
-        if (this.Items !== undefined) {
-            this.Items.forEach(itemId => {
-                newItems.add(Game.spawnItem(itemId));
-            });
-        }
-        this.Items = newItems;
+        this.Items = new ItemList(this.Items)
 
         let newCharacters = new CharacterList();
         if (this.Characters !== undefined) {

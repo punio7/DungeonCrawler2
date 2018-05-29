@@ -1,7 +1,7 @@
 "use strict";
 class Go extends Command {
     ExecuteBody(command) {
-        let direction = Directions.parse(command.getArgument(1).toLowerCase());
+        let direction = Directions.parseShort(command.getArgument(1).toLowerCase());
         if (direction === null) {
             Engine.Output("Może lepiej zostać tutaj i zjeść kilka pierogów?");
             return;

@@ -15,7 +15,11 @@
         }
       ],
       "Items": [
-        "drewno-drag"
+        "drewno-drag",
+        {
+          "ItemId": "gold",
+          "Stack": 10
+        }
       ]
     },
     {

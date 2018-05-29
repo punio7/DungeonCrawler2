@@ -2,6 +2,41 @@
   "$schema": "item-schema.json#",
   "ItemsTemplates": [
     {
+      "Id": "gold",
+      "Name": [
+        [
+          "złota moneta",
+          "złotej monety",
+          "złotej monecie",
+          "złotą monetę",
+          "złotą monetą",
+          "złotej monecie",
+          "złota moneto"
+        ],
+        [
+          "złote monety",
+          "złotych monet",
+          "złotym monetom",
+          "złote monety",
+          "złotymi monetami",
+          "złotych monetach",
+          "złote monety"
+        ],
+        [
+          "złotych monet",
+          "złotych monet",
+          "złotym monetom",
+          "złotych monet",
+          "złotymi monetami",
+          "złotych monetach",
+          "złotych monet"
+        ]
+      ],
+      "Description": "Złoto, złoto, złoto, złoto.",
+      "Type": "Trash",
+      "IsStackable": true
+    },
+    {
       "Id": "drewno-drag",
       "Name": [
         "drewniany drąg",
@@ -22,7 +57,7 @@
         "szczurza skóra",
         "szczurzej skóry",
         "szczurzej skórze",
-        "szczurzą skóre",
+        "szczurzą skórę",
         "szczurzą skórą",
         "szczurzej skórze",
         "szczurza skóro"

@@ -35,10 +35,13 @@ class Look extends Command {
         message += Engine.EndLine;
         message += room.Description;
         if (room.getCharacters().any()) {
-            message += Engine.EndLine + Engine.EndLine + room.getCharacters().printLongFormat();
+            message += Engine.EndLine + Engine.EndLine + room.getCharacters().printLongFormat(false);
         }
         if (room.getItems().any()) {
-            message += Engine.EndLine + Engine.EndLine + room.getItems().printLongFormat();
+            if (!room.getCharacters().any()) {
+                message += Engine.EndLine;
+            }
+            message += Engine.EndLine + room.getItems().printLongFormat(true);
         }
         Engine.Output(message);
     }

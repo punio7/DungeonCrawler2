@@ -7,11 +7,21 @@ class Take extends Command {
         }
 
         if (command.getArgument(2) === null) {
-            if (command.getArgument(1) === "all") {
+            if (command.getArgument(1).toLowerCase() === "all") {
+                if (!Game.getRoom(Game.Player.Location).getItems().any()) {
+                    Engine.Output("Nic tu nie ma.");
+                    return;
+                }
                 this.takeAllFromLocation();
             }
             else {
-                this.takeItemFromLocation(command.getArgument(1), command.getNumber(1));
+                let itemList = Game.getRoom(Game.Player.Location).getItems();
+                let item = itemList.find(command.getArgument(1), command.getNumber(1));
+                if (item === null) {
+                    Engine.Output("Tutaj nie ma czegoś takiego jak {0}.".format(command.getArgument(1)));
+                    return;
+                }
+                this.takeItemFromLocation(item, itemList);
             }
         }
         else {
@@ -20,26 +30,25 @@ class Take extends Command {
         }
     }
 
-    takeItemFromLocation(itemName, number) {
-        let itemList = Game.getRoom(Game.Player.Location).getItems();
-        let item = itemList.find(itemName, number);
-
-        if (item === null) {
-            Engine.Output("Tutaj nie ma czegoś takiego jak {0}.".format(itemName));
-            return;
-        }
+    takeItemFromLocation(item, itemList) {
         if (!item.isTakeable()) {
             Engine.Output("Nie możesz podnieść {0}.".format(item.getName(GrammaCase.Dopelniacz)));
-            return;
+            return false;
         }
 
         this.takeItem(item, itemList);
-        Engine.Output("Podnosisz {0}.".format(item.getName()));
+        Engine.Output("Podnosisz {0}.".format(item.getName(GrammaCase.Biernik)));
+        return true;
     }
 
     takeAllFromLocation() {
-        //TODO: Take All from location
-        Engine.Output("​¯\\_(ツ)_/¯");
+        let itemList = Game.getRoom(Game.Player.Location).getItems();
+        let i = 0;
+        for (var item = itemList.elementAt(i); item != null; item = itemList.elementAt(i)) {
+            if (!this.takeItemFromLocation(item, itemList)) {
+                i++;
+            }
+        }
     }
 
     takeItem(item, itemList) {

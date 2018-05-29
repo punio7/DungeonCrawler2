@@ -1,0 +1,61 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "EntityName": {
+      "type": "array",
+      "description": "Entity's display name in all grama cases",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "string"
+      }
+    },
+    "Stack": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Min": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "Max": {
+              "type": "integer",
+              "minimum": 2
+            }
+          }
+        }
+      ]
+    },
+    "ItemListElement": {
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "Item Id"
+        },
+        {
+          "type": "object",
+          "description": "Item's detailed definition- chance of spawning and stack count",
+          "required": [ "ItemId" ],
+          "properties": {
+            "ItemId": {
+              "type": "string"
+            },
+            "Chance": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "Stack": { "$ref": "#/definitions/Stack" }
+          }
+        }
+      ]
+    }
+  },
+  "title": "JSON Schema for my JSON file format",
+  "type": "object"
+}

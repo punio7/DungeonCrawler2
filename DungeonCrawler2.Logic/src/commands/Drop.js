@@ -6,7 +6,7 @@ class Drop extends Command {
             return;
         }
 
-        if (command.getArgument(1) === "all") {
+        if (command.getArgument(1).toLowerCase() === "all") {
             if (!Game.Player.getInventory().any()) {
                 Engine.Output("Przecież nic nie masz biedaku.");
                 return;
@@ -26,7 +26,9 @@ class Drop extends Command {
     }
 
     dropAll() {
-        //TODO: drop all
+        while (Game.Player.getInventory().any()) {
+            this.dropItem(Game.Player.getInventory().elementAt(0));
+        }
     }
 
     dropItem(item) {

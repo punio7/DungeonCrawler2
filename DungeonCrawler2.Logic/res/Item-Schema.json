@@ -19,13 +19,20 @@
           },
 
           "Name": {
-            "type": "array",
-            "description": "Item's display name in all grama cases",
-            "minItems": 7,
-            "maxItems": 7,
-            "items": {
-              "type": "string"
-            }
+            "anyOf": [
+              {
+                "$ref": "Common-Schema.json#/definitions/EntityName"
+              },
+              {
+                "type": "array",
+                "description": "Plurar variants of item's name",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "$ref": "Common-Schema.json#/definitions/EntityName"
+                }
+              }
+            ]
           },
 
           "Idle": {
@@ -45,7 +52,8 @@
               "Weapon1H",
               "Weapon2H",
               "Armor",
-              "ArmorWild"
+              "ArmorWild",
+              "Trash"
             ]
           },
 
@@ -53,6 +61,12 @@
             "type": "boolean",
             "default": "false",
             "description": "Specifies if item lights up the room"
+          },
+
+          "IsStackable": {
+            "type": "boolean",
+            "default": "false",
+            "description": "Specifies if the item is stackable"
           }
         }
       }
