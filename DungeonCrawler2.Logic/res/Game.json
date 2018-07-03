@@ -22,12 +22,12 @@
         },
         {
           "ItemId": "drewno-drag",
-          "Chance": 50
+          "Chance": 100
         },
         {
-          "ItemId": [ "drewno-drag", "drewno-drag-2", "gold" ],
+          "ItemId": [ "drewno-drag", "drewno-drag-2", null ],
           "ChanceList": [ 33, 33, 34 ],
-          "Stack": [ null, null, 50 ]
+          "Stack": [ null, null, null ]
         }
       ]
     },

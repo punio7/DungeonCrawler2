@@ -64,7 +64,12 @@
               "type": "array",
               "description": "One of listed item ids will be selected",
               "minItems": 1,
-              "items": { "$ref": "#/definitions/ItemId" }
+              "items": {
+                "anyOf": [
+                  { "$ref": "#/definitions/ItemId" },
+                  { "type": "null"}
+                ]
+              }
             },
             "Chance": { "$ref": "#/definitions/Chance" },
             "ChanceList": {

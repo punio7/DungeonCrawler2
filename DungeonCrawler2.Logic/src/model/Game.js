@@ -57,6 +57,9 @@ class GameModel {
             }
             else {
                 templateId = this.resolveRandomTemplateId(itemDefinition);
+                if (templateId === null) {
+                    return null;
+                }
             }
 
             let template = this.ItemTemplates.getTemplate(templateId);
@@ -88,6 +91,8 @@ class GameModel {
                 return itemDefinition.ItemId[i];
             }
         }
+
+        return null;
     }
 
     stackValue(itemDefinition, selectedItemId) {
