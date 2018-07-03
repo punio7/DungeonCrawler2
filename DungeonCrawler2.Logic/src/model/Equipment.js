@@ -11,6 +11,9 @@ class Equipment {
     }
 
     equip(slot, item) {
+        if (item === null) {
+            return;
+        }
         if (!item instanceof Item) {
             throw "Only Item objects can be added to equipment.";
         }

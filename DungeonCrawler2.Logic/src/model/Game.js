@@ -45,8 +45,13 @@ class GameModel {
             return new Item(template);
         }
         else {
+            if (itemDefinition.Chance !== undefined) {
+                if (Random.nextInt(1, 100) > itemDefinition.Chance) {
+                    return null;
+                }
+            }
+
             let template = this.ItemTemplates.getTemplate(itemDefinition.ItemId);
-            //TODO: spawn chance
             let item = new Item(template);
             item.setStack(this.stackValue(itemDefinition.Stack));
             return item;

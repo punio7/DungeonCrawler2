@@ -11,6 +11,9 @@ class ItemList extends EntityList {
     }
 
     add(item) {
+        if (item === null) {
+            return;
+        }
         if (!item instanceof Item) {
             throw new "Only Items can be added to item list";
         }

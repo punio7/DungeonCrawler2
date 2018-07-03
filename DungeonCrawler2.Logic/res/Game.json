@@ -19,6 +19,10 @@
         {
           "ItemId": "gold",
           "Stack": 10
+        },
+        {
+          "ItemId": "drewno-drag",
+          "Chance": 50
         }
       ]
     },
