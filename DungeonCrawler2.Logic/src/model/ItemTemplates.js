@@ -23,7 +23,7 @@ class ItemTemplatesModel {
 
     getTemplate(itemId) {
         if (this[itemId] === undefined) {
-            throw "No item template defined for {0}!".format(itemTemplate.Id);
+            throw "No item template defined for {0}!".format(itemId);
         }
         return this[itemId];
     }

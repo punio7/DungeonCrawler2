@@ -23,6 +23,11 @@
         {
           "ItemId": "drewno-drag",
           "Chance": 50
+        },
+        {
+          "ItemId": [ "drewno-drag", "drewno-drag-2", "gold" ],
+          "ChanceList": [ 33, 33, 34 ],
+          "Stack": [ null, null, 50 ]
         }
       ]
     },

@@ -52,6 +52,21 @@
       "Type": "Weapon1H"
     },
     {
+      "Id": "drewno-drag-2",
+      "Name": [
+        "inny drewniany drąg",
+        "innego drewnianego drąga",
+        "innemu drewnianemu drągowi",
+        "inney drewniany drąg",
+        "innym drewnianym drągiem",
+        "innym drewnianym drągu",
+        "inny drewniany drągu"
+      ],
+      "Idle": "leży u twoich stóp",
+      "Description": "Ten kawał kija wygląda na oderwaną i wyschniętą gałęź jakiegoś drzewa. Nie jest on całkiem prosty, zawiera kilka sęków i nieregularności ale jest długi na kilka łokci i może całkiem sprawnie posłużyć jako improwizowana broń.",
+      "Type": "Weapon1H"
+    },
+    {
       "Id": "skora-szczura",
       "Name": [
         "szczurza skóra",
