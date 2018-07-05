@@ -48,6 +48,11 @@
       ],
       "Characters": [
         "szczur-jaskiniowy"
+      ],
+      "Items": [
+        {
+          "ItemId": "wooden-chest"
+        }
       ]
     }
   ]

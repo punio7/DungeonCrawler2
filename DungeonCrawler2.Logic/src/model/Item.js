@@ -75,8 +75,19 @@ class Item {
         }
     }
 
+    getType() {
+        return this.Type;
+    }
+
     isTakeable() {
-        //TODO: przedmioty nie do wzięcia
+        switch (this.getType()) {
+            case Game.ItemTypes.Static:
+            case Game.ItemTypes.StaticContainer:
+            case Game.ItemTypes.Lever:
+                return false
+            default:
+                return true;
+        }
         return true;
     }
 }
