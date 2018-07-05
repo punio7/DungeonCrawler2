@@ -32,22 +32,30 @@ class Go extends Command {
         Game.Player.Location = room.Id;
         room.IsVisited = true;
 
+        if (this.onEnterGlobalEvents(room) === true) {
+            return;
+        }
+
+        Commands.Look.lookRoom(room);
+        //TODO: Zdarzenia przy wejściu
+    }
+
+    onEnterGlobalEvents(room) {
         if (room.getOnFirstEnterEvent() != null) {
             let interrupt = Game.invokeGlobalEvent(room.getOnFirstEnterEvent(), new GlobalEventArgs(GlobalEventType.OnRoomEnter, room));
             delete room.OnFirstEnterEvent;
             if (interrupt === true) {
-                return;
+                return true;
             }
         }
 
         if (room.getOnEnterEvent() != null) {
             let interrupt = Game.invokeGlobalEvent(room.getOnEnterEvent(), new GlobalEventArgs(GlobalEventType.OnRoomEnter, room));
             if (interrupt === true) {
-                return;
+                return true;
             }
         }
 
-        Commands.Look.lookRoom(room);
-        //TODO: Zdarzenia przy wejściu
+        return false;
     }
 };
