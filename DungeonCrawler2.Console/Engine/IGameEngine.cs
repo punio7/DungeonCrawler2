@@ -12,6 +12,7 @@ namespace DungeonCrawler2.Console.Engine
         string EndLine { get; }
         string NonBreakingSpace { get; }
         void Output(object message, bool isNewLine = true);
+        void OutputPrinter(object message, bool isNewLine = true, int delay = 60);
         void LoadScript(string location);
         string LoadData(string location);
         void Reload();

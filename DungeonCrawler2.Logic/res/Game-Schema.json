@@ -64,6 +64,13 @@
           "Characters": {
             "type": "array",
             "items": { "type": "string" }
+          },
+
+          "OnFirstEnterEvent": {
+            "type": "string"
+          },
+          "OnEnterEvent": {
+            "type": "string"
           }
         }
       }

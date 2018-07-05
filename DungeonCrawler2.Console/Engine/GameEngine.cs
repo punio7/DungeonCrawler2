@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ClearScript;
 using Microsoft.ClearScript.V8;
@@ -16,6 +17,7 @@ namespace DungeonCrawler2.Console.Engine
         private V8ScriptEngine scriptEngine;
         private V8Script executeScript;
         private Logger logger;
+        private List<Timer> runningTimers;
 
         private bool ExitRaised { get; set; }
 
@@ -23,6 +25,7 @@ namespace DungeonCrawler2.Console.Engine
         {
             loadedScripts = new HashSet<string>();
             logger = LogManager.GetLogger(this.GetType().FullName);
+            runningTimers = new List<Timer>();
         }
 
         public void Dispose()
@@ -138,6 +141,25 @@ namespace DungeonCrawler2.Console.Engine
             });
         }
 
+        public void OutputPrinter(object message, bool isNewLine = true, int delay = 60)
+        {
+            TryCatch(() =>
+            {
+                foreach (var c in message.ToString())
+                {
+                    System.Console.Write(c);
+                    if (!Char.IsWhiteSpace(c))
+                    {
+                        Thread.Sleep(delay);
+                    }
+                }
+                if (isNewLine)
+                {
+                    System.Console.WriteLine();
+                }
+            });
+        }
+
         public void LoadScript(string location)
         {
             TryCatch(() =>
@@ -174,6 +196,13 @@ namespace DungeonCrawler2.Console.Engine
         public void Reload()
         {
             Init();
+        }
+
+        public void StartTimer(int interval, TimerCallback callback)
+        {
+            var timer = new Timer(callback);
+            runningTimers.Add(timer);
+            //timer.
         }
 
         #endregion

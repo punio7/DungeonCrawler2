@@ -74,4 +74,18 @@ class Room {
 
         return false;
     }
+
+    getOnFirstEnterEvent() {
+        if (this.OnFirstEnterEvent === undefined) {
+            return null;
+        }
+        return this.OnFirstEnterEvent;
+    }
+
+    getOnEnterEvent() {
+        if (this.OnEnterEvent === undefined) {
+            return null;
+        }
+        return this.OnEnterEvent;
+    }
 };
