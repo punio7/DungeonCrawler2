@@ -53,6 +53,13 @@ class Take extends Command {
 
     takeItem(item, itemList) {
         itemList.remove(item);
+        if (item.isStackable()) {
+            let existingStack = Game.Player.getInventory().findById(item.Id);
+            if (existingStack !== null) {
+                existingStack.addStack(item.getStack());
+                return;
+            }
+        }
         Game.Player.getInventory().add(item);
     }
 };

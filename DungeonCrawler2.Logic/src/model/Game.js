@@ -98,6 +98,7 @@ class GameModel {
     stackValue(itemDefinition, selectedItemId) {
         let stack = itemDefinition.Stack;
         if (Array.isArray(stack)) {
+            //w przypadku gdy spawnujemy item jeden z listy dostępnych
             let stackIndex = itemDefinition.ItemId.indexOf(selectedItemId);
             stack = stack[stackIndex];
         }

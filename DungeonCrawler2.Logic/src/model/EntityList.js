@@ -46,6 +46,22 @@ class EntityList {
         return found;
     }
 
+    findById(id, number = 1) {
+        let found = null;
+        this.Array.forEach(item => {
+            if (item.Id === id) {
+                if (number <= 1) {
+                    found = item;
+                    return;
+                }
+                else {
+                    number--;
+                }
+            }
+        });
+        return found;
+    }
+
     printLongFormat(indent = true) {
         return this.print(indent, true);
     }

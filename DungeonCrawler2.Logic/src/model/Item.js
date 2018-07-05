@@ -69,6 +69,12 @@ class Item {
         }
     }
 
+    addStack(value) {
+        if (this.isStackable()) {
+            this.Stack += value;
+        }
+    }
+
     isTakeable() {
         //TODO: przedmioty nie do wzięcia
         return true;
