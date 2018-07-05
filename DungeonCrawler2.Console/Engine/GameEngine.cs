@@ -18,6 +18,7 @@ namespace DungeonCrawler2.Console.Engine
         private V8Script executeScript;
         private Logger logger;
         private List<Timer> runningTimers;
+        int currentLineLength = 0;
 
         private bool ExitRaised { get; set; }
 
@@ -130,21 +131,57 @@ namespace DungeonCrawler2.Console.Engine
         {
             TryCatch(() =>
             {
-                if (isNewLine)
+                message = addLineBreaks(message.ToString(), isNewLine);
+                System.Console.Write(message);
+            });
+        }
+
+        private string addLineBreaks(string message, bool addNewLine, int lineLength = 120)
+        {
+            StringBuilder output = new StringBuilder();
+
+            int lastWhiteSpaceIndex = 0;
+            for (int currentIndex = 0; currentIndex < message.Length; currentIndex++)
+            {
+                char c = message[currentIndex];
+                output.Append(c);
+                if (Char.IsWhiteSpace(c))
                 {
-                    System.Console.WriteLine(message); 
+                    lastWhiteSpaceIndex = currentIndex;
+                }
+                if (currentLineLength >= lineLength - 1)
+                {
+                    output[lastWhiteSpaceIndex] = '\n';
+                    currentLineLength = currentIndex - lastWhiteSpaceIndex;
+                }
+
+                if (c == '\n')
+                {
+                    currentLineLength = 0;
+                }
+                else if (c == '\t')
+                {
+                    currentLineLength += currentLineLength % 8;
                 }
                 else
                 {
-                    System.Console.Write(message);
+                    currentLineLength++;
                 }
-            });
+            }
+            if (addNewLine)
+            {
+                output.Append(EndLine);
+                currentLineLength = 0;
+            }
+
+            return output.ToString();
         }
 
         public void OutputPrinter(object message, bool isNewLine = true, int delay = 60)
         {
             TryCatch(() =>
             {
+                message = addLineBreaks(message.ToString(), isNewLine);
                 foreach (var c in message.ToString())
                 {
                     System.Console.Write(c);
@@ -152,10 +189,6 @@ namespace DungeonCrawler2.Console.Engine
                     {
                         Thread.Sleep(delay);
                     }
-                }
-                if (isNewLine)
-                {
-                    System.Console.WriteLine();
                 }
             });
         }
