@@ -51,7 +51,8 @@
       ],
       "Items": [
         {
-          "ItemId": "wooden-chest"
+          "ItemId": "wooden-chest",
+          "Inventory": [ "sapphire-round" ]
         }
       ],
 

@@ -90,4 +90,11 @@ class Item {
         }
         return true;
     }
+
+    getInventory() {
+        if (this.Inventory === undefined) {
+            return null;
+        }
+        return this.Inventory;
+    }
 }

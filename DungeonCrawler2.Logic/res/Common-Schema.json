@@ -52,7 +52,13 @@
           "properties": {
             "ItemId": { "$ref": "#/definitions/ItemId" },
             "Chance": { "$ref": "#/definitions/Chance" },
-            "Stack": { "$ref": "#/definitions/Stack" }
+            "Stack": { "$ref": "#/definitions/Stack" },
+            "Inventory": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ItemListElement"
+              }
+            }
           }
         },
         {

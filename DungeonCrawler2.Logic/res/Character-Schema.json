@@ -39,20 +39,22 @@
 
           "Inventory": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "$ref": "Common-Schema.json#/definitions/ItemListElement"
+            }
           },
 
           "Equipment": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": [ "ItemId", "Slot" ],
+              "required": [ "Item", "Slot" ],
               "properties": {
                 "Slot": {
                   "type": "string",
                   "enum": [ "Torso", "Arms", "Hands", "Legs", "Feets", "Head", "RightHand", "LeftHand", "Shirt", "Pants", "Coat", "RightRing", "LeftRing", "Necklace", "Torch" ]
                 },
-                "ItemId": { "type": "string" }
+                "Item": { "$ref": "Common-Schema.json#/definitions/ItemListElement" }
               }
             }
           }

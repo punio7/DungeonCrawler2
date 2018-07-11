@@ -17,7 +17,7 @@
       "Equipment": [
         {
           "Slot": "Torso",
-          "ItemId": "skora-szczura"
+          "Item": "skora-szczura"
         } 
       ]
     }

@@ -26,6 +26,7 @@ class ItemFactory {
             let template = Game.ItemTemplates.getTemplate(templateId);
             let item = new Item(template);
             item.setStack(this.stackValue(itemDefinition, templateId));
+            this.resolveInventory(itemDefinition, item);
             return item;
         }
 
@@ -54,6 +55,18 @@ class ItemFactory {
         }
 
         return null;
+    }
+
+    resolveInventory(itemDefinition, item) {
+        if (itemDefinition.Inventory !== undefined) {
+            let inventory = item.getInventory();
+            if (inventory === null) {
+                inventory = item.Inventory = new ItemList();
+            }
+            itemDefinition.Inventory.forEach(itemDefinition => {
+                inventory.add(Game.spawnItem(itemDefinition));
+            });
+        }
     }
 
     stackValue(itemDefinition, selectedItemId) {

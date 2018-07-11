@@ -100,6 +100,22 @@
       "Description": "Opis drewnianej skrzyni",
       "Type": "StaticContainer",
       "Idle": "stoi pod ścianą"
+    },
+
+
+    {
+      "Id": "sapphire-round",
+      "Name": [
+        "okrągły szafir",
+        "okrągłego szafiru",
+        "okrągłemu szafirowi",
+        "okrągły szafir",
+        "okrągłym szafirem",
+        "okrągłym szafirze",
+        "okrągły szafirze"
+      ],
+      "Description": "Szafir jest kamieniem szlachetnym o barwie ciemno niebieskiej. Zazwyczaj klejnoty szlifowane są w sześcienne lub inne kanciaste kształty, ten jednak jest uformowany w kształt kuli. Przyglądając się bliżej nie zauważasz żadnych śladów szlifowania, zachwyca cię również niezwykła perfekcja kuli.",
+      "Type": "Quest"
     }
   ]
 }
