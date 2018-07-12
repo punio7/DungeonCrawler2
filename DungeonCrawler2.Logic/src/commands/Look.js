@@ -72,23 +72,10 @@ class Look extends Command {
                     returnString += ", ";
                 }
                 firstExit = false;
-                returnString += this.directionLocale(direction);
+                returnString += Directions.getLocale(direction);
             }
         }
         returnString += " ]";
         return returnString;
-    }
-
-    directionLocale(direction) {
-        let locale = {
-            north: "północ",
-            south: "południe",
-            east: "wschód",
-            west: "zachód",
-            up: "góra",
-            down: "dół"
-        }
-
-        return locale[direction];
     }
 };

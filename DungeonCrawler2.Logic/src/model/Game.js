@@ -29,6 +29,11 @@ class GameModel {
         return this.Name;
     }
 
+    /**
+     * 
+     * @param {number} roomId
+     * @returns {Room}
+     */
     getRoom(roomId) {
         let room = this.Rooms[roomId];
         if (room === undefined) {

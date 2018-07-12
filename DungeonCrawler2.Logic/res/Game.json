@@ -31,6 +31,7 @@
         }
       ]
     },
+
     {
       "Id": 1,
       "Name": "Podziemny korytarz",
@@ -57,6 +58,23 @@
       ],
 
       "OnFirstEnterEvent": "TestGlobalEvent"
+    },
+
+    {
+      "Id": 2,
+      "Name": "Podziemny korytarz",
+      "Description": "Im dalej od źródła światła tym bardziej korytarz pogłębia się ciemności i dostrzegasz coraz mniej. Cienie robią się nadzwyczaj długie, niknące w ciemności znajdującej się przed tobą. Refleksje światła na nieporośniętych mchem płytkach stają się coraz słabsze, natomiast podłoga wydaje się być pokryta dywanem mroku.",
+      "IsNaturalLight": true,
+      "Exits": [
+        {
+          "Direction": "north",
+          "RoomId": 3
+        },
+        {
+          "Direction": "south",
+          "RoomId": 2
+        }
+      ]
     }
   ]
 }

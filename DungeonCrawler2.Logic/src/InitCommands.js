@@ -26,6 +26,7 @@ function InitCommands() {
     Commands.RegisterCommand("Reload", new Reload());
 
     Commands.RegisterCommand("South", new South());
+    Commands.RegisterCommand("Scan", new Scan());
 
     Commands.RegisterCommand("Take", new Take());
     Commands.RegisterCommand("Test", new Test());

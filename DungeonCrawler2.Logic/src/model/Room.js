@@ -42,18 +42,23 @@ class Room {
 
     getItems() {
         if (this.Items === undefined) {
-            return [];
+            return new ItemList();
         }
         return this.Items;
     }
 
     getCharacters() {
         if (this.Characters === undefined) {
-            return [];
+            return new CharacterList();
         }
         return this.Characters;
     }
 
+    /**
+     * 
+     * @param {DirectionsEnum} direction
+     * @returns {RoomExit}
+     */
     getExit(direction) {
         if (this.Exits[direction] === undefined) {
             return null;

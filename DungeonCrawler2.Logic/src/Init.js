@@ -48,6 +48,7 @@ Engine.LoadScript('src/commands/Down.js');
 Engine.LoadScript('src/commands/Take.js');
 Engine.LoadScript('src/commands/Inventory.js');
 Engine.LoadScript('src/commands/Drop.js');
+Engine.LoadScript('src/commands/Scan.js');
 
 Engine.LoadScript('src/CommandTree.js');
 Engine.LoadScript('src/CommandsManager.js');

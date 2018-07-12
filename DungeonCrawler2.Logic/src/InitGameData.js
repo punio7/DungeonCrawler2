@@ -1,5 +1,7 @@
 ﻿"use strict";
 
+var DirectionsLocales = {};
+
 function InitGameData() {
     let gameTemplate = JSON.parse(Engine.LoadData('res/Game.json'));
     Game = new GameModel(gameTemplate);
@@ -12,6 +14,8 @@ function InitGameData() {
 
     let characterTemplates = JSON.parse(Engine.LoadData('res/Characters.json')).CharactersTemplates;
     Game.CharacterTemplates = new CharacterTemplatesModel(characterTemplates);
+
+    DirectionsLocales = JSON.parse(Engine.LoadData('res/Directions.json'))
 
     Game.Player = new Player();
     Game.Player.Location = Game.StartingRoom;

@@ -9,6 +9,14 @@ class DirectionsEnum extends EnumBase {
         this.up = "up";
         this.down = "down";
     }
+
+    getLocale(direction, grammaCase = GrammaCase.Mianownik) {
+        if (!this.contains(direction)) {
+            throw 'Invalid direction {0}'.format(direction);
+        }
+
+        return DirectionsLocales[direction][grammaCase];
+    }
 }
 
 var Directions = new DirectionsEnum();
