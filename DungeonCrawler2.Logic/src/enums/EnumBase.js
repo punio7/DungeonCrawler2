@@ -45,7 +45,7 @@ class EnumBase {
     }
 
     /**
-     * @param {Function} callback
+     * @param {(value: T, key: string) => void} callback
      */
     forEach(callback) {
         for (const key in this) {

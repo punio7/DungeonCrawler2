@@ -45,15 +45,30 @@ class GameModel {
         return room;
     }
 
+    /**
+     * 
+     * @param {any} itemDefinition
+     * @returns {Item}
+     */
     spawnItem(itemDefinition) {
         return this.ItemFactory.spawnItem(itemDefinition);
     }
 
+    /**
+     * 
+     * @param {string} characterId
+     * @returns {Character}
+     */
     spawnCharacter(characterId) {
         let template = this.CharacterTemplates.getTemplate(characterId);
         return new Character(template);
     }
 
+    /**
+     * 
+     * @param {string} itemTypeName
+     * @returns {string}
+     */
     getItemType(itemTypeName) {
         return this.ItemTypes.getItemType(itemTypeName);
     }
