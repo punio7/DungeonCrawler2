@@ -32,14 +32,15 @@ class EntityList {
 
     find(name, number = 1) {
         let found = null;
-        this.Array.forEach(item => {
+        this.Array.some(item => {
             if (item.getName().search(name) >= 0) {
                 if (number <= 1) {
                     found = item;
-                    return;
+                    return true;
                 }
                 else {
                     number--;
+                    return false;
                 }
             }
         });
@@ -48,14 +49,15 @@ class EntityList {
 
     findById(id, number = 1) {
         let found = null;
-        this.Array.forEach(item => {
+        this.Array.some(item => {
             if (item.Id === id) {
                 if (number <= 1) {
                     found = item;
-                    return;
+                    return true;
                 }
                 else {
                     number--;
+                    return false;
                 }
             }
         });
@@ -77,7 +79,7 @@ class EntityList {
                 returnString += Engine.EndLine;
             }
             if (indent === true) {
-                returnString += Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace;
+                returnString += Engine.NonBreakingSpace.repeat(4);
             }
             returnString += entity.getName().startWithUpper();
             if (longFormat === true) {
