@@ -15,7 +15,7 @@ class Scan extends Command {
 
         Directions.forEach((direction) => {
             let exit = playerRoom.getExit(direction);
-            if (exit != null && !exit.isHidden() && !exit.isClosed()) {
+            if (exit !== null && !exit.isHidden() && !exit.isClosed()) {
                 Engine.Output("Na {0}:".format(Directions.getLocale(direction, GrammaCase.Miejscownik)));
                 Engine.Output(this.printCharacters(exit.RoomId));
             }

@@ -5,34 +5,34 @@
       "Id": "gold",
       "Name": [
         [
-          "złota moneta",
-          "złotej monety",
-          "złotej monecie",
-          "złotą monetę",
-          "złotą monetą",
-          "złotej monecie",
-          "złota moneto"
+          "|Yzłota moneta",
+          "|Yzłotej monety",
+          "|Yzłotej monecie",
+          "|Yzłotą monetę",
+          "|Yzłotą monetą",
+          "|Yzłotej monecie",
+          "|Yzłota moneto"
         ],
         [
-          "złote monety",
-          "złotych monet",
-          "złotym monetom",
-          "złote monety",
-          "złotymi monetami",
-          "złotych monetach",
-          "złote monety"
+          "|Yzłote monety",
+          "|Yzłotych monet",
+          "|Yzłotym monetom",
+          "|Yzłote monety",
+          "|Yzłotymi monetami",
+          "|Yzłotych monetach",
+          "|Yzłote monety"
         ],
         [
-          "złotych monet",
-          "złotych monet",
-          "złotym monetom",
-          "złotych monet",
-          "złotymi monetami",
-          "złotych monetach",
-          "złotych monet"
+          "|Yzłotych monet",
+          "|Yzłotych monet",
+          "|Yzłotym monetom",
+          "|Yzłotych monet",
+          "|Yzłotymi monetami",
+          "|Yzłotych monetach",
+          "|Yzłotych monet"
         ]
       ],
-      "Description": "Złoto, złoto, złoto, złoto.",
+      "Description": "|YZłoto, złoto, złoto, złoto.",
       "Type": "Trash",
       "IsStackable": true
     },

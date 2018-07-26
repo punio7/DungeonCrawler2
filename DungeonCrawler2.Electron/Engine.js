@@ -11,6 +11,11 @@ class EngineClass {
         this.loadScript = require('load-script');
         this.lineFinished = true;
         this.currentTextClass = "W";
+        this.defaultColorCode = "W";
+    }
+
+    get DefaultColor() {
+        return "|" + this.defaultColorCode;
     }
 
     Output(message, isNewLine = true) {
@@ -28,7 +33,7 @@ class EngineClass {
 
     analyzeAndWrite(message) {
         var messageToWrite = "";
-        this.currentTextClass = "W"
+        this.currentTextClass = this.defaultColorCode;
         for (var i = 0; i < message.length; i++) {
             if (message[i] !== '|') {
                 messageToWrite += message[i];

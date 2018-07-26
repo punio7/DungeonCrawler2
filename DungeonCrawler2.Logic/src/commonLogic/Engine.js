@@ -4,6 +4,7 @@ class EngineClass {
         this.Input;
         this.EndLine = '<br/>';
         this.NonBreakingSpace = "&nbsp;"
+        this.DefaultColor = '|W';
     }
 
     /**

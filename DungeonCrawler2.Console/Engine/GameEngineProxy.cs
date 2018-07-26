@@ -20,6 +20,7 @@ namespace DungeonCrawler2.Console.Engine
         public string Input => gameEngine.Input;
         public string EndLine => gameEngine.EndLine;
         public string NonBreakingSpace => gameEngine.NonBreakingSpace;
+        public string DefaultColor => gameEngine.DefaultColor;
         public void Output(object message, bool isNewLine = true) => gameEngine.Output(message, isNewLine);
         public void OutputPrinter(object message, bool isNewLine = true, int delay = 60) => gameEngine.OutputPrinter(message, isNewLine, delay);
         public void LoadScript(string location) => gameEngine.LoadScript(location);

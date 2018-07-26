@@ -127,6 +127,10 @@ namespace DungeonCrawler2.Console.Engine
 
         public string NonBreakingSpace { get; private set; } = " ";
 
+        public string DefaultColor { get => "|" + defaultColorCode; }
+
+        private char defaultColorCode { get; set; } = 'W';
+
         public void Output(object message, bool isNewLine = true)
         {
             TryCatch(() =>
@@ -184,7 +188,7 @@ namespace DungeonCrawler2.Console.Engine
 
         private void analyzeAndWrite(string message)
         {
-            System.Console.ForegroundColor = ConsoleColor.White;
+            changeColor(defaultColorCode);
             for (int i = 0; i < message.Length; i++)
             {
                 if (message[i] != '|')

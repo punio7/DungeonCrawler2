@@ -9,10 +9,10 @@ class Item {
 
     getName(grammaCase = GrammaCase.Mianownik) {
         if (!this.isStackable()) {
-            return this.Name[grammaCase];
+            return this.Name[grammaCase] + Engine.DefaultColor;
         }
         else {
-            return this.getStack() + " " + this.getPluralName(grammaCase);
+            return this.getStack() + " " + this.getPluralName(grammaCase) + Engine.DefaultColor;
         }
     }
 
@@ -35,7 +35,7 @@ class Item {
     }
 
     getDescription() {
-        return this.Description;
+        return this.Description + Engine.DefaultColor;
     }
 
     getIdle() {
@@ -88,7 +88,6 @@ class Item {
             default:
                 return true;
         }
-        return true;
     }
 
     getInventory() {
