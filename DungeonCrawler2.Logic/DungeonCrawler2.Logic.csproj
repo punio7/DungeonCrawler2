@@ -304,9 +304,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="version.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)src" "$(SolutionDir)DungeonCrawler2.Electron\src\" /s /d /Y
+    <PostBuildEvent>xcopy "$(ProjectDir)version.txt" "$(SolutionDir)DungeonCrawler2.Electron\" /d /Y
+xcopy "$(ProjectDir)src" "$(SolutionDir)DungeonCrawler2.Electron\src\" /s /d /Y
 xcopy "$(ProjectDir)res" "$(SolutionDir)DungeonCrawler2.Electron\res\" /s /d /Y</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>git show --pretty=medium --no-patch &gt; "$(ProjectDir)version.txt"</PreBuildEvent>
   </PropertyGroup>
 </Project>

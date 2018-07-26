@@ -56,6 +56,8 @@ Engine.LoadScript('src/CommandsManager.js');
 function Init() {
     InitGameData();
     InitCommands();
+    Engine.Output("Dungeon Crawler 2, wersja:");
+    Engine.Output(version);
     Commands.Go.changePlayerLocation(Game.getRoom(Game.StartingRoom));
     Engine.Output("");
     Prompt.Print();

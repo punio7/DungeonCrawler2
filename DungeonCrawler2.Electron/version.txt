@@ -1,0 +1,5 @@
+commit 9c407a2837cfd5bc5f0b54971237fd2a39a3c6ad
+Author: Przemysław Mućka <przemyslaw.mucka@pentacomp.pl>
+Date:   Thu Jul 26 17:45:18 2018 +0200
+
+    Literówka
