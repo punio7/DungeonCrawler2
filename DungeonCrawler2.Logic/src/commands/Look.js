@@ -64,7 +64,7 @@ class Look extends Command {
     }
 
     exitsString(exits) {
-        let returnString = "Wyjścia: [ "
+        let returnString = "|gWyjścia: [ "
         let firstExit = true;
         for (const direction in exits) {
             if (exits.hasOwnProperty(direction)) {
@@ -75,7 +75,7 @@ class Look extends Command {
                 returnString += Directions.getLocale(direction);
             }
         }
-        returnString += " ]";
+        returnString += " ]|W";
         return returnString;
     }
 };

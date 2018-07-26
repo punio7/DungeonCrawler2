@@ -1,11 +1,75 @@
-﻿.console {
-    width: inherit;
+﻿.consoleContainer {
     background-color: black;
+}
+
+.console {
+    width: inherit;
+    background-color: inherit;
     display: block;
 }
 
-.console div {
-    background-color: inherit;
+    .console span {
+        background-color: inherit;
+        margin: 0px;
+        display: contents;
+    }
+
+.b {
+    color: dodgerblue;
+}
+
+.g {
+    color: green;
+}
+
+.c {
+    color: cyan;
+}
+
+.r {
+    color: red;
+}
+
+.p {
+    color: purple;
+}
+
+.y {
+    color: yellow;
+}
+
+.s {
+    color: gray;
+}
+
+.S {
+    color: darkgray;
+}
+
+.B {
+    color: lightblue;
+}
+
+.G {
+    color: lightgreen;
+}
+
+.C {
+    color: lightcyan;
+}
+
+.R {
+    color: indianred;
+}
+
+.P {
+    color: mediumpurple;
+}
+
+.Y {
+    color: lightyellow;
+}
+
+.W {
     color: white;
-    margin: 0px;
 }

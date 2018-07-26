@@ -10,25 +10,53 @@ class EngineClass {
         this.fileSystem = require('fs');
         this.loadScript = require('load-script');
         this.lineFinished = true;
+        this.currentTextClass = "W";
     }
 
     Output(message, isNewLine = true) {
-        if (message == "") message = this.EndLine;
-
         let element = null;
-        if (this.lineFinished === true) {
-            element = $('<div>');
-            element.html(message);
-            $('#consoleOutput').append(element);
+
+        this.analyzeAndWrite(message);
+
+        if (isNewLine === true) {
+            $('#consoleOutput').append(this.EndLine);
         }
-        else {
-            element = $('#consoleOutput div:last-child');
-            element.html(element.html() + message);
+
+        var consoleContainer = $('.consoleContainer');
+        consoleContainer[0].scrollTop = consoleContainer[0].scrollHeight;
+    }
+
+    analyzeAndWrite(message) {
+        var messageToWrite = "";
+        this.currentTextClass = "W"
+        for (var i = 0; i < message.length; i++) {
+            if (message[i] !== '|') {
+                messageToWrite += message[i];
+            }
+            else {
+                this.write(messageToWrite);
+                messageToWrite = "";
+                i++;
+                this.changeTextClass(message[i]);
+            }
         }
-        this.lineFinished = isNewLine;
-        element[0].scrollIntoView({
-            behavior: 'smooth'
-        });
+
+        this.write(messageToWrite);
+    }
+
+    changeTextClass(code) {
+        this.currentTextClass = code;
+    }
+
+    write(message) {
+        if (message === "") {
+            return;
+        }
+
+        var element = $('<span>');
+        element.addClass(this.currentTextClass);
+        element.html(message);
+        $('#consoleOutput').append(element);
     }
 
     async OutputPrinter(message, isNewLine = true, delay = 60) {
