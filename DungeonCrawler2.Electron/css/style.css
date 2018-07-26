@@ -1,5 +1,5 @@
 ﻿.consoleContainer {
-    background-color: black;
+    background-color: rgb(12,12,12);
 }
 
 .console {
@@ -15,61 +15,61 @@
     }
 
 .b {
-    color: dodgerblue;
+    color: rgb(0,55,218);
 }
 
 .g {
-    color: green;
+    color: rgb(19,161,14);
 }
 
 .c {
-    color: cyan;
+    color: rgb(58,150,221);
 }
 
 .r {
-    color: red;
+    color: rgb(197,15,31);
 }
 
 .p {
-    color: purple;
+    color: rgb(136,23,152);
 }
 
 .y {
-    color: yellow;
+    color: rgb(193,156,0);
 }
 
 .s {
-    color: gray;
+    color: rgb(204,204,204);
 }
 
 .S {
-    color: darkgray;
+    color: rgb(118,118,118);
 }
 
 .B {
-    color: lightblue;
+    color: rgb(59,120,255);
 }
 
 .G {
-    color: lightgreen;
+    color: rgb(22,198,12);
 }
 
 .C {
-    color: lightcyan;
+    color: rgb(97,214,214);
 }
 
 .R {
-    color: indianred;
+    color: rgb(231,72,86);
 }
 
 .P {
-    color: mediumpurple;
+    color: rgb(180,0,158);
 }
 
 .Y {
-    color: lightyellow;
+    color: rgb(249,241,165);
 }
 
 .W {
-    color: white;
+    color: rgb(242,242,242);
 }

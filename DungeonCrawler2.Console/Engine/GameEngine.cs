@@ -131,8 +131,8 @@ namespace DungeonCrawler2.Console.Engine
         {
             TryCatch(() =>
             {
-                message = addLineBreaks(message.ToString(), isNewLine);
-                System.Console.Write(message);
+                string messageWithBreakes = addLineBreaks(message.ToString(), isNewLine);
+                analyzeAndWrite(messageWithBreakes);
             });
         }
 
@@ -163,6 +163,11 @@ namespace DungeonCrawler2.Console.Engine
                 {
                     currentLineLength += currentLineLength % 8;
                 }
+                else if (c == '|')
+                {
+                    currentIndex++;
+                    output.Append(message[currentIndex]);
+                }
                 else
                 {
                     currentLineLength++;
@@ -175,6 +180,79 @@ namespace DungeonCrawler2.Console.Engine
             }
 
             return output.ToString();
+        }
+
+        private void analyzeAndWrite(string message)
+        {
+            System.Console.ForegroundColor = ConsoleColor.White;
+            for (int i = 0; i < message.Length; i++)
+            {
+                if (message[i] != '|')
+                {
+                    System.Console.Write(message[i]);
+                }
+                else
+                {
+                    i++;
+                    changeColor(message[i]);
+                }
+            }
+        }
+
+        private void changeColor(char code)
+        {
+            ConsoleColor color = ConsoleColor.White;
+            switch (code)
+            {
+                case 'b':
+                    color = ConsoleColor.DarkBlue;
+                    break;
+                case 'g':
+                    color = ConsoleColor.DarkGreen;
+                    break;
+                case 'c':
+                    color = ConsoleColor.DarkCyan;
+                    break;
+                case 'r':
+                    color = ConsoleColor.DarkRed;
+                    break;
+                case 'p':
+                    color = ConsoleColor.DarkMagenta;
+                    break;
+                case 'y':
+                    color = ConsoleColor.DarkYellow;
+                    break;
+                case 's':
+                    color = ConsoleColor.Gray;
+                    break;
+                case 'S':
+                    color = ConsoleColor.DarkGray;
+                    break;
+                case 'B':
+                    color = ConsoleColor.Blue;
+                    break;
+                case 'G':
+                    color = ConsoleColor.Green;
+                    break;
+                case 'C':
+                    color = ConsoleColor.Cyan;
+                    break;
+                case 'R':
+                    color = ConsoleColor.Red;
+                    break;
+                case 'P':
+                    color = ConsoleColor.Magenta;
+                    break;
+                case 'Y':
+                    color = ConsoleColor.Yellow;
+                    break;
+                case 'W':
+                    color = ConsoleColor.White;
+                    break;
+                default:
+                    break;
+            }
+            System.Console.ForegroundColor = color;
         }
 
         public void OutputPrinter(object message, bool isNewLine = true, int delay = 60)
