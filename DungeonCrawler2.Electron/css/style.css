@@ -9,6 +9,7 @@
 }
 
     .console span {
+        font-family: "Lucida Console", Monaco, monospace;
         background-color: inherit;
         margin: 0px;
         display: contents;
@@ -39,11 +40,11 @@
 }
 
 .s {
-    color: rgb(204,204,204);
+    color: rgb(118,118,118);
 }
 
 .S {
-    color: rgb(118,118,118);
+    color: rgb(204,204,204);
 }
 
 .B {

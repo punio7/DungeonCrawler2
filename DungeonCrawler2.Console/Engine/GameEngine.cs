@@ -223,10 +223,10 @@ namespace DungeonCrawler2.Console.Engine
                     color = ConsoleColor.DarkYellow;
                     break;
                 case 's':
-                    color = ConsoleColor.Gray;
+                    color = ConsoleColor.DarkGray;
                     break;
                 case 'S':
-                    color = ConsoleColor.DarkGray;
+                    color = ConsoleColor.Gray;
                     break;
                 case 'B':
                     color = ConsoleColor.Blue;

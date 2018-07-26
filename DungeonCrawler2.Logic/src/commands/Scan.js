@@ -25,7 +25,7 @@ class Scan extends Command {
     printCharacters(roomId) {
         let room = Game.getRoom(roomId);
         if (!room.getCharacters().any()) {
-            return Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace + Engine.NonBreakingSpace + "nikogo nie ma";
+            return Engine.NonBreakingSpace.repeat(4) + "nikogo nie ma";
         }
 
         return room.getCharacters().printShortFormat(true);
