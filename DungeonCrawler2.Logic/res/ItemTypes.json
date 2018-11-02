@@ -1,30 +1,116 @@
-﻿[
-  "Weapon1H",
-  "Weapon2H",
-  "Shield",
-  "Armor",
-  "Shoulders",
-  "Gloves",
-  "Greaves",
-  "Boots",
-  "Helmet",
-  "Shirt",
-  "Pants",
-  "WildShield",
-  "WildArmor",
-  "WildShoulders",
-  "WildGloves",
-  "WildGreaves",
-  "WildBoots",
-  "WildHelmet",
-  "Ring",
-  "Necklace",
-  "Potion",
-  "Food",
-  "Trash",
-  "Container",
-  "StaticContainer",
-  "Quest",
-  "Static",
-  "Lever"
-]
+﻿{
+  "$schema": "ItemType-Schema.json#",
+  "ItemTypes": [
+    {
+      "Id": "Weapon1H",
+      "Slot": "MainHand",
+      "Name": [
+        "broń jednoręczna",
+        "broni jednoręcznej",
+        "broni jednoręcznej",
+        "broń jednoręczną",
+        "bronią jednoręczną",
+        "broni jednoręcznej",
+        "broni jednoręczna"
+      ]
+    },
+    {
+      "Id": "Weapon2H",
+      "Slot": "MainHand",
+      "Name": [
+        "broń dwuręczna",
+        "broni dwuręcznej",
+        "broni dwuręcznej",
+        "broń dwuręczną",
+        "bronią dwuręczną",
+        "broni dwuręcznej",
+        "broni dwuręczna"
+      ]
+    },
+    {
+      "Id": "Shield",
+      "Slot": "OffHand",
+      "Name": [
+        "tarcza",
+        "tarczy",
+        "tarczy",
+        "tarczę",
+        "tarczą",
+        "tarczy",
+        "tarczo"
+      ]
+    },
+    {
+      "Id": "Armor",
+      "Slot": "Torso",
+      "Name": [
+        "pancerz",
+        "pancerza",
+        "pancerzowi",
+        "pancerz",
+        "pancerzem",
+        "pancerzu",
+        "pancerzu"
+      ]
+    },
+    {
+      "Id": "Shoulders",
+      "Slot": "Arms",
+      "Name": [
+        "naramienniki",
+        "naramienników",
+        "naramiennikom",
+        "naramienniki",
+        "naramiennikami",
+        "naramiennikach",
+        "naramienniki"
+      ]
+    },
+    {
+      "Id": "Gloves",
+      "Slot": "Hands",
+      "Name": [
+        "rękawice",
+        "rękawic",
+        "rękawicom",
+        "rękawice",
+        "rękawicami",
+        "rękawicach",
+        "rękawice"
+      ]
+    },
+    {
+      "Id": "Greaves",
+      "Slot": "Legs",
+      "Name": [
+        "nagolenniki",
+        "nagolenników",
+        "nagolennikom",
+        "nagolenniki",
+        "nagolennikami",
+        "nagolennikach",
+        "nagolenniki"
+      ]
+    },
+    {
+      "Id": "Boots",
+      "Slot": "Legs",
+      "Name": [
+        "buty",
+        "butów",
+        "butom",
+        "buty",
+        "butami",
+        "butach",
+        "buty"
+      ]
+    },
+    {
+      "Id": "Helmet",
+      "Slot": "Head",
+      "Name": [
+        "hełm"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "ItemTypeId": {
+      "description": "Item's type Id",
+      "type": "string",
+      "enum": [
+        "Weapon1H",
+        "Weapon2H",
+        "Shield",
+        "Armor",
+        "Shoulders",
+        "Gloves",
+        "Greaves",
+        "Boots",
+        "Helmet",
+        "Shirt",
+        "Pants",
+        "WildShield",
+        "WildArmor",
+        "WildShoulders",
+        "WildGloves",
+        "WildGreaves",
+        "WildBoots",
+        "WildHelmet",
+        "Ring",
+        "Necklace",
+        "Potion",
+        "Food",
+        "Trash",
+        "Currency",
+        "Container",
+        "StaticContainer",
+        "Quest",
+        "Static",
+        "Lever"
+      ]
+    },
+    "EquipmentSlod": {
+      "description": "Types of equipment slots",
+      "type": "string",
+      "default": "None",
+      "enum": [
+        "None",
+        "Torso",
+        "Arms",
+        "Hands",
+        "Legs",
+        "Feets",
+        "Head",
+        "MainHand",
+        "OffHand",
+        "Shirt",
+        "Pants",
+        "Coat",
+        "RightRing",
+        "LeftRing",
+        "Necklace",
+        "Torch"
+      ]
+    }
+  },
+  "properties": {
+    "ItemTypes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "$ref": "#/definitions/ItemTypeId"
+          },
+          "Slot": {
+            "$ref": "#/definitions/EquipmentSlod",
+          },
+          "EquipableByPlayer": {
+            "type": "boolean",
+            "default": false
+          },
+          "Name": {
+            "$ref": "Common-Schema.json#/definitions/EntityName"
+          }
+        },
+        "required": ["Id", "Name"]
+      }
+    }
+  },
+  "title": "JSON Schema for Item types definitions",
+  "type": "object"
+}
