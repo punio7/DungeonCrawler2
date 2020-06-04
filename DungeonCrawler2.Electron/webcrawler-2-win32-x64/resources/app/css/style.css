@@ -1,0 +1,76 @@
+﻿.consoleContainer {
+    background-color: rgb(12,12,12);
+}
+
+.console {
+    width: inherit;
+    background-color: inherit;
+    display: block;
+}
+
+    .console span {
+        font-family: "Lucida Console", Monaco, monospace;
+        background-color: inherit;
+        margin: 0px;
+        display: contents;
+    }
+
+.b {
+    color: rgb(0,55,218);
+}
+
+.g {
+    color: rgb(19,161,14);
+}
+
+.c {
+    color: rgb(58,150,221);
+}
+
+.r {
+    color: rgb(197,15,31);
+}
+
+.p {
+    color: rgb(136,23,152);
+}
+
+.y {
+    color: rgb(193,156,0);
+}
+
+.s {
+    color: rgb(118,118,118);
+}
+
+.S {
+    color: rgb(204,204,204);
+}
+
+.B {
+    color: rgb(59,120,255);
+}
+
+.G {
+    color: rgb(22,198,12);
+}
+
+.C {
+    color: rgb(97,214,214);
+}
+
+.R {
+    color: rgb(231,72,86);
+}
+
+.P {
+    color: rgb(180,0,158);
+}
+
+.Y {
+    color: rgb(249,241,165);
+}
+
+.W {
+    color: rgb(242,242,242);
+}

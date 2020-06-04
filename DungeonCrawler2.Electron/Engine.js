@@ -89,14 +89,14 @@ class EngineClass {
 
     LoadScript(location) {
         console.log('Loading script file ' + location);
-        var data = this.fileSystem.readFileSync(location, { encoding: 'utf-8' });
+        var data = this.fileSystem.readFileSync(__dirname + '/' + location, { encoding: 'utf-8' });
         //eval(data);
         this.loadScript(location, { async: false });
     }
 
     LoadData(location) {
         console.log('Loading data file ' + location);
-        var data = this.fileSystem.readFileSync(location, { encoding: 'utf-8' });
+        var data = this.fileSystem.readFileSync(__dirname + '/' + location, { encoding: 'utf-8' });
         return data.replace(/^\uFEFF/, '');
     }
 

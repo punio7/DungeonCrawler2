@@ -1,0 +1,121 @@
+﻿{
+  "$schema": "item-schema.json#",
+  "ItemsTemplates": [
+    {
+      "Id": "gold",
+      "Name": [
+        [
+          "|Yzłota moneta",
+          "|Yzłotej monety",
+          "|Yzłotej monecie",
+          "|Yzłotą monetę",
+          "|Yzłotą monetą",
+          "|Yzłotej monecie",
+          "|Yzłota moneto"
+        ],
+        [
+          "|Yzłote monety",
+          "|Yzłotych monet",
+          "|Yzłotym monetom",
+          "|Yzłote monety",
+          "|Yzłotymi monetami",
+          "|Yzłotych monetach",
+          "|Yzłote monety"
+        ],
+        [
+          "|Yzłotych monet",
+          "|Yzłotych monet",
+          "|Yzłotym monetom",
+          "|Yzłotych monet",
+          "|Yzłotymi monetami",
+          "|Yzłotych monetach",
+          "|Yzłotych monet"
+        ]
+      ],
+      "Description": "|YZłoto, złoto, złoto, złoto.",
+      "Type": "Trash",
+      "IsStackable": true
+    },
+
+
+    {
+      "Id": "drewno-drag",
+      "Name": [
+        "drewniany drąg",
+        "drewnianego drąga",
+        "drewnianemu drągowi",
+        "drewniany drąg",
+        "drewnianym drągiem",
+        "drewnianym drągu",
+        "drewniany drągu"
+      ],
+      "Idle": "leży u twoich stóp",
+      "Description": "Ten kawał kija wygląda na oderwaną i wyschniętą gałęź jakiegoś drzewa. Nie jest on całkiem prosty, zawiera kilka sęków i nieregularności ale jest długi na kilka łokci i może całkiem sprawnie posłużyć jako improwizowana broń.",
+      "Type": "Weapon1H"
+    },
+    {
+      "Id": "drewno-drag-2",
+      "Name": [
+        "inny drewniany drąg",
+        "innego drewnianego drąga",
+        "innemu drewnianemu drągowi",
+        "inny drewniany drąg",
+        "innym drewnianym drągiem",
+        "innym drewnianym drągu",
+        "inny drewniany drągu"
+      ],
+      "Idle": "leży u twoich stóp",
+      "Description": "Ten kawał kija wygląda na oderwaną i wyschniętą gałęź jakiegoś drzewa. Nie jest on całkiem prosty, zawiera kilka sęków i nieregularności ale jest długi na kilka łokci i może całkiem sprawnie posłużyć jako improwizowana broń.",
+      "Type": "Weapon1H"
+    },
+
+
+    {
+      "Id": "skora-szczura",
+      "Name": [
+        "szczurza skóra",
+        "szczurzej skóry",
+        "szczurzej skórze",
+        "szczurzą skórę",
+        "szczurzą skórą",
+        "szczurzej skórze",
+        "szczurza skóro"
+      ],
+      "Description": "Opis skóry szczura.",
+      "Type": "WildArmor"
+    },
+
+
+    {
+      "Id": "wooden-chest",
+      "Name": [
+        "drewniana skrzynia",
+        "drewnianej skrzyni",
+        "drewnianej skrzyni",
+        "drewnianą skrzynię",
+        "drewnianą skrzynią",
+        "drwnianej skrzyni",
+        "drewniana skrzynio"
+      ],
+      "Description": "Opis drewnianej skrzyni",
+      "Type": "StaticContainer",
+      "Idle": "stoi pod ścianą"
+    },
+
+
+    {
+      "Id": "sapphire-round",
+      "Name": [
+        "okrągły szafir",
+        "okrągłego szafiru",
+        "okrągłemu szafirowi",
+        "okrągły szafir",
+        "okrągłym szafirem",
+        "okrągłym szafirze",
+        "okrągły szafirze"
+      ],
+      "Description": "Szafir jest kamieniem szlachetnym o barwie ciemno niebieskiej. Zazwyczaj klejnoty szlifowane są w sześcienne lub inne kanciaste kształty, ten jednak jest uformowany w kształt kuli. Przyglądając się bliżej nie zauważasz żadnych śladów szlifowania, zachwyca cię również niezwykła perfekcja kuli.",
+      "Type": "Quest"
+    }
+  ]
+}

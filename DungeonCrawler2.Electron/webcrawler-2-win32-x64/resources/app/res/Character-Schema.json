@@ -1,0 +1,65 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for my JSON file format",
+
+  "type": "object",
+
+  "properties": {
+    "CharactersTemplates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [ "Id", "Name", "Description", "Idle" ],
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Character's template id"
+          },
+
+          "Name": {
+            "type": "array",
+            "description": "Character's display name in all grama cases",
+            "minItems": 7,
+            "maxItems": 7,
+            "items": {
+              "type": "string"
+            }
+          },
+
+          "Idle": {
+            "type": "string",
+            "description": "Text shown on items list"
+          },
+
+          "Description": {
+            "type": "string",
+            "description": "Character's detailed description"
+          },
+
+          "Inventory": {
+            "type": "array",
+            "items": {
+              "$ref": "Common-Schema.json#/definitions/ItemListElement"
+            }
+          },
+
+          "Equipment": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [ "Item", "Slot" ],
+              "properties": {
+                "Slot": {
+                  "type": "string",
+                  "enum": [ "Torso", "Arms", "Hands", "Legs", "Feets", "Head", "RightHand", "LeftHand", "Shirt", "Pants", "Coat", "RightRing", "LeftRing", "Necklace", "Torch" ]
+                },
+                "Item": { "$ref": "Common-Schema.json#/definitions/ItemListElement" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -84,7 +84,7 @@ class Item {
             case Game.ItemTypes.Static:
             case Game.ItemTypes.StaticContainer:
             case Game.ItemTypes.Lever:
-                return false
+                return false;
             default:
                 return true;
         }

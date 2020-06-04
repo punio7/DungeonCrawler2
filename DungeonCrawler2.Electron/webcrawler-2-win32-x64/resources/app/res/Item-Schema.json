@@ -1,0 +1,98 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for my JSON file format",
+
+  "type": "object",
+
+  "properties": {
+    "ItemsTemplates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["Id", "Name", "Description", "Type"],
+        "properties": {
+
+          "Id": {
+            "type": "string",
+            "description": "Item's template id"
+          },
+
+          "Name": {
+            "anyOf": [
+              {
+                "$ref": "Common-Schema.json#/definitions/EntityName"
+              },
+              {
+                "type": "array",
+                "description": "Plurar variants of item's name",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "$ref": "Common-Schema.json#/definitions/EntityName"
+                }
+              }
+            ]
+          },
+
+          "Idle": {
+            "type": "string",
+            "description": "Text shown on items list"
+          },
+
+          "Description": {
+            "type": "string",
+            "description": "Item's detailed description"
+          },
+
+          "Type": {
+            "type": "string",
+            "description": "Item's type",
+            "enum": [
+              "Weapon1H",
+              "Weapon2H",
+              "Shield",
+              "Armor",
+              "Shoulders",
+              "Gloves",
+              "Greaves",
+              "Boots",
+              "Helmet",
+              "Shirt",
+              "Pants",
+              "WildShield",
+              "WildArmor",
+              "WildShoulders",
+              "WildGloves",
+              "WildGreaves",
+              "WildBoots",
+              "WildHelmet",
+              "Ring",
+              "Necklace",
+              "Potion",
+              "Food",
+              "Trash",
+              "Container",
+              "StaticContainer",
+              "Quest",
+              "Static",
+              "Lever"
+            ]
+          },
+
+          "IsLightSource": {
+            "type": "boolean",
+            "default": "false",
+            "description": "Specifies if item lights up the room"
+          },
+
+          "IsStackable": {
+            "type": "boolean",
+            "default": "false",
+            "description": "Specifies if the item is stackable"
+          }
+        }
+      }
+    }
+  }
+}

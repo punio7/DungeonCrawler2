@@ -1,0 +1,5 @@
+commit 3e985e75ae76475ccc1119ed7b98a2e2c7274174
+Author: punio7 <punio7@gmail.com>
+Date:   Thu Jul 26 22:51:38 2018 +0200
+
+    Poprawka ignore

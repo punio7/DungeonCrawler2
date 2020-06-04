@@ -1,0 +1,106 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "EntityName": {
+      "type": "array",
+      "description": "Entity's display name in all grama cases",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "string"
+      }
+    },
+    "ItemId": {
+      "type": "string",
+      "description": "Item's Id"
+    },
+    "Stack": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Min": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "Max": {
+              "type": "integer",
+              "minimum": 2
+            }
+          }
+        }
+      ]
+    },
+    "Chance": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "ItemListElement": {
+      "anyOf": [
+        {
+          "$ref":  "#/definitions/ItemId"
+        },
+        {
+          "type": "object",
+          "description": "Item's detailed definition- chance of spawning and stack count",
+          "required": [ "ItemId" ],
+          "properties": {
+            "ItemId": { "$ref": "#/definitions/ItemId" },
+            "Chance": { "$ref": "#/definitions/Chance" },
+            "Stack": { "$ref": "#/definitions/Stack" },
+            "Inventory": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ItemListElement"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "Item's detailed definition list- spawns one of listed item",
+          "required": [ "ItemId" ],
+          "properties": {
+            "ItemId": {
+              "type": "array",
+              "description": "One of listed item ids will be selected",
+              "minItems": 1,
+              "items": {
+                "anyOf": [
+                  { "$ref": "#/definitions/ItemId" },
+                  { "type": "null"}
+                ]
+              }
+            },
+            "Chance": { "$ref": "#/definitions/Chance" },
+            "ChanceList": {
+              "type": "array",
+              "description": "Custom chance of spawning each of listed items, default chance is equal for each item",
+              "items": {
+                "type": "number",
+                "minimum": 1
+              }
+            },
+            "Stack": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "anyOf": [
+                  { "$ref": "#/definitions/Stack" },
+                  { "type": "null" }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "title": "JSON Schema for my JSON file format",
+  "type": "object"
+}

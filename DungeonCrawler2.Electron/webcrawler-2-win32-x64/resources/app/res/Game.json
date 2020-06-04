@@ -1,0 +1,80 @@
+﻿{
+  "$schema": "Game-Schema.json#",
+  "Name": "nazwa gry",
+  "StartingRoom": 0,
+  "Rooms": [
+    {
+      "Id": 0,
+      "Name": "Początek korytarza",
+      "Description": "Rozglądając się dookoła dostrzegasz głównie ciemność. Wąski słup światła wpadający z dziury w suficie jest jedynym źródłem światła. Miejsce to wygląda na jakiś stary, podziemny tunel. Przejście za twoimi plecami zostało zasypane gruzem, kamieniami i ziemią, którą teraz porastają chwasty i trawa. Patrząc wprost widzisz morze kamienia ginące w mroku poza światłem. Interesująca wydaje się jedynie dziura w podłodze, umieszczona bezpośrednia pod tą w suficie. Słup światła nurkuje do niej ginąc gdzieś dużo, dużo niżej.",
+      "IsNaturalLight": true,
+      "Exits": [
+        {
+          "Direction": "north",
+          "RoomId": 1
+        }
+      ],
+      "Items": [
+        "drewno-drag",
+        {
+          "ItemId": "gold",
+          "Stack": 10
+        },
+        {
+          "ItemId": "drewno-drag",
+          "Chance": 100
+        },
+        {
+          "ItemId": [ "drewno-drag", "drewno-drag-2", "gold" ],
+          "ChanceList": [ 33, 33, 34 ],
+          "Stack": [ null, null, 50 ]
+        }
+      ]
+    },
+
+    {
+      "Id": 1,
+      "Name": "Podziemny korytarz",
+      "Description": "Korytarz wyłożony jest starymi kamiennymi płytami. Takie same płytki na ścianach, podłodze, suficie, od tego kamienia zaczyna kręcić ci się w głowie. Niektóre z nich powypadały ze swoich miejsc, tworzą teraz warstwę gruzu na podłodze. Większość z tych, które pozostały jest porośnięta mchem. Sztucznie uformowany kamień powoli poddaje się otaczającej go naturze.",
+      "IsNaturalLight": true,
+      "Exits": [
+        {
+          "Direction": "north",
+          "RoomId": 2
+        },
+        {
+          "Direction": "south",
+          "RoomId": 0
+        }
+      ],
+      "Characters": [
+        "szczur-jaskiniowy"
+      ],
+      "Items": [
+        {
+          "ItemId": "wooden-chest",
+          "Inventory": [ "sapphire-round" ]
+        }
+      ],
+
+      "OnFirstEnterEvent": "TestGlobalEvent"
+    },
+
+    {
+      "Id": 2,
+      "Name": "Podziemny korytarz",
+      "Description": "Im dalej od źródła światła tym bardziej korytarz pogłębia się ciemności i dostrzegasz coraz mniej. Cienie robią się nadzwyczaj długie, niknące w ciemności znajdującej się przed tobą. Refleksje światła na nieporośniętych mchem płytkach stają się coraz słabsze, natomiast podłoga wydaje się być pokryta dywanem mroku.",
+      "IsNaturalLight": true,
+      "Exits": [
+        {
+          "Direction": "north",
+          "RoomId": 3
+        },
+        {
+          "Direction": "south",
+          "RoomId": 2
+        }
+      ]
+    }
+  ]
+}

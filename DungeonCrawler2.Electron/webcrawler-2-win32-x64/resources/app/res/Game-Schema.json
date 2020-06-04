@@ -1,0 +1,82 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "description": "Nazwa gry, dunno po co to komu"
+    },
+    "StartingRoom": {
+      "type": "number",
+      "description": "Pokój startowy"
+    },
+    "Rooms": {
+      "type": "array",
+      "description": "Tablica pomieszczeń",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [ "Id" ],
+        "properties": {
+          "Id": { "type": "number" },
+          "Name": { "type": "string" },
+          "Description": { "type": "string" },
+          "IsNaturalLight": {
+            "type": "boolean",
+            "default": "false"
+          },
+          "Exits": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [ "Direction", "RoomId" ],
+              "properties": {
+                "Direction": {
+                  "type": "string",
+                  "enum": [ "north", "south", "east", "west", "up", "down" ]
+                },
+                "RoomId": { "type": "number" },
+                "IsDoor": {
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "IsClosed": {
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "IsLocked": {
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "IsHidden": {
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "KeyNumber": { "type": "number" }
+              }
+            }
+          },
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "Common-Schema.json#/definitions/ItemListElement"
+            }
+          },
+          "Characters": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+
+          "OnFirstEnterEvent": {
+            "type": "string"
+          },
+          "OnEnterEvent": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [ "StartingRoom", "Rooms" ],
+  "title": "Schema for main Game state object",
+  "type": "object"
+}

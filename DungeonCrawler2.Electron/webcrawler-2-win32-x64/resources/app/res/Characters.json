@@ -1,0 +1,25 @@
+﻿{
+  "$schema": "character-schema.json#",
+  "CharactersTemplates": [
+    {
+      "Id": "szczur-jaskiniowy",
+      "Name": [
+        "szczur jaskiniowy",
+        "szczura jaskiniowego",
+        "szczurowi jaskiniowemu",
+        "szczura jaskiniowego",
+        "szczurem jaskiniowym",
+        "szczurze jaskiniowym",
+        "szczurze jaskiniowy"
+      ],
+      "Description": "Szczury jaskiniowe są nieco większe od szczurów miejskich, są jednak porównywalnie obrzydliwe. Bure, mokre futerko pokrywa prawie jedno łokciowego gryzonia, który skrzętnie przeszukuje otoczenie w poszukiwaniu pożywienia. Odgłos małych pazurków uderzających w kamienną posadzkę towarzyszy każdemu ruchowi szczura.",
+      "Idle": "szpera dookoła",
+      "Equipment": [
+        {
+          "Slot": "Torso",
+          "Item": "skora-szczura"
+        } 
+      ]
+    }
+  ]
+}
