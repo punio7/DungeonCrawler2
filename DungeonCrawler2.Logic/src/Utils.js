@@ -23,3 +23,9 @@ if (!String.prototype.isNumber) {
         return /^\d+$/.test(this);
     };
 }
+
+if (!String.prototype.isNullOrEmpty) {
+    String.prototype.isNullOrEmpty = function () {
+        return this === null || this === "";
+    };
+}

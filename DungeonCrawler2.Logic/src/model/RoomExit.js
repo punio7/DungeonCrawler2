@@ -6,7 +6,7 @@ class RoomExit {
         delete this.Direction;
     }
 
-    getRoomId() {
+    GetRoomId() {
         return this.RoomId;
     }
 

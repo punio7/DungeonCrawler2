@@ -31,7 +31,7 @@ class Player extends Character {
 
     /**@returns {boolean} */
     canSee() {
-        let room = Game.getRoom(this.Location);
+        let room = Game.GetRoom(this.Location);
         return room.hasLightSource();
     }
 };

@@ -34,7 +34,7 @@ class GameModel {
      * @param {number} roomId
      * @returns {Room}
      */
-    getRoom(roomId) {
+    GetRoom(roomId) {
         let room = this.Rooms[roomId];
         if (room === undefined) {
             throw 'Invalid Room Id: {0}'.format(roomId);
@@ -50,8 +50,8 @@ class GameModel {
      * @param {any} itemDefinition
      * @returns {Item}
      */
-    spawnItem(itemDefinition) {
-        return this.ItemFactory.spawnItem(itemDefinition);
+    SpawnItem(itemDefinition) {
+        return this.ItemFactory.SpawnItem(itemDefinition);
     }
 
     /**
@@ -59,7 +59,7 @@ class GameModel {
      * @param {string} characterId
      * @returns {Character}
      */
-    spawnCharacter(characterId) {
+    SpawnCharacter(characterId) {
         let template = this.CharacterTemplates.getTemplate(characterId);
         return new Character(template);
     }
@@ -69,11 +69,16 @@ class GameModel {
      * @param {string} itemTypeName
      * @returns {string}
      */
-    getItemType(itemTypeName) {
-        return this.ItemTypes.getItemType(itemTypeName);
+    GetItemType(itemTypeName) {
+        return this.ItemTypes.GetItemType(itemTypeName);
     }
 
-    invokeGlobalEvent(name, args) {
+    /**
+     * 
+     * @param {string} name
+     * @param {GlobalEventArgs} args
+     */
+    InvokeGlobalEvent(name, args) {
         let event = GlobalEvents[name];
         if (event === undefined || typeof event !== "function") {
             throw "Global event with name {0} doesn't exist".format(name);

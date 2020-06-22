@@ -24,7 +24,7 @@ class Room {
         let newCharacters = new CharacterList();
         if (this.Characters !== undefined) {
             this.Characters.forEach(characterId => {
-                newCharacters.add(Game.spawnCharacter(characterId));
+                newCharacters.add(Game.SpawnCharacter(characterId));
             });
         }
         this.Characters = newCharacters;

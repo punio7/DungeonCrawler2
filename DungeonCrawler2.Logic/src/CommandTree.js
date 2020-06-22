@@ -36,6 +36,11 @@ class CommandTree {
         }
     }
 
+    /**
+     * 
+     * @param {string} name String name of command
+     * @returns { Command } Found command object
+     */
     GetCommand(name) {
         let currentNode = this.root;
 

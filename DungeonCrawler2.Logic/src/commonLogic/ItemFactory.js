@@ -1,6 +1,6 @@
 ﻿"use strict";
 class ItemFactory {
-    spawnItem(itemDefinition) {
+    SpawnItem(itemDefinition) {
         if (typeof itemDefinition === "string") {
             let template = Game.ItemTemplates.getTemplate(itemDefinition);
             return new Item(template);
@@ -64,7 +64,7 @@ class ItemFactory {
                 inventory = item.Inventory = new ItemList();
             }
             itemDefinition.Inventory.forEach(itemDefinition => {
-                inventory.add(Game.spawnItem(itemDefinition));
+                inventory.add(Game.SpawnItem(itemDefinition));
             });
         }
     }

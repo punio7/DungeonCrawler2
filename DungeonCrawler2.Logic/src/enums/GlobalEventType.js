@@ -2,7 +2,7 @@
 class GlobalEventTypeEnum extends EnumBase {
     constructor() {
         super();
-        this.OnRoomEnter = 1;
+        this.BeforeRoomEnter = 1;
     }
 }
 

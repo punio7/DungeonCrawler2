@@ -1,7 +1,8 @@
 ﻿"use strict";
 class GlobalEventsClass {
     TestGlobalEvent(args) {
-        Engine.OutputPrinter("Testing global events...")
+        EngineUtils.OutputPrinter("Testing global events...", args.ContinueCommandCallback);
+        return true;
     }
 }
 

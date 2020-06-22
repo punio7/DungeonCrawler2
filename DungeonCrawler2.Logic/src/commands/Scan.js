@@ -1,13 +1,13 @@
 "use strict";
 class Scan extends Command {
     ExecuteBody(command) {
-        let room = Game.getRoom(Game.Player.getLocation());
+        let room = Game.GetRoom(Game.Player.getLocation());
 
         if (!Game.Player.canSee()) {
             Engine.Output("Nic nie widzisz w tej ciemności.");
             return;
         }
-        let playerRoom = Game.getRoom(Game.Player.Location);
+        let playerRoom = Game.GetRoom(Game.Player.Location);
 
         Engine.Output("Rozglądajac się dookoła dostrzegasz:");
         Engine.Output("Tutaj:");
@@ -23,7 +23,7 @@ class Scan extends Command {
     }
 
     printCharacters(roomId) {
-        let room = Game.getRoom(roomId);
+        let room = Game.GetRoom(roomId);
         if (!room.getCharacters().any()) {
             return Engine.NonBreakingSpace.repeat(4) + "nikogo nie ma";
         }

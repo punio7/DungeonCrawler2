@@ -8,14 +8,14 @@ class Take extends Command {
 
         if (command.getArgument(2) === null) {
             if (command.getArgument(1).toLowerCase() === "all") {
-                if (!Game.getRoom(Game.Player.Location).getItems().any()) {
+                if (!Game.GetRoom(Game.Player.Location).getItems().any()) {
                     Engine.Output("Nic tu nie ma.");
                     return;
                 }
                 this.takeAllFromLocation();
             }
             else {
-                let itemList = Game.getRoom(Game.Player.Location).getItems();
+                let itemList = Game.GetRoom(Game.Player.Location).getItems();
                 let item = itemList.find(command.getArgument(1), command.getNumber(1));
                 if (item === null) {
                     Engine.Output("Tutaj nie ma czegoś takiego jak {0}.".format(command.getArgument(1)));
@@ -42,7 +42,7 @@ class Take extends Command {
     }
 
     takeAllFromLocation() {
-        let itemList = Game.getRoom(Game.Player.Location).getItems();
+        let itemList = Game.GetRoom(Game.Player.Location).getItems();
         let i = 0;
         for (var item = itemList.elementAt(i); item != null; item = itemList.elementAt(i)) {
             if (!this.takeItemFromLocation(item, itemList)) {

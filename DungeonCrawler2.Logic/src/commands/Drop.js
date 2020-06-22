@@ -33,7 +33,7 @@ class Drop extends Command {
 
     dropItem(item) {
         Game.Player.getInventory().remove(item);
-        Game.getRoom(Game.Player.Location).getItems().add(item);
+        Game.GetRoom(Game.Player.Location).getItems().add(item);
         Engine.Output("Upuszczasz {0}.".format(item.getName(GrammaCase.Biernik)));
     }
 };

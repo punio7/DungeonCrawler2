@@ -1,9 +1,9 @@
 ﻿"use strict";
 
-Engine.LoadScript('src/Utils.js')
-Engine.LoadScript('src/InitGameData.js')
-Engine.LoadScript('src/InitCommands.js')
-Engine.LoadScript('src/GlobalEvents.js')
+Engine.LoadScript('src/Utils.js');
+Engine.LoadScript('src/InitGameData.js');
+Engine.LoadScript('src/InitCommands.js');
+Engine.LoadScript('src/GlobalEvents.js');
 
 Engine.LoadScript('src/model/Game.js');
 Engine.LoadScript('src/enums/EnumBase.js');
@@ -25,6 +25,7 @@ Engine.LoadScript('src/model/CharacterTemplates.js');
 Engine.LoadScript('src/model/CharacterList.js');
 Engine.LoadScript('src/model/GlobalEventArgs.js');
 
+Engine.LoadScript('src/CommonLogic/EngineUtils.js');
 Engine.LoadScript('src/CommonLogic/Prompt.js');
 Engine.LoadScript('src/CommonLogic/Random.js');
 Engine.LoadScript('src/CommonLogic/ItemFactory.js');
@@ -50,6 +51,7 @@ Engine.LoadScript('src/commands/Inventory.js');
 Engine.LoadScript('src/commands/Drop.js');
 Engine.LoadScript('src/commands/Scan.js');
 
+Engine.LoadScript('src/CommandCallback.js');
 Engine.LoadScript('src/CommandTree.js');
 Engine.LoadScript('src/CommandsManager.js');
 
@@ -58,7 +60,10 @@ function Init() {
     InitCommands();
     Engine.Output("Dungeon Crawler 2, wersja:");
     Engine.Output(version);
-    Commands.Go.changePlayerLocation(Game.getRoom(Game.StartingRoom));
-    Engine.Output("");
-    Prompt.Print();
+    Commands.Go.changePlayerLocation(Game.GetRoom(Game.StartingRoom),
+        new CommandCallback(() => {
+            Engine.Output("");
+            Prompt.Print();
+        }));
+
 }

@@ -4,7 +4,7 @@ class Item {
 
         Object.assign(this, template);
 
-        this.Type = Game.getItemType(this.Type);
+        this.Type = Game.GetItemType(this.Type);
     }
 
     getName(grammaCase = GrammaCase.Mianownik) {

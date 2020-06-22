@@ -5,7 +5,7 @@ class ItemList extends EntityList {
 
         if (template !== undefined) {
             template.forEach(itemDefinition => {
-                this.add(Game.spawnItem(itemDefinition));
+                this.add(Game.SpawnItem(itemDefinition));
             });
         }
     }

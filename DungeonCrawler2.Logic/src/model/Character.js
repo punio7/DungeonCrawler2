@@ -6,7 +6,7 @@ class Character {
         let newInventory = new ItemList();
         if (this.Inventory !== undefined) {
             this.Inventory.forEach(itemDefinition => {
-                newInventory.add(Game.spawnItem(itemDefinition));
+                newInventory.add(Game.SpawnItem(itemDefinition));
             });
         }
         this.Inventory = newInventory;
@@ -14,7 +14,7 @@ class Character {
         let newEquipment = new Equipment();
         if (this.Equipment !== undefined) {
             this.Equipment.forEach(eq => {
-                newEquipment.equip(EquipmentSlots.parse(eq.Slot), Game.spawnItem(eq.Item));
+                newEquipment.equip(EquipmentSlots.parse(eq.Slot), Game.SpawnItem(eq.Item));
             });
         }
         this.Equipment = newEquipment;

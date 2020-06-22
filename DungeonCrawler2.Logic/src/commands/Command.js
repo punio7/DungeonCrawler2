@@ -4,12 +4,24 @@ class Command {
         
     }
 
-    Execute(game, command) {
+    /**
+     * 
+     * @param {CommandParser} command Comman parser with command info and parameters
+     * @param {CommandCallback} commandCallback Callback to continue execution after command finishes
+     */
+    Execute(command, commandCallback) {
         
-        this.ExecuteBody(command);
+        this.ExecuteBody(command, commandCallback);
+        if (!commandCallback.interruptFlow) {
+            commandCallback.CallIfNotCalled();
+        }
     }
 
-    ExecuteBody(command) {
-
+    /**
+     * 
+     * @param {CommandParser} command Comman parser with command info and parameters
+     * @param {CommandCallback} commandCallback Callback to continue execution after command finishes
+     */
+    ExecuteBody(command, commandCallback) {
     }
 }

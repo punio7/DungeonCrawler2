@@ -1,6 +1,6 @@
 "use strict";
 class Down extends Command {
-    ExecuteBody(command) {
-        Commands.Go.goToDirection(Directions.down);
+    ExecuteBody(command, commandCallback) {
+        Commands.Go.goToDirection(Directions.down, commandCallback);
     }
 };

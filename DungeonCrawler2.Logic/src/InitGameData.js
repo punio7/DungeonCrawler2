@@ -16,7 +16,7 @@ function InitGameData() {
     let characterTemplates = JSON.parse(Engine.LoadData('res/Characters.json')).CharactersTemplates;
     Game.CharacterTemplates = new CharacterTemplatesModel(characterTemplates);
 
-    DirectionsLocales = JSON.parse(Engine.LoadData('res/Directions.json'))
+    DirectionsLocales = JSON.parse(Engine.LoadData('res/Directions.json'));
     version = Engine.LoadData('version.txt').replace("\n", Engine.EndLine);
 
     Game.Player = new Player();

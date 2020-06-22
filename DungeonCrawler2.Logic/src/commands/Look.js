@@ -1,7 +1,7 @@
 "use strict";
 class Look extends Command {
     ExecuteBody(command) {
-        let room = Game.getRoom(Game.Player.Location);
+        let room = Game.GetRoom(Game.Player.Location);
 
         if (!Game.Player.canSee()) {
             Engine.Output("Nic nie widzisz w tej ciemności.");

@@ -18,7 +18,7 @@ class EngineClass {
         return "|" + this.defaultColorCode;
     }
 
-    Output(message, isNewLine = true) {
+    Output(message = "", isNewLine = true) {
         let element = null;
 
         this.analyzeAndWrite(message);

@@ -24,7 +24,7 @@ class ItemTypesModel {
         this[itemTypeName] = this.currentNewIndex++;
     };
 
-    getItemType(itemTypeName) {
+    GetItemType(itemTypeName) {
         if (this[itemTypeName] === undefined) {
             throw "Item type " + itemTypeName + " is not defined!";
         }

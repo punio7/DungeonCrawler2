@@ -12,15 +12,7 @@ class EngineClass {
      * @param {string} message
      * @param {boolean} isNewLine
      */
-    Output(message, isNewLine = true) { }
-
-    /**
-     * 
-     * @param {string} message
-     * @param {boolean} isNewLine
-     * @param {number} delay
-     */
-    async OutputPrinter(message, isNewLine = true, delay = 60) { }
+    Output(message = "", isNewLine = true) { }
 
     /**
      * 

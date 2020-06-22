@@ -1,6 +1,6 @@
 "use strict";
 class East extends Command {
-    ExecuteBody(command) {
-        Commands.Go.goToDirection(Directions.east);
+    ExecuteBody(command, commandCallback) {
+        Commands.Go.goToDirection(Directions.east, commandCallback);
     }
 };
