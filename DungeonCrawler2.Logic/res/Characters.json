@@ -2,7 +2,7 @@
   "$schema": "character-schema.json#",
   "CharactersTemplates": [
     {
-      "Id": "szczur-jaskiniowy",
+      "Id": "cave-rat",
       "Name": [
         "szczur jaskiniowy",
         "szczura jaskiniowego",
@@ -17,7 +17,7 @@
       "Equipment": [
         {
           "Slot": "Torso",
-          "Item": "skora-szczura"
+          "Item": "rat-skin"
         } 
       ]
     }

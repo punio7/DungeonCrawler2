@@ -1,9 +1,13 @@
 "use strict";
 class Go extends Command {
     ExecuteBody(command, commandCallback) {
-        let direction = Directions.parseShort(command.getArgument(1).toLowerCase());
+        
+        let direction = null;
+        if (command.getArgument(1) !== null) {
+            direction = Directions.parseShort(command.getArgument(1).toLowerCase());
+        }
         if (direction === null) {
-            Engine.Output("Może lepiej zostać tutaj i zjeść kilka pierogów?");
+            Engine.Output(Local.Commands.Go.WrongDirection);
             return;
         }
 
@@ -14,12 +18,12 @@ class Go extends Command {
         let exit = Game.GetRoom(Game.Player.getLocation()).getExit(direction);
 
         if (exit === null || exit.isHidden()) {
-            Engine.Output("Nie możesz tam pójść.");
+            Engine.Output(Local.Commands.Go.NoPassage);
             return;
         }
 
         if (exit.isClosed()) {
-            Engine.Output("Przejście jest zamknięte.");
+            Engine.Output(Local.Commands.Go.PassageClosed);
             return;
         }
 

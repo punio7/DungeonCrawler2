@@ -207,9 +207,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="res\Common-Schema.json" />
-    <EmbeddedResource Include="res\Directions.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <None Include="res\Local.pl.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="src\model\Equipment.js">
@@ -311,6 +309,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\CommandCallback.js" />
+    <Content Include="src\commonLogic\InputFunctions.js" />
     <EmbeddedResource Include="src\commonLogic\EngineUtils.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>

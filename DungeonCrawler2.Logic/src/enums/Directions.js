@@ -15,7 +15,7 @@ class DirectionsEnum extends EnumBase {
             throw 'Invalid direction {0}'.format(direction);
         }
 
-        return DirectionsLocales[direction][grammaCase];
+        return Local.Directions[direction][grammaCase];
     }
 }
 

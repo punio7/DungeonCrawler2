@@ -39,7 +39,7 @@
 
 
     {
-      "Id": "drewno-drag",
+      "Id": "stick-wood",
       "Name": [
         "drewniany drąg",
         "drewnianego drąga",
@@ -54,7 +54,7 @@
       "Type": "Weapon1H"
     },
     {
-      "Id": "drewno-drag-2",
+      "Id": "stick-wood-2",
       "Name": [
         "inny drewniany drąg",
         "innego drewnianego drąga",
@@ -71,7 +71,7 @@
 
 
     {
-      "Id": "skora-szczura",
+      "Id": "rat-skin",
       "Name": [
         "szczurza skóra",
         "szczurzej skóry",

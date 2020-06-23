@@ -1,9 +1,5 @@
 ﻿"use strict";
 
-function Execute(command) {
-    Commands.Execute(command);
-};
-
 function InitCommands() {
     Commands.SetDefaultCommand(new NoCommand());
 

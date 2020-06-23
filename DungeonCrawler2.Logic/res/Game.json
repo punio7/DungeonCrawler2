@@ -15,17 +15,17 @@
         }
       ],
       "Items": [
-        "drewno-drag",
+        "stick-wood",
         {
           "ItemId": "gold",
           "Stack": 10
         },
         {
-          "ItemId": "drewno-drag",
+          "ItemId": "stick-wood",
           "Chance": 100
         },
         {
-          "ItemId": [ "drewno-drag", "drewno-drag-2", "gold" ],
+          "ItemId": [ "stick-wood", "stick-wood-2", "gold" ],
           "ChanceList": [ 33, 33, 34 ],
           "Stack": [ null, null, 50 ]
         }
@@ -48,7 +48,7 @@
         }
       ],
       "Characters": [
-        "szczur-jaskiniowy"
+        "cave-rat"
       ],
       "Items": [
         {
@@ -72,7 +72,7 @@
         },
         {
           "Direction": "south",
-          "RoomId": 2
+          "RoomId": 1
         }
       ]
     }

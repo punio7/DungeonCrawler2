@@ -26,6 +26,7 @@ Engine.LoadScript('src/model/CharacterList.js');
 Engine.LoadScript('src/model/GlobalEventArgs.js');
 
 Engine.LoadScript('src/CommonLogic/EngineUtils.js');
+Engine.LoadScript('src/CommonLogic/InputFunctions.js');
 Engine.LoadScript('src/CommonLogic/Prompt.js');
 Engine.LoadScript('src/CommonLogic/Random.js');
 Engine.LoadScript('src/CommonLogic/ItemFactory.js');

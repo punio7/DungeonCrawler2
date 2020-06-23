@@ -4,7 +4,7 @@ class Look extends Command {
         let room = Game.GetRoom(Game.Player.Location);
 
         if (!Game.Player.canSee()) {
-            Engine.Output("Nic nie widzisz w tej ciemności.");
+            Engine.Output(Local.Commands.Look.CantSee);
             return;
         }
 
@@ -31,7 +31,7 @@ class Look extends Command {
             return;
         }
 
-        Engine.Output("Tu nie ma nic takiego jak {0}.".format(command.getArgument(1)));
+        Engine.Output(Local.Commands.Look.NoObject.format(command.getArgument(1)));
     }
 
     lookRoom(room) {
@@ -53,18 +53,18 @@ class Look extends Command {
     }
 
     lookItem(item) {
-        Engine.Output("Przyglądasz się {0}.".format(item.getName(GrammaCase.Celownik)));
+        Engine.Output(Local.Commands.Look.YouLookAt.format(item.getName(GrammaCase.Celownik)));
         Engine.Output(item.getDescription());
     }
 
     lookCharacter(character) {
-        Engine.Output("Przyglądasz się {0}.".format(character.getName(GrammaCase.Celownik)));
+        Engine.Output(Local.Commands.Look.YouLookAt.format(character.getName(GrammaCase.Celownik)));
         Engine.Output(character.getDescription());
         //TODO: stan zdrowia
     }
 
     exitsString(exits) {
-        let returnString = "|gWyjścia: [ "
+        let returnString = "|g" + Local.Commands.Look.Exits +": [ "
         let firstExit = true;
         for (const direction in exits) {
             if (exits.hasOwnProperty(direction)) {

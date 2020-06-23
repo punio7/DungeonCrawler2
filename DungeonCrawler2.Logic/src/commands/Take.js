@@ -2,14 +2,14 @@
 class Take extends Command {
     ExecuteBody(command) {
         if (command.getArgument(1) === null) {
-            Engine.Output("Wziąć co?");
+            Engine.Output(Local.Commands.Take.NoArgument);
             return;
         }
 
         if (command.getArgument(2) === null) {
             if (command.getArgument(1).toLowerCase() === "all") {
                 if (!Game.GetRoom(Game.Player.Location).getItems().any()) {
-                    Engine.Output("Nic tu nie ma.");
+                    Engine.Output(Local.Commands.Take.NoItems);
                     return;
                 }
                 this.takeAllFromLocation();
@@ -18,7 +18,7 @@ class Take extends Command {
                 let itemList = Game.GetRoom(Game.Player.Location).getItems();
                 let item = itemList.find(command.getArgument(1), command.getNumber(1));
                 if (item === null) {
-                    Engine.Output("Tutaj nie ma czegoś takiego jak {0}.".format(command.getArgument(1)));
+                    Engine.Output(Local.Commands.Take.NoItemFound.format(command.getArgument(1)));
                     return;
                 }
                 this.takeItemFromLocation(item, itemList);
@@ -32,12 +32,12 @@ class Take extends Command {
 
     takeItemFromLocation(item, itemList) {
         if (!item.isTakeable()) {
-            Engine.Output("Nie możesz podnieść {0}.".format(item.getName(GrammaCase.Dopelniacz)));
+            Engine.Output(Local.Commands.Take.CannotPickUp.format(item.getName(GrammaCase.Dopelniacz)));
             return false;
         }
 
         this.takeItem(item, itemList);
-        Engine.Output("Podnosisz {0}.".format(item.getName(GrammaCase.Biernik)));
+        Engine.Output(Local.Commands.Take.PickedUp.format(item.getName(GrammaCase.Biernik)));
         return true;
     }
 
