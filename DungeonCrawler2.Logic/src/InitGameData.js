@@ -7,14 +7,14 @@ function InitGameData() {
     let gameTemplate = JSON.parse(Engine.LoadData('res/Game.json'));
     Game = new GameModel(gameTemplate);
 
-    let itemTypesTemplate = JSON.parse(Engine.LoadData('res/ItemTypes.json'));
-    Game.ItemTypes = new ItemTypesModel(itemTypesTemplate);
+    let itemTypesTemplate = JSON.parse(Engine.LoadData('res/ItemTypes.json')).ItemTypes;
+    GameData.ItemTypes = new ItemTypesModel(itemTypesTemplate);
 
     let itemTemplates = JSON.parse(Engine.LoadData('res/Items.json')).ItemsTemplates;
-    Game.ItemTemplates = new ItemTemplatesModel(itemTemplates);
+    GameData.ItemTemplates = new ItemTemplatesModel(itemTemplates);
 
     let characterTemplates = JSON.parse(Engine.LoadData('res/Characters.json')).CharactersTemplates;
-    Game.CharacterTemplates = new CharacterTemplatesModel(characterTemplates);
+    GameData.CharacterTemplates = new CharacterTemplatesModel(characterTemplates);
 
     Local = JSON.parse(Engine.LoadData('res/Local.pl.json'));
     version = Engine.LoadData('version.txt').replace("\n", Engine.EndLine);

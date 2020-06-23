@@ -8,26 +8,25 @@ class Room {
         this.Exits = [];
         this.IsVisited = false;
         Object.assign(this, template);
-    };
-    
+    }
+
     LoadRoomData() {
-        let oldExits = this.Exits;
-        let newExits = {};
-        oldExits.forEach(exit => {
+        let exitsModel = {};
+        this.Exits.forEach(exit => {
             let direction = exit.Direction;
-            newExits[direction] = new RoomExit(exit);
+            exitsModel[direction] = new RoomExit(exit);
         });
-        this.Exits = newExits;
+        this.Exits = exitsModel;
 
-        this.Items = new ItemList(this.Items)
+        this.Items = new ItemList(this.Items);
 
-        let newCharacters = new CharacterList();
         if (this.Characters !== undefined) {
+            let charactersModel = new CharacterList();
             this.Characters.forEach(characterId => {
-                newCharacters.add(Game.SpawnCharacter(characterId));
+                charactersModel.add(Game.SpawnCharacter(characterId));
             });
+            this.Characters = charactersModel;
         }
-        this.Characters = newCharacters;
 
         this.IsLoaded = true;
     }

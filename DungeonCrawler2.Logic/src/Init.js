@@ -11,6 +11,7 @@ Engine.LoadScript('src/enums/Directions.js');
 Engine.LoadScript('src/enums/GrammaCase.js');
 Engine.LoadScript('src/enums/EquipmentSlots.js');
 Engine.LoadScript('src/enums/GlobalEventType.js');
+Engine.LoadScript('src/enums/ItemTypes.js');
 Engine.LoadScript('src/model/Room.js');
 Engine.LoadScript('src/model/RoomExit.js');
 Engine.LoadScript('src/model/Equipment.js');
@@ -24,6 +25,7 @@ Engine.LoadScript('src/model/ItemList.js');
 Engine.LoadScript('src/model/CharacterTemplates.js');
 Engine.LoadScript('src/model/CharacterList.js');
 Engine.LoadScript('src/model/GlobalEventArgs.js');
+Engine.LoadScript('src/model/GameData.js');
 
 Engine.LoadScript('src/CommonLogic/EngineUtils.js');
 Engine.LoadScript('src/CommonLogic/InputFunctions.js');

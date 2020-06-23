@@ -10,19 +10,17 @@ class ItemTypesModel {
             throw "Item types template must be an array";
         }
 
-        this.currentNewIndex = 0;
-
         itemTypesTemplate.forEach((value, index) => {
             this.AddNewItemType(value);
         });
-    };
+    }
 
-    AddNewItemType(itemTypeName) {
-        if (this[itemTypeName] !== undefined) {
-            throw "Item type {0} is already defined!".format(itemTypeName);
+    AddNewItemType(itemType) {
+        if (this[itemType.Id] !== undefined) {
+            throw "Item type {0} is already defined!".format(itemType.Id);
         }
-        this[itemTypeName] = this.currentNewIndex++;
-    };
+        this[itemType.Id] = itemType;
+    }
 
     GetItemType(itemTypeName) {
         if (this[itemTypeName] === undefined) {
@@ -30,4 +28,4 @@ class ItemTypesModel {
         }
         return this[itemTypeName];
     }
-};
+}

@@ -1,4 +1,5 @@
-﻿"user strict";
+﻿"use strict";
+
 class ItemTemplatesModel {
     constructor(itemTemplates) {
         if (itemTemplates === undefined) {

@@ -3,21 +3,21 @@ class Character {
     constructor(template) {
         Object.assign(this, template);
 
-        let newInventory = new ItemList();
+        let inventoryModel = new ItemList();
         if (this.Inventory !== undefined) {
             this.Inventory.forEach(itemDefinition => {
-                newInventory.add(Game.SpawnItem(itemDefinition));
+                inventoryModel.add(Game.SpawnItem(itemDefinition));
             });
         }
-        this.Inventory = newInventory;
+        this.Inventory = inventoryModel;
 
-        let newEquipment = new Equipment();
+        let equipmentModel = new Equipment();
         if (this.Equipment !== undefined) {
             this.Equipment.forEach(eq => {
-                newEquipment.equip(EquipmentSlots.parse(eq.Slot), Game.SpawnItem(eq.Item));
+                equipmentModel.equip(EquipmentSlots.parse(eq.Slot), Game.SpawnItem(eq.Item));
             });
         }
-        this.Equipment = newEquipment;
+        this.Equipment = equipmentModel;
     }
 
     getName(grammaCase = GrammaCase.Mianownik) {

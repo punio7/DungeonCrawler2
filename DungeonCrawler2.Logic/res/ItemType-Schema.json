@@ -36,7 +36,7 @@
         "Lever"
       ]
     },
-    "EquipmentSlod": {
+    "EquipmentSlot": {
       "description": "Types of equipment slots",
       "type": "string",
       "default": "None",
@@ -70,7 +70,7 @@
             "$ref": "#/definitions/ItemTypeId"
           },
           "Slot": {
-            "$ref": "#/definitions/EquipmentSlod",
+            "$ref": "#/definitions/EquipmentSlot"
           },
           "EquipableByPlayer": {
             "type": "boolean",

@@ -2,7 +2,7 @@
 class ItemFactory {
     SpawnItem(itemDefinition) {
         if (typeof itemDefinition === "string") {
-            let template = Game.ItemTemplates.getTemplate(itemDefinition);
+            let template = GameData.ItemTemplates.getTemplate(itemDefinition);
             return new Item(template);
         }
         else {
@@ -23,7 +23,7 @@ class ItemFactory {
                 }
             }
 
-            let template = Game.ItemTemplates.getTemplate(templateId);
+            let template = GameData.ItemTemplates.getTemplate(templateId);
             let item = new Item(template);
             item.setStack(this.stackValue(itemDefinition, templateId));
             this.resolveInventory(itemDefinition, item);

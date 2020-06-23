@@ -1,10 +1,7 @@
 ﻿"use strict";
 class Item {
     constructor(template) {
-
         Object.assign(this, template);
-
-        this.Type = Game.GetItemType(this.Type);
     }
 
     getName(grammaCase = GrammaCase.Mianownik) {
@@ -81,9 +78,9 @@ class Item {
 
     isTakeable() {
         switch (this.getType()) {
-            case Game.ItemTypes.Static:
-            case Game.ItemTypes.StaticContainer:
-            case Game.ItemTypes.Lever:
+            case ItemTypes.Static:
+            case ItemTypes.StaticContainer:
+            case ItemTypes.Lever:
                 return false;
             default:
                 return true;

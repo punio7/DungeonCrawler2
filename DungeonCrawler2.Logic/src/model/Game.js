@@ -9,17 +9,14 @@ class GameModel {
         this.StartingRoom = 0;
         this.Rooms = [];
 
-        this.Player = new Player();
-        this.ItemTypes = new ItemTypesModel();
-        this.ItemTemplates = new ItemTemplatesModel();
-        this.CharacterTemplates = new CharacterTemplatesModel();
         this.ItemFactory = new ItemFactory();
 
         Object.assign(this, template);
+        this.Player = new Player(this.Player);
 
         for (var i = 0; i < this.Rooms.length; i++) {
             this.Rooms[i] = new Room(this.Rooms[i]);
-            if (this.Rooms[i].Id != i) {
+            if (this.Rooms[i].Id !== i) {
                 throw 'Room with Id {0} is placed on index {1}, fix Rooms data'.format(this.Rooms[i].Id, i);
             }
         }
@@ -60,7 +57,7 @@ class GameModel {
      * @returns {Character}
      */
     SpawnCharacter(characterId) {
-        let template = this.CharacterTemplates.getTemplate(characterId);
+        let template = GameData.CharacterTemplates.getTemplate(characterId);
         return new Character(template);
     }
 
@@ -70,7 +67,7 @@ class GameModel {
      * @returns {string}
      */
     GetItemType(itemTypeName) {
-        return this.ItemTypes.GetItemType(itemTypeName);
+        return GameData.ItemTypes.GetItemType(itemTypeName);
     }
 
     /**
