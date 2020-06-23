@@ -1,7 +1,7 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-04/schema",
   "definitions": {
-    "EntityName": {
+    "EntityNameForms": {
       "type": "array",
       "description": "Entity's display name in all grama cases",
       "minItems": 7,
@@ -9,6 +9,25 @@
       "items": {
         "type": "string"
       }
+    },
+    "EntityNameWithPlurals": {
+      "type": "array",
+      "description": "Plurar variants of item's name",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/definitions/EntityNameForms"
+      }
+    },
+    "EntityName": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/EntityNameForms"
+        },
+        {
+          "$ref": "#/definitions/EntityNameWithPlurals"
+        }
+      ]
     },
     "ItemId": {
       "type": "string",
@@ -35,7 +54,7 @@
         }
       ]
     },
-    "Chance": {
+    "ItemSpawnChance": {
       "type": "integer",
       "minimum": 1,
       "maximum": 100
@@ -43,7 +62,7 @@
     "ItemListElement": {
       "anyOf": [
         {
-          "$ref":  "#/definitions/ItemId"
+          "$ref": "#/definitions/ItemId"
         },
         {
           "type": "object",
@@ -51,7 +70,7 @@
           "required": [ "ItemId" ],
           "properties": {
             "ItemId": { "$ref": "#/definitions/ItemId" },
-            "Chance": { "$ref": "#/definitions/Chance" },
+            "Chance": { "$ref": "#/definitions/ItemSpawnChance" },
             "Stack": { "$ref": "#/definitions/Stack" },
             "Inventory": {
               "type": "array",
@@ -73,11 +92,11 @@
               "items": {
                 "anyOf": [
                   { "$ref": "#/definitions/ItemId" },
-                  { "type": "null"}
+                  { "type": "null" }
                 ]
               }
             },
-            "Chance": { "$ref": "#/definitions/Chance" },
+            "Chance": { "$ref": "#/definitions/ItemSpawnChance" },
             "ChanceList": {
               "type": "array",
               "description": "Custom chance of spawning each of listed items, default chance is equal for each item",

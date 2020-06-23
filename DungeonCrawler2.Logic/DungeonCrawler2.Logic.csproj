@@ -55,7 +55,7 @@
     <EmbeddedResource Include="res\Items.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="res\ItemTypes.json">
+    <EmbeddedResource Include="res\ItemType-Schema.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="src\commands\Command.js">
@@ -207,6 +207,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="res\Common-Schema.json" />
+    <EmbeddedResource Include="res\Directions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\ItemTypes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="res\Local.pl.json" />
   </ItemGroup>
   <ItemGroup>

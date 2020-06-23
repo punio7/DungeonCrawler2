@@ -19,20 +19,7 @@
           },
 
           "Name": {
-            "anyOf": [
-              {
-                "$ref": "Common-Schema.json#/definitions/EntityName"
-              },
-              {
-                "type": "array",
-                "description": "Plurar variants of item's name",
-                "minItems": 3,
-                "maxItems": 3,
-                "items": {
-                  "$ref": "Common-Schema.json#/definitions/EntityName"
-                }
-              }
-            ]
+            "$ref": "Common-Schema.json#/definitions/EntityName"
           },
 
           "Idle": {
@@ -46,38 +33,7 @@
           },
 
           "Type": {
-            "type": "string",
-            "description": "Item's type",
-            "enum": [
-              "Weapon1H",
-              "Weapon2H",
-              "Shield",
-              "Armor",
-              "Shoulders",
-              "Gloves",
-              "Greaves",
-              "Boots",
-              "Helmet",
-              "Shirt",
-              "Pants",
-              "WildShield",
-              "WildArmor",
-              "WildShoulders",
-              "WildGloves",
-              "WildGreaves",
-              "WildBoots",
-              "WildHelmet",
-              "Ring",
-              "Necklace",
-              "Potion",
-              "Food",
-              "Trash",
-              "Container",
-              "StaticContainer",
-              "Quest",
-              "Static",
-              "Lever"
-            ]
+            "$ref": "ItemType-Schema.json#/definitions/ItemTypeId"
           },
 
           "IsLightSource": {
