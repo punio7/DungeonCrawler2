@@ -1,12 +1,21 @@
 ﻿"use strict";
 class ItemList extends EntityList {
-    constructor(template) {
+    constructor() {
         super();
+    }
 
+    LoadFromTemplate(template) {
         if (template !== undefined) {
             template.forEach(itemDefinition => {
                 this.add(Game.SpawnItem(itemDefinition));
             });
+        }
+    }
+
+    LoadFromSave(saveItemList) {
+        Object.assign(this, saveItemList);
+        for (var i = 0; i < this.Array.length; i++) {
+            this.Array[i] = Game.LoadItemFromSave(this.Array[i]);
         }
     }
 

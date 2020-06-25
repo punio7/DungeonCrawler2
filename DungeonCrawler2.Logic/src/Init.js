@@ -27,11 +27,13 @@ Engine.LoadScript('src/model/CharacterList.js');
 Engine.LoadScript('src/model/GlobalEventArgs.js');
 Engine.LoadScript('src/model/GameData.js');
 
+Engine.LoadScript('src/CommonLogic/CharacterFactory.js');
 Engine.LoadScript('src/CommonLogic/EngineUtils.js');
 Engine.LoadScript('src/CommonLogic/InputFunctions.js');
 Engine.LoadScript('src/CommonLogic/Prompt.js');
 Engine.LoadScript('src/CommonLogic/Random.js');
 Engine.LoadScript('src/CommonLogic/ItemFactory.js');
+Engine.LoadScript('src/CommonLogic/RoomFactory.js');
 
 Engine.LoadScript('src/CommandParser.js');
 Engine.LoadScript('src/commands/Command.js');

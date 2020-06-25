@@ -1,9 +1,12 @@
 ﻿"use strict";
 class ItemFactory {
     SpawnItem(itemDefinition) {
+        let item = new Item();
+
         if (typeof itemDefinition === "string") {
             let template = GameData.ItemTemplates.getTemplate(itemDefinition);
-            return new Item(template);
+            Object.assign(item, template);
+            return item;
         }
         else {
             if (itemDefinition.Chance !== undefined) {
@@ -24,12 +27,11 @@ class ItemFactory {
             }
 
             let template = GameData.ItemTemplates.getTemplate(templateId);
-            let item = new Item(template);
+            Object.assign(item, template);
             item.setStack(this.stackValue(itemDefinition, templateId));
             this.resolveInventory(itemDefinition, item);
             return item;
         }
-
     }
 
     resolveRandomTemplateId(itemDefinition) {
@@ -37,7 +39,7 @@ class ItemFactory {
             itemDefinition.ChanceList = [];
             itemDefinition.ItemId.forEach(() => {
                 itemDefinition.ChanceList.push(1);
-            })
+            });
         }
         if (itemDefinition.ItemId.length !== itemDefinition.ChanceList.length) {
             throw "Item definition has {0} specified ids but only {1} spiecified chances in ChanceList"
@@ -72,7 +74,7 @@ class ItemFactory {
     stackValue(itemDefinition, selectedItemId) {
         let stack = itemDefinition.Stack;
         if (Array.isArray(stack)) {
-            //w przypadku gdy spawnujemy item jeden z listy dostępnych
+            //spawn random item from ItemId list
             let stackIndex = itemDefinition.ItemId.indexOf(selectedItemId);
             stack = stack[stackIndex];
         }
@@ -85,6 +87,16 @@ class ItemFactory {
         }
         else {
             return Random.nextInt(stack.Min, stack.Max);
+        }
+    }
+
+    LoadFromSave(saveItem) {
+        let item = new Item();
+        Object.assign(item, saveItem);
+        if (item.getInventory() !== null) {
+            let inventoryModel = new ItemList();
+            inventoryModel.LoadFromSave(item.getInventory());
+            item.Inventory = inventoryModel;
         }
     }
 }

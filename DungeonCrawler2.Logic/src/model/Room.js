@@ -1,34 +1,12 @@
 ﻿"use strict";
 class Room {
-    constructor(template) {
+    constructor() {
         this.Id = 0;
         this.Name = '';
         this.Description = '';
         this.IsNaturalLight = false;
         this.Exits = [];
         this.IsVisited = false;
-        Object.assign(this, template);
-    }
-
-    LoadRoomData() {
-        let exitsModel = {};
-        this.Exits.forEach(exit => {
-            let direction = exit.Direction;
-            exitsModel[direction] = new RoomExit(exit);
-        });
-        this.Exits = exitsModel;
-
-        this.Items = new ItemList(this.Items);
-
-        if (this.Characters !== undefined) {
-            let charactersModel = new CharacterList();
-            this.Characters.forEach(characterId => {
-                charactersModel.add(Game.SpawnCharacter(characterId));
-            });
-            this.Characters = charactersModel;
-        }
-
-        this.IsLoaded = true;
     }
 
     isLoaded() {

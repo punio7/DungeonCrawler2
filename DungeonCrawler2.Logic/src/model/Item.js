@@ -1,9 +1,5 @@
 ﻿"use strict";
 class Item {
-    constructor(template) {
-        Object.assign(this, template);
-    }
-
     getName(grammaCase = GrammaCase.Mianownik) {
         if (!this.isStackable()) {
             return this.Name[grammaCase] + Engine.DefaultColor;
@@ -87,6 +83,9 @@ class Item {
         }
     }
 
+    /** 
+     * @returns {ItemList} Items inventory- container 
+     */
     getInventory() {
         if (this.Inventory === undefined) {
             return null;

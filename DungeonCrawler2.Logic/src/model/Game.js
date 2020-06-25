@@ -1,26 +1,28 @@
 ﻿"use strict";
 class GameModel {
-    constructor(template) {
-        if (template === undefined) {
-            return;
-        }
-
+    constructor() {
         this.Name = '';
         this.StartingRoom = 0;
         this.Rooms = [];
 
         this.ItemFactory = new ItemFactory();
+        this.CharacterFactory = new CharacterFactory();
+        this.RoomFactory = new RoomFactory();
+    }
 
+    LoadFromTemplate(template) {
         Object.assign(this, template);
-        this.Player = new Player(this.Player);
+        let player = new Player();
+        this.CharacterFactory.LoadFromTemplate(player, this.Player);
+        this.Player = player;
 
         for (var i = 0; i < this.Rooms.length; i++) {
-            this.Rooms[i] = new Room(this.Rooms[i]);
+            this.Rooms[i] = this.RoomFactory.SpawnRoom(this.Rooms[i]);
             if (this.Rooms[i].Id !== i) {
                 throw 'Room with Id {0} is placed on index {1}, fix Rooms data'.format(this.Rooms[i].Id, i);
             }
         }
-    };
+    }
 
     getName() {
         return this.Name;
@@ -37,7 +39,7 @@ class GameModel {
             throw 'Invalid Room Id: {0}'.format(roomId);
         }
         if (!room.isLoaded()) {
-            room.LoadRoomData();
+            this.RoomFactory.LoadRoomData(room);
         }
         return room;
     }
@@ -53,12 +55,29 @@ class GameModel {
 
     /**
      * 
+     * @param {any} saveItem Item object from save data
+     * @returns {Item} Item model object
+     */
+    LoadItemFromSave(saveItem) {
+        return this.ItemFactory.LoadFromSave(saveItem);
+    }
+
+    /**
+     * 
      * @param {string} characterId
      * @returns {Character}
      */
     SpawnCharacter(characterId) {
-        let template = GameData.CharacterTemplates.getTemplate(characterId);
-        return new Character(template);
+        return this.CharacterFactory.SpawnCharacter(characterId);
+    }
+
+    /**
+     * 
+     * @param {any} saveCharacter Character object from save data
+     * @returns {Character} Character model object
+     */
+    LoadCharacterFromSave(saveCharacter) {
+        return this.CharacterFactory.LoadFromSave(saveCharacter);
     }
 
     /**
@@ -74,6 +93,7 @@ class GameModel {
      * 
      * @param {string} name
      * @param {GlobalEventArgs} args
+     * @returns {boolean} Should current action be interrupted
      */
     InvokeGlobalEvent(name, args) {
         let event = GlobalEvents[name];
@@ -84,5 +104,3 @@ class GameModel {
         return event(args);
     }
 };
-
-var Game = new GameModel();
