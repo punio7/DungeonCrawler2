@@ -1,5 +1,5 @@
 ﻿{
-  "$schema": "item-schema.json#",
+  "$schema": "Item-Schema.json",
   "ItemsTemplates": [
     {
       "Id": "gold",

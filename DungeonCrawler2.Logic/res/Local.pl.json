@@ -1,108 +1,62 @@
 ﻿{
-  "Directions": {
-    "north": [
-      "północ",
-      "północy",
-      "północy",
-      "północ",
-      "północą",
-      "północy",
-      "północy"
-    ],
+    "Local": {
+        "Directions": {
+            "north": ["północ", "północy", "północy", "północ", "północą", "północy", "północy"],
 
-    "south": [
-      "południe",
-      "południa",
-      "południu",
-      "południe",
-      "południem",
-      "południu",
-      "południu"
-    ],
+            "south": ["południe", "południa", "południu", "południe", "południem", "południu", "południu"],
 
-    "east": [
-      "wschód",
-      "wschodu",
-      "wschodowi",
-      "wschód",
-      "wschodem",
-      "wschodzie",
-      "wschodzie"
-    ],
+            "east": ["wschód", "wschodu", "wschodowi", "wschód", "wschodem", "wschodzie", "wschodzie"],
 
-    "west": [
-      "zachód",
-      "zachodu",
-      "zachodowi",
-      "zachód",
-      "zachodem",
-      "zachodzie",
-      "zachodzie"
-    ],
+            "west": ["zachód", "zachodu", "zachodowi", "zachód", "zachodem", "zachodzie", "zachodzie"],
 
-    "up": [
-      "góra",
-      "góry",
-      "górze",
-      "górę",
-      "górą",
-      "górze",
-      "góro"
-    ],
+            "up": ["góra", "góry", "górze", "górę", "górą", "górze", "góro"],
 
-    "down": [
-      "dół",
-      "dołu",
-      "dołowi",
-      "dół",
-      "dołem",
-      "dole",
-      "dole"
-    ]
-  },
-  "Commands": {
-    "Drop": {
-      "NoArgument": "Co chcesz wyrzucić?",
-      "NoItems": "Przecież nic nie masz biedaku.",
-      "NoItemFound": "Nie masz czegoś takiego jak {0}.",
-      "Dropped": "Upuszczasz {0}."
-    },
-    "Go": {
-      "WrongDirection": "Może lepiej zostać tutaj i zjeść kilka pierogów?",
-      "NoPassage": "Nie możesz tam pójść.",
-      "PassageClosed": "Przejście jest zamknięte."
-    },
-    "Inventory": {
-      "YourItems": "Obecnie przy sobie posiadasz:",
-      "NoItems": "{0}Ogólnie nic"
-    },
-    "Look": {
-      "CantSee": "Nic nie widzisz w tej ciemności.",
-      "NoObject": "Tu nie ma nic takiego jak {0}.",
-      "YouLookAt": "Przyglądasz się {0}.",
-      "Exits": "Wyjścia"
-    },
-    "NoCommand": {
-      "NoCommand": "Chyba ty."
-    },
-    "Scan": {
-      "CantSee": "Nic nie widzisz w tej ciemności.",
-      "LookingAroundYouSee": "Rozglądajac się dookoła dostrzegasz:",
-      "Here": "Tutaj:",
-      "InDirection": "Na {0}:",
-      "NoOneThere": "nikogo nie ma"
-    },
-    "Take": {
-      "NoArgument": "Wziąć co?",
-      "NoItems": "Nic tu nie ma.",
-      "NoItemFound": "Tutaj nie ma czegoś takiego jak {0}.",
-      "CannotPickUp": "Nie możesz podnieść {0}.",
-      "PickedUp": "Podnosisz {0}."
+            "down": ["dół", "dołu", "dołowi", "dół", "dołem", "dole", "dole"]
+        },
+        "Commands": {
+            "Drop": {
+                "NoArgument": "Co chcesz wyrzucić?",
+                "NoItems": "Przecież nic nie masz biedaku.",
+                "NoItemFound": "Nie masz czegoś takiego jak {0}.",
+                "Dropped": "Upuszczasz {0}."
+            },
+            "Go": {
+                "WrongDirection": "Może lepiej zostać tutaj i zjeść kilka pierogów?",
+                "NoPassage": "Nie możesz tam pójść.",
+                "PassageClosed": "Przejście jest zamknięte."
+            },
+            "Inventory": {
+                "YourItems": "Obecnie przy sobie posiadasz:",
+                "NoItems": "{0}Ogólnie nic"
+            },
+            "Look": {
+                "CantSee": "Nic nie widzisz w tej ciemności.",
+                "NoObject": "Tu nie ma nic takiego jak {0}.",
+                "YouLookAt": "Przyglądasz się {0}.",
+                "Exits": "Wyjścia"
+            },
+            "NoCommand": {
+                "NoCommand": "Chyba ty."
+            },
+            "Scan": {
+                "CantSee": "Nic nie widzisz w tej ciemności.",
+                "LookingAroundYouSee": "Rozglądajac się dookoła dostrzegasz:",
+                "Here": "Tutaj:",
+                "InDirection": "Na {0}:",
+                "NoOneThere": "nikogo nie ma"
+            },
+            "Take": {
+                "NoArgument": "Wziąć co?",
+                "NoItems": "Nic tu nie ma.",
+                "NoItemFound": "Tutaj nie ma czegoś takiego jak {0}.",
+                "CannotPickUp": "Nie możesz podnieść {0}.",
+                "PickedUp": "Podnosisz {0}."
+            }
+        },
+        "GlobalEvents": {
+            "TestGlobalEvent": {
+                "Message": "Testing global events..."
+            }
+        }
     }
-  },
-  "GlobalEvents": {
-    "TestGlobalEvent": {
-      "Message": "Testing global events..."
-    }
-  }
 }
