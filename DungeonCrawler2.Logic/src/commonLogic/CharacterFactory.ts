@@ -21,21 +21,21 @@ export class CharacterFactory {
         character.Description = template.Description;
         character.Idle = template.Idle;
 
-        let inventoryModel = new ItemList();
         if (template.Inventory !== undefined) {
+            let inventoryModel = new ItemList();
             template.Inventory.forEach((itemDefinition: any) => {
                 inventoryModel.add(Game.SpawnItem(itemDefinition));
             });
+            character.Inventory = inventoryModel;
         }
-        character.Inventory = inventoryModel;
 
-        let equipmentModel = new Equipment();
         if (template.Equipment !== undefined) {
+            let equipmentModel = new Equipment();
             template.Equipment.forEach((eq) => {
                 equipmentModel.equip(eq.Slot, Game.SpawnItem(eq.Item));
             });
+            character.Equipment = equipmentModel;
         }
-        character.Equipment = equipmentModel;
         return character;
     }
 

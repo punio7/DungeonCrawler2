@@ -1,5 +1,5 @@
 ﻿{
-  "$schema": "ItemType-Schema.json",
+  "$schema": "schema/ItemType-Schema.json",
   "ItemTypes": [
     {
       "Id": "Weapon1H",

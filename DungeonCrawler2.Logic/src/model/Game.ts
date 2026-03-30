@@ -33,7 +33,6 @@ export class GameModel {
     }
 
     LoadFromTemplate() {
-        //Object.assign(this, template);
         let player = new Player(undefined);
         //this.CharacterFactory.LoadFromTemplate(player, this.Player);
         this.Player = player;

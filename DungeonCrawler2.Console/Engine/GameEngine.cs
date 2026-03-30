@@ -54,7 +54,7 @@ namespace DungeonCrawler2.Console.Engine
             scriptEngine = new V8ScriptEngine(flags);
             loadedScripts = new HashSet<string>();
             scriptEngine.AddHostObject("Engine", new GameEngineProxy(this));
-            LoadScript("src/Init.js");
+            LoadScript("dist/bundle.js");
             scriptEngine.Execute("Init()");
             executeScript = scriptEngine.Compile("Execute(Engine.Input);");
         }

@@ -3,12 +3,12 @@
 export class GlobalEventArgs {
     Type: number;
     Sender: any;
-    FinishCommandCallback: CommandCallback;
+    TerminateCommandCallback: CommandCallback;
     ContinueCommandCallback: Function;
-    constructor(type: number, sender: any, finishCommandCallback: CommandCallback, continueCommandCallback: Function) {
+    constructor(type: number, sender: any, terminateCommandCallback: CommandCallback, continueCommandCallback: Function) {
         this.Type = type;
         this.Sender = sender;
-        this.FinishCommandCallback = finishCommandCallback;
+        this.TerminateCommandCallback = terminateCommandCallback;
         this.ContinueCommandCallback = continueCommandCallback;
     }
 }

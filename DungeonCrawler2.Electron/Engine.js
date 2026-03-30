@@ -53,6 +53,9 @@ class EngineClass {
         if (message === "") {
             return;
         }
+        if (message === ' ') {
+            message = this.NonBreakingSpace;
+        }
 
         var element = $('<span>');
         element.addClass(this.currentTextClass);

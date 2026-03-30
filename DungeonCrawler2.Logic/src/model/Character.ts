@@ -24,7 +24,7 @@ export class Character extends EntityBase {
 
     getInventory() {
         if (this.Inventory === undefined) {
-            return new ItemList();
+            this.Inventory = new ItemList();
         }
         return this.Inventory;
     }

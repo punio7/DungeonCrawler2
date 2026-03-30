@@ -1,5 +1,5 @@
 ﻿{
-    "$schema": "Game-Schema.json",
+    "$schema": "schema/Game-Schema.json",
     "GameTemplate": {
         "Name": "nazwa gry",
         "StartingRoom": 0,

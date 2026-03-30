@@ -80,7 +80,12 @@ class CommandsManager extends CommandList {
         }
 
         Engine.Output('');
-        commandObject.Execute(parser, new CommandCallback(() => this.AfterExecute()));
+        try {
+            commandObject.Execute(parser, new CommandCallback(() => this.AfterExecute()));
+        } catch (e) {
+            this.AfterExecute();
+            throw e;
+        }
     }
 
     AfterExecute() {

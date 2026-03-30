@@ -22,25 +22,26 @@ export class Look extends Command {
             return;
         }
 
-        let character = room.getCharacters().find(argument, command.getNumber(1));
+        let number = command.getNumber(1);
+        let character = room.getCharacters().find(argument, number);
         if (character !== null) {
             this.lookCharacter(character);
             return;
         }
 
-        let item = room.getItems().find(argument, command.getNumber(1));
+        let item = room.getItems().find(argument, number);
         if (item !== null) {
             this.lookItem(item);
             return;
         }
 
-        item = Game.Player.getInventory().find(argument, command.getNumber(1));
+        item = Game.Player.getInventory().find(argument, number);
         if (item !== null) {
             this.lookItem(item);
             return;
         }
 
-        Engine.Output(Local.Commands.Look.NoObject.format(command.getArgument(1)));
+        Engine.Output(Local.Commands.Look.NoObject.format(argument));
     }
 
     lookRoom(room: Room) {
@@ -69,7 +70,6 @@ export class Look extends Command {
     lookCharacter(character: Character) {
         Engine.Output(Local.Commands.Look.YouLookAt.format(character.getName(GrammaCase.Celownik)));
         Engine.Output(character.getDescription());
-        //TODO: stan zdrowia
     }
 
     exitsString(room: Room): string {

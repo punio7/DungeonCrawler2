@@ -45,39 +45,42 @@ export class Go extends Command {
         Game.Player.Location = room.Id;
         room.IsVisited = true;
 
-        this.onEnterGlobalEvents(room, () => this.afterOnEnterGlobalEvents(room, commandCallback), commandCallback);
+        this.onFirstEnterGlobalEvents(room, () => this.afterOnFirstEnterGlobalEvents(room, commandCallback), commandCallback);
     }
 
-    afterOnEnterGlobalEvents(room: Room, commandCallback: CommandCallback) {
-        Commands.Look.lookRoom(room);
-        //TODO: Zdarzenia przy wejściu
-        commandCallback.CallIfNotCalled();
-    }
-
-    onEnterGlobalEvents(room: Room, continueCallback: Function, finishCallback: CommandCallback) {
+    onFirstEnterGlobalEvents(room: Room, continueCallback: Function, terminateCallback: CommandCallback) {
         if (room.getOnFirstEnterEvent() !== null) {
             let interrupt = Game.InvokeGlobalEvent(
-                room.getOnFirstEnterEvent(),
-                new GlobalEventArgs(GlobalEventType.BeforeRoomEnter, room, finishCallback, continueCallback),
+                room.getOnFirstEnterEvent()!,
+                new GlobalEventArgs(GlobalEventType.BeforeRoomEnter, room, terminateCallback, continueCallback),
             );
             delete room.OnFirstEnterEvent;
-            if (interrupt === true) {
-                finishCallback.interruptFlow = true;
+            if (interrupt) {
+                terminateCallback.interruptFlow = true;
                 return;
             }
         }
+        
+        continueCallback();
+    }
 
+    afterOnFirstEnterGlobalEvents(room: Room, commandCallback: CommandCallback) {
+        Commands.Look.lookRoom(room);
+        this.onEnterGlobalEvents(room, commandCallback);
+    }
+
+    onEnterGlobalEvents(room: Room, commandCallback: CommandCallback) {
         if (room.getOnEnterEvent() !== null) {
             let interrupt = Game.InvokeGlobalEvent(
-                room.getOnEnterEvent(),
-                new GlobalEventArgs(GlobalEventType.BeforeRoomEnter, room, finishCallback, continueCallback),
+                room.getOnEnterEvent()!,
+                new GlobalEventArgs(GlobalEventType.BeforeRoomEnter, room, commandCallback, () => commandCallback.CallIfNotCalled()),
             );
-            if (interrupt === true) {
-                finishCallback.interruptFlow = true;
+            if (interrupt) {
+                commandCallback.interruptFlow = true;
                 return;
             }
         }
 
-        continueCallback();
+        commandCallback.CallIfNotCalled();
     }
 }

@@ -11,11 +11,11 @@ export class Room {
     IsNaturalLight: boolean;
     Exits: RoomExitsList;
     IsVisited: boolean;
-    OnFirstEnterEvent: any;
     IsLoaded: boolean;
     Items: ItemList;
     Characters: CharacterList;
-    OnEnterEvent: any;
+    OnFirstEnterEvent?: string;
+    OnEnterEvent?: string;
     constructor() {
         this.Id = 0;
         this.Name = '';
@@ -23,7 +23,6 @@ export class Room {
         this.IsNaturalLight = false;
         this.Exits = {};
         this.IsVisited = false;
-        this.OnFirstEnterEvent = null;
     }
 
     isLoaded() {
@@ -60,17 +59,13 @@ export class Room {
     }
 
     hasLightSource() {
-        if (this.IsNaturalLight === true) {
+        if (this.IsNaturalLight) {
             return true;
         }
         if (this.getItems().hasLightSource()) {
             return true;
         }
-        if (this.getCharacters().hasLightSource()) {
-            return true;
-        }
-
-        return false;
+        return this.getCharacters().hasLightSource();
     }
 
     getOnFirstEnterEvent() {

@@ -103,4 +103,8 @@ export class Item extends EntityBase {
         }
         return this.Inventory;
     }
+
+    isContainer() {
+        return this.Inventory !== undefined;
+    }
 }
