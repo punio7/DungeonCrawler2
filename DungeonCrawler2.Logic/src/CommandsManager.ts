@@ -5,6 +5,7 @@ import { Down } from './commands/Down';
 import { Drop } from './commands/Drop';
 import { East } from './commands/East';
 import { Eval } from './commands/Eval';
+import { Exam } from './commands/Exam';
 import { Go } from './commands/Go';
 import { Inventory } from './commands/Inventory';
 import { Json } from './commands/Json';
@@ -25,6 +26,7 @@ class CommandList {
     Drop: Drop;
     East: East;
     Eval: Eval;
+    Exam: Exam;
     Go: Go;
     Inventory: Inventory;
     Json: Json;

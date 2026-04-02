@@ -12,8 +12,10 @@ export class Take extends Command {
             Engine.Output(Local.Commands.Take.NoArgument);
             return;
         }
-
-        if (command.getArgument(2) === null) {
+        
+        let number1 = command.getNumber(1);
+        let argument2 = command.getArgument(2);
+        if (argument2 === null) {   //pick up item from location
             if (argument1.toLowerCase() === 'all') {
                 if (!Game.GetRoom(Game.Player.Location).getItems().any()) {
                     Engine.Output(Local.Commands.Take.NoItems);
@@ -22,17 +24,49 @@ export class Take extends Command {
                 this.takeAllFromLocation();
             } else {
                 let itemList = Game.GetRoom(Game.Player.Location).getItems();
-                let item = itemList.find(argument1, command.getNumber(1));
+                let item = itemList.find(argument1, number1);
                 if (item === null) {
                     Engine.Output(Local.Commands.Take.NoItemFound.format(argument1));
                     return;
                 }
                 this.takeItemFromLocation(item, itemList);
             }
-        } else {
-            //TODO: Take from container
-            Engine.Output('​¯\\_(ツ)_/¯');
+        } else {    //take item from container
+            let number2 = command.getNumber(2);
+            let container = Game.Player.getInventory().find(argument2, number2);
+            if (container !== null) {
+                this.takeItemFromContainer(argument1, number1, container);
+                return;
+            }
+            
+            let itemList = Game.GetRoom(Game.Player.Location).getItems();
+            container = itemList.find(argument2, number2);
+            if (container !== null) {
+                this.takeItemFromContainer(argument1, number1, container);
+                return;
+            }
+
+            Engine.Output(Local.Commands.Take.NoItemFound.format(argument2));
         }
+    }
+
+    takeItemFromContainer(name: string, number: number, container: Item) {
+        if (!container.isContainer()) {
+            Engine.Output(Local.Commands.Take.IsNoContainer.format(container.getName().startWithUpper()));
+            return;
+        }
+        if (container.isLocked()) {
+            Engine.Output(Local.Commands.Take.ContainerIsLocked.format(container.getName().startWithUpper()));
+            return;
+        }
+        
+        let item = container.getInventory()!.find(name, number);
+        if (item === null) {
+            Engine.Output(Local.Commands.Take.NoItemFoundInContainer.format(container.getName().startWithUpper(), name));
+            return;
+        }
+        this.takeItem(item, container.getInventory()!)
+        //Todo: comunikat wyjmuszesz X z Y
     }
 
     takeItemFromLocation(item: Item, itemList: ItemList) {
@@ -49,11 +83,21 @@ export class Take extends Command {
     takeAllFromLocation() {
         let itemList = Game.GetRoom(Game.Player.Location).getItems();
         let i = 0;
-        for (var item = itemList.elementAt(i); item != null; item = itemList.elementAt(i)) {
+        for (let item = itemList.elementAt(i); item != null; item = itemList.elementAt(i)) {
             if (!this.takeItemFromLocation(item, itemList)) {
                 i++;
             }
         }
+    }
+
+    takeAllGold(itemList: ItemList) {
+        let i = 0;
+        for (let item = itemList.elementAt(i); item != null; item = itemList.elementAt(i)) {
+            if (item.Id !== "gold" || !this.takeItemFromLocation(item, itemList)) {
+                i++;
+            }
+        }
+        //Todo: komunikat wyjmujesz X z Y
     }
 
     takeItem(item: Item, itemList: ItemList) {

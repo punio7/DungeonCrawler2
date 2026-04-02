@@ -16,8 +16,8 @@ namespace DungeonCrawler2.Console.Engine
         private HashSet<string> loadedScripts;
         private V8ScriptEngine scriptEngine;
         private V8Script executeScript;
-        private Logger logger;
-        private List<Timer> runningTimers;
+        private readonly Logger logger;
+        private readonly List<Timer> runningTimers;
         int currentLineLength = 0;
 
         private bool ExitRaised { get; set; }
@@ -31,14 +31,8 @@ namespace DungeonCrawler2.Console.Engine
 
         public void Dispose()
         {
-            if (executeScript != null)
-            {
-                executeScript.Dispose();
-            }
-            if (scriptEngine != null)
-            {
-                scriptEngine.Dispose();
-            }
+            executeScript?.Dispose();
+            scriptEngine?.Dispose();
         }
 
         #region Internal Members
@@ -114,7 +108,7 @@ namespace DungeonCrawler2.Console.Engine
             {
                 logger.Error(e);
             }
-            return default(T);
+            return default;
         }
 
         #endregion
@@ -127,20 +121,20 @@ namespace DungeonCrawler2.Console.Engine
 
         public string NonBreakingSpace { get; private set; } = " ";
 
-        public string DefaultColor { get => "|" + defaultColorCode; }
+        public string DefaultColor { get => "|" + DefaultColorCode; }
 
-        private char defaultColorCode { get; set; } = 'W';
+        private char DefaultColorCode { get; set; } = 'W';
 
         public void Output(object message, bool isNewLine = true)
         {
             TryCatch(() =>
             {
-                string messageWithBreakes = addLineBreaks(message.ToString(), isNewLine);
-                analyzeAndWrite(messageWithBreakes);
+                string messageWithBreakes = AddLineBreaks(message.ToString(), isNewLine);
+                AnalyzeAndWrite(messageWithBreakes);
             });
         }
 
-        private string addLineBreaks(string message, bool addNewLine, int lineLength = 120)
+        private string AddLineBreaks(string message, bool addNewLine, int lineLength = 120)
         {
             StringBuilder output = new StringBuilder();
 
@@ -186,9 +180,9 @@ namespace DungeonCrawler2.Console.Engine
             return output.ToString();
         }
 
-        private void analyzeAndWrite(string message)
+        private void AnalyzeAndWrite(string message)
         {
-            changeColor(defaultColorCode);
+            ChangeColor(DefaultColorCode);
             for (int i = 0; i < message.Length; i++)
             {
                 if (message[i] != '|')
@@ -198,12 +192,12 @@ namespace DungeonCrawler2.Console.Engine
                 else
                 {
                     i++;
-                    changeColor(message[i]);
+                    ChangeColor(message[i]);
                 }
             }
         }
 
-        private void changeColor(char code)
+        private void ChangeColor(char code)
         {
             ConsoleColor color = ConsoleColor.White;
             switch (code)
@@ -263,7 +257,7 @@ namespace DungeonCrawler2.Console.Engine
         {
             TryCatch(() =>
             {
-                message = addLineBreaks(message.ToString(), isNewLine);
+                message = AddLineBreaks(message.ToString(), isNewLine);
                 foreach (var c in message.ToString())
                 {
                     System.Console.Write(c);
@@ -313,11 +307,37 @@ namespace DungeonCrawler2.Console.Engine
             Init();
         }
 
-        public void StartTimer(int interval, TimerCallback callback)
+        public void StartTimer(Action callback, int ms)
         {
-            var timer = new Timer(callback);
-            runningTimers.Add(timer);
-            //timer.
+            if (callback == null)
+            {
+                return;
+            }
+
+            Timer timer = null;
+            timer = new Timer(state =>
+            {
+                try
+                {
+                    TryCatch(() => callback());
+                }
+                finally
+                {
+                    lock (runningTimers)
+                    {
+                        if (timer != null)
+                        {
+                            runningTimers.Remove(timer);
+                            timer.Dispose();
+                        }
+                    }
+                }
+            }, null, ms, Timeout.Infinite);
+
+            lock (runningTimers)
+            {
+                runningTimers.Add(timer);
+            }
         }
 
         #endregion

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.ClearScript;
 
 namespace DungeonCrawler2.Console.Engine
 {
@@ -11,7 +12,7 @@ namespace DungeonCrawler2.Console.Engine
     /// </summary>
     public class GameEngineProxy : IGameEngine
     {
-        private GameEngine gameEngine;
+        private readonly GameEngine gameEngine;
 
         public GameEngineProxy(GameEngine gameEngine)
         {
@@ -27,5 +28,53 @@ namespace DungeonCrawler2.Console.Engine
         public string LoadData(string location) => gameEngine.LoadData(location);
         public void Exit() => gameEngine.Exit();
         public void Reload() => gameEngine.Reload();
+        public void StartTimer(Action callback, int ms) => gameEngine.StartTimer(callback, ms);
+
+        public void StartTimer(object callback, object msValue)
+        {
+            if (callback == null)
+            {
+                return;
+            }
+
+            int ms = 0;
+            try
+            {
+                if (msValue != null)
+                {
+                    ms = Convert.ToInt32(msValue);
+                }
+            }
+            catch
+            {
+                ms = 0;
+            }
+
+            Action action = null;
+            if (callback is ScriptObject scriptObj)
+            {
+                action = () =>
+                {
+                    scriptObj.Invoke(false);
+                };
+            }
+            else if (callback is Delegate del)
+            {
+                action = () =>
+                {
+                    del.DynamicInvoke();
+                };
+            }
+            else
+            {
+                dynamic dynamic = callback;
+                action = () =>
+                {
+                    dynamic();
+                };
+            }
+
+            gameEngine.StartTimer(action, ms);
+        }
     }
 }

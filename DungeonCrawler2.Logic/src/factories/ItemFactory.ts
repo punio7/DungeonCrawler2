@@ -4,7 +4,8 @@ import { Item } from '../model/Item';
 import { ItemList } from '../model/ItemList';
 import { ItemChanceOneOfTemplate, ItemChanceTemplate, ItemListTemplateElement, Stack } from '../templates/Common';
 import { ItemTemplate } from '../templates/ItemTemplate';
-import { Random } from './Random';
+import {Random} from "../commonLogic/Random";
+import {ItemLock} from "../model/ItemLock";
 
 export class ItemFactory {
     spawnItem(itemDefinition: ItemListTemplateElement): Item | null {
@@ -25,9 +26,10 @@ export class ItemFactory {
                     item.setStack(this.stackValue(itemDefinition.Stack));
                 }
                 this.resolveInventory(itemDefinition, item);
+                this.resolveLock(itemDefinition, item);
             } else {
-                let selectetItemIndex = this.resolveRandomItemIndex(itemDefinition);
-                let templateId = itemDefinition.ItemId[selectetItemIndex];
+                let selectedItemIndex = this.resolveRandomItemIndex(itemDefinition);
+                let templateId = itemDefinition.ItemId[selectedItemIndex];
                 if (templateId === null) {
                     return null;
                 }
@@ -39,7 +41,7 @@ export class ItemFactory {
                             itemDefinition.Stack.length,
                         );
                     }
-                    item.setStack(this.stackValue(itemDefinition.Stack[selectetItemIndex]));
+                    item.setStack(this.stackValue(itemDefinition.Stack[selectedItemIndex]));
                 }
             }
             return item;
@@ -72,11 +74,11 @@ export class ItemFactory {
         }
 
         let chanceSum = itemDefinition.ChanceList.reduce((a: number, b: number) => a + b);
-        let selectedCahnce = Random.nextInt(1, chanceSum);
+        let selectedChance = Random.nextInt(1, chanceSum);
         chanceSum = 0;
-        for (var i = 0; i < itemDefinition.ChanceList.length; i++) {
+        for (let i = 0; i < itemDefinition.ChanceList.length; i++) {
             chanceSum += itemDefinition.ChanceList[i];
-            if (selectedCahnce <= chanceSum) {
+            if (selectedChance <= chanceSum) {
                 return i;
             }
         }
@@ -92,6 +94,12 @@ export class ItemFactory {
             itemDefinition.Inventory.forEach((itemDefinition: any) => {
                 inventory?.add(Game.SpawnItem(itemDefinition));
             });
+        }
+    }
+
+    private resolveLock(itemDefinition: ItemChanceTemplate, item: Item) {
+        if (itemDefinition.Lock !== undefined) {
+            item.Lock = new ItemLock(itemDefinition.Lock);
         }
     }
 

@@ -1,10 +1,9 @@
-﻿export class RoomExit {
+﻿import {RoomDoor} from "./RoomDoor";
+
+export class RoomExit {
     RoomId: number;
-    IsDoor: boolean | undefined;
-    IsClosed: boolean | undefined;
-    IsLocked: boolean | undefined;
-    IsHidden: boolean | undefined;
-    KeyNumber: number | undefined;
+    IsHidden?: boolean;
+    Door?: RoomDoor;
     Direction: any;
     constructor(template: unknown) {
         this.RoomId = 0;
@@ -12,30 +11,30 @@
         delete this.Direction;
     }
 
-    GetRoomId() {
+    getRoomId() {
         return this.RoomId;
     }
 
     isDoor() {
-        return this.IsDoor === true;
+        return this.Door !== undefined;
     }
 
     isClosed() {
-        return this.IsClosed === true;
+        return this.Door?.IsClosed === true;
     }
 
     isLocked() {
-        return this.IsLocked === true;
+        return this.Door?.IsLocked === true;
     }
 
     isHidden() {
         return this.IsHidden === true;
     }
 
-    getKeyNumber() {
-        if (this.KeyNumber == undefined) {
+    getKeyId() {
+        if (this.Door?.KeyId === undefined) {
             return null;
         }
-        return this.KeyNumber;
+        return this.Door.KeyId!;
     }
 }

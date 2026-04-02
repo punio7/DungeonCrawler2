@@ -5,6 +5,7 @@ import { Room } from '../model/Room';
 import { RoomExit } from '../model/RoomExit';
 import { RoomExitsList } from '../model/RoomExitsList';
 import { RoomTemplate } from '../templates/RoomTemplate';
+import {RoomDoor} from "../model/RoomDoor";
 
 export class RoomFactory {
     SpawnRoom(template: RoomTemplate) {
@@ -17,7 +18,11 @@ export class RoomFactory {
         let exitsModel = new RoomExitsList();
         template.Exits?.forEach((exit) => {
             let direction = exit.Direction;
-            exitsModel[direction] = new RoomExit(exit);
+            let roomExit = new RoomExit(exit)
+            if (exit.Door !== undefined) {
+                roomExit.Door = new RoomDoor(exit.Door);
+            }
+            exitsModel[direction] = roomExit;
         });
         room.Exits = exitsModel;
 

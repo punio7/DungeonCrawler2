@@ -2,6 +2,7 @@
 import { Drop } from './commands/Drop';
 import { East } from './commands/East';
 import { Eval } from './commands/Eval';
+import { Exam } from './commands/Exam';
 import { Go } from './commands/Go';
 import { Inventory } from './commands/Inventory';
 import { Json } from './commands/Json';
@@ -24,6 +25,7 @@ export function InitCommands() {
     Commands.RegisterCommand('Drop', new Drop());
 
     Commands.RegisterCommand('East', new East());
+    Commands.RegisterCommand('Exam', new Exam());
     Commands.RegisterCommand('Eval', new Eval());
 
     Commands.RegisterCommand('Go', new Go());

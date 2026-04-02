@@ -1,7 +1,4 @@
-﻿import { CharacterFactory } from '../commonLogic/CharacterFactory';
-import { ItemFactory } from '../commonLogic/ItemFactory';
-import { RoomFactory } from '../commonLogic/RoomFactory';
-import { GlobalEvents } from '../GlobalEvents';
+﻿import { GlobalEvents } from '../GlobalEvents';
 import { GameTemplate } from '../templates/GameTemplate';
 import { Character } from './Character';
 import { GameData } from './GameData';
@@ -11,7 +8,9 @@ import { Player } from './Player';
 import { Room } from './Room';
 import { GameTemplate as Template } from '../../res/Game.json';
 import { RoomTemplate } from '../templates/RoomTemplate';
-import { CharacterTemplate } from '../templates/CharacterTemplate';
+import { RoomFactory } from "../factories/RoomFactory";
+import { ItemFactory } from "../factories/ItemFactory";
+import { CharacterFactory } from "../factories/CharacterFactory";
 
 export class GameModel {
     Name: string;

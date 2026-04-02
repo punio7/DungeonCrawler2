@@ -1,17 +1,20 @@
-﻿import { GrammaCase } from '../enums/GrammaCase';
-import { ItemType } from '../enums/ItemType';
-import { EntityBase } from './EntityBase';
-import { ItemList } from './ItemList';
+﻿import {GrammaCase} from '../enums/GrammaCase';
+import {ItemType} from '../enums/ItemType';
+import {EntityBase} from './EntityBase';
+import {ItemList} from './ItemList';
+import {Local} from '../InitGameData';
+import {ItemLock} from "./ItemLock";
 
 export class Item extends EntityBase {
-    readonly Name: any;
+    readonly Name: string[7] | string[7][3];
     readonly Description: string;
-    readonly Idle: string | undefined;
-    readonly IsLightSource: boolean | undefined;
-    readonly IsStackable: boolean | undefined;
+    readonly Idle?: string;
+    readonly IsLightSource?: boolean;
+    readonly IsStackable?: boolean;
     readonly Type: ItemType;
-    Stack: number | undefined;
-    Inventory: ItemList | undefined;
+    Stack?: number;
+    Inventory?: ItemList;
+    Lock?: ItemLock;
 
     getName(grammaCase = GrammaCase.Mianownik) {
         if (!this.isStackable()) {
@@ -44,7 +47,7 @@ export class Item extends EntityBase {
 
     getIdle() {
         if (this.Idle === undefined) {
-            return 'leży na ziemi';
+            return Local.Commands.Look.DefaultIdle;
         }
         return this.Idle;
     }
@@ -99,12 +102,25 @@ export class Item extends EntityBase {
 
     getInventory(): ItemList | null {
         if (this.Inventory === undefined) {
-            return null;
+            if (this.isContainer()) {
+                this.Inventory = new ItemList();
+            }
+            else return null;
         }
         return this.Inventory;
     }
 
     isContainer() {
-        return this.Inventory !== undefined;
+        return this.Type == ItemType.Container || this.Type == ItemType.StaticContainer;
+    }
+
+    isLocked() {
+        return this.Lock?.IsLocked === true;
+    }
+
+    setIsLocked(value: boolean) {
+        if (this.Lock !== undefined) {
+            this.Lock.IsLocked = value;
+        }
     }
 }

@@ -19,7 +19,7 @@
         }
 
         Engine.Output(message[0], false);
-        setTimeout(() => {
+        Engine.StartTimer(() => {
             this.printNext(message.slice(1), callback, delay, isNewLine);
         }, delay);
     }

@@ -29,13 +29,13 @@ export class Look extends Command {
             return;
         }
 
-        let item = room.getItems().find(argument, number);
+        let item = Game.Player.getInventory().find(argument, number);
         if (item !== null) {
             this.lookItem(item);
             return;
         }
 
-        item = Game.Player.getInventory().find(argument, number);
+        item = room.getItems().find(argument, number);
         if (item !== null) {
             this.lookItem(item);
             return;

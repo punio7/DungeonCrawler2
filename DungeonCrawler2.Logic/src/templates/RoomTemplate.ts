@@ -17,9 +17,12 @@ export interface RoomTemplate {
 interface ExitTemplate {
     Direction: Direction;
     RoomId: number;
-    IsDoor?: boolean;
-    IsClosed?: boolean;
-    IsLocked?: boolean;
     isHidden?: boolean;
-    KeyNumber?: number;
+    Door?: DoorTemplate;
+}
+
+interface DoorTemplate {
+    IsLocked?: boolean;
+    IsClosed?: boolean;
+    KeyId?: string;
 }

@@ -32,6 +32,7 @@
         "Container",
         "StaticContainer",
         "Quest",
+        "Key",
         "Static",
         "Lever"
       ]
@@ -46,7 +47,7 @@
         "Arms",
         "Hands",
         "Legs",
-        "Feets",
+        "Foot",
         "Head",
         "MainHand",
         "OffHand",

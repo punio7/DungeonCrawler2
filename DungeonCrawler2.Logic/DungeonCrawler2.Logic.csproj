@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DungeonCrawler.Logic</RootNamespace>
     <AssemblyName>DungeonCrawler.Logic</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -77,6 +78,9 @@
     <EmbeddedResource Include="src\enums\GrammaCase.ts" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="src\factories\CharacterFactory.ts" />
+    <EmbeddedResource Include="src\factories\ItemFactory.ts" />
+    <EmbeddedResource Include="src\factories\RoomFactory.ts" />
     <EmbeddedResource Include="src\model\Game.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -178,9 +182,6 @@
     <EmbeddedResource Include="src\enums\GlobalEventType.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="src\commonLogic\ItemFactory.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="src\commands\Scan.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -200,12 +201,6 @@
     <EmbeddedResource Include="src\model\GameData.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="src\commonLogic\CharacterFactory.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commonLogic\RoomFactory.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="src\enums\Direction.ts" />
     <EmbeddedResource Include="src\enums\EnumHelper.ts" />
     <EmbeddedResource Include="src\enums\EquipmentSlot.ts" />
@@ -222,6 +217,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\commands\Exam.ts" />
+    <TypeScriptCompile Include="src\model\CharacterStats.ts" />
+    <TypeScriptCompile Include="src\model\ItemLock.ts" />
+    <TypeScriptCompile Include="src\model\RoomDoor.ts" />
+    <TypeScriptCompile Include="src\templates\CharacterTemplate.ts" />
+    <TypeScriptCompile Include="src\templates\Common.ts" />
+    <TypeScriptCompile Include="src\templates\GameTemplate.ts" />
+    <TypeScriptCompile Include="src\templates\ItemTemplate.ts" />
+    <TypeScriptCompile Include="src\templates\RoomTemplate.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

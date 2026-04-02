@@ -36,7 +36,7 @@ export class Go extends Command {
             return;
         }
 
-        let newRoom = Game.GetRoom(exit.GetRoomId());
+        let newRoom = Game.GetRoom(exit.getRoomId());
         Game.Player.setPreviousLocation(Game.Player.getLocation());
         this.changePlayerLocation(newRoom, commandCallback);
     }
