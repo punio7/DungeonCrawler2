@@ -72,7 +72,8 @@
         "CannotPickUp": "Nie możesz podnieść {0}.",
         "PickedUp": "Podnosisz {0}.",
         "ContainerIsLocked": "{0} jest zamknięty.",
-        "IsNoContainer": "{0} nie jest pojemnikiem."
+        "IsNoContainer": "{0} nie jest pojemnikiem.",
+        "TakeItemFromContainer": "Wyjmujesz {0} z {1}."
       }
     },
     "GlobalEvents": {

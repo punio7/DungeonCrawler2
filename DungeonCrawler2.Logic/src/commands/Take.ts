@@ -1,9 +1,9 @@
-﻿import { CommandParser } from '../CommandParser';
-import { GrammaCase } from '../enums/GrammaCase';
-import { Game, Local } from '../InitGameData';
-import { Item } from '../model/Item';
-import { ItemList } from '../model/ItemList';
-import { Command } from './Command';
+﻿import {CommandParser} from '../CommandParser';
+import {GrammaCase} from '../enums/GrammaCase';
+import {Game, Local} from '../InitGameData';
+import {Item} from '../model/Item';
+import {ItemList} from '../model/ItemList';
+import {Command} from './Command';
 
 export class Take extends Command {
     ExecuteBody(command: CommandParser) {
@@ -66,7 +66,7 @@ export class Take extends Command {
             return;
         }
         this.takeItem(item, container.getInventory()!)
-        //Todo: comunikat wyjmuszesz X z Y
+        Engine.Output(Local.Commands.Take.TakeItemFromContainer.format(item.getName(), container.getName(GrammaCase.Celownik).startWithUpper()));
     }
 
     takeItemFromLocation(item: Item, itemList: ItemList) {
@@ -90,14 +90,13 @@ export class Take extends Command {
         }
     }
 
-    takeAllGold(itemList: ItemList) {
-        let i = 0;
-        for (let item = itemList.elementAt(i); item != null; item = itemList.elementAt(i)) {
-            if (item.Id !== "gold" || !this.takeItemFromLocation(item, itemList)) {
-                i++;
-            }
+    takeAllGold(container: Item) {
+        let itemList = container.getInventory()!;
+        let gold: Item | null = null;
+        while ((gold = itemList.findById("gold")) !== null) {
+            this.takeItem(gold, itemList)
+            Engine.Output(Local.Commands.Take.TakeItemFromContainer.format(gold.getName(), container.getName(GrammaCase.Celownik).startWithUpper()));
         }
-        //Todo: komunikat wyjmujesz X z Y
     }
 
     takeItem(item: Item, itemList: ItemList) {

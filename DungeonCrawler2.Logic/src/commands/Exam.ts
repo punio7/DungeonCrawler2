@@ -58,7 +58,7 @@ export class Exam extends Command {
             let items = item.getInventory()!;
             if (items.any()) {
                 Engine.Output(items.printShortFormat());
-                Commands.Take.takeAllGold(items);
+                Commands.Take.takeAllGold(item);
             } else {
                 Engine.Output(Local.Commands.Inventory.NoItems.format(Engine.NonBreakingSpace.repeat(4)));
             }
