@@ -83,6 +83,11 @@ class EngineClass {
     Exit() {
 
     }
+
+    StartTimer(callback, ms) {
+        setTimeout(callback, ms);
+    }
+
 };
 
 var Engine = new EngineClass();
