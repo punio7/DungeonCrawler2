@@ -1,4 +1,4 @@
-﻿export class ItemTypesModel {
+﻿export class ItemTypes {
     [itemTypeId: string]: any;
     constructor(itemTypesTemplate: any | undefined) {
         if (itemTypesTemplate === undefined) {

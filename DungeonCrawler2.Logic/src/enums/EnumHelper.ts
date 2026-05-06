@@ -5,12 +5,8 @@
     }
 
     parse(value: string): EnumType | null {
-        for (const key in this.source) {
-            if (this.source.hasOwnProperty(key)) {
-                if (key === value) {
-                    return this.source[key] as EnumType;
-                }
-            }
+        if (this.source.hasOwnProperty(value)) {
+            return this.source[value] as EnumType;
         }
         return null;
     }
@@ -18,21 +14,17 @@
     parseArray(values: string[]) {
         let array: EnumType[] = [];
         values.forEach((key) => {
-            let direction: EnumType | null = this.parse(key);
-            if (direction !== null) {
-                array.push(direction);
+            let parsed: EnumType | null = this.parse(key);
+            if (parsed !== null) {
+                array.push(parsed);
             }
         });
         return array;
     }
 
     contains(string: string): boolean {
-        for (const key in this.source) {
-            if (this.source.hasOwnProperty(key)) {
-                if (key === string) {
-                    return true;
-                }
-            }
+        if (this.source.hasOwnProperty(string)) {
+            return true;
         }
         return false;
     }

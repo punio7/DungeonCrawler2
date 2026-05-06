@@ -38,7 +38,7 @@ export class Drop extends Command {
 
     dropItem(item: Item) {
         Game.Player.getInventory().remove(item);
-        Game.GetRoom(Game.Player.Location).getItems().add(item);
+        Game.getRoom(Game.Player.Location).getItems().add(item);
         Engine.Output(Local.Commands.Drop.Dropped.format(item.getName(GrammaCase.Biernik)));
     }
 }

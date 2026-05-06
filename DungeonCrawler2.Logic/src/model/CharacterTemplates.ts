@@ -1,6 +1,6 @@
-﻿export class CharacterTemplatesModel {
+﻿export class CharacterTemplates {
     [templateId: string]: any;
-    constructor(characterTemplates: any | undefined) {
+    constructor(characterTemplates?: any) {
         if (characterTemplates === undefined) {
             return;
         }

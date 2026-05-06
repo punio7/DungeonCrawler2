@@ -1,8 +1,13 @@
 ﻿import { ItemTemplate } from '../templates/ItemTemplate';
 
-export class ItemTemplatesModel {
-    [templateId: string]: any;
-    constructor(itemTemplates: any | undefined) {
+class ItemTemplatesList {
+    [templateId: string]: ItemTemplate;
+}
+
+export class ItemTemplates {
+    list: ItemTemplatesList = new ItemTemplatesList();
+
+    constructor(itemTemplates: ItemTemplate[] | undefined) {
         if (itemTemplates === undefined) {
             return;
         }
@@ -12,21 +17,21 @@ export class ItemTemplatesModel {
         }
 
         itemTemplates.forEach((value, index) => {
-            this.AddNewItemTemplate(value);
+            this.addNewItemTemplate(value);
         });
     }
 
-    AddNewItemTemplate(itemTemplate: any) {
-        if (this[itemTemplate.Id] !== undefined) {
+    addNewItemTemplate(itemTemplate: ItemTemplate) {
+        if (this.list[itemTemplate.Id] !== undefined) {
             throw 'Item template {0} is already defined!'.format(itemTemplate.Id);
         }
-        this[itemTemplate.Id] = itemTemplate;
+        this.list[itemTemplate.Id] = itemTemplate;
     }
 
     getTemplate(itemId: string): ItemTemplate {
-        if (this[itemId] === undefined) {
+        if (this.list[itemId] === undefined) {
             throw 'No item template defined for {0}!'.format(itemId);
         }
-        return this[itemId];
+        return this.list[itemId];
     }
 }

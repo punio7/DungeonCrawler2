@@ -2,12 +2,11 @@
     DefaultColor: string;
     NonBreakingSpace: string;
     EndLine: string;
-    Input: string;
 
     constructor() {
-        this.EndLine = "<br/>";
-        this.NonBreakingSpace = "&nbsp;";
-        this.DefaultColor = "|W";
+        this.EndLine = '<br/>';
+        this.NonBreakingSpace = '&nbsp;';
+        this.DefaultColor = '|W';
     }
 
     /**
@@ -15,7 +14,7 @@
      * @param {string} message
      * @param {boolean} isNewLine
      */
-    Output(message: string = "", isNewLine: boolean = true) {
+    Output(message: string = '', isNewLine: boolean = true) {
         console.log(message);
     }
 
@@ -23,7 +22,7 @@
      *
      * @param {string} location
      */
-    LoadScript(location: string) { }
+    LoadScript(location: string) {}
 
     /**
      *
@@ -34,15 +33,14 @@
         return {};
     }
 
-    Reload() { }
+    Reload() {}
 
-    Exit() { }
+    Exit() {}
 
-    StartTimer(callback: Function, ms: number) { }
-
+    StartTimer(callback: Function, ms: number) {}
 }
 
 declare global {
     var Engine: EngineClass;
 }
-global.Engine = new EngineClass();
+globalThis.Engine = new EngineClass();

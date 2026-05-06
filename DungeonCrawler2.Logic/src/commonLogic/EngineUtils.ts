@@ -1,5 +1,5 @@
 ﻿class EngineUtilsClass {
-    skipPrinter: boolean;
+    skipPrinter: boolean = false;
 
     OutputPrinter(message: string, callback: Function, delay = 60, isNewLine = true) {
         this.skipPrinter = false;

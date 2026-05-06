@@ -1,66 +1,76 @@
-﻿import {GrammaCase} from '../enums/GrammaCase';
-import {ItemType} from '../enums/ItemType';
-import {EntityBase} from './EntityBase';
-import {ItemList} from './ItemList';
-import {Local} from '../InitGameData';
-import {ItemLock} from "./ItemLock";
+﻿import { GrammaCase } from '../enums/GrammaCase';
+import { ItemType, ItemTypeHelper } from '../enums/ItemType';
+import { EntityBase } from './EntityBase';
+import { ItemList } from './ItemList';
+import { Local } from '../InitGameData';
+import { ItemLock } from './ItemLock';
+import { ItemTemplate } from '../templates/ItemTemplate';
+import { GameData } from './GameData';
 
 export class Item extends EntityBase {
-    readonly Name: string[7] | string[7][3];
-    readonly Description: string;
-    readonly Idle?: string;
-    readonly IsLightSource?: boolean;
-    readonly IsStackable?: boolean;
-    readonly Type: ItemType;
     Stack?: number;
     Inventory?: ItemList;
     Lock?: ItemLock;
 
+    constructor(template: ItemTemplate) {
+        super();
+        this.Id = template.Id;
+        if (this.isContainer()) {
+            this.Inventory = new ItemList();
+        }
+    }
+
+    private getTemplate(): ItemTemplate {
+        return GameData.ItemTemplates.getTemplate(this.Id);
+    }
+
     getName(grammaCase = GrammaCase.Mianownik) {
+        let name = this.getTemplate().Name;
         if (!this.isStackable()) {
-            return this.Name[grammaCase] + Engine.DefaultColor;
+            return name[grammaCase] + Engine.DefaultColor;
         } else {
             return this.getStack() + ' ' + this.getPluralName(grammaCase) + Engine.DefaultColor;
         }
     }
 
     getPluralName(grammaCase = GrammaCase.Mianownik) {
-        if (!Array.isArray(this.Name[0])) {
-            return this.Name[grammaCase];
+        let name = this.getTemplate().Name;
+        if (!Array.isArray(name[0])) {
+            return name[grammaCase];
         } else {
             switch (this.getStack()) {
                 case 1:
-                    return this.Name[0][grammaCase];
+                    return name[0][grammaCase];
                 case 2:
                 case 3:
                 case 4:
-                    return this.Name[1][grammaCase];
+                    return name[1][grammaCase];
                 default:
-                    return this.Name[2][grammaCase];
+                    return name[2][grammaCase];
             }
         }
     }
 
     getDescription() {
-        return this.Description + Engine.DefaultColor;
+        return this.getTemplate().Description + Engine.DefaultColor;
     }
 
     getIdle() {
-        if (this.Idle === undefined) {
+        if (this.getTemplate().Idle === undefined) {
             return Local.Commands.Look.DefaultIdle;
         }
-        return this.Idle;
+        return this.getTemplate().Idle!;
     }
 
     isLightSource() {
-        return this.IsLightSource === true;
+        return this.getTemplate().IsLightSource === true;
     }
 
     isStackable() {
-        if (this.IsStackable === undefined) {
+        if (this.getTemplate().IsStackable === undefined) {
             return false;
         }
-        return this.IsStackable;
+        return this.getTemplate().IsStackable;
     }
 
     getStack() {
@@ -86,7 +96,7 @@ export class Item extends EntityBase {
     }
 
     getType() {
-        return this.Type;
+        return ItemTypeHelper.parse(this.getTemplate().Type);
     }
 
     isTakeable() {
@@ -102,16 +112,14 @@ export class Item extends EntityBase {
 
     getInventory(): ItemList | null {
         if (this.Inventory === undefined) {
-            if (this.isContainer()) {
-                this.Inventory = new ItemList();
-            }
-            else return null;
+            return null;
         }
         return this.Inventory;
     }
 
     isContainer() {
-        return this.Type == ItemType.Container || this.Type == ItemType.StaticContainer;
+        let type = this.getTemplate().Type;
+        return type == ItemType.Container || type == ItemType.StaticContainer;
     }
 
     isLocked() {

@@ -1,54 +1,53 @@
-﻿{
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "JSON Schema for my JSON file format",
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "JSON Schema for my JSON file format",
 
-  "type": "object",
+    "type": "object",
 
-  "properties": {
-    "ItemsTemplates": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["Id", "Name", "Description", "Type"],
-        "properties": {
+    "properties": {
+        "ItemsTemplates": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["Id", "Name", "Description", "Type"],
+                "properties": {
+                    "Id": {
+                        "type": "string",
+                        "description": "Item's template id"
+                    },
 
-          "Id": {
-            "type": "string",
-            "description": "Item's template id"
-          },
+                    "Name": {
+                        "$ref": "Common-Schema.json#/definitions/EntityName"
+                    },
 
-          "Name": {
-            "$ref": "Common-Schema.json#/definitions/EntityName"
-          },
+                    "Idle": {
+                        "type": "string",
+                        "description": "Text shown on items list"
+                    },
 
-          "Idle": {
-            "type": "string",
-            "description": "Text shown on items list"
-          },
+                    "Description": {
+                        "type": "string",
+                        "description": "Item's detailed description"
+                    },
 
-          "Description": {
-            "type": "string",
-            "description": "Item's detailed description"
-          },
+                    "Type": {
+                        "$ref": "ItemType-Schema.json#/definitions/ItemTypeId"
+                    },
 
-          "Type": {
-            "$ref": "ItemType-Schema.json#/definitions/ItemTypeId"
-          },
+                    "IsLightSource": {
+                        "type": "boolean",
+                        "default": "false",
+                        "description": "Specifies if item lights up the room"
+                    },
 
-          "IsLightSource": {
-            "type": "boolean",
-            "default": "false",
-            "description": "Specifies if item lights up the room"
-          },
-
-          "IsStackable": {
-            "type": "boolean",
-            "default": "false",
-            "description": "Specifies if the item is stackable"
-          }
+                    "IsStackable": {
+                        "type": "boolean",
+                        "default": "false",
+                        "description": "Specifies if the item is stackable"
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }

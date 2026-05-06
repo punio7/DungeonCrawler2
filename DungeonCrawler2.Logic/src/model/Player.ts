@@ -2,18 +2,11 @@ import { Game } from '../InitGameData';
 import { Character } from './Character';
 
 export class Player extends Character {
-    Location: number;
-    PreviousLocation: number;
+    Location: number = 0;
+    PreviousLocation: number = 0;
 
     constructor(template: any) {
         super();
-
-        if (this.Location === undefined) {
-            this.Location = 0;
-        }
-        if (this.PreviousLocation === undefined) {
-            this.PreviousLocation = 0;
-        }
     }
 
     getLocation(): number {
@@ -33,7 +26,7 @@ export class Player extends Character {
     }
 
     canSee(): boolean {
-        let room = Game.GetRoom(this.Location);
+        let room = Game.getRoom(this.Location);
         return room.hasLightSource();
     }
 }

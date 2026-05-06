@@ -12,7 +12,7 @@ function Init() {
     Engine.Output('Dungeon Crawler 2, wersja:');
     Engine.Output(Version);
     Commands.Go.changePlayerLocation(
-        Game.GetRoom(Game.StartingRoom),
+        Game.getRoom(Game.StartingRoom),
         new CommandCallback(() => {
             Engine.Output('');
             Prompt.Print();
@@ -23,4 +23,4 @@ function Init() {
 declare global {
     function Init(): void;
 }
-global.Init = Init;
+globalThis.Init = Init;

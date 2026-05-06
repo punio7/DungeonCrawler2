@@ -1,25 +1,22 @@
 ﻿import { GlobalEvents } from '../GlobalEvents';
-import { GameTemplate } from '../templates/GameTemplate';
 import { Character } from './Character';
 import { GameData } from './GameData';
 import { GlobalEventArgs } from './GlobalEventArgs';
 import { Item } from './Item';
 import { Player } from './Player';
 import { Room } from './Room';
-import { GameTemplate as Template } from '../../res/Game.json';
-import { RoomTemplate } from '../templates/RoomTemplate';
-import { RoomFactory } from "../factories/RoomFactory";
-import { ItemFactory } from "../factories/ItemFactory";
-import { CharacterFactory } from "../factories/CharacterFactory";
+import { RoomFactory } from '../factories/RoomFactory';
+import { ItemFactory } from '../factories/ItemFactory';
+import { CharacterFactory } from '../factories/CharacterFactory';
 
 export class GameModel {
     Name: string;
     StartingRoom: number;
-    Rooms: any[];
+    Rooms: Room[];
     ItemFactory: ItemFactory;
     CharacterFactory: CharacterFactory;
     RoomFactory: RoomFactory;
-    Player: Player;
+    Player = new Player(undefined);
 
     constructor() {
         this.Name = '';
@@ -31,55 +28,33 @@ export class GameModel {
         this.RoomFactory = new RoomFactory();
     }
 
-    LoadFromTemplate() {
-        let player = new Player(undefined);
-        //this.CharacterFactory.LoadFromTemplate(player, this.Player);
-        this.Player = player;
-
-        for (var i = 0; i < Template.Rooms.length; i++) {
-            this.Rooms[i] = this.RoomFactory.SpawnRoom(Template.Rooms[i] as RoomTemplate);
-            if (this.Rooms[i].Id !== i) {
-                throw 'Room with Id {0} is placed on index {1}, fix Rooms data'.format(this.Rooms[i].Id, i);
-            }
-        }
-    }
-
     getName() {
         return this.Name;
     }
 
-    GetRoom(roomId: number): Room {
+    getRoom(roomId: number): Room {
         let room = this.Rooms[roomId];
         if (room === undefined) {
-            throw 'Invalid Room Id: {0}'.format(roomId);
-        }
-        if (!room.isLoaded()) {
-            this.RoomFactory.LoadRoomData(room, Template.Rooms[roomId] as RoomTemplate);
+            const roomTemplate = GameData.RoomTemplates.getTemplate(roomId);
+            room = this.Rooms[roomId] = this.RoomFactory.spawnRoom(roomTemplate);
+            this.RoomFactory.loadFromData(room);
         }
         return room;
     }
 
-    SpawnItem(itemDefinition: any): Item | null {
+    spawnItem(itemDefinition: any): Item | null {
         return this.ItemFactory.spawnItem(itemDefinition);
     }
 
-    LoadItemFromSave(saveItem: any): Item {
-        return this.ItemFactory.LoadFromSave(saveItem);
+    spawnCharacter(characterId: string): Character {
+        return this.CharacterFactory.spawnCharacter(characterId);
     }
 
-    SpawnCharacter(characterId: string): Character {
-        return this.CharacterFactory.SpawnCharacter(characterId);
+    getItemType(itemTypeName: string): string {
+        return GameData.ItemTypes.getItemType(itemTypeName);
     }
 
-    LoadCharacterFromSave(saveCharacter: any): Character {
-        return this.CharacterFactory.LoadFromSave(saveCharacter);
-    }
-
-    GetItemType(itemTypeName: string): string {
-        return GameData.ItemTypes.GetItemType(itemTypeName);
-    }
-
-    InvokeGlobalEvent(name: string, args: GlobalEventArgs): boolean {
+    invokeGlobalEvent(name: string, args: GlobalEventArgs): boolean {
         let event = GlobalEvents[name];
         if (event === undefined || typeof event !== 'function') {
             throw "Global event with name {0} doesn't exist".format(name);

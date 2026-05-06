@@ -1,49 +1,36 @@
 ﻿import { Direction, DirectionHelper } from '../enums/Direction';
 import { CharacterList } from './CharacterList';
+import { GameData } from './GameData';
 import { ItemList } from './ItemList';
 import { RoomExit } from './RoomExit';
 import { RoomExitsList } from './RoomExitsList';
 
 export class Room {
-    Id: number;
-    Name: string;
-    Description: string;
-    IsNaturalLight: boolean;
-    Exits: RoomExitsList;
-    IsVisited: boolean;
-    IsLoaded: boolean;
-    Items: ItemList;
-    Characters: CharacterList;
-    OnFirstEnterEvent?: string;
-    OnEnterEvent?: string;
-    constructor() {
-        this.Id = 0;
-        this.Name = '';
-        this.Description = '';
-        this.IsNaturalLight = false;
-        this.Exits = {};
-        this.IsVisited = false;
-    }
+    Id: number = 0;
+    Exits: RoomExitsList = new RoomExitsList();
+    IsVisited: boolean = false;
+    Items: ItemList = new ItemList();
+    Characters: CharacterList = new CharacterList();
 
-    isLoaded() {
-        return this.IsLoaded;
+    constructor() {}
+
+    getTemplate() {
+        return GameData.RoomTemplates.getTemplate(this.Id);
     }
 
     getName() {
-        return this.Name;
+        return this.getTemplate().Name;
+    }
+
+    getDescription() {
+        return this.getTemplate().Description;
     }
 
     getItems() {
-        if (this.Items === undefined) {
-            return new ItemList();
-        }
         return this.Items;
     }
 
     getCharacters() {
-        if (this.Characters === undefined) {
-            return new CharacterList();
-        }
         return this.Characters;
     }
 
@@ -59,7 +46,7 @@ export class Room {
     }
 
     hasLightSource() {
-        if (this.IsNaturalLight) {
+        if (this.getTemplate().IsNaturalLight) {
             return true;
         }
         if (this.getItems().hasLightSource()) {
@@ -69,16 +56,16 @@ export class Room {
     }
 
     getOnFirstEnterEvent() {
-        if (this.OnFirstEnterEvent === undefined) {
+        if (this.getTemplate().OnFirstEnterEvent === undefined) {
             return null;
         }
-        return this.OnFirstEnterEvent;
+        return this.getTemplate().OnFirstEnterEvent;
     }
 
     getOnEnterEvent() {
-        if (this.OnEnterEvent === undefined) {
+        if (this.getTemplate().OnEnterEvent === undefined) {
             return null;
         }
-        return this.OnEnterEvent;
+        return this.getTemplate().OnEnterEvent;
     }
 }

@@ -10,15 +10,8 @@ export class ItemList extends EntityList<Item> {
     loadFromTemplate(template: any) {
         if (template !== undefined) {
             template.forEach((itemDefinition: any) => {
-                this.add(Game.SpawnItem(itemDefinition));
+                this.add(Game.spawnItem(itemDefinition));
             });
-        }
-    }
-
-    loadFromSave(saveItemList: any) {
-        Object.assign(this, saveItemList);
-        for (var i = 0; i < this.Array.length; i++) {
-            this.Array[i] = Game.LoadItemFromSave(this.Array[i]);
         }
     }
 

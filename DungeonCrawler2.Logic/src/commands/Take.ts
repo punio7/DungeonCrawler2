@@ -1,9 +1,9 @@
-﻿import {CommandParser} from '../CommandParser';
-import {GrammaCase} from '../enums/GrammaCase';
-import {Game, Local} from '../InitGameData';
-import {Item} from '../model/Item';
-import {ItemList} from '../model/ItemList';
-import {Command} from './Command';
+﻿import { CommandParser } from '../CommandParser';
+import { GrammaCase } from '../enums/GrammaCase';
+import { Game, Local } from '../InitGameData';
+import { Item } from '../model/Item';
+import { ItemList } from '../model/ItemList';
+import { Command } from './Command';
 
 export class Take extends Command {
     ExecuteBody(command: CommandParser) {
@@ -12,18 +12,19 @@ export class Take extends Command {
             Engine.Output(Local.Commands.Take.NoArgument);
             return;
         }
-        
+
         let number1 = command.getNumber(1);
         let argument2 = command.getArgument(2);
-        if (argument2 === null) {   //pick up item from location
+        if (argument2 === null) {
+            //pick up item from location
             if (argument1.toLowerCase() === 'all') {
-                if (!Game.GetRoom(Game.Player.Location).getItems().any()) {
+                if (!Game.getRoom(Game.Player.Location).getItems().any()) {
                     Engine.Output(Local.Commands.Take.NoItems);
                     return;
                 }
                 this.takeAllFromLocation();
             } else {
-                let itemList = Game.GetRoom(Game.Player.Location).getItems();
+                let itemList = Game.getRoom(Game.Player.Location).getItems();
                 let item = itemList.find(argument1, number1);
                 if (item === null) {
                     Engine.Output(Local.Commands.Take.NoItemFound.format(argument1));
@@ -31,15 +32,16 @@ export class Take extends Command {
                 }
                 this.takeItemFromLocation(item, itemList);
             }
-        } else {    //take item from container
+        } else {
+            //take item from container
             let number2 = command.getNumber(2);
             let container = Game.Player.getInventory().find(argument2, number2);
             if (container !== null) {
                 this.takeItemFromContainer(argument1, number1, container);
                 return;
             }
-            
-            let itemList = Game.GetRoom(Game.Player.Location).getItems();
+
+            let itemList = Game.getRoom(Game.Player.Location).getItems();
             container = itemList.find(argument2, number2);
             if (container !== null) {
                 this.takeItemFromContainer(argument1, number1, container);
@@ -59,14 +61,21 @@ export class Take extends Command {
             Engine.Output(Local.Commands.Take.ContainerIsLocked.format(container.getName().startWithUpper()));
             return;
         }
-        
+
         let item = container.getInventory()!.find(name, number);
         if (item === null) {
-            Engine.Output(Local.Commands.Take.NoItemFoundInContainer.format(container.getName().startWithUpper(), name));
+            Engine.Output(
+                Local.Commands.Take.NoItemFoundInContainer.format(container.getName().startWithUpper(), name),
+            );
             return;
         }
-        this.takeItem(item, container.getInventory()!)
-        Engine.Output(Local.Commands.Take.TakeItemFromContainer.format(item.getName(), container.getName(GrammaCase.Celownik).startWithUpper()));
+        this.takeItem(item, container.getInventory()!);
+        Engine.Output(
+            Local.Commands.Take.TakeItemFromContainer.format(
+                item.getName(),
+                container.getName(GrammaCase.Celownik).startWithUpper(),
+            ),
+        );
     }
 
     takeItemFromLocation(item: Item, itemList: ItemList) {
@@ -81,7 +90,7 @@ export class Take extends Command {
     }
 
     takeAllFromLocation() {
-        let itemList = Game.GetRoom(Game.Player.Location).getItems();
+        let itemList = Game.getRoom(Game.Player.Location).getItems();
         let i = 0;
         for (let item = itemList.elementAt(i); item != null; item = itemList.elementAt(i)) {
             if (!this.takeItemFromLocation(item, itemList)) {
@@ -93,9 +102,14 @@ export class Take extends Command {
     takeAllGold(container: Item) {
         let itemList = container.getInventory()!;
         let gold: Item | null = null;
-        while ((gold = itemList.findById("gold")) !== null) {
-            this.takeItem(gold, itemList)
-            Engine.Output(Local.Commands.Take.TakeItemFromContainer.format(gold.getName(), container.getName(GrammaCase.Celownik).startWithUpper()));
+        while ((gold = itemList.findById('gold')) !== null) {
+            this.takeItem(gold, itemList);
+            Engine.Output(
+                Local.Commands.Take.TakeItemFromContainer.format(
+                    gold.getName(),
+                    container.getName(GrammaCase.Celownik).startWithUpper(),
+                ),
+            );
         }
     }
 

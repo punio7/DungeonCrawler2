@@ -4,8 +4,8 @@ import { Item } from '../model/Item';
 import { ItemList } from '../model/ItemList';
 import { ItemChanceOneOfTemplate, ItemChanceTemplate, ItemListTemplateElement, Stack } from '../templates/Common';
 import { ItemTemplate } from '../templates/ItemTemplate';
-import {Random} from "../commonLogic/Random";
-import {ItemLock} from "../model/ItemLock";
+import { Random } from '../commonLogic/Random';
+import { ItemLock } from '../model/ItemLock';
 
 export class ItemFactory {
     spawnItem(itemDefinition: ItemListTemplateElement): Item | null {
@@ -54,8 +54,7 @@ export class ItemFactory {
 
     spawnItemByTemplateId(templateId: string): Item {
         let template: ItemTemplate = GameData.ItemTemplates.getTemplate(templateId);
-        let item = new Item();
-        Object.assign(item, template);
+        let item = new Item(template);
         return item;
     }
 
@@ -92,7 +91,7 @@ export class ItemFactory {
                 inventory = item.Inventory = new ItemList();
             }
             itemDefinition.Inventory.forEach((itemDefinition: any) => {
-                inventory?.add(Game.SpawnItem(itemDefinition));
+                inventory?.add(Game.spawnItem(itemDefinition));
             });
         }
     }
@@ -112,16 +111,5 @@ export class ItemFactory {
         } else {
             return Random.nextInt(stack.Min, stack.Max);
         }
-    }
-
-    LoadFromSave(saveItem: any): Item {
-        let item = new Item();
-        Object.assign(item, saveItem);
-        if (item.getInventory() !== null) {
-            let inventoryModel = new ItemList();
-            inventoryModel.loadFromSave(item.getInventory());
-            item.Inventory = inventoryModel;
-        }
-        return item;
     }
 }

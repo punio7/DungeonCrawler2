@@ -24,7 +24,7 @@ export class Go extends Command {
     }
 
     goToDirection(direction: any, commandCallback: CommandCallback) {
-        let exit = Game.GetRoom(Game.Player.getLocation()).getExit(direction);
+        let exit = Game.getRoom(Game.Player.getLocation()).getExit(direction);
 
         if (exit === null || exit.isHidden()) {
             Engine.Output(Local.Commands.Go.NoPassage);
@@ -36,31 +36,34 @@ export class Go extends Command {
             return;
         }
 
-        let newRoom = Game.GetRoom(exit.getRoomId());
+        let newRoom = Game.getRoom(exit.getRoomId());
         Game.Player.setPreviousLocation(Game.Player.getLocation());
         this.changePlayerLocation(newRoom, commandCallback);
     }
 
     changePlayerLocation(room: Room, commandCallback: CommandCallback) {
         Game.Player.Location = room.Id;
-        room.IsVisited = true;
 
-        this.onFirstEnterGlobalEvents(room, () => this.afterOnFirstEnterGlobalEvents(room, commandCallback), commandCallback);
+        this.onFirstEnterGlobalEvents(
+            room,
+            () => this.afterOnFirstEnterGlobalEvents(room, commandCallback),
+            commandCallback,
+        );
+        room.IsVisited = true;
     }
 
     onFirstEnterGlobalEvents(room: Room, continueCallback: Function, terminateCallback: CommandCallback) {
-        if (room.getOnFirstEnterEvent() !== null) {
-            let interrupt = Game.InvokeGlobalEvent(
+        if (room.getOnFirstEnterEvent() !== null && !room.IsVisited) {
+            let interrupt = Game.invokeGlobalEvent(
                 room.getOnFirstEnterEvent()!,
                 new GlobalEventArgs(GlobalEventType.BeforeRoomEnter, room, terminateCallback, continueCallback),
             );
-            delete room.OnFirstEnterEvent;
             if (interrupt) {
                 terminateCallback.interruptFlow = true;
                 return;
             }
         }
-        
+
         continueCallback();
     }
 
@@ -71,9 +74,11 @@ export class Go extends Command {
 
     onEnterGlobalEvents(room: Room, commandCallback: CommandCallback) {
         if (room.getOnEnterEvent() !== null) {
-            let interrupt = Game.InvokeGlobalEvent(
+            let interrupt = Game.invokeGlobalEvent(
                 room.getOnEnterEvent()!,
-                new GlobalEventArgs(GlobalEventType.BeforeRoomEnter, room, commandCallback, () => commandCallback.CallIfNotCalled()),
+                new GlobalEventArgs(GlobalEventType.BeforeRoomEnter, room, commandCallback, () =>
+                    commandCallback.CallIfNotCalled(),
+                ),
             );
             if (interrupt) {
                 commandCallback.interruptFlow = true;

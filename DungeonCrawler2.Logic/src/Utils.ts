@@ -20,7 +20,7 @@ String.prototype.startWithUpper = function () {
 };
 
 String.prototype.isNumber = function () {
-    return /^\d+$/.test(this);
+    return /^\d+$/.test(this.toString());
 };
 
 String.prototype.isNullOrEmpty = function () {

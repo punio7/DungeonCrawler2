@@ -22,23 +22,23 @@ import { CommandTree } from './CommandTree';
 import { Prompt } from './commonLogic/Prompt';
 
 class CommandList {
-    Down: Down;
-    Drop: Drop;
-    East: East;
-    Eval: Eval;
-    Exam: Exam;
-    Go: Go;
-    Inventory: Inventory;
-    Json: Json;
-    Look: Look;
-    North: North;
-    Reload: Reload;
-    South: South;
-    Scan: Scan;
-    Take: Take;
-    Test: Test;
-    Up: Up;
-    West: West;
+    Down = new Down();
+    Drop = new Drop();
+    East = new East();
+    Eval = new Eval();
+    Exam = new Exam();
+    Go = new Go();
+    Inventory = new Inventory();
+    Json = new Json();
+    Look = new Look();
+    North = new North();
+    Reload = new Reload();
+    South = new South();
+    Scan = new Scan();
+    Take = new Take();
+    Test = new Test();
+    Up = new Up();
+    West = new West();
 }
 
 interface CommandDictionary {

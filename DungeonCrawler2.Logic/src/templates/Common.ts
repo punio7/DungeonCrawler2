@@ -1,5 +1,5 @@
-type EntityNameForms = string[7];
-type EntityNameWithPlurals = EntityNameForms[3];
+type EntityNameForms = string[];
+type EntityNameWithPlurals = EntityNameForms[];
 export type EntityName = EntityNameForms | EntityNameWithPlurals;
 
 type ItemId = string;
@@ -12,7 +12,7 @@ interface StackChance {
 export type Stack = number | StackChance;
 type ItemSpawnChance = number;
 
-interface Lock {
+export interface LockTemplate {
     IsLocked?: boolean;
     KeyId: string;
 }
@@ -22,7 +22,7 @@ export interface ItemChanceTemplate {
     Chance?: ItemSpawnChance;
     Stack?: Stack;
     Inventory?: ItemListTemplateElement[];
-    Lock?: Lock;
+    Lock?: LockTemplate;
 }
 
 export interface ItemChanceOneOfTemplate {

@@ -9,7 +9,7 @@ import { Command } from './Command';
 
 export class Look extends Command {
     ExecuteBody(command: CommandParser) {
-        let room = Game.GetRoom(Game.Player.Location);
+        let room = Game.getRoom(Game.Player.Location);
 
         if (!Game.Player.canSee()) {
             Engine.Output(Local.Commands.Look.CantSee);
@@ -49,7 +49,7 @@ export class Look extends Command {
         message += room.getName() + Engine.EndLine;
         message += this.exitsString(room) + Engine.EndLine;
         message += Engine.EndLine;
-        message += room.Description;
+        message += room.getDescription();
         if (room.getCharacters().any()) {
             message += Engine.EndLine + Engine.EndLine + room.getCharacters().printLongFormat(false);
         }

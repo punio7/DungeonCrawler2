@@ -52,12 +52,17 @@
                 "Items": [
                     {
                         "ItemId": "wooden-chest",
-                        "Inventory": ["sapphire-round", "gold"],
-                        "Stack": [1, {
-                            "Min": 30,
-                            "Max": 100
-                        }],
-                        "Lock": { "KeyId": "simple-iron-key"}
+                        "Inventory": [
+                            "sapphire-round",
+                            {
+                                "ItemId": "gold",
+                                "Stack": {
+                                    "Min": 20,
+                                    "Max": 100
+                                }
+                            }
+                        ],
+                        "Lock": { "KeyId": "simple-iron-key" }
                     }
                 ],
 

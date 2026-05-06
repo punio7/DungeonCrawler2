@@ -6,13 +6,11 @@ import { Command } from './Command';
 
 export class Scan extends Command {
     ExecuteBody(command: CommandParser) {
-        let room = Game.GetRoom(Game.Player.getLocation());
-
         if (!Game.Player.canSee()) {
             Engine.Output(Local.Commands.Scan.CantSee);
             return;
         }
-        let playerRoom = Game.GetRoom(Game.Player.Location);
+        let playerRoom = Game.getRoom(Game.Player.Location);
 
         Engine.Output(Local.Commands.Scan.LookingAroundYouSee);
         Engine.Output(Local.Commands.Scan.Here);
@@ -32,7 +30,7 @@ export class Scan extends Command {
     }
 
     private printCharacters(roomId: number) {
-        let room = Game.GetRoom(roomId);
+        let room = Game.getRoom(roomId);
         if (!room.getCharacters().any()) {
             return Engine.NonBreakingSpace.repeat(4) + Local.Commands.Scan.NoOneThere;
         }

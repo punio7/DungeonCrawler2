@@ -1,41 +1,40 @@
 class Stat {
-    base: number;
-    race: number;
-    class: number;
-    bonus: number;
-    total: number;
+    base: number = 0;
+    race: number = 0;
+    class: number = 0;
+    bonus: number = 0;
+    total: number = 0;
 }
 
 class Attribute {
-    stat: number;
-    level: number;
-    eq: number;
-    bonus: number;
-    modifier: number;
-    total: number;
+    stat: number = 0;
+    level: number = 0;
+    eq: number = 0;
+    bonus: number = 0;
+    modifier: number = 0;
+    total: number = 0;
 }
 
 export class CharacterStats {
-    level: number;
-    
-    strength: Stat;
-    dexterity: Stat;
-    agility: Stat;
-    endurance: Stat;
-    vitality: Stat;
-    
-    attack: Attribute;
-    defense: Attribute;
+    level: number = 1;
+
+    strength: Stat = new Stat();
+    dexterity: Stat = new Stat();
+    agility: Stat = new Stat();
+    endurance: Stat = new Stat();
+    vitality: Stat = new Stat();
+
+    attack: Attribute = new Attribute();
+    defense: Attribute = new Attribute();
     health: Attribute = new Attribute();
-    armor: Attribute;
-    fatigue: Attribute;
-    damage: Attribute;
-    
-    currentHealth: number;
-    currentArmor: number;
-    
+    armor: Attribute = new Attribute();
+    fatigue: Attribute = new Attribute();
+    damage: Attribute = new Attribute();
+
+    currentHealth: number = 100;
+    currentArmor: number = 0;
+
     constructor() {
-        this.currentHealth = 100;
         this.health.total = 100;
     }
 }

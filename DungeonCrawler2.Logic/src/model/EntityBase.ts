@@ -1,5 +1,5 @@
 export abstract class EntityBase {
-    Id: string;
+    Id: string = '';
     abstract getName(): string;
     abstract getIdle(): string;
 }

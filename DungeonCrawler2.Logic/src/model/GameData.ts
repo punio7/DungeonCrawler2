@@ -1,15 +1,18 @@
-﻿import { CharacterTemplatesModel } from './CharacterTemplates';
-import { ItemTemplatesModel } from './ItemTemplates';
-import { ItemTypesModel } from './ItemTypes';
+﻿import { CharacterTemplates } from './CharacterTemplates';
+import { ItemTemplates } from './ItemTemplates';
+import { ItemTypes } from './ItemTypes';
+import { RoomTemplates } from './RoomTemplates';
 
 class GameDataModel {
-    ItemTypes: ItemTypesModel;
-    ItemTemplates: ItemTemplatesModel;
-    CharacterTemplates: CharacterTemplatesModel;
+    ItemTypes: ItemTypes;
+    ItemTemplates: ItemTemplates;
+    CharacterTemplates: CharacterTemplates;
+    RoomTemplates: RoomTemplates;
     constructor() {
-        this.ItemTypes = new ItemTypesModel(undefined);
-        this.ItemTemplates = new ItemTemplatesModel(undefined);
-        this.CharacterTemplates = new CharacterTemplatesModel(undefined);
+        this.ItemTypes = new ItemTypes(undefined);
+        this.ItemTemplates = new ItemTemplates(undefined);
+        this.CharacterTemplates = new CharacterTemplates(undefined);
+        this.RoomTemplates = new RoomTemplates(undefined);
     }
 }
 

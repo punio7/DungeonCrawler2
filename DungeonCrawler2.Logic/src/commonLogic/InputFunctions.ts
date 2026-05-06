@@ -20,6 +20,6 @@ declare global {
     function SkipPrinter(): void;
     function ResumeExecution(): void;
 }
-global.Execute = Execute;
-global.SkipPrinter = SkipPrinter;
-global.ResumeExecution = ResumeExecution;
+globalThis.Execute = Execute;
+globalThis.SkipPrinter = SkipPrinter;
+globalThis.ResumeExecution = ResumeExecution;

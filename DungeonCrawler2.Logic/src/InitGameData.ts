@@ -2,11 +2,13 @@
 import { ItemsTemplates } from '../res/Items.json';
 import { CharactersTemplates } from '../res/Characters.json';
 import { Local as LocalPl } from '../res/Local.pl.json';
+import { GameTemplate } from '../res/Game.json';
 import { GameModel } from './model/Game';
-import { ItemTypesModel } from './model/ItemTypes';
-import { CharacterTemplatesModel } from './model/CharacterTemplates';
-import { ItemTemplatesModel } from './model/ItemTemplates';
+import { ItemTypes as ItemTypesList } from './model/ItemTypes';
+import { CharacterTemplates } from './model/CharacterTemplates';
+import { ItemTemplates } from './model/ItemTemplates';
 import { GameData } from './model/GameData';
+import { RoomTemplates } from './model/RoomTemplates';
 
 export var Local = LocalPl;
 export var Game: GameModel = new GameModel();
@@ -14,10 +16,10 @@ export var Version = '';
 
 export function InitGameData() {
     Game = new GameModel();
-    Game.LoadFromTemplate();
-    GameData.ItemTypes = new ItemTypesModel(ItemTypes);
-    GameData.ItemTemplates = new ItemTemplatesModel(ItemsTemplates);
-    GameData.CharacterTemplates = new CharacterTemplatesModel(CharactersTemplates);
+    GameData.ItemTypes = new ItemTypesList(ItemTypes);
+    GameData.ItemTemplates = new ItemTemplates(ItemsTemplates);
+    GameData.CharacterTemplates = new CharacterTemplates(CharactersTemplates);
+    GameData.RoomTemplates = new RoomTemplates(GameTemplate.Rooms);
     Version = Engine.LoadData('version.txt').replace('\n', Engine.EndLine);
 
     Game.Player.Location = Game.StartingRoom;

@@ -1,4 +1,35 @@
-﻿import { EnumHelper } from "./EnumHelper";
+﻿import { EnumHelper } from './EnumHelper';
+
+export type ItemType2 =
+    | 'Weapon1H'
+    | 'Weapon2H'
+    | 'Shield'
+    | 'Armor'
+    | 'Shoulders'
+    | 'Gloves'
+    | 'Greaves'
+    | 'Boots'
+    | 'Helmet'
+    | 'Shirt'
+    | 'Pants'
+    | 'WildShield'
+    | 'WildArmor'
+    | 'WildShoulders'
+    | 'WildGloves'
+    | 'WildGreaves'
+    | 'WildBoots'
+    | 'WildHelmet'
+    | 'Ring'
+    | 'Necklace'
+    | 'Potion'
+    | 'Food'
+    | 'Trash'
+    | 'Currency'
+    | 'Container'
+    | 'StaticContainer'
+    | 'Quest'
+    | 'Static'
+    | 'Lever';
 
 export enum ItemType {
     Weapon1H = 'Weapon1H',

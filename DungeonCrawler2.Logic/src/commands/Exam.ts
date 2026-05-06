@@ -10,7 +10,7 @@ import { Take } from './Take';
 
 export class Exam extends Command {
     ExecuteBody(command: CommandParser): void {
-        let room = Game.GetRoom(Game.Player.Location);
+        let room = Game.getRoom(Game.Player.Location);
         let argument = command.getArgument(1);
         let number = command.getNumber(1);
 
@@ -43,7 +43,12 @@ export class Exam extends Command {
     examCharacter(character: Character) {
         Engine.Output(Local.Commands.Look.YouLookAt.format(character.getName(GrammaCase.Celownik)));
         Engine.Output(character.getDescription());
-        Engine.Output(Local.Commands.Exam.HealthLevel.format(character.getName().startWithUpper(), character.getHealthLevel(true)))
+        Engine.Output(
+            Local.Commands.Exam.HealthLevel.format(
+                character.getName().startWithUpper(),
+                character.getHealthLevel(true),
+            ),
+        );
         //TODO: ekwipunek
     }
     examItem(item: Item) {

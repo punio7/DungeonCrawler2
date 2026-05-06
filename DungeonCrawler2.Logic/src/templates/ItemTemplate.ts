@@ -1,4 +1,3 @@
-import { ItemType } from '../enums/ItemType';
 import { EntityName } from './Common';
 
 export interface ItemTemplate {
@@ -6,7 +5,7 @@ export interface ItemTemplate {
     Name: EntityName;
     Idle?: string;
     Description: string;
-    Type: ItemType;
+    Type: string;
     IsLightSource?: boolean;
     IsStackable?: boolean;
 }
