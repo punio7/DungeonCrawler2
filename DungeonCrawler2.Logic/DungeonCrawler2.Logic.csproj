@@ -1,225 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{407EB50A-C226-44C1-8591-490D91D00707}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DungeonCrawler.Logic</RootNamespace>
-    <AssemblyName>DungeonCrawler.Logic</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFramework>net48</TargetFramework>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="git show --pretty=medium --no-patch &gt; &quot;$(ProjectDir)version.txt&quot;&#xD;&#xA;npm run build" />
+  </Target>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)version.txt&quot; &quot;$(SolutionDir)DungeonCrawler2.Electron\&quot; /d /Y&#xD;&#xA;xcopy &quot;$(ProjectDir)dist&quot; &quot;$(SolutionDir)DungeonCrawler2.Electron\src\&quot; /s /d /Y" />
+  </Target>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <None Remove="dist\bundle.js" />
+    <None Remove="version.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="res\Game.json" />
-    <EmbeddedResource Include="res\Items.json" />
-    <EmbeddedResource Include="res\schema\Character-Schema.json" />
-    <EmbeddedResource Include="res\schema\Common-Schema.json" />
-    <EmbeddedResource Include="res\schema\Game-Schema.json" />
-    <EmbeddedResource Include="res\schema\Item-Schema.json" />
-    <EmbeddedResource Include="res\schema\ItemType-Schema.json" />
-    <EmbeddedResource Include="src\commands\Command.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Eval.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Json.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Look.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\NoCommand.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Reload.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Test.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commonLogic\Prompt.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\enums\GrammaCase.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\factories\CharacterFactory.ts" />
-    <EmbeddedResource Include="src\factories\ItemFactory.ts" />
-    <EmbeddedResource Include="src\factories\RoomFactory.ts" />
-    <EmbeddedResource Include="src\model\Game.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\Item.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\ItemList.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\ItemTemplates.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\ItemTypes.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\Player.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\Room.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\RoomExit.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\Init.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\InitGameData.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\Character.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\CharacterList.ts" />
-    <EmbeddedResource Include="src\model\EntityList.ts" />
-    <EmbeddedResource Include="src\model\CharacterTemplates.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="res\Characters.json" />
-    <EmbeddedResource Include="res\ItemTypes.json" />
-    <EmbeddedResource Include="res\Local.pl.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\Equipment.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Go.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\North.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\South.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\East.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\West.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Up.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Down.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Take.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Inventory.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Drop.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commonLogic\Random.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\GlobalEvents.ts" />
-    <EmbeddedResource Include="src\model\GlobalEventArgs.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\enums\GlobalEventType.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commands\Scan.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\commonLogic\Engine.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="version.txt">
+    <Content Include="version.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="src\commonLogic\InputFunctions.ts" />
-    <EmbeddedResource Include="src\commonLogic\EngineUtils.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\model\GameData.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\enums\Direction.ts" />
-    <EmbeddedResource Include="src\enums\EnumHelper.ts" />
-    <EmbeddedResource Include="src\enums\EquipmentSlot.ts" />
-    <EmbeddedResource Include="src\enums\ItemType.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="package-lock.json" />
-    <None Include="package.json" />
-    <None Include="tsconfig.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include=".prettierrc.js" />
     <Content Include="dist\bundle.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="webpack.config.js" />
   </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="src\commands\Exam.ts" />
-    <TypeScriptCompile Include="src\model\CharacterStats.ts" />
-    <TypeScriptCompile Include="src\model\ItemLock.ts" />
-    <TypeScriptCompile Include="src\model\RoomDoor.ts" />
-    <TypeScriptCompile Include="src\templates\CharacterTemplate.ts" />
-    <TypeScriptCompile Include="src\templates\Common.ts" />
-    <TypeScriptCompile Include="src\templates\GameTemplate.ts" />
-    <TypeScriptCompile Include="src\templates\ItemTemplate.ts" />
-    <TypeScriptCompile Include="src\templates\RoomTemplate.ts" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)version.txt" "$(SolutionDir)DungeonCrawler2.Electron\" /d /Y
-xcopy "$(ProjectDir)dist" "$(SolutionDir)DungeonCrawler2.Electron\src\" /s /d /Y</PostBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PreBuildEvent>git show --pretty=medium --no-patch &gt; "$(ProjectDir)version.txt"
-npm run build</PreBuildEvent>
-  </PropertyGroup>
 </Project>

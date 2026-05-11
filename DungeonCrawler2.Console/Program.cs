@@ -23,7 +23,6 @@ namespace DungeonCrawler2.Console
             {
                 logger.Debug("Initialize");
                 gameEngine.Init();
-                logger.Debug("Ready to go");
                 gameEngine.Run();
             }
             logger.Debug("Finish");
