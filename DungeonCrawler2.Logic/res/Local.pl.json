@@ -69,7 +69,8 @@
                 "LookingAroundYouSee": "Rozglądając się dookoła dostrzegasz:",
                 "Here": "Tutaj:",
                 "InDirection": "Na {0}:",
-                "NoOneThere": "nikogo nie ma"
+                "NoOneThere": "nikogo nie ma",
+                "ClosedDoor": "zamknięte drzwi"
             },
             "Take": {
                 "NoArgument": "Wziąć co?",

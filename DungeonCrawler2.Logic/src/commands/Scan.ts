@@ -18,13 +18,17 @@ export class Scan extends Command {
 
         DirectionHelper.forEach((direction) => {
             let exit = playerRoom.getExit(direction);
-            if (exit !== null && !exit.isHidden() && !exit.isClosed()) {
+            if (exit !== null && !exit.isHidden()) {
                 Engine.Output(
                     Local.Commands.Scan.InDirection.format(
                         DirectionHelper.getLocale(direction, GrammaCase.Miejscownik),
                     ),
                 );
-                Engine.Output(this.printCharacters(exit.RoomId));
+                if (exit.isClosed()) {
+                    Engine.Output(Engine.NonBreakingSpace.repeat(4) + Local.Commands.Scan.ClosedDoor);
+                } else {
+                    Engine.Output(this.printCharacters(exit.RoomId));
+                }
             }
         });
     }

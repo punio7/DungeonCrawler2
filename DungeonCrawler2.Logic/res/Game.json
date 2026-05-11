@@ -1,4 +1,4 @@
-﻿{
+{
     "$schema": "schema/Game-Schema.json",
     "GameTemplate": {
         "Name": "nazwa gry",
@@ -32,7 +32,6 @@
                     }
                 ]
             },
-
             {
                 "Id": 1,
                 "Name": "Podziemny korytarz",
@@ -62,13 +61,13 @@
                                 }
                             }
                         ],
-                        "Lock": { "KeyId": "simple-iron-key" }
+                        "Lock": {
+                            "KeyId": "simple-iron-key"
+                        }
                     }
                 ],
-
                 "OnFirstEnterEvent": "TestGlobalEvent"
             },
-
             {
                 "Id": 2,
                 "Name": "Podziemny korytarz",
@@ -82,6 +81,962 @@
                     {
                         "Direction": "south",
                         "RoomId": 1
+                    }
+                ]
+            },
+            {
+                "Id": 3,
+                "Name": "Podziemny korytarz",
+                "Description": "Patrząc pod światło możesz podziwiać dzieło zniszczenia dokonane przez naturę. Grube korzenie strąciły kamienną kostkę z sufitu i wpełzły do korytarza. Część z nich wbiła się w ścianę, reszta natomiast smętnie wisi w powietrzu. Na podłodze leża potłuczone kawałki kamiennych płytek, które spadając z sufitu roztrzaskały się i porozlatywały na wszystkie strony. Zgromadzona na nich wilgoć odbija drobiny światła dobiegające z oddali, reszta natomiast ginie we wszechogarniającej ciemności.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 4
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 2
+                    }
+                ],
+                "Items": [
+                    {
+                        "ItemId": "wooden-chest",
+                        "Lock": {
+                            "KeyId": "simple-iron-key"
+                        },
+                        "Gold": {
+                            "Min": 5,
+                            "Max": 15
+                        },
+                        "Contains": [
+                            "map",
+                            "weak-healing-potion",
+                            "leather-armor",
+                            "leather-leggings",
+                            "leather-shoulder-pads",
+                            "leather-boots",
+                            "leather-gloves"
+                        ]
+                    }
+                ]
+            },
+            {
+                "Id": 4,
+                "Name": "Koniec korytarza",
+                "Description": "Koniec korytarza jest kompletnie ciemny. Macając rękami na oślep określasz iż drzwi są przeciętnej wysokości, wykonane z drewna. Klamka jest umieszczona mniej więcej w połowie wysokości drzwi ma zakrzywiony kształt z gałką na końcu. Dotykając jej czujesz wygrawerowane na jej powierzchni zdobienia. Z powodu ciemności nie możesz określić z jakiego metalu jest wykonana.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 5,
+                        "Door": { "IsClosed": true }
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 3
+                    }
+                ],
+                "Characters": ["test-npc"]
+            },
+            {
+                "Id": 5,
+                "Name": "Wejście do piwniczki",
+                "Description": "To niewielkie pomieszczenie wygląda na piwniczkę. Drewniana drabina zamocowana do wschodniej ściany prowadzi do zamkniętej klapy w suficie. Przy przeciwległej ścianie znajduje się podobna klapa prowadząca na dół. Ściany i podłogi pomieszczenia są wykonane z kamiennych cegieł, jednak te są czyste, nieporośnięte mchami. W północnej ścianie znajdują się drzwi prowadzące do dalszych piwniczek. Koło drzwi zamontowana w ścianie jest pochodnia rzucające jasne światło na całe pomieszczenie.",
+                "IsNaturalLight": true,
+                "BackgroundMusic": "LVL1",
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 6,
+                        "Door": {
+                            "KeyId": "simple-iron-key"
+                        }
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 4,
+                        "Door": {
+                            "IsClosed": true
+                        }
+                    },
+                    {
+                        "Direction": "up",
+                        "RoomId": 17,
+                        "Door": {
+                            "KeyId": "bronze-key-lvl2"
+                        }
+                    },
+                    {
+                        "Direction": "down",
+                        "RoomId": 20,
+                        "Door": {
+                            "KeyId": "bronze-key-lvl2"
+                        }
+                    }
+                ],
+                "Characters": ["hooded-figure"]
+            },
+            {
+                "Id": 6,
+                "Name": "Wyjście z piwniczki",
+                "Description": "Ściany i podłogi piwniczki podobnie jak cała piwnica są wymurowane staranną kamienną kostką. Wnętrza nie oświetla żadna pochodnia a blask bijący od wejście oświetla niewielką część pomieszczenia. Widać iż służyło ono do składowania trunków- całą piwniczkę zajmuje 5 długich, ciągnących się aż po zasięg światła, stojaków do przechowywania wina. W zasięgu wzroku nie dostrzegasz jednak żadnej butelki. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 10
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 5,
+                        "Door": {
+                            "KeyId": "simple-iron-key"
+                        }
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 12
+                    },
+                    {
+                        "Direction": "west",
+                        "RoomId": 7
+                    }
+                ],
+                "Characters": ["cave-rat"]
+            },
+            {
+                "Id": 7,
+                "Name": "Początek alejki stojaków",
+                "Description": "Przed tobą ciągną się dwa długie stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Stojak po twojej lewej przylega do ściany natomiast ten po prawej stoi niczym ściana działowa. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 8
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 6
+                    }
+                ]
+            },
+            {
+                "Id": 8,
+                "Name": "Alejka pomiędzy stojakami",
+                "Description": "Po swojej lewej i prawej masz dwa drewniane stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego w pobliżu nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Alejka ciągnie się prosto i ginie w mrokach. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 9
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 7
+                    }
+                ],
+                "Items": ["broken-glass-shards"]
+            },
+            {
+                "Id": 9,
+                "Name": "Koniec alejki",
+                "Description": "Dotarłeś do końca alejki. Stojak po twojej prawej kończy się pozostawiając przejście do równoległych alejek. Na wprost ciebie kamienna ściana znaczy kraniec piwniczki. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 15
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 8
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 11
+                    }
+                ],
+                "Items": ["empty-wine-bottle"],
+                "Characters": ["cave-rat"]
+            },
+            {
+                "Id": 10,
+                "Name": "Alejka pomiędzy stojakami",
+                "Description": "Po swojej lewej i prawej masz dwa drewniane stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego w pobliżu nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Alejka ciągnie się prosto i ginie w mrokach. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 11
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 6
+                    }
+                ],
+                "Items": ["broken-glass-shards"],
+                "Characters": ["cave-rat"]
+            },
+            {
+                "Id": 11,
+                "Name": "Koniec alejki",
+                "Description": "Dotarłeś do końca alejki. Stojaki po twoich obu stronach kończą się pozostawiając przejście do równoległych alejek. Na wprost ciebie kamienna ściana znaczy kraniec piwniczki. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 10
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 14
+                    },
+                    {
+                        "Direction": "west",
+                        "RoomId": 9
+                    }
+                ],
+                "Characters": ["cave-rat"]
+            },
+            {
+                "Id": 12,
+                "Name": "Początek alejki stojaków",
+                "Description": "Przed tobą ciągną się dwa długie stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Stojak po twojej prawej przylega do ściany natomiast ten po lewej stoi niczym ściana działowa. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 13
+                    },
+                    {
+                        "Direction": "west",
+                        "RoomId": 6
+                    }
+                ],
+                "Items": ["broken-glass-shards"]
+            },
+            {
+                "Id": 13,
+                "Name": "Alejka pomiędzy stojakami",
+                "Description": "Po swojej lewej i prawej masz dwa drewniane stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego w pobliżu nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Alejka ciągnie się prosto i ginie w mrokach. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 14
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 12
+                    }
+                ],
+                "Items": ["broken-glass-shards"],
+                "Characters": ["cave-rat"]
+            },
+            {
+                "Id": 14,
+                "Name": "Koniec alejki",
+                "Description": "Dotarłeś do końca alejki. Stojak po twojej lewej kończy się pozostawiając przejście do równoległych alejek. Na wprost ciebie kamienna ściana znaczy kraniec piwniczki. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 13
+                    },
+                    {
+                        "Direction": "west",
+                        "RoomId": 11
+                    }
+                ]
+            },
+            {
+                "Id": 15,
+                "Name": "Ukryte przejście",
+                "Description": "Ukryte przejście było najwidoczniej od początku zaplanowane- jego ściany są pokryte tą samą staranną kamienną kostką, jedynie bardziej zarośniętą mchem i porostami. Przejście jest wąskie ale wystarczająco wysokie aby można było przejść bez schylania się. Jednak pierwsze co rzuca ci się w oczy to mnogość ludzkich szczątków leżących na podłodze oraz złowieszczy smród śmierci.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 16
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 9
+                    }
+                ]
+            },
+            {
+                "Id": 16,
+                "Name": "Legowisko ogara",
+                "Description": "Some description",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 15
+                    }
+                ],
+                "Characters": ["guard-dog"]
+            },
+            {
+                "Id": 20,
+                "Name": "Wyjście z jaskiń",
+                "Description": "Znajdujesz się w wysokim podziemnym korytarzu, będącym częścią jakiejś jaskini. Podłoże jest nierówne, usłane kamieniami, a z niknącego w mroku sufitu zwisają pojedyncze stalagmity. Pieczara wyglądną na niemal nietkniętą przez człowieka, gdzieniegdzie pod ścianami poustawiano zagradzające przejście kamienie, ale to jedyne oznaki ingerencji w naturalny chaos. Korytarz w tym miejscu bierze ostry zakręt na wschód, jednak panująca ciemność nie pozwala ci dostrzec gdzie biegnie dalej. W zagłębieniu zakrętu stoi oparta o ścianę drabina, oświetlona przez światło dobywające się z góry.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 21
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 22
+                    },
+                    {
+                        "Direction": "up",
+                        "RoomId": 5,
+                        "Door": {
+                            "KeyId": "bronze-key-lvl2"
+                        }
+                    }
+                ],
+                "OnFirstEnterEvent": "DescentIntoCaves"
+            },
+            {
+                "Id": 21,
+                "Name": "Drzwi w jaskini",
+                "Description": "W tym miejscu korytarz szybko się zwęża i kurczy, a jedyne przejście prowadzi przez mocarne drewniane drzwi. Portal drzwi zakreśla idealnie owalny kształt i jest starannie wykonany z kamiennych cegiełek. Same drzwi wyglądają raczej prosto ale wytrzymale, ich powierzchnię zajmują wypukłe kwadraty, ale poza nimi nie ma żadnych zdobień. Drzewo nie wygląda staro i jest zapewne w świetnej kondycji. Z prawej strony drzwi znajduje się mosiężny uchwyt do ich otwierania, a poniżej niego duża dziura na klucz. Dookoła drzwi zauważasz mnóstwo grzybów, zajmujących wszystkie wgłębienia w ścianie i podłodze.",
+                "IsNaturalLight": true,
+                "BackgroundMusic": "LVL2",
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 20
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 55,
+                        "Door": {
+                            "KeyId": "silver-key-lvl3"
+                        }
+                    }
+                ],
+                "OnFirstEnterEvent": "ChasingGoblinInCaves",
+                "Characters": ["goblin-gatherer"]
+            },
+            {
+                "Id": 22,
+                "Name": "Korytarz w jaskini",
+                "Description": "Dwie duże skały niemal blokują przejście w tym miejscu, znajduje się jednak pomiędzy nimi wąskie przejście. Lekki wiatr przepływający przez jaskinie kumuluje się w tym miejscu, gwiżdżąc leciutko. Spoglądając przez zwężenie zauważasz iż korytarz znowu skręca, tym razem na północ.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 20
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 23
+                    }
+                ]
+            },
+            {
+                "Id": 23,
+                "Name": "Rozwidlenie korytarza",
+                "Description": "Główny korytarz jaskini ciągnie się dalej na północ, jednak na zachodniej ścianie znajduje się dużej wielkości dziura prowadząca do jakiejś odnogi. Ponieważ nie czujesz żadnego wiatru dochodzącego z tamtego kierunku, wnioskujesz iż musi być ona ślepym zaułkiem.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 22
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 24
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 27
+                    }
+                ]
+            },
+            {
+                "Id": 24,
+                "Name": "Korytarz w jaskini",
+                "Description": "Odnoga okazuje się być dużą dziurą utworzoną przy pęknięciu skały. Olbrzymią szczelinę w skale przywalił ogromny głaz, służący teraz za sufit. W efekcie powstała wąska ale całkiem wysoka dziura w skale. Jej ściany są proste i niemalże gładkie, miejscami znajdują się tylko bruzdy po przedwiecznym pęknięciu. Dno szczeliny zajęły drobne kamienie i ziemia, tworząc całkiem solidne, choć nierówne podłoże.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 23
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 25
+                    }
+                ]
+            },
+            {
+                "Id": 25,
+                "Name": "Korytarz w jaskini",
+                "Description": "Idąc wzdłuż szczeliny zauważasz iż staje się ona coraz szersza, podłoże schodzi lekko w dół i staje się coraz bardziej wilgotne. W pewnym momencie pęknięcie zmienia kierunek, przez co szelina skręca na południe.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 24
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 26
+                    }
+                ],
+                "Characters": ["goblin-gatherer"]
+            },
+            {
+                "Id": 26,
+                "Name": "Wilgotny zakątek",
+                "Description": "W tym miejscu widać koniec głazu będącego sufitem szczeliny- większe i mniejsze skały zasypały jej dalszą część a wraz z czasem uformowały niemalże litą ścianę. Utworzone w ten sposób pomieszczenie ma całkiem duże rozmiary, choć podłoga jest nierówna a w jej najgłębszym miejscu stoi spora kałuża wody. Wokół niej rośnie sporo mchu, a na nim nieznane ci gatunki grzybów.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 25
+                    }
+                ],
+                "Items": ["dog-rose"]
+            },
+            {
+                "Id": 27,
+                "Name": "Korytarz w jaskini",
+                "Description": "Leżący na podłożu głaz utworzył w tym miejscu wysoki stopień. Wspinając się na niego dostrzegasz iż niewiele dalej korytarz skręca na zachód po czym ginie w mroku.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 23
+                    },
+                    {
+                        "Direction": "west",
+                        "RoomId": 28
+                    }
+                ]
+            },
+            {
+                "Id": 28,
+                "Name": "Korytarz w jaskini",
+                "Description": "Korytarz w jaskini jest całkiem szeroki i wysoki, umożliwiając ci swobodne chodzenie. Ściany jaskini są chropowate, pełne drobnych pęknięć i bruzd. Drobne kamienie wyścielają nierówną podłogę korytarza. Powietrze jest czyste, chłodne i wilgotne. Dominującą ciszę zakłóca tylko głos wiatru przelatującego przez korytarz oraz okresowe kapanie wody gdzieś z oddali.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "east",
+                        "RoomId": 27
+                    },
+                    {
+                        "Direction": "west",
+                        "RoomId": 29
+                    }
+                ]
+            },
+            {
+                "Id": 29,
+                "Name": "Rozwidlenie korytarza",
+                "Description": "W tym miejscu korytarz skręca w prawo, a w raz z nim strumień świeżego powietrza. Po lewej zauważasz jednak niedużą dziurę prowadzącą ku ciemności.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "east",
+                        "RoomId": 28
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 30
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 31
+                    }
+                ],
+                "Characters": ["goblin-gatherer"]
+            },
+            {
+                "Id": 30,
+                "Name": "Wilgotny zakątek",
+                "Description": "Pomieszczenie to wygląda nienaturalnie w porównaniu z całą resztą jaskini. Ściany są idealnie gładkie, proste i pozbawione nierówności. Tworzą one rodzaj pokoju wyrzeźbionego w skale, jednak nie znasz narzędzi które mogły by zrobić tak dokładnie. Podłoga jest mokra i pokryta gęstym mchem oraz grzybami. Ze sklepienia ciągle kapie woda, przez co czuć wyjątkową wilgoć.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 29
+                    }
+                ],
+                "Items": ["dog-rose"]
+            },
+            {
+                "Id": 31,
+                "Name": "Korytarz w jaskini",
+                "Description": "Korytarz w jaskini jest całkiem szeroki i wysoki, umożliwiając ci swobodne chodzenie. Ściany jaskini są chropowate, pełne drobnych pęknięć i bruzd. Drobne kamienie wyścielają nierówną podłogę korytarza. Powietrze jest czyste, chłodne i wilgotne. Dominującą ciszę zakłóca tylko głos wiatru przelatującego przez korytarz oraz okresowe kapanie wody gdzieś z oddali.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 29
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 32
+                    }
+                ]
+            },
+            {
+                "Id": 32,
+                "Name": "Korytarz w jaskini",
+                "Description": "Korytarz w jaskini jest całkiem szeroki i wysoki, umożliwiając ci swobodne chodzenie. Ściany jaskini są chropowate, pełne drobnych pęknięć i bruzd. Drobne kamienie wyścielają nierówną podłogę korytarza. Powietrze jest czyste, chłodne i wilgotne. Dominującą ciszę zakłóca tylko głos wiatru przelatującego przez korytarz oraz okresowe kapanie wody gdzieś z oddali.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 33
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 31
+                    }
+                ]
+            },
+            {
+                "Id": 33,
+                "Name": "Wejście na cmentarz",
+                "Description": "Korytarz brnie nadal na przód, jednak po lewej stronie zauważasz sporej wielkości dziurę. Przyglądając się niej widzisz iż prowadzi ona do całkiem sporego pomieszczenia, znajdującego się tuż obok głównego korytarza.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 32
+                    },
+                    {
+                        "Direction": "west",
+                        "RoomId": 34
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 38
+                    }
+                ]
+            },
+            {
+                "Id": 34,
+                "Name": "Cmentarz w jaskini",
+                "Description": "Pomieszczenie za dziurą okazało się być o wiele większe niż przewidywałeś. Jego sklepienie jest wysokie na dobre kilkanaście łokci, a objętościowo pomieściłby dobre kilkadziesiąt ludzi. Wydaje się, że pełni ono rolę pewnego rodzaju cmentarza- w całym pomieszczeniu znajduje się kilkanaście małych, usypanych z kamieni kurhanów. Ułożone są równo, jednak wykonano byle jak. Nic w pokoju nie wskazuje co jest pochowane w kurhanach.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "east",
+                        "RoomId": 33
+                    },
+                    {
+                        "Direction": "west",
+                        "RoomId": 35
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 37
+                    }
+                ]
+            },
+            {
+                "Id": 35,
+                "Name": "Cmentarz w jaskini",
+                "Description": "Pomieszczenie za dziurą okazało się być o wiele większe niż przewidywałeś. Jego sklepienie jest wysokie na dobre kilkanaście łokci, a objętościowo pomieściłby dobre kilkadziesiąt ludzi. Wydaje się, że pełni ono rolę pewnego rodzaju cmentarza- w całym pomieszczeniu znajduje się kilkanaście małych, usypanych z kamieni kurhanów. Ułożone są równo, jednak wykonano byle jak. Nic w pokoju nie wskazuje co jest pochowane w kurhanach.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "east",
+                        "RoomId": 34
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 36
+                    }
+                ],
+                "Characters": ["goblin-gatherer"]
+            },
+            {
+                "Id": 36,
+                "Name": "Cmentarz w jaskini",
+                "Description": "Pomieszczenie za dziurą okazało się być o wiele większe niż przewidywałeś. Jego sklepienie jest wysokie na dobre kilkanaście łokci, a objętościowo pomieściłby dobre kilkadziesiąt ludzi. Wydaje się, że pełni ono rolę pewnego rodzaju cmentarza- w całym pomieszczeniu znajduje się kilkanaście małych, usypanych z kamieni kurhanów. Ułożone są równo, jednak wykonano byle jak. Nic w pokoju nie wskazuje co jest pochowane w kurhanach.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 35
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 37
+                    }
+                ],
+                "Items": ["rusted-helmet"]
+            },
+            {
+                "Id": 37,
+                "Name": "Cmentarz w jaskini",
+                "Description": "Pomieszczenie za dziurą okazało się być o wiele większe niż przewidywałeś. Jego sklepienie jest wysokie na dobre kilkanaście łokci, a objętościowo pomieściłby dobre kilkadziesiąt ludzi. Wydaje się, że pełni ono rolę pewnego rodzaju cmentarza- w całym pomieszczeniu znajduje się kilkanaście małych, usypanych z kamieni kurhanów. Ułożone są równo, jednak wykonano byle jak. Nic w pokoju nie wskazuje co jest pochowane w kurhanach.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 36
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 34
+                    }
+                ],
+                "Items": ["short-bronze-sword", "bronze-sword", "bronze-axe", "bronze-war-hammer"]
+            },
+            {
+                "Id": 38,
+                "Name": "Rozwidlenie korytarza",
+                "Description": "W tym miejscu korytarz ponownie się rozwidla, jego główna część wiedzie dalej na przód, wraz ze strumieniem czystego powietrza. Odnoga znajdująca się po prawej jest niemal tak duża jak główny korytarz i dochodzą z niej bliżej nie określone dźwięki.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 33
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 39
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 41
+                    }
+                ]
+            },
+            {
+                "Id": 39,
+                "Name": "Korytarz w jaskini",
+                "Description": "Korytarz w jaskini jest całkiem szeroki i wysoki, umożliwiając ci swobodne chodzenie. Ściany jaskini są chropowate, pełne drobnych pęknięć i bruzd. Drobne kamienie wyścielają nierówną podłogę korytarza. Powietrze jest czyste, chłodne i wilgotne. Dominującą ciszę zakłóca tylko głos wiatru przelatującego przez korytarz oraz okresowe kapanie wody gdzieś z oddali.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 38
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 40
+                    }
+                ],
+                "Characters": ["goblin-gatherer"]
+            },
+            {
+                "Id": 40,
+                "Name": "Gruzowisko",
+                "Description": "Korytarz nagle kończy się zawaliskiem kamieni i skał. Dwa największe głazy przysypane masą mniejszych, tworzą ścianę nie do pokonania. Przyglądając się ścianom jaskini zauważasz dookoła liczne pęknięcia i szpary, zupełnie jakby sklepienie zawaliło się w tym miejscu. Nic nie wskazuje co było przyczyną zawalenia.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 39
+                    }
+                ]
+            },
+            {
+                "Id": 41,
+                "Name": "Korytarz w jaskini",
+                "Description": "Ta odnoga jest tylko trochę mniejsza od głównego korytarza, jego wygląd jest jednak bardzo podobny. Ściany są chropowate i nierówne, podobnie jak podłoga, na której jednak zalega cienka warstwa ziemi i drobnych kamieni. Bez strumienia wiatru powietrze wydaje się duszne, oraz cieplejsze. Patrząc na przód widzisz iż korytarz jest kręty i często zmienia swój kierunek. Wydaje ci się, że dostrzegłeś błysk światła oraz jakieś odgłosy, dobywające się gdzieś zza zakrętu.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 38
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 42
+                    }
+                ]
+            },
+            {
+                "Id": 42,
+                "Name": "Stróżówka goblinów",
+                "Description": "Ten kawałek korytarza został zajęty przez gobliny- małe i zajadłe jaskiniowe stworzenia. Wykorzystały one kręty korytarz do zorganizowania zasadzki na wszelkich zbliżających się intruzów Rozglądając się dookoła zauważasz dużo śladów ich dłuższej obecności- dogasające ognisko, pojemniki z wodą, oraz kupy szmat, które mogły służyć za posłanie.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 41
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 43
+                    }
+                ],
+                "Characters": ["goblin-guard"]
+            },
+            {
+                "Id": 43,
+                "Name": "Stróżówka goblinów",
+                "Description": "Room 43.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 42
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 44
+                    }
+                ],
+                "Characters": ["goblin-guard"]
+            },
+            {
+                "Id": 44,
+                "Name": "Stróżówka goblinów",
+                "Description": "Room 44.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 43
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 45
+                    }
+                ],
+                "Characters": ["goblin-guard"]
+            },
+            {
+                "Id": 45,
+                "Name": "Wejście do jaskiń goblinów",
+                "Description": "Room 45.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 44
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 46
+                    }
+                ],
+                "Characters": ["goblin-shaman", "goblin-berserker"]
+            },
+            {
+                "Id": 46,
+                "Name": "Jaskinia goblinów",
+                "Description": "Room 46.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 45
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 47
+                    }
+                ],
+                "Characters": ["goblin-guard"]
+            },
+            {
+                "Id": 47,
+                "Name": "Jaskinia goblinów",
+                "Description": "Room 47.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 46
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 48
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 50
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 52
+                    }
+                ],
+                "Characters": ["goblin-berserker"]
+            },
+            {
+                "Id": 48,
+                "Name": "Wejście do skarbca goblinów",
+                "Description": "Room 48.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 47
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 49
+                    }
+                ],
+                "Characters": ["goblin-guard", "goblin-guard"]
+            },
+            {
+                "Id": 49,
+                "Name": "Skarbiec goblinów",
+                "Description": "Room 49.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 48
+                    }
+                ],
+                "Event": "BlockedByGoblinGuards"
+            },
+            {
+                "Id": 50,
+                "Name": "Wejście do namiotu szamana",
+                "Description": "Room 50.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 47
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 51
+                    }
+                ],
+                "Characters": ["goblin-berserker"]
+            },
+            {
+                "Id": 51,
+                "Name": "Namiot szamana goblinów",
+                "Description": "Room 51.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 50
+                    }
+                ]
+            },
+            {
+                "Id": 52,
+                "Name": "Jaskinia goblinów",
+                "Description": "Room 52.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "south",
+                        "RoomId": 47
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 53
+                    }
+                ]
+            },
+            {
+                "Id": 53,
+                "Name": "Wejście do pomieszczenia ze strumykiem",
+                "Description": "Room 54.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 52
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 54
+                    }
+                ],
+                "Characters": ["goblin-guard", "goblin-guard"]
+            },
+            {
+                "Id": 54,
+                "Name": "Pomieszczenie ze strumykiem",
+                "Description": "Room 54.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 53
+                    }
+                ],
+                "Event": "BlockedByGoblinGuards"
+            },
+            {
+                "Id": 55,
+                "Name": "Zamknięta część jaskini",
+                "Description": "Room 55.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 21,
+                        "Door": {
+                            "KeyId": "silver-key-lvl3"
+                        }
+                    },
+                    {
+                        "Direction": "south",
+                        "RoomId": 56
+                    }
+                ],
+                "OnFirstEnterEvent": "PassingThroughDemonDoor"
+            },
+            {
+                "Id": 56,
+                "Name": "Room 56",
+                "Description": "Room 56.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "north",
+                        "RoomId": 55
+                    },
+                    {
+                        "Direction": "east",
+                        "RoomId": 57
+                    }
+                ]
+            },
+            {
+                "Id": 57,
+                "Name": "Room 57",
+                "Description": "Room 57.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "west",
+                        "RoomId": 56
+                    },
+                    {
+                        "Direction": "north",
+                        "RoomId": 58
+                    }
+                ]
+            },
+            {
+                "Id": 58,
+                "Name": "Room 58",
+                "Description": "Room 58.",
+                "IsNaturalLight": true,
+                "Exits": [
+                    {
+                        "Direction": "down",
+                        "RoomId": 65
                     }
                 ]
             }

@@ -84,6 +84,9 @@ export class Look extends Command {
                 returnString += ', ';
             }
             firstExit = false;
+            if (room.getExit(direction)?.isClosed()) {
+                returnString += '*';
+            }
             returnString += DirectionHelper.getLocale(direction);
         });
         returnString += ' ]|W';

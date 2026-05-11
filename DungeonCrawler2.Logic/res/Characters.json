@@ -20,6 +20,21 @@
                     "Item": "rat-skin"
                 }
             ]
+        },
+        {
+            "Id": "test-npc",
+            "Name": [
+                "testowy NPC",
+                "testowego NPC",
+                "testowemu NPC",
+                "testowego NPC",
+                "testowemu NPC",
+                "testowego NPC",
+                "testowy NPC"
+            ],
+            "Description": "To tylko testowy NPC, nie oczekuj epickich opisów. Jedyne czego możesz się spodziewać to sztucznie wydłużone opisy mające na celu sprawdzenie wersalikowania opisów postaci.",
+            "Idle": "stoi i zachęca do rozmowy",
+            "Inventory": [{ "ItemId": "gold", "Stack": 100 }, "sapphire-round"]
         }
     ]
 }
