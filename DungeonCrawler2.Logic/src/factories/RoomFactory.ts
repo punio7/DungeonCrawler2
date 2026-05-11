@@ -20,17 +20,24 @@ export class RoomFactory {
         let exitsModel = new RoomExitsList();
         template.Exits?.forEach((exit) => {
             let direction = exit.Direction;
-            let roomExit = new RoomExit(exit);
+            let roomExit = new RoomExit();
+            roomExit.RoomId = exit.RoomId;
+            roomExit.IsHidden = exit.isHidden;
             if (exit.Door !== undefined) {
-                roomExit.Door = new RoomDoor(exit.Door);
+                let door = (roomExit.Door = new RoomDoor());
+                door.IsLocked = exit.Door.IsLocked;
+                door.IsClosed = exit.Door.IsClosed;
+                door.KeyId = exit.Door.KeyId;
+
+                if (door.IsLocked === undefined && door.IsClosed !== undefined) {
+                    door.IsLocked = true;
+                }
             }
             exitsModel[direction] = roomExit;
         });
         room.Exits = exitsModel;
 
-        let items = new ItemList();
-        items.loadFromTemplate(template.Items);
-        room.Items = items;
+        room.Items = Game.ItemFactory.loadListFromTemplate(template.Items);
 
         if (template.Characters !== undefined) {
             let charactersModel = new CharacterList();

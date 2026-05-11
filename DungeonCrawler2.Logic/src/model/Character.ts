@@ -16,6 +16,16 @@ export class Character extends EntityBase {
         return GameData.CharacterTemplates.getTemplate(this.Id);
     }
 
+    loadFromSave(savedCharacter: Character) {
+        Object.assign(this, savedCharacter);
+        this.Inventory = new ItemList();
+        this.Inventory.loadFromSave(savedCharacter.Inventory);
+        this.Equipment = new Equipment();
+        this.Equipment.loadFromSave(savedCharacter.Equipment);
+        this.Stats = new CharacterStats();
+        this.Stats.loadFromSave(savedCharacter.Stats);
+    }
+
     getName(grammaCase = GrammaCase.Mianownik) {
         return this.getTemplate().Name[grammaCase];
     }

@@ -105,25 +105,10 @@
     <EmbeddedResource Include="src\model\RoomExit.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="src\CommandParser.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\CommandsManager.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\CommandTree.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="src\Init.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="src\InitCommands.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="src\InitGameData.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\Utils.ts" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="src\model\Character.ts" />
@@ -193,7 +178,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="src\CommandCallback.ts" />
     <EmbeddedResource Include="src\commonLogic\InputFunctions.ts" />
     <EmbeddedResource Include="src\commonLogic\EngineUtils.ts" />
   </ItemGroup>

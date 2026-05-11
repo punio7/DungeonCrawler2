@@ -1,6 +1,6 @@
-import { CommandCallback } from '../CommandCallback';
-import { CommandParser } from '../CommandParser';
-import { Commands } from '../CommandsManager';
+import { CommandCallback } from '../commandsUtils/CommandCallback';
+import { CommandParser } from '../commandsUtils/CommandParser';
+import { Commands } from '../commandsUtils/CommandsManager';
 import { Direction } from '../enums/Direction';
 import { Command } from './Command';
 

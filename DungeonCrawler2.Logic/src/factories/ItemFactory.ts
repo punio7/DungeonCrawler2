@@ -54,7 +54,11 @@ export class ItemFactory {
 
     spawnItemByTemplateId(templateId: string): Item {
         let template: ItemTemplate = GameData.ItemTemplates.getTemplate(templateId);
-        let item = new Item(template);
+        let item = new Item();
+        item.Id = template.Id;
+        if (item.isContainer()) {
+            item.Inventory = new ItemList();
+        }
         return item;
     }
 
@@ -111,5 +115,15 @@ export class ItemFactory {
         } else {
             return Random.nextInt(stack.Min, stack.Max);
         }
+    }
+
+    loadListFromTemplate(template?: ItemListTemplateElement[]) {
+        let itemList = new ItemList();
+        if (template !== undefined) {
+            template.forEach((itemDefinition: any) => {
+                itemList.add(Game.spawnItem(itemDefinition));
+            });
+        }
+        return itemList;
     }
 }

@@ -1,4 +1,4 @@
-import { CommandParser } from '../CommandParser';
+import { CommandParser } from '../commandsUtils/CommandParser';
 import { Direction, DirectionHelper } from '../enums/Direction';
 import { GrammaCase } from '../enums/GrammaCase';
 import { Game, Local } from '../InitGameData';
@@ -44,7 +44,10 @@ export class Look extends Command {
         Engine.Output(Local.Commands.Look.NoObject.format(argument));
     }
 
-    lookRoom(room: Room) {
+    lookRoom(room?: Room) {
+        if (room === undefined) {
+            room = Game.getRoom(Game.Player.Location);
+        }
         let message = '';
         message += room.getName() + Engine.EndLine;
         message += this.exitsString(room) + Engine.EndLine;

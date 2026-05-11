@@ -14,6 +14,19 @@ export class Room {
 
     constructor() {}
 
+    loadFromSave(savedRoom: Room) {
+        Object.assign(this, savedRoom);
+        this.Exits = new RoomExitsList();
+        for (let exitKey in savedRoom.Exits) {
+            this.Exits[exitKey] = new RoomExit();
+            this.Exits[exitKey].loadFromSave(savedRoom.Exits[exitKey]);
+        }
+        this.Items = new ItemList();
+        this.Items.loadFromSave(savedRoom.Items);
+        this.Characters = new CharacterList();
+        this.Characters.loadFromSave(savedRoom.Characters);
+    }
+
     getTemplate() {
         return GameData.RoomTemplates.getTemplate(this.Id);
     }

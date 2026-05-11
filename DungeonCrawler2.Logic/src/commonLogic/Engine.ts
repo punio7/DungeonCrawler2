@@ -35,7 +35,11 @@
 
     Reload() {}
 
-    Exit() {}
+    Exit() { }
+
+    Save(json: string) { }
+
+    Load(): string { return ''; }
 
     StartTimer(callback: Function, ms: number) {}
 }

@@ -18,5 +18,7 @@ namespace DungeonCrawler2.Console.Engine
         string LoadData(string location);
         void Reload();
         void Exit();
+        void Save(string json);
+        string Load();
     }
 }

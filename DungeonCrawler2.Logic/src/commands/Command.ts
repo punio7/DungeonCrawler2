@@ -1,5 +1,5 @@
-﻿import { CommandCallback } from '../CommandCallback';
-import { CommandParser } from '../CommandParser';
+﻿import { CommandCallback } from '../commandsUtils/CommandCallback';
+import { CommandParser } from '../commandsUtils/CommandParser';
 
 export class Command {
     constructor() {}

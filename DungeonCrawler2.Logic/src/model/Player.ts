@@ -5,8 +5,13 @@ export class Player extends Character {
     Location: number = 0;
     PreviousLocation: number = 0;
 
-    constructor(template: any) {
+    constructor() {
         super();
+    }
+
+    loadFromSave(savedPlayer: Player) {
+        Object.assign(this, savedPlayer);
+        super.loadFromSave(savedPlayer);
     }
 
     getLocation(): number {

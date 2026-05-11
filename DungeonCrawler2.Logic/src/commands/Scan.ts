@@ -1,4 +1,4 @@
-import { CommandParser } from '../CommandParser';
+import { CommandParser } from '../commandsUtils/CommandParser';
 import { DirectionHelper } from '../enums/Direction';
 import { GrammaCase } from '../enums/GrammaCase';
 import { Game, Local } from '../InitGameData';

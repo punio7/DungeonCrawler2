@@ -1,6 +1,6 @@
-import { CommandCallback } from '../CommandCallback';
-import { CommandParser } from '../CommandParser';
-import { Commands } from '../CommandsManager';
+import { CommandCallback } from '../commandsUtils/CommandCallback';
+import { CommandParser } from '../commandsUtils/CommandParser';
+import { Commands } from '../commandsUtils/CommandsManager';
 import { GrammaCase } from '../enums/GrammaCase';
 import { Game, Local } from '../InitGameData';
 import { Character } from '../model/Character';

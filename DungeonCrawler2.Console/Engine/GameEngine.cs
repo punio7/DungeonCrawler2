@@ -13,6 +13,7 @@ namespace DungeonCrawler2.Console.Engine
 {
     public class GameEngine : IGameEngine, IDisposable
     {
+        private const string SaveFile = "save.json";
         private HashSet<string> loadedScripts;
         private V8ScriptEngine scriptEngine;
         private V8Script executeScript;
@@ -338,6 +339,20 @@ namespace DungeonCrawler2.Console.Engine
             {
                 runningTimers.Add(timer);
             }
+        }
+
+        public void Save(string json)
+        {
+            File.WriteAllText(SaveFile, json);
+        }
+
+        public string Load()
+        {
+            if (File.Exists(SaveFile))
+            {
+                return File.ReadAllText(SaveFile); 
+            }
+            return "";
         }
 
         #endregion

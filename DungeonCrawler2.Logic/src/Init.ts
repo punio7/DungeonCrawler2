@@ -1,10 +1,10 @@
-﻿import { CommandCallback } from './CommandCallback';
-import { Commands } from './CommandsManager';
+﻿import { CommandCallback } from './commandsUtils/CommandCallback';
+import { Commands } from './commandsUtils/CommandsManager';
 import { Prompt } from './commonLogic/Prompt';
-import { InitCommands } from './InitCommands';
+import { InitCommands } from './commandsUtils/InitCommands';
 import { Game, InitGameData, Version } from './InitGameData';
 import './commonLogic/InputFunctions';
-import './Utils';
+import './commonLogic/StringUtils';
 
 function Init() {
     InitGameData();

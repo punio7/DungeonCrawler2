@@ -13,10 +13,11 @@ export class GameModel {
     Name: string;
     StartingRoom: number;
     Rooms: Room[];
+    Player = new Player();
+
     ItemFactory: ItemFactory;
     CharacterFactory: CharacterFactory;
     RoomFactory: RoomFactory;
-    Player = new Player(undefined);
 
     constructor() {
         this.Name = '';
@@ -26,6 +27,17 @@ export class GameModel {
         this.ItemFactory = new ItemFactory();
         this.CharacterFactory = new CharacterFactory();
         this.RoomFactory = new RoomFactory();
+    }
+
+    loadGame(savedGame: GameModel) {
+        this.Name = savedGame.Name;
+        this.StartingRoom = savedGame.StartingRoom;
+        for (let roomId in savedGame.Rooms) {
+            this.Rooms[roomId] = new Room();
+            this.Rooms[roomId].loadFromSave(savedGame.Rooms[roomId]);
+        }
+        this.Player = new Player();
+        this.Player.loadFromSave(savedGame.Player);
     }
 
     getName() {

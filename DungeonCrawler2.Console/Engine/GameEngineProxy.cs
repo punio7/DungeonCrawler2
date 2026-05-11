@@ -76,5 +76,15 @@ namespace DungeonCrawler2.Console.Engine
 
             gameEngine.StartTimer(action, ms);
         }
+
+        public void Save(string json)
+        {
+            ((IGameEngine)gameEngine).Save(json);
+        }
+
+        public string Load()
+        {
+            return ((IGameEngine)gameEngine).Load();
+        }
     }
 }

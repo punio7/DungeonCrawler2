@@ -14,7 +14,7 @@ export interface RoomTemplate {
     OnEnterEvent?: string;
 }
 
-interface ExitTemplate {
+export interface ExitTemplate {
     Direction: Direction;
     RoomId: number;
     isHidden?: boolean;

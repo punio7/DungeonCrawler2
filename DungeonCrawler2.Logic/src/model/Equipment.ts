@@ -7,6 +7,14 @@ export class Equipment {
         this.Array = [];
     }
 
+    loadFromSave(savedEquipment: Equipment) {
+        this.Array = savedEquipment.Array.map((item) => {
+            let newItem = new Item();
+            newItem.loadFromSave(item);
+            return newItem;
+        });
+    }
+
     validateSlot(slot: EquipmentSlot) {
         if (EquipmentSlotHelper.getKey(slot) === null) {
             throw '{0} is not a proper equipment slot.'.format(slot);

@@ -12,12 +12,8 @@ export class Item extends EntityBase {
     Inventory?: ItemList;
     Lock?: ItemLock;
 
-    constructor(template: ItemTemplate) {
+    constructor() {
         super();
-        this.Id = template.Id;
-        if (this.isContainer()) {
-            this.Inventory = new ItemList();
-        }
     }
 
     private getTemplate(): ItemTemplate {

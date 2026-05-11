@@ -37,4 +37,8 @@ export class CharacterStats {
     constructor() {
         this.health.total = 100;
     }
+
+    loadFromSave(savedStats: CharacterStats) {
+        Object.assign(this, savedStats);
+    }
 }

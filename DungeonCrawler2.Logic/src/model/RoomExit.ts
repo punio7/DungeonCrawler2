@@ -1,14 +1,17 @@
-﻿import {RoomDoor} from "./RoomDoor";
+﻿import { RoomDoor } from './RoomDoor';
 
 export class RoomExit {
-    RoomId: number;
+    RoomId: number = 0;
     IsHidden?: boolean;
     Door?: RoomDoor;
-    Direction: any;
-    constructor(template: unknown) {
-        this.RoomId = 0;
-        Object.assign(this, template);
-        delete this.Direction;
+    constructor() {}
+
+    loadFromSave(savedExit: RoomExit) {
+        Object.assign(this, savedExit);
+        if (savedExit.Door !== undefined) {
+            this.Door = new RoomDoor();
+            this.Door.loadFromSave(savedExit.Door);
+        }
     }
 
     getRoomId() {

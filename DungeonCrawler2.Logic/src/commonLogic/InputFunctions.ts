@@ -1,4 +1,4 @@
-﻿import { Commands } from '../CommandsManager';
+﻿import { Commands } from '../commandsUtils/CommandsManager';
 import { EngineUtils } from './EngineUtils';
 
 export var InputFunctions = 'true';

@@ -7,12 +7,12 @@ export class ItemList extends EntityList<Item> {
         super();
     }
 
-    loadFromTemplate(template: any) {
-        if (template !== undefined) {
-            template.forEach((itemDefinition: any) => {
-                this.add(Game.spawnItem(itemDefinition));
-            });
-        }
+    loadFromSave(savedList: ItemList) {
+        this.Array = savedList.Array.map((item) => {
+            let newItem = new Item();
+            newItem.loadFromSave(item);
+            return newItem;
+        });
     }
 
     add(item: Item | null): void {

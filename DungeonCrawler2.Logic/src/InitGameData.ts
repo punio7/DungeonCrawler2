@@ -24,3 +24,9 @@ export function InitGameData() {
 
     Game.Player.Location = Game.StartingRoom;
 }
+
+export function LoadGame(savedGame: string) {
+    const game = JSON.parse(savedGame) as GameModel;
+    Game = new GameModel();
+    Game.loadGame(game);
+}

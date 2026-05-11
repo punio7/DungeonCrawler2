@@ -1,4 +1,4 @@
-﻿import { CommandParser } from '../CommandParser';
+﻿import { CommandParser } from '../commandsUtils/CommandParser';
 import { Command } from './Command';
 import { Game as GameVar } from '../InitGameData';
 
