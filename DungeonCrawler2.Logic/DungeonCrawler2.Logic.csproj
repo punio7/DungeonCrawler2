@@ -10,7 +10,7 @@
     <Exec Command="xcopy &quot;$(ProjectDir)version.txt&quot; &quot;$(SolutionDir)DungeonCrawler2.Electron\&quot; /d /Y&#xD;&#xA;xcopy &quot;$(ProjectDir)dist&quot; &quot;$(SolutionDir)DungeonCrawler2.Electron\src\&quot; /s /d /Y" />
   </Target>
   <ItemGroup>
-    <None Remove="dist\bundle.js" />
+    <None Remove="dist\dungeon-crawler.js" />
     <None Remove="version.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -19,7 +19,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dist\bundle.js">
+    <Content Include="dist\dungeon-crawler.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
