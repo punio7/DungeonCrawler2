@@ -29,7 +29,7 @@ export class RoomFactory {
                 door.IsClosed = exit.Door.IsClosed;
                 door.KeyId = exit.Door.KeyId;
 
-                if (door.IsLocked === undefined && door.IsClosed !== undefined) {
+                if (door.IsLocked === undefined && door.KeyId !== undefined) {
                     door.IsLocked = true;
                 }
             }

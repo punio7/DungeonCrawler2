@@ -22,6 +22,8 @@ import { West } from '../commands/West';
 import { CommandTree } from './CommandTree';
 import { Prompt } from '../commonLogic/Prompt';
 import { Load } from '../commands/Load';
+import { EngineUtils } from '../commonLogic/EngineUtils';
+import { Open } from '../commands/Open';
 
 class CommandList {
     Down = new Down();
@@ -35,6 +37,7 @@ class CommandList {
     Load = new Load();
     Look = new Look();
     North = new North();
+    Open = new Open();
     Reload = new Reload();
     South = new South();
     Save = new Save();
@@ -64,6 +67,9 @@ class CommandsManager extends CommandList {
 
     Execute(command: string) {
         this.commandQueue.push(command);
+        if (command.isNullOrEmpty()) {
+            EngineUtils.SkipPrinter();
+        }
         if (this.isCommandExecuting === false) {
             this.isCommandExecuting = true;
             this.ExecuteNext();
@@ -79,6 +85,11 @@ class CommandsManager extends CommandList {
         this.commandQueue.shift();
         let parser = new CommandParser(command);
         let commandName = parser.getCommand();
+
+        if (commandName.isNullOrEmpty()) {
+            this.AfterExecute();
+            return;
+        }
 
         let commandObject = this.Tree.GetCommand(commandName);
         if (commandObject === undefined || commandObject === null) {

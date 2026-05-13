@@ -10,6 +10,7 @@ import { Load } from '../commands/Load';
 import { Look } from '../commands/Look';
 import { NoCommand } from '../commands/NoCommand';
 import { North } from '../commands/North';
+import { Open } from '../commands/Open';
 import { Reload } from '../commands/Reload';
 import { Save } from '../commands/Save';
 import { Scan } from '../commands/Scan';
@@ -40,6 +41,8 @@ export function InitCommands() {
     Commands.RegisterCommand('Load', new Load());
 
     Commands.RegisterCommand('North', new North());
+
+    Commands.RegisterCommand('Open', new Open());
 
     Commands.RegisterCommand('Reload', new Reload());
 

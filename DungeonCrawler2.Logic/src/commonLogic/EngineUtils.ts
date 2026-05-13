@@ -6,7 +6,7 @@
         this.printNext(message, callback, delay, isNewLine);
     }
 
-    printNext(message: string, callback: Function, delay: number, isNewLine: boolean) {
+    private printNext(message: string, callback: Function, delay: number, isNewLine: boolean) {
         if (message.isNullOrEmpty()) {
             if (isNewLine === true) {
                 Engine.Output('');

@@ -1,7 +1,7 @@
 ﻿import { CommandCallback } from './commandsUtils/CommandCallback';
 import { Commands } from './commandsUtils/CommandsManager';
 import { Prompt } from './commonLogic/Prompt';
-import { InitCommands } from './commandsUtils/InitCommands';
+import { InitCommands } from './commandsUtils/RegisterCommands';
 import { Game, InitGameData, Version } from './InitGameData';
 import './commonLogic/InputFunctions';
 import './commonLogic/StringUtils';

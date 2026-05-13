@@ -80,6 +80,14 @@ class EngineClass {
         location.reload();
     }
 
+    Save(saveData) {
+        localStorage.setItem("save", saveData);
+    }
+
+    Load() {
+        return localStorage.getItem("save");
+    }
+
     Exit() {
 
     }

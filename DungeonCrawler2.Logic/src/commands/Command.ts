@@ -1,7 +1,7 @@
 ﻿import { CommandCallback } from '../commandsUtils/CommandCallback';
 import { CommandParser } from '../commandsUtils/CommandParser';
 
-export class Command {
+export abstract class Command {
     constructor() {}
 
     Execute(command: CommandParser, commandCallback: CommandCallback) {
@@ -10,6 +10,5 @@ export class Command {
             commandCallback.CallIfNotCalled();
         }
     }
-
-    ExecuteBody(command: CommandParser, commandCallback: CommandCallback) {}
+    abstract ExecuteBody(command: CommandParser, commandCallback: CommandCallback): void;
 }

@@ -54,6 +54,15 @@ export class Room {
         return this.Exits[direction];
     }
 
+    getExitToRoom(roomId: number): RoomExit | null {
+        for (let direction in this.Exits) {
+            if (this.Exits[direction].getRoomId() === roomId) {
+                return this.Exits[direction];
+            }
+        }
+        return null;
+    }
+
     getExitsDirections(): Direction[] {
         return DirectionHelper.parseArray(Object.keys(this.Exits));
     }
