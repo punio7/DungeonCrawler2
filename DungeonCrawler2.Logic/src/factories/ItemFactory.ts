@@ -36,7 +36,7 @@ export class ItemFactory {
                 item = this.spawnItemByTemplateId(templateId);
                 if (itemDefinition.Stack !== undefined) {
                     if (itemDefinition.ItemId.length !== itemDefinition.Stack.length) {
-                        throw 'Item definition has {0} specified ids but only {1} spiecified stacks'.format(
+                        throw 'Item definition has {0} specified ids but only {1} specified stacks'.format(
                             itemDefinition.ItemId.length,
                             itemDefinition.Stack.length,
                         );
@@ -70,7 +70,7 @@ export class ItemFactory {
             });
         }
         if (itemDefinition.ItemId.length !== itemDefinition.ChanceList.length) {
-            throw 'Item definition has {0} specified ids but only {1} spiecified chances in ChanceList'.format(
+            throw 'Item definition has {0} specified ids but only {1} specified chances in ChanceList'.format(
                 itemDefinition.ItemId.length,
                 itemDefinition.ChanceList.length,
             );

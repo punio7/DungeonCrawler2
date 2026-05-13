@@ -35,6 +35,21 @@
             "Description": "To tylko testowy NPC, nie oczekuj epickich opisów. Jedyne czego możesz się spodziewać to sztucznie wydłużone opisy mające na celu sprawdzenie wersalikowania opisów postaci.",
             "Idle": "stoi i zachęca do rozmowy",
             "Inventory": [{ "ItemId": "gold", "Stack": 100 }, "sapphire-round"]
+        },
+        {
+            "Id": "stranger",
+            "Name": [
+                "zakapturzona postać",
+                "zakapturzonej postaci",
+                "zakapturzonej postaci",
+                "zakapturzonej postaci",
+                "zakapturzoną postać",
+                "zakapturzonej postaci",
+                "zakapturzona postać"
+            ],
+            "Description": "Wpatrując się w zakapturzonego człowieka nie dostrzegasz w nim nic nadzwyczajnego. Nosi on długie brązowe szaty, które dokładnie zakrywają jego ciało. Kaptur całkowicie zasłania mu twarz. Nieznajomy wpatruje się cały czas w podłogę, nie wykonując przy tym nawet najmniejszych ruchów.",
+            "Idle": "wpatruje się w podłogę",
+            "Inventory": ["short-sword-bronze", "bronze-key"]
         }
     ]
 }

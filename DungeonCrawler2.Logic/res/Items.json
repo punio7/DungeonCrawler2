@@ -49,25 +49,23 @@
                 "drewniany drągu"
             ],
             "Idle": "leży u twoich stóp",
-            "Description": "Ten kawał kija wygląda na oderwaną i wyschniętą gałęź jakiegoś drzewa. Nie jest on całkiem prosty, zawiera kilka sęków i nieregularności ale jest długi na kilka łokci i może całkiem sprawnie posłużyć jako improwizowana broń.",
+            "Description": "Ten kawał kija wygląda na oderwaną i wyschniętą gałąź jakiegoś drzewa. Nie jest on całkiem prosty, zawiera kilka sęków i nieregularności ale jest długi na kilka łokci i może całkiem sprawnie posłużyć jako improwizowana broń.",
             "Type": "Weapon1H"
         },
         {
-            "Id": "stick-wood-2",
+            "Id": "short-sword-bronze",
             "Name": [
-                "inny drewniany drąg",
-                "innego drewnianego drąga",
-                "innemu drewnianemu drągowi",
-                "inny drewniany drąg",
-                "innym drewnianym drągiem",
-                "innym drewnianym drągu",
-                "inny drewniany drągu"
+                "krótki miecz z brązu",
+                "krótkiego miecza z brązu",
+                "krótkiemu mieczowi z brązu",
+                "krótki miecz z brązu",
+                "krótkim mieczem z brązu",
+                "krótkim mieczu z brązu",
+                "krótki mieczu z brązu"
             ],
-            "Idle": "leży u twoich stóp",
-            "Description": "Ten kawał kija wygląda na oderwaną i wyschniętą gałęź jakiegoś drzewa. Nie jest on całkiem prosty, zawiera kilka sęków i nieregularności ale jest długi na kilka łokci i może całkiem sprawnie posłużyć jako improwizowana broń.",
+            "Description": "Ten krótki miecz z brązu został wykonany z cienkiego, ale bardzo wytrzymałościowego metalu. Jego rękojeść jest otoczona cienką warstwą drewna, a ostrze jest o wiele dłuższe niż przeciętny.",
             "Type": "Weapon1H"
         },
-
         {
             "Id": "rat-skin",
             "Name": [
@@ -126,6 +124,20 @@
                 "prosty kluczu z żelaza"
             ],
             "Description": "Ten prosty, żelazny klucz charakteryzuje się surową formą i śladami ręcznego kucia, które wskazują na jego użytkowy a nie ozdobny charakter. Jego długa, cylindryczna łodyga kończy się prostokątnym piórem z kilkoma precyzyjnymi nacięciami, dopasowanymi do mechanizmu zamka. Zwieńczenie stanowi koliste ucho, pozwalające na wygodne trzymanie narzędzia lub zawieszenie go na rzemieniu przy pasie.",
+            "Type": "Key"
+        },
+        {
+            "Id": "bronze-key",
+            "Name": [
+                "klucz z brązu",
+                "klucza z brązu",
+                "kluczowi z brązu",
+                "klucz z brązu",
+                "kluczem z brązu",
+                "kluczu z brązu",
+                "kluczu z brązu"
+            ],
+            "Description": "Ten klucz z brązu prezentuje sobą kompromis między estetyką a kosztem wykonania. Jest niewielkich rozmiarów, z łatwością chowa Ci się w dłoni. Pióro jest proste, z widocznie ręcznie wykonanymi nacięciami, lekko odkształconymi od używania i miękkości materiału. Trzon jest wąski a główka jest ręcznie wycięta w ozdobny wzór, który mimo swojej prostoty nadaje kluczowi nieco elegancji. Brązowy kolor z delikatnym patynowaniem świadczy o jego wieku i niezbyt częstym użytkowaniu.",
             "Type": "Key"
         }
     ]

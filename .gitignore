@@ -260,7 +260,6 @@ paket-files/
 __pycache__/
 *.pyc
 /DungeonCrawler2.Electron/src
-/DungeonCrawler2.Electron/src
 /DungeonCrawler2.Electron/res
 /DungeonCrawler2.Logic/version.txt
 /DungeonCrawler2.Electron/version.txt

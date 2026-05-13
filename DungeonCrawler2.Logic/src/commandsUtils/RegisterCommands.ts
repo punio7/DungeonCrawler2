@@ -1,4 +1,5 @@
-﻿import { Down } from '../commands/Down';
+﻿import { Close } from '../commands/Close';
+import { Down } from '../commands/Down';
 import { Drop } from '../commands/Drop';
 import { East } from '../commands/East';
 import { Eval } from '../commands/Eval';
@@ -23,6 +24,8 @@ import { Commands } from './CommandsManager';
 
 export function InitCommands() {
     Commands.SetDefaultCommand(new NoCommand());
+
+    Commands.RegisterCommand('Close', new Close());
 
     Commands.RegisterCommand('Down', new Down());
     Commands.RegisterCommand('Drop', new Drop());

@@ -31,6 +31,7 @@ export class RoomFactory {
 
                 if (door.IsLocked === undefined && door.KeyId !== undefined) {
                     door.IsLocked = true;
+                    door.IsClosed = true;
                 }
             }
             exitsModel[direction] = roomExit;

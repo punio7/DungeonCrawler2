@@ -24,8 +24,10 @@ import { Prompt } from '../commonLogic/Prompt';
 import { Load } from '../commands/Load';
 import { EngineUtils } from '../commonLogic/EngineUtils';
 import { Open } from '../commands/Open';
+import { Close } from '../commands/Close';
 
 class CommandList {
+    Close = new Close();
     Down = new Down();
     Drop = new Drop();
     East = new East();

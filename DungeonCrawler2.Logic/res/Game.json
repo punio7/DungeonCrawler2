@@ -20,15 +20,6 @@
                     {
                         "ItemId": "gold",
                         "Stack": 10
-                    },
-                    {
-                        "ItemId": "stick-wood",
-                        "Chance": 100
-                    },
-                    {
-                        "ItemId": ["stick-wood", "stick-wood-2", "gold"],
-                        "ChanceList": [33, 33, 34],
-                        "Stack": [1, 1, 50]
                     }
                 ]
             },
@@ -164,18 +155,19 @@
                         "Direction": "up",
                         "RoomId": 17,
                         "Door": {
-                            "KeyId": "bronze-key-lvl2"
+                            "KeyId": "bronze-key"
                         }
                     },
                     {
                         "Direction": "down",
                         "RoomId": 20,
                         "Door": {
-                            "KeyId": "bronze-key-lvl2"
+                            "KeyId": "bronze-key"
                         }
                     }
                 ],
-                "Characters": ["hooded-figure"]
+                "Characters": ["stranger"],
+                "Items": ["simple-iron-key", "bronze-key"]
             },
             {
                 "Id": 6,
@@ -208,7 +200,7 @@
             {
                 "Id": 7,
                 "Name": "Początek alejki stojaków",
-                "Description": "Przed tobą ciągną się dwa długie stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Stojak po twojej lewej przylega do ściany natomiast ten po prawej stoi niczym ściana działowa. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "Description": "Przed tobą ciągną się dwa długie stojaki na wino. Są one wykonane z podniszczonego już drewna i sięgają od podłogi do sufitu. Stojak po twojej lewej przylega do ściany natomiast ten po prawej stoi niczym ściana działowa. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
                 "IsNaturalLight": true,
                 "Exits": [
                     {
@@ -224,7 +216,7 @@
             {
                 "Id": 8,
                 "Name": "Alejka pomiędzy stojakami",
-                "Description": "Po swojej lewej i prawej masz dwa drewniane stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego w pobliżu nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Alejka ciągnie się prosto i ginie w mrokach. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "Description": "Po swojej lewej i prawej masz dwa drewniane stojaki na wino. Są one wykonane z podniszczonego już drewna i sięgają od podłogi do sufitu. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego w pobliżu nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Alejka ciągnie się prosto i ginie w mrokach. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
                 "IsNaturalLight": true,
                 "Exits": [
                     {
@@ -263,7 +255,7 @@
             {
                 "Id": 10,
                 "Name": "Alejka pomiędzy stojakami",
-                "Description": "Po swojej lewej i prawej masz dwa drewniane stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego w pobliżu nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Alejka ciągnie się prosto i ginie w mrokach. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "Description": "Po swojej lewej i prawej masz dwa drewniane stojaki na wino. Są one wykonane z podniszczonego już drewna i sięgają od podłogi do sufitu. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego w pobliżu nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Alejka ciągnie się prosto i ginie w mrokach. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
                 "IsNaturalLight": true,
                 "Exits": [
                     {
@@ -302,7 +294,7 @@
             {
                 "Id": 12,
                 "Name": "Początek alejki stojaków",
-                "Description": "Przed tobą ciągną się dwa długie stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Stojak po twojej prawej przylega do ściany natomiast ten po lewej stoi niczym ściana działowa. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "Description": "Przed tobą ciągną się dwa długie stojaki na wino. Są one wykonane z podniszczonego już drewna i sięgają od podłogi do sufitu. Stojak po twojej prawej przylega do ściany natomiast ten po lewej stoi niczym ściana działowa. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
                 "IsNaturalLight": true,
                 "Exits": [
                     {
@@ -319,7 +311,7 @@
             {
                 "Id": 13,
                 "Name": "Alejka pomiędzy stojakami",
-                "Description": "Po swojej lewej i prawej masz dwa drewniane stojaki na wino. Są one wykonane z podniszczałego już drewna i sięgają od podłogi do sufitu. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego w pobliżu nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Alejka ciągnie się prosto i ginie w mrokach. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
+                "Description": "Po swojej lewej i prawej masz dwa drewniane stojaki na wino. Są one wykonane z podniszczonego już drewna i sięgają od podłogi do sufitu. Deski stojaków krzyżują się ze sobą tworząc kratę w której przechowuje się trunki. Niestety żadnego w pobliżu nie dostrzegasz. Pomiędzy stojakami jest alejka wystarczająco szeroka aby jedna osoba mogła swobodnie spacerować pomiędzy nimi. Alejka ciągnie się prosto i ginie w mrokach. Ciche szuranie i piski rozchodzą się po pomieszczeniu.",
                 "IsNaturalLight": true,
                 "Exits": [
                     {
@@ -406,7 +398,7 @@
             {
                 "Id": 21,
                 "Name": "Drzwi w jaskini",
-                "Description": "W tym miejscu korytarz szybko się zwęża i kurczy, a jedyne przejście prowadzi przez mocarne drewniane drzwi. Portal drzwi zakreśla idealnie owalny kształt i jest starannie wykonany z kamiennych cegiełek. Same drzwi wyglądają raczej prosto ale wytrzymale, ich powierzchnię zajmują wypukłe kwadraty, ale poza nimi nie ma żadnych zdobień. Drzewo nie wygląda staro i jest zapewne w świetnej kondycji. Z prawej strony drzwi znajduje się mosiężny uchwyt do ich otwierania, a poniżej niego duża dziura na klucz. Dookoła drzwi zauważasz mnóstwo grzybów, zajmujących wszystkie wgłębienia w ścianie i podłodze.",
+                "Description": "W tym miejscu korytarz szybko się zwęża i kurczy, a jedyne przejście prowadzi przez mocarne drewniane drzwi. Portal drzwi zakreśla idealnie owalny kształt i jest starannie wykonany z kamiennych cegiełek. Same drzwi wyglądają na proste ale wytrzymałe, ich powierzchnię zajmują wypukłe kwadraty, ale poza nimi nie ma żadnych zdobień. Drzewo nie wygląda staro i jest zapewne w świetnej kondycji. Z prawej strony drzwi znajduje się mosiężny uchwyt do ich otwierania, a poniżej niego duża dziura na klucz. Dookoła drzwi zauważasz mnóstwo grzybów, zajmujących wszystkie wgłębienia w ścianie i podłodze.",
                 "IsNaturalLight": true,
                 "BackgroundMusic": "LVL2",
                 "Exits": [
@@ -480,7 +472,7 @@
             {
                 "Id": 25,
                 "Name": "Korytarz w jaskini",
-                "Description": "Idąc wzdłuż szczeliny zauważasz iż staje się ona coraz szersza, podłoże schodzi lekko w dół i staje się coraz bardziej wilgotne. W pewnym momencie pęknięcie zmienia kierunek, przez co szelina skręca na południe.",
+                "Description": "Idąc wzdłuż szczeliny zauważasz iż staje się ona coraz szersza, podłoże schodzi lekko w dół i staje się coraz bardziej wilgotne. W pewnym momencie pęknięcie zmienia kierunek, przez co szczelina skręca na południe.",
                 "IsNaturalLight": true,
                 "Exits": [
                     {

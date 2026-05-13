@@ -25,6 +25,13 @@
             }
         },
         "Commands": {
+            "Close": {
+                "NoDirection": "Zamknąć drzwi w którym kierunku?",
+                "WrongDirection": "{0} nie jest kierunkiem.",
+                "NoDoor": "Tam nie ma drzwi.",
+                "AlreadyClosed": "Drzwi są już zamknięte.",
+                "Closed": "Zamykasz drzwi."
+            },
             "Drop": {
                 "NoArgument": "Co chcesz wyrzucić?",
                 "NoItems": "Przecież nic nie masz biedaku.",
