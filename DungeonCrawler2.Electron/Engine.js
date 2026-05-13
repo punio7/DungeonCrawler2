@@ -65,7 +65,7 @@ class EngineClass {
 
     LoadScript(location) {
         console.log('Loading script file ' + location);
-        var data = this.fileSystem.readFileSync(__dirname + '/' + location, { encoding: 'utf-8' });
+        //var data = this.fileSystem.readFileSync(__dirname + '/' + location, { encoding: 'utf-8' });
         //eval(data);
         this.loadScript(location, { async: false });
     }
