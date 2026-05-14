@@ -1,5 +1,5 @@
 import { CommandParser } from '../commandsUtils/CommandParser';
-import { GrammaCase } from '../enums/GrammaCase';
+import { GramaCase } from '../enums/GramaCase';
 import { Game, Local } from '../InitGameData';
 import { Item } from '../model/Item';
 import { Command } from './Command';
@@ -39,6 +39,6 @@ export class Drop extends Command {
     dropItem(item: Item) {
         Game.Player.getInventory().remove(item);
         Game.getRoom(Game.Player.Location).getItems().add(item);
-        Engine.Output(Local.Commands.Drop.Dropped.format(item.getName(GrammaCase.Biernik)));
+        Engine.Output(Local.Commands.Drop.Dropped.format(item.getName(GramaCase.Biernik)));
     }
 }

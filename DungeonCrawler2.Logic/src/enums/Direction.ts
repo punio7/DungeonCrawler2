@@ -1,6 +1,6 @@
 ﻿import { Local } from '../InitGameData';
 import { EnumHelper } from './EnumHelper';
-import { GrammaCase } from './GrammaCase';
+import { GramaCase } from './GramaCase';
 
 export enum Direction {
     north = 'north',
@@ -16,7 +16,7 @@ class DirectionHelperClass extends EnumHelper<Direction> {
         super(Direction);
     }
 
-    getLocale(direction: Direction, grammaCase = GrammaCase.Mianownik) {
+    getLocale(direction: Direction, grammaCase = GramaCase.Mianownik) {
         return Local.Directions[direction][grammaCase];
     }
 }

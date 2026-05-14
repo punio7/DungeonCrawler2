@@ -25,6 +25,7 @@ import { Load } from '../commands/Load';
 import { EngineUtils } from '../commonLogic/EngineUtils';
 import { Open } from '../commands/Open';
 import { Close } from '../commands/Close';
+import { Unlock } from '../commands/Unlock';
 
 class CommandList {
     Close = new Close();
@@ -46,6 +47,7 @@ class CommandList {
     Scan = new Scan();
     Take = new Take();
     Test = new Test();
+    Unlock = new Unlock();
     Up = new Up();
     West = new West();
 }

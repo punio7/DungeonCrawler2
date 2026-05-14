@@ -23,15 +23,24 @@ export class Close extends Command {
     }
 
     closeDirection(direction: Direction) {
-        let room = Game.getRoom(Game.Player.getLocation());
-        let exit = room.getExit(direction);
+        const room = Game.getRoom(Game.Player.getLocation());
+        const exit = room.getExit(direction);
+        const isTrapDoor = direction === Direction.down || direction === Direction.up;
         if (exit === null || exit.isHidden() || !exit.isDoor()) {
-            Engine.Output(Local.Commands.Close.NoDoor);
+            if (isTrapDoor) {
+                Engine.Output(Local.Commands.Close.NoTrapDoor);
+            } else {
+                Engine.Output(Local.Commands.Close.NoDoor);
+            }
             return;
         }
 
         if (exit.isClosed()) {
-            Engine.Output(Local.Commands.Close.AlreadyClosed);
+            if (isTrapDoor) {
+                Engine.Output(Local.Commands.Close.TrapDoorAlreadyClosed);
+            } else {
+                Engine.Output(Local.Commands.Close.AlreadyClosed);
+            }
             return;
         }
 
@@ -41,6 +50,10 @@ export class Close extends Command {
         if (nextDoor) {
             nextDoor.IsClosed = true;
         }
-        Engine.Output(Local.Commands.Close.Closed);
+        if (isTrapDoor) {
+            Engine.Output(Local.Commands.Close.TrapDoorClosed);
+        } else {
+            Engine.Output(Local.Commands.Close.Closed);
+        }
     }
 }

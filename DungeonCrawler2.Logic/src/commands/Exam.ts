@@ -1,7 +1,7 @@
 import { CommandCallback } from '../commandsUtils/CommandCallback';
 import { CommandParser } from '../commandsUtils/CommandParser';
 import { Commands } from '../commandsUtils/CommandsManager';
-import { GrammaCase } from '../enums/GrammaCase';
+import { GramaCase } from '../enums/GramaCase';
 import { Game, Local } from '../InitGameData';
 import { Character } from '../model/Character';
 import { Item } from '../model/Item';
@@ -41,7 +41,7 @@ export class Exam extends Command {
     }
 
     examCharacter(character: Character) {
-        Engine.Output(Local.Commands.Look.YouLookAt.format(character.getName(GrammaCase.Celownik)));
+        Engine.Output(Local.Commands.Look.YouLookAt.format(character.getName(GramaCase.Celownik)));
         Engine.Output(character.getDescription());
         Engine.Output(
             Local.Commands.Exam.HealthLevel.format(
@@ -52,7 +52,7 @@ export class Exam extends Command {
         //TODO: ekwipunek
     }
     examItem(item: Item) {
-        Engine.Output(Local.Commands.Look.YouLookAt.format(item.getName(GrammaCase.Celownik)));
+        Engine.Output(Local.Commands.Look.YouLookAt.format(item.getName(GramaCase.Celownik)));
         Engine.Output(item.getDescription());
         if (item.isContainer()) {
             if (item.isLocked()) {

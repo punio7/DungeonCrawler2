@@ -1,6 +1,6 @@
-import { EnumHelper } from "./EnumHelper";
+import { EnumHelper } from './EnumHelper';
 
-export enum GrammaCase {
+export enum GramaCase {
     Mianownik = 0, //kogo co jest
     Dopelniacz = 1, //kogo czego nie ma
     Celownik = 2, //komu czemu się przyglądam
@@ -10,10 +10,10 @@ export enum GrammaCase {
     Wolacz = 6, //o kogoż to moje skromne oczy mają zaszczyt postrzegać
 }
 
-class GrammaCaseHelperClass extends EnumHelper<GrammaCase> {
+class GramaCaseHelperClass extends EnumHelper<GramaCase> {
     constructor() {
-        super(GrammaCase);
+        super(GramaCase);
     }
 }
 
-export var GrammaCaseHelper = new GrammaCaseHelperClass();
+export var GramaCaseHelper = new GramaCaseHelperClass();

@@ -1,4 +1,4 @@
-﻿import { GrammaCase } from '../enums/GrammaCase';
+﻿import { GramaCase } from '../enums/GramaCase';
 import { ItemType, ItemTypeHelper } from '../enums/ItemType';
 import { EntityBase } from './EntityBase';
 import { ItemList } from './ItemList';
@@ -20,7 +20,7 @@ export class Item extends EntityBase {
         return GameData.ItemTemplates.getTemplate(this.Id);
     }
 
-    getName(grammaCase = GrammaCase.Mianownik) {
+    getName(grammaCase = GramaCase.Mianownik) {
         let name = this.getTemplate().Name;
         if (!this.isStackable()) {
             return name[grammaCase] + Engine.DefaultColor;
@@ -29,7 +29,7 @@ export class Item extends EntityBase {
         }
     }
 
-    getPluralName(grammaCase = GrammaCase.Mianownik) {
+    getPluralName(grammaCase = GramaCase.Mianownik) {
         let name = this.getTemplate().Name;
         if (!Array.isArray(name[0])) {
             return name[grammaCase];

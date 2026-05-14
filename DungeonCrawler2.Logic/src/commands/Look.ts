@@ -1,6 +1,6 @@
 import { CommandParser } from '../commandsUtils/CommandParser';
 import { Direction, DirectionHelper } from '../enums/Direction';
-import { GrammaCase } from '../enums/GrammaCase';
+import { GramaCase } from '../enums/GramaCase';
 import { Game, Local } from '../InitGameData';
 import { Character } from '../model/Character';
 import { Item } from '../model/Item';
@@ -66,12 +66,12 @@ export class Look extends Command {
     }
 
     private lookItem(item: Item) {
-        Engine.Output(Local.Commands.Look.YouLookAt.format(item.getName(GrammaCase.Celownik)));
+        Engine.Output(Local.Commands.Look.YouLookAt.format(item.getName(GramaCase.Celownik)));
         Engine.Output(item.getDescription());
     }
 
     lookCharacter(character: Character) {
-        Engine.Output(Local.Commands.Look.YouLookAt.format(character.getName(GrammaCase.Celownik)));
+        Engine.Output(Local.Commands.Look.YouLookAt.format(character.getName(GramaCase.Celownik)));
         Engine.Output(character.getDescription());
     }
 

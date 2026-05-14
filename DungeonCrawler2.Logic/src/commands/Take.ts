@@ -1,5 +1,5 @@
 ﻿import { CommandParser } from '../commandsUtils/CommandParser';
-import { GrammaCase } from '../enums/GrammaCase';
+import { GramaCase } from '../enums/GramaCase';
 import { Game, Local } from '../InitGameData';
 import { Item } from '../model/Item';
 import { ItemList } from '../model/ItemList';
@@ -73,19 +73,19 @@ export class Take extends Command {
         Engine.Output(
             Local.Commands.Take.TakeItemFromContainer.format(
                 item.getName(),
-                container.getName(GrammaCase.Celownik).startWithUpper(),
+                container.getName(GramaCase.Celownik).startWithUpper(),
             ),
         );
     }
 
     takeItemFromLocation(item: Item, itemList: ItemList) {
         if (!item.isTakeable()) {
-            Engine.Output(Local.Commands.Take.CannotPickUp.format(item.getName(GrammaCase.Dopelniacz)));
+            Engine.Output(Local.Commands.Take.CannotPickUp.format(item.getName(GramaCase.Dopelniacz)));
             return false;
         }
 
         this.takeItem(item, itemList);
-        Engine.Output(Local.Commands.Take.PickedUp.format(item.getName(GrammaCase.Biernik)));
+        Engine.Output(Local.Commands.Take.PickedUp.format(item.getName(GramaCase.Biernik)));
         return true;
     }
 
@@ -107,7 +107,7 @@ export class Take extends Command {
             Engine.Output(
                 Local.Commands.Take.TakeItemFromContainer.format(
                     gold.getName(),
-                    container.getName(GrammaCase.Celownik).startWithUpper(),
+                    container.getName(GramaCase.Celownik).startWithUpper(),
                 ),
             );
         }

@@ -1,4 +1,4 @@
-﻿import { GrammaCase } from '../enums/GrammaCase';
+﻿import { GramaCase } from '../enums/GramaCase';
 import { EntityBase } from './EntityBase';
 import { Equipment } from './Equipment';
 import { ItemList } from './ItemList';
@@ -26,7 +26,7 @@ export class Character extends EntityBase {
         this.Stats.loadFromSave(savedCharacter.Stats);
     }
 
-    getName(grammaCase = GrammaCase.Mianownik) {
+    getName(grammaCase = GramaCase.Mianownik) {
         return this.getTemplate().Name[grammaCase];
     }
 

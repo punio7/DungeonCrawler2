@@ -1,6 +1,6 @@
 import { CommandParser } from '../commandsUtils/CommandParser';
 import { DirectionHelper } from '../enums/Direction';
-import { GrammaCase } from '../enums/GrammaCase';
+import { GramaCase } from '../enums/GramaCase';
 import { Game, Local } from '../InitGameData';
 import { Command } from './Command';
 
@@ -20,9 +20,7 @@ export class Scan extends Command {
             let exit = playerRoom.getExit(direction);
             if (exit !== null && !exit.isHidden()) {
                 Engine.Output(
-                    Local.Commands.Scan.InDirection.format(
-                        DirectionHelper.getLocale(direction, GrammaCase.Miejscownik),
-                    ),
+                    Local.Commands.Scan.InDirection.format(DirectionHelper.getLocale(direction, GramaCase.Miejscownik)),
                 );
                 if (exit.isClosed()) {
                     Engine.Output(Engine.NonBreakingSpace.repeat(4) + Local.Commands.Scan.ClosedDoor);

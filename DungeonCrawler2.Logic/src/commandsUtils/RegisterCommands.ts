@@ -18,6 +18,7 @@ import { Scan } from '../commands/Scan';
 import { South } from '../commands/South';
 import { Take } from '../commands/Take';
 import { Test } from '../commands/Test';
+import { Unlock } from '../commands/Unlock';
 import { Up } from '../commands/Up';
 import { West } from '../commands/West';
 import { Commands } from './CommandsManager';
@@ -57,6 +58,7 @@ export function InitCommands() {
     Commands.RegisterCommand('Test', new Test());
 
     Commands.RegisterCommand('Up', new Up());
+    Commands.RegisterCommand('Unlock', new Unlock());
 
     Commands.RegisterCommand('West', new West());
 }
