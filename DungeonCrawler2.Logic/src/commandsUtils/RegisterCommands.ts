@@ -22,6 +22,7 @@ import { Unlock } from '../commands/Unlock';
 import { Up } from '../commands/Up';
 import { West } from '../commands/West';
 import { Commands } from './CommandsManager';
+import { Lock } from '../commands/Lock';
 
 export function InitCommands() {
     Commands.SetDefaultCommand(new NoCommand());
@@ -42,6 +43,7 @@ export function InitCommands() {
     Commands.RegisterCommand('Json', new Json());
 
     Commands.RegisterCommand('Look', new Look());
+    Commands.RegisterCommand('Lock', new Lock());
     Commands.RegisterCommand('Load', new Load());
 
     Commands.RegisterCommand('North', new North());

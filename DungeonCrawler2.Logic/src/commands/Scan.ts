@@ -1,5 +1,5 @@
 import { CommandParser } from '../commandsUtils/CommandParser';
-import { DirectionHelper } from '../enums/Direction';
+import { Direction, DirectionHelper } from '../enums/Direction';
 import { GramaCase } from '../enums/GramaCase';
 import { Game, Local } from '../InitGameData';
 import { Command } from './Command';
@@ -18,12 +18,18 @@ export class Scan extends Command {
 
         DirectionHelper.forEach((direction) => {
             let exit = playerRoom.getExit(direction);
+            let isTrapDoor = direction === Direction.down || direction === Direction.up;
+
             if (exit !== null && !exit.isHidden()) {
                 Engine.Output(
                     Local.Commands.Scan.InDirection.format(DirectionHelper.getLocale(direction, GramaCase.Miejscownik)),
                 );
                 if (exit.isClosed()) {
-                    Engine.Output(Engine.NonBreakingSpace.repeat(4) + Local.Commands.Scan.ClosedDoor);
+                    if (isTrapDoor) {
+                        Engine.Output(Engine.NonBreakingSpace.repeat(4) + Local.Commands.Scan.ClosedTrapDoor);
+                    } else {
+                        Engine.Output(Engine.NonBreakingSpace.repeat(4) + Local.Commands.Scan.ClosedDoor);
+                    }
                 } else {
                     Engine.Output(this.printCharacters(exit.RoomId));
                 }

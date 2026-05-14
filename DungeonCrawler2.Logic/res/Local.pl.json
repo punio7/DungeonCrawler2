@@ -61,6 +61,23 @@
                 "Loading": "Ładowanie gry...",
                 "Loaded": "Gra została załadowana."
             },
+            "Lock": {
+                "NoTarget": "Zamknąć co?",
+                "InvalidTarget": "Tutaj nie ma niczego takiego jak {0}.",
+                "NoDoor": "Tam nie ma drzwi.",
+                "NoTrapDoor": "Tam nie ma żadnej klapy.",
+                "AlreadyLocked": "Drzwi są już zamknięte na klucz.",
+                "TrapDoorAlreadyLocked": "Klapa jest już zamknięta na klucz.",
+                "KeyNotFound": "Nie masz pasującego klucza.",
+                "DoorLocked": "Zamykasz drzwi na klucz przy pomocy {0}.",
+                "TrapDoorLocked": "Zamykasz klapę na klucz przy pomocy {0}.",
+                "CloseDoorFirst": "Najpierw zamknij drzwi.",
+                "CloseTrapDoorFirst": "Najpierw zamknij klapę.",
+                "NotContainer": "{0} nie jest pojemnikiem.",
+                "ContainerNotLocked": "{0} nie jest zamknięty na klucz.",
+                "ContainerKeyNotFound": "Nie masz klucza pasującego do {0}.",
+                "ContainerLocked": "Zamykasz {0} na klucz przy pomocy {1}."
+            },
             "Look": {
                 "CantSee": "Nic nie widzisz w tej ciemności.",
                 "NoObject": "Tu nie ma nic takiego jak {0}.",
@@ -92,7 +109,8 @@
                 "Here": "Tutaj:",
                 "InDirection": "Na {0}:",
                 "NoOneThere": "nikogo nie ma",
-                "ClosedDoor": "zamknięte drzwi"
+                "ClosedDoor": "zamknięte drzwi",
+                "ClosedTrapDoor": "zamknięta klapa"
             },
             "Take": {
                 "NoArgument": "Wziąć co?",
@@ -112,7 +130,7 @@
                 "NoTrapDoor": "Tam nie ma żadnej klapy.",
                 "DoorNotLocked": "Drzwi nie są zamknięte na klucz.",
                 "TrapDoorNotLocked": "Klapa nie jest zamknięta na klucz.",
-                "KeyNotFound": "Nie masz klucza pasującego do tych drzwi.",
+                "KeyNotFound": "Nie masz pasującego klucza.",
                 "DoorUnlocked": "Otwierasz drzwi przy pomocy {0}.",
                 "TrapDoorUnlocked": "Otwierasz klapę przy pomocy {0}.",
                 "NotContainer": "{0} nie jest pojemnikiem.",

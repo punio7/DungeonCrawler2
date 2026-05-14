@@ -1,13 +1,14 @@
 {
-  "scripts": {
-    "build": "webpack",
-    "build-live": "webpack --watch"
-  },
-  "devDependencies": {
-    "copy-webpack-plugin": "^14.0.0",
-    "ts-loader": "9.5.7",
-    "typescript": "6.0.2",
-    "webpack": "5.105.4",
-    "webpack-cli": "7.0.2"
-  }
+    "scripts": {
+        "build": "webpack",
+        "build-live": "webpack --watch",
+        "cloc": "cloc --exclude-dir=node_modules,dist,bin ."
+    },
+    "devDependencies": {
+        "copy-webpack-plugin": "^14.0.0",
+        "ts-loader": "9.5.7",
+        "typescript": "6.0.2",
+        "webpack": "5.105.4",
+        "webpack-cli": "7.0.2"
+    }
 }

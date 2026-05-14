@@ -26,6 +26,7 @@ import { EngineUtils } from '../commonLogic/EngineUtils';
 import { Open } from '../commands/Open';
 import { Close } from '../commands/Close';
 import { Unlock } from '../commands/Unlock';
+import { Lock } from '../commands/Lock';
 
 class CommandList {
     Close = new Close();
@@ -38,6 +39,7 @@ class CommandList {
     Inventory = new Inventory();
     Json = new Json();
     Load = new Load();
+    Lock = new Lock();
     Look = new Look();
     North = new North();
     Open = new Open();
