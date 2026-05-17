@@ -1,0 +1,20 @@
+export enum RaceName {
+    Unknown = 'Unknown',
+    Human = 'Human',
+    Dwarf = 'Dwarf',
+    Orc = 'Orc',
+    Halfling = 'Halfling',
+    Elf = 'Elf',
+    HalfElf = 'HalfElf',
+    DarkElf = 'DarkElf',
+    Lacert = 'Lacert',
+    Sidan = 'Sidan',
+    Gnome = 'Gnome',
+    Ghrull = 'Ghrull',
+    Lykon = 'Lykon',
+
+    GiantRat = 'GiantRat',
+    Goblin = 'Goblin',
+    Warg = 'Warg',
+    Myconid = 'Myconid',
+}

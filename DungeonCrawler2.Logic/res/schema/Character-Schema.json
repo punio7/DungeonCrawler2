@@ -1,65 +1,93 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "JSON Schema for my JSON file format",
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "JSON Schema for my JSON file format",
 
-  "type": "object",
+    "type": "object",
 
-  "properties": {
-    "CharactersTemplates": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [ "Id", "Name", "Description", "Idle" ],
-        "properties": {
-          "Id": {
-            "type": "string",
-            "description": "Character's template id"
-          },
-
-          "Name": {
-            "type": "array",
-            "description": "Character's display name in all grama cases",
-            "minItems": 7,
-            "maxItems": 7,
-            "items": {
-              "type": "string"
-            }
-          },
-
-          "Idle": {
-            "type": "string",
-            "description": "Text shown on items list"
-          },
-
-          "Description": {
-            "type": "string",
-            "description": "Character's detailed description"
-          },
-
-          "Inventory": {
+    "properties": {
+        "CharactersTemplates": {
             "type": "array",
             "items": {
-              "$ref": "Common-Schema.json#/definitions/ItemListElement"
-            }
-          },
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["Id", "Name", "Description", "Idle", "Level", "Race", "Stats"],
+                "properties": {
+                    "Id": {
+                        "type": "string",
+                        "description": "Character's template id"
+                    },
 
-          "Equipment": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [ "Item", "Slot" ],
-              "properties": {
-                "Slot": {
-                  "type": "string",
-                  "enum": [ "Torso", "Arms", "Hands", "Legs", "Feets", "Head", "RightHand", "LeftHand", "Shirt", "Pants", "Coat", "RightRing", "LeftRing", "Necklace", "Torch" ]
-                },
-                "Item": { "$ref": "Common-Schema.json#/definitions/ItemListElement" }
-              }
+                    "Name": {
+                        "type": "array",
+                        "description": "Character's display name in all grama cases",
+                        "minItems": 7,
+                        "maxItems": 7,
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+
+                    "Idle": {
+                        "type": "string",
+                        "description": "Text shown on items list"
+                    },
+
+                    "Description": {
+                        "type": "string",
+                        "description": "Character's detailed description"
+                    },
+
+                    "Level": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Character's level"
+                    },
+
+                    "Race": { "$ref": "Race-Schema.json#/definitions/RaceId" },
+
+                    "Stats": {
+                        "ref": "Common-Schema.json#/definitions/Statistics"
+                    },
+
+                    "Inventory": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "Common-Schema.json#/definitions/ItemListElement"
+                        }
+                    },
+
+                    "Equipment": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": ["Item", "Slot"],
+                            "properties": {
+                                "Slot": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Torso",
+                                        "Arms",
+                                        "Hands",
+                                        "Legs",
+                                        "Feet",
+                                        "Head",
+                                        "RightHand",
+                                        "LeftHand",
+                                        "Shirt",
+                                        "Pants",
+                                        "Coat",
+                                        "RightRing",
+                                        "LeftRing",
+                                        "Necklace",
+                                        "Torch"
+                                    ]
+                                },
+                                "Item": { "$ref": "Common-Schema.json#/definitions/ItemListElement" }
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 }

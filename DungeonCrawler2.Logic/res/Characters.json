@@ -12,8 +12,17 @@
                 "szczurze jaskiniowym",
                 "szczurze jaskiniowy"
             ],
-            "Description": "Szczury jaskiniowe są nieco większe od szczurów miejskich, są jednak porównywalnie obrzydliwe. Bure, mokre futerko pokrywa prawie jedno łokciowego gryzonia, który skrzętnie przeszukuje otoczenie w poszukiwaniu pożywienia. Odgłos małych pazurków uderzających w kamienną posadzkę towarzyszy każdemu ruchowi szczura.",
+            "Description": "Szczury jaskiniowe są zauważalnie większe od szczurów miejskich, są jednak porównywalnie obrzydliwe. Bure, mokre futerko pokrywa prawie jedno łokciowego gryzonia, który skrzętnie przeszukuje otoczenie w poszukiwaniu pożywienia. Odgłos małych pazurków uderzających w kamienną posadzkę towarzyszy każdemu ruchowi szczura.",
             "Idle": "szpera dookoła",
+            "Level": 1,
+            "Stats": {
+                "Strength": 5,
+                "Dexterity": 6,
+                "Agility": 6,
+                "Endurance": 4,
+                "Vitality": 3
+            },
+            "Race": "GiantRat",
             "Equipment": [
                 {
                     "Slot": "Torso",
@@ -34,6 +43,15 @@
             ],
             "Description": "To tylko testowy NPC, nie oczekuj epickich opisów. Jedyne czego możesz się spodziewać to sztucznie wydłużone opisy mające na celu sprawdzenie wersalikowania opisów postaci.",
             "Idle": "stoi i zachęca do rozmowy",
+            "Level": 50,
+            "Race": "Human",
+            "Stats": {
+                "Strength": 80,
+                "Dexterity": 80,
+                "Agility": 80,
+                "Endurance": 80,
+                "Vitality": 80
+            },
             "Inventory": [{ "ItemId": "gold", "Stack": 100 }, "sapphire-round"]
         },
         {
@@ -49,6 +67,15 @@
             ],
             "Description": "Wpatrując się w zakapturzonego człowieka nie dostrzegasz w nim nic nadzwyczajnego. Nosi on długie brązowe szaty, które dokładnie zakrywają jego ciało. Kaptur całkowicie zasłania mu twarz. Nieznajomy wpatruje się cały czas w podłogę, nie wykonując przy tym nawet najmniejszych ruchów.",
             "Idle": "wpatruje się w podłogę",
+            "Level": 50,
+            "Race": "Human",
+            "Stats": {
+                "Strength": 80,
+                "Dexterity": 80,
+                "Agility": 80,
+                "Endurance": 80,
+                "Vitality": 80
+            },
             "Inventory": ["short-sword-bronze", "bronze-key"]
         }
     ]

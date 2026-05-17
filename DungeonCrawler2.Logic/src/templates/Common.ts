@@ -1,3 +1,5 @@
+import { IAttributes, IStats } from '../model/CharacterStats';
+
 type EntityNameForms = string[];
 type EntityNameWithPlurals = EntityNameForms[];
 export type EntityName = EntityNameForms | EntityNameWithPlurals;
@@ -32,3 +34,7 @@ export interface ItemChanceOneOfTemplate {
 }
 
 export type ItemListTemplateElement = ItemId | ItemChanceTemplate | ItemChanceOneOfTemplate;
+
+export type StatsTemplate = Partial<IStats>;
+
+export type AttributesTemplate = Partial<IAttributes>;

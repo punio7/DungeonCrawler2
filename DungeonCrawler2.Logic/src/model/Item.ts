@@ -6,6 +6,7 @@ import { Local } from '../InitGameData';
 import { ItemLock } from './ItemLock';
 import { ItemTemplate } from '../templates/ItemTemplate';
 import { GameData } from './GameData';
+import { Attributes, IAttributes, IStats, Stats } from './CharacterStats';
 
 export class Item extends EntityBase {
     Stack?: number;
@@ -20,29 +21,29 @@ export class Item extends EntityBase {
         return GameData.ItemTemplates.getTemplate(this.Id);
     }
 
-    getName(grammaCase = GramaCase.Mianownik) {
+    getName(gramaCase = GramaCase.Mianownik) {
         let name = this.getTemplate().Name;
         if (!this.isStackable()) {
-            return name[grammaCase] + Engine.DefaultColor;
+            return name[gramaCase] + Engine.DefaultColor;
         } else {
-            return this.getStack() + ' ' + this.getPluralName(grammaCase) + Engine.DefaultColor;
+            return this.getStack() + ' ' + this.getPluralName(gramaCase) + Engine.DefaultColor;
         }
     }
 
-    getPluralName(grammaCase = GramaCase.Mianownik) {
+    getPluralName(gramaCase = GramaCase.Mianownik) {
         let name = this.getTemplate().Name;
         if (!Array.isArray(name[0])) {
-            return name[grammaCase];
+            return name[gramaCase];
         } else {
             switch (this.getStack()) {
                 case 1:
-                    return name[0][grammaCase];
+                    return name[0][gramaCase];
                 case 2:
                 case 3:
                 case 4:
-                    return name[1][grammaCase];
+                    return name[1][gramaCase];
                 default:
-                    return name[2][grammaCase];
+                    return name[2][gramaCase];
             }
         }
     }
@@ -126,5 +127,23 @@ export class Item extends EntityBase {
         if (this.Lock !== undefined) {
             this.Lock.IsLocked = value;
         }
+    }
+
+    getStatsBonus(): IStats | null {
+        if (this.getTemplate().BonusStats === undefined) {
+            return null;
+        }
+        return new Stats(this.getTemplate().BonusStats!);
+    }
+
+    getAttributes(): IAttributes | null {
+        if (this.getTemplate().Attributes === undefined) {
+            return null;
+        }
+        return new Attributes(this.getTemplate().Attributes!);
+    }
+
+    getValue() {
+        return this.getTemplate().Value ?? 0;
     }
 }

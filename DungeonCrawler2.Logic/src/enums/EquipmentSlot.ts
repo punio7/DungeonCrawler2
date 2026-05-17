@@ -1,4 +1,4 @@
-﻿import { EnumHelper } from "./EnumHelper";
+﻿import { EnumHelper } from './EnumHelper';
 
 export enum EquipmentSlot {
     None = 0,
@@ -6,7 +6,7 @@ export enum EquipmentSlot {
     Arms = 2,
     Hands = 3,
     Legs = 4,
-    Feets = 5,
+    Feet = 5,
     Head = 6,
     MainHand = 7,
     OffHand = 8,

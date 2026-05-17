@@ -1,6 +1,7 @@
 ﻿import { CharacterTemplates } from './CharacterTemplates';
 import { ItemTemplates } from './ItemTemplates';
 import { ItemTypes } from './ItemTypes';
+import { RacesTemplates } from '../templates/RacesTemplates';
 import { RoomTemplates } from './RoomTemplates';
 
 class GameDataModel {
@@ -8,11 +9,13 @@ class GameDataModel {
     ItemTemplates: ItemTemplates;
     CharacterTemplates: CharacterTemplates;
     RoomTemplates: RoomTemplates;
+    Races: RacesTemplates;
     constructor() {
         this.ItemTypes = new ItemTypes(undefined);
         this.ItemTemplates = new ItemTemplates(undefined);
         this.CharacterTemplates = new CharacterTemplates(undefined);
         this.RoomTemplates = new RoomTemplates(undefined);
+        this.Races = new RacesTemplates(undefined);
     }
 }
 

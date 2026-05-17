@@ -1,0 +1,206 @@
+{
+    "$schema": "schema/Race-Schema.json",
+    "Races": [
+        {
+            "Id": "Human",
+            "Name": ["człowiek", "człowieka", "człowiekowi", "człowieka", "człowiekiem", "człowieku", "człowieku"],
+            "Stats": {
+                "Strength": 0.03,
+                "Dexterity": 0.03,
+                "Agility": 0.03,
+                "Endurance": 0.03,
+                "Vitality": 0.03
+            }
+        },
+        {
+            "Id": "Dwarf",
+            "Name": [
+                "krasnolud",
+                "krasnoluda",
+                "krasnoludowi",
+                "krasnoluda",
+                "krasnoludem",
+                "krasnoludzie",
+                "krasnoludzie"
+            ],
+            "Stats": {
+                "Strength": 0.09,
+                "Dexterity": -0.02,
+                "Agility": -0.04,
+                "Endurance": 0.04,
+                "Vitality": 0.08
+            }
+        },
+        {
+            "Id": "Orc",
+            "Name": ["ork", "orka", "orkowi", "orka", "orkiem", "orku", "orku"],
+            "Stats": {
+                "Strength": 0.11,
+                "Dexterity": -0.03,
+                "Agility": -0.03,
+                "Endurance": 0.09,
+                "Vitality": 0.01
+            }
+        },
+        {
+            "Id": "Halfling",
+            "Name": ["niziołek", "niziołka", "niziołkowi", "niziołka", "niziołkiem", "niziołku", "niziołku"],
+            "Stats": {
+                "Strength": -0.05,
+                "Dexterity": 0.04,
+                "Agility": 0.11,
+                "Endurance": 0.02,
+                "Vitality": 0.03
+            }
+        },
+        {
+            "Id": "Elf",
+            "Name": ["elf", "elfa", "elfowi", "elfa", "elfem", "elfie", "elfie"],
+            "Stats": {
+                "Strength": -0.04,
+                "Dexterity": 0.05,
+                "Agility": 0.1,
+                "Endurance": 0.07,
+                "Vitality": -0.03
+            }
+        },
+        {
+            "Id": "HalfElf",
+            "Name": ["półelf", "półelfa", "półelfowi", "półelfa", "półelfem", "półelfie", "półelfie"],
+            "Stats": {
+                "Strength": -0.02,
+                "Dexterity": 0.06,
+                "Agility": 0.06,
+                "Endurance": 0.03,
+                "Vitality": 0.02
+            }
+        },
+        {
+            "Id": "DarkElf",
+            "Name": [
+                "mroczny elf",
+                "mrocznego elfa",
+                "mrocznemu elfowi",
+                "mrocznego elfa",
+                "mrocznym elfem",
+                "mrocznym elfie",
+                "mrocznym elfie"
+            ],
+            "Stats": {
+                "Strength": -0.04,
+                "Dexterity": 0.1,
+                "Agility": 0.05,
+                "Endurance": -0.03,
+                "Vitality": 0.07
+            }
+        },
+        {
+            "Id": "Lacert",
+            "Name": ["lacert", "lacerta", "lacertowi", "lacerta", "lacertem", "lacercie", "lacercie"],
+            "Stats": {
+                "Strength": 0.07,
+                "Dexterity": -0.05,
+                "Agility": 0.07,
+                "Endurance": -0.05,
+                "Vitality": 0.11
+            }
+        },
+        {
+            "Id": "Sidan",
+            "Name": ["sidan", "sidana", "sidanowi", "sidana", "sidanem", "sidaninie", "sidaninie"],
+            "Stats": {
+                "Strength": -0.04,
+                "Dexterity": 0.11,
+                "Agility": 0.04,
+                "Endurance": 0.08,
+                "Vitality": -0.04
+            }
+        },
+        {
+            "Id": "Gnome",
+            "Name": ["gnom", "gnoma", "gnomowi", "gnoma", "gnomem", "gnomie", "gnomie"],
+            "Stats": {
+                "Strength": 0.04,
+                "Dexterity": -0.04,
+                "Agility": 0.11,
+                "Endurance": 0.07,
+                "Vitality": -0.03
+            }
+        },
+        {
+            "Id": "Ghrull",
+            "Name": ["ghrull", "ghrulla", "ghrullowi", "ghrulla", "ghrullem", "ghrullu", "ghrullu"],
+            "Stats": {
+                "Strength": 0.1,
+                "Dexterity": 0.01,
+                "Agility": -0.05,
+                "Endurance": 0.01,
+                "Vitality": 0.08
+            }
+        },
+        {
+            "Id": "Lykon",
+            "Name": ["lykon", "lykona", "lykonowi", "lykona", "lykonem", "lykonie", "lykonie"],
+            "Stats": {
+                "Strength": 0.07,
+                "Dexterity": 0.07,
+                "Agility": -0.05,
+                "Endurance": 0.11,
+                "Vitality": -0.05
+            }
+        },
+
+        {
+            "Id": "GiantRat",
+            "Name": [
+                "gigantyczny szczur",
+                "gigantycznego szczura",
+                "gigantycznemu szczurowi",
+                "gigantycznego szczura",
+                "gigantycznym szczurem",
+                "gigantycznym szczurze",
+                "gigantyczny szczurze"
+            ],
+            "Stats": {
+                "Strength": -0.1,
+                "Dexterity": 0.02,
+                "Agility": 0.1,
+                "Endurance": 0.0,
+                "Vitality": -0.07
+            }
+        },
+        {
+            "Id": "Goblin",
+            "Name": ["goblin", "goblina", "goblinowi", "goblina", "goblinem", "goblinie", "goblinie"],
+            "Stats": {
+                "Strength": -0.05,
+                "Dexterity": 0.05,
+                "Agility": -0.02,
+                "Endurance": 0.04,
+                "Vitality": -0.03
+            }
+        },
+        {
+            "Id": "Warg",
+            "Name": ["warg", "warga", "wargowi", "warga", "wargiem", "wargu", "wargu"],
+            "Stats": {
+                "Strength": 0.05,
+                "Dexterity": 0.06,
+                "Agility": 0.03,
+                "Endurance": 0.07,
+                "Vitality": 0.06
+            }
+        },
+        {
+            "Id": "Myconid",
+            "Name": ["mykonid", "mykonida", "mykonidowi", "mykonida", "mykonidem", "mykonidzie", "mykonidzie"],
+            "Stats": {
+                "Strength": 0.01,
+                "Dexterity": -0.07,
+                "Agility": -0.07,
+                "Endurance": 0.07,
+                "Vitality": 0.06
+            }
+        }
+    ]
+}

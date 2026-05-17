@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "Schema for race definitions",
+    "type": "object",
+    "definitions": {
+        "RaceId": {
+            "type": "string",
+            "description": "Unique identifier",
+            "enum": [
+                "Unknown",
+                "Human",
+                "Dwarf",
+                "Orc",
+                "Halfling",
+                "Elf",
+                "HalfElf",
+                "DarkElf",
+                "Lacert",
+                "Sidan",
+                "Gnome",
+                "Ghrull",
+                "Lykon",
+
+                "GiantRat",
+                "Goblin",
+                "Warg",
+                "Myconid"
+            ]
+        }
+    },
+    "properties": {
+        "Races": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["Id", "Name", "Stats"],
+                "properties": {
+                    "Id": {
+                        "$ref": "#/definitions/RaceId"
+                    },
+                    "Name": {
+                        "$ref": "Common-Schema.json#/definitions/EntityName"
+                    },
+                    "Stats": {
+                        "$ref": "Common-Schema.json#/definitions/Statistics"
+                    }
+                }
+            }
+        }
+    }
+}

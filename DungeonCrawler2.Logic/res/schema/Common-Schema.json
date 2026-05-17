@@ -123,6 +123,32 @@
                     }
                 }
             ]
+        },
+        "Statistics": {
+            "type": "object",
+            "description": "character statistics",
+            "additionalProperties": false,
+            "properties": {
+                "Strength": { "type": "number" },
+                "Dexterity": { "type": "number" },
+                "Agility": { "type": "number" },
+                "Endurance": { "type": "number" },
+                "Vitality": { "type": "number" }
+            }
+        },
+        "Attributes": {
+            "type": "object",
+            "description": "character attributes",
+            "additionalProperties": false,
+            "properties": {
+                "Attack": { "type": "integer" },
+                "Defense": { "type": "integer" },
+                "Health": { "type": "integer" },
+                "Armor": { "type": "integer" },
+                "ArmorProtection": { "type": "integer" },
+                "Fatigue": { "type": "integer" },
+                "Damage": { "type": "integer" }
+            }
         }
     },
     "title": "JSON Schema for my JSON file format",

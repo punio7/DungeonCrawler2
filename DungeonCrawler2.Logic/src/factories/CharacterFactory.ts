@@ -1,5 +1,6 @@
 ﻿import { Game } from '../InitGameData';
 import { Character } from '../model/Character';
+import { Stats } from '../model/CharacterStats';
 import { Equipment } from '../model/Equipment';
 import { GameData } from '../model/GameData';
 import { ItemList } from '../model/ItemList';
@@ -16,6 +17,8 @@ export class CharacterFactory {
 
     LoadFromTemplate(character: Character, template: CharacterTemplate) {
         character.Id = template.Id;
+        character.Stats.Level = template.Level;
+        character.Stats.statsBase = new Stats(template.Stats);
 
         if (template.Inventory !== undefined) {
             let inventoryModel = new ItemList();
@@ -32,6 +35,9 @@ export class CharacterFactory {
             });
             character.Equipment = equipmentModel;
         }
+        character.recalculate();
+        character.Stats.currentHealth = character.Stats.attrTotal.Health;
+        character.Stats.currentArmor = character.Stats.attrTotal.Armor;
         return character;
     }
 }

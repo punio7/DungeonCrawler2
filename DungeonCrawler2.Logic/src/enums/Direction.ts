@@ -16,8 +16,8 @@ class DirectionHelperClass extends EnumHelper<Direction> {
         super(Direction);
     }
 
-    getLocale(direction: Direction, grammaCase = GramaCase.Mianownik) {
-        return Local.Directions[direction][grammaCase];
+    getLocale(direction: Direction, gramaCase = GramaCase.Mianownik) {
+        return Local.Directions[direction][gramaCase];
     }
 }
 

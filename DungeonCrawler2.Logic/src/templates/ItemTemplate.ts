@@ -1,4 +1,4 @@
-import { EntityName } from './Common';
+import { AttributesTemplate, EntityName, StatsTemplate } from './Common';
 
 export interface ItemTemplate {
     Id: string;
@@ -8,4 +8,7 @@ export interface ItemTemplate {
     Type: string;
     IsLightSource?: boolean;
     IsStackable?: boolean;
+    BonusStats?: StatsTemplate;
+    Attributes?: AttributesTemplate;
+    Value?: number;
 }

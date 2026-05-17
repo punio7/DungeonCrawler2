@@ -50,7 +50,13 @@
             ],
             "Idle": "leży u twoich stóp",
             "Description": "Ten kawał kija wygląda na oderwaną i wyschniętą gałąź jakiegoś drzewa. Nie jest on całkiem prosty, zawiera kilka sęków i nieregularności ale jest długi na kilka łokci i może całkiem sprawnie posłużyć jako improwizowana broń.",
-            "Type": "Weapon1H"
+            "Type": "Weapon1H",
+            "Attributes": {
+                "Attack": 2,
+                "Defense": 2,
+                "Damage": 2
+            },
+            "Value": 1
         },
         {
             "Id": "short-sword-bronze",
@@ -78,7 +84,13 @@
                 "szczurza skóro"
             ],
             "Description": "Skóra zdarta z jaskiniowego szczura.",
-            "Type": "WildArmor"
+            "Type": "WildArmor",
+            "Attributes": {
+                "Attack": 2,
+                "Defense": 2,
+                "ArmorProtection": 100,
+                "Armor": 6
+            }
         },
 
         {

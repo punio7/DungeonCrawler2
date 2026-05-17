@@ -45,6 +45,19 @@
                         "type": "boolean",
                         "default": "false",
                         "description": "Specifies if the item is stackable"
+                    },
+
+                    "BonusStats": {
+                        "$ref": "Common-Schema.json#/definitions/Statistics"
+                    },
+
+                    "Attributes": {
+                        "$ref": "Common-Schema.json#/definitions/Attributes"
+                    },
+                    "Value": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "description": "Item's value in gold coins"
                     }
                 }
             }
