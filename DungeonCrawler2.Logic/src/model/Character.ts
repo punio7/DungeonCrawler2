@@ -54,6 +54,10 @@ export class Character extends EntityBase {
         return GameData.Races.getTemplate(this.getTemplate().Race);
     }
 
+    getClass() {
+        return GameData.Classes.getTemplate(this.getTemplate().Class);
+    }
+
     getHealthLevel(description: boolean) {
         let percentage = (this.Stats.currentHealth * 100) / this.Stats.statsTotal.Strength;
         let level: string;
@@ -88,8 +92,8 @@ export class Character extends EntityBase {
     recalculate() {
         let statsTotal = new Stats();
         // TODO: recalculate class stats
-        let statsRace = this.getRace().Stats;
-        let statsClass = new Stats(); //TODO: get class stats
+        let statsRace = new Stats(this.getRace().Stats);
+        let statsClass = new Stats(this.getClass().Stats);
         this.Stats.statsBonus = this.calculateStatsBonus();
         statsTotal = statsTotal
             .add(this.Stats.statsBase)

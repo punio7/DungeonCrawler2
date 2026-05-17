@@ -10,7 +10,7 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": ["Id", "Name", "Description", "Idle", "Level", "Race", "Stats"],
+                "required": ["Id", "Name", "Description", "Idle", "Level", "Race", "Class", "Stats"],
                 "properties": {
                     "Id": {
                         "type": "string",
@@ -44,6 +44,8 @@
                     },
 
                     "Race": { "$ref": "Race-Schema.json#/definitions/RaceId" },
+
+                    "Class": { "$ref": "Class-Schema.json#/definitions/ClassId" },
 
                     "Stats": {
                         "ref": "Common-Schema.json#/definitions/Statistics"

@@ -1,5 +1,6 @@
+import { ClassId } from '../enums/ClassName';
 import { EquipmentSlot } from '../enums/EquipmentSlot';
-import { RaceName } from '../enums/RaceName';
+import { RaceId } from '../enums/RaceId';
 import { IStats } from '../model/CharacterStats';
 import { ItemListTemplateElement } from './Common';
 
@@ -14,7 +15,8 @@ export interface CharacterTemplate {
     Idle: string;
     Description: string;
     Level: number;
-    Race: RaceName;
+    Race: RaceId;
+    Class: ClassId;
     Stats: IStats;
     Inventory?: ItemListTemplateElement[];
     Equipment?: EquipmentTemplate[];

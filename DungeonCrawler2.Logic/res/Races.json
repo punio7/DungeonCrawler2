@@ -2,6 +2,11 @@
     "$schema": "schema/Race-Schema.json",
     "Races": [
         {
+            "Id": "Unknown",
+            "Name": ["nieznany", "nieznanego", "nieznanemu", "nieznanego", "nieznanym", "nieznanym", "nieznany"],
+            "Stats": {}
+        },
+        {
             "Id": "Human",
             "Name": ["człowiek", "człowieka", "człowiekowi", "człowieka", "człowiekiem", "człowieku", "człowieku"],
             "Stats": {

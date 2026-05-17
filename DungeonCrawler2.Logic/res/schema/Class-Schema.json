@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "Schema for class definitions",
+    "type": "object",
+    "definitions": {
+        "ClassId": {
+            "type": "string",
+            "description": "Unique identifier",
+            "enum": [
+                "Unknown",
+
+                "Human",
+                "NoClass",
+                "Berserker",
+                "Paladin",
+                "Barbarian",
+                "Hunter",
+                "Knight",
+                "Mercenary",
+                "Duelist",
+                "Guardsman",
+                "Watchman",
+                "Monk",
+
+                "Worker"
+            ]
+        }
+    },
+    "properties": {
+        "Classes": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["Id", "Name", "Stats"],
+                "properties": {
+                    "Id": {
+                        "$ref": "#/definitions/ClassId"
+                    },
+                    "Name": {
+                        "$ref": "Common-Schema.json#/definitions/EntityName"
+                    },
+                    "Stats": {
+                        "$ref": "Common-Schema.json#/definitions/Statistics"
+                    }
+                }
+            }
+        }
+    }
+}

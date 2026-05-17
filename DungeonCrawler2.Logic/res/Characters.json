@@ -23,6 +23,7 @@
                 "Vitality": 3
             },
             "Race": "GiantRat",
+            "Class": "NoClass",
             "Equipment": [
                 {
                     "Slot": "Torso",
@@ -45,6 +46,7 @@
             "Idle": "stoi i zachęca do rozmowy",
             "Level": 50,
             "Race": "Human",
+            "Class": "NoClass",
             "Stats": {
                 "Strength": 80,
                 "Dexterity": 80,
@@ -69,6 +71,7 @@
             "Idle": "wpatruje się w podłogę",
             "Level": 50,
             "Race": "Human",
+            "Class": "NoClass",
             "Stats": {
                 "Strength": 80,
                 "Dexterity": 80,

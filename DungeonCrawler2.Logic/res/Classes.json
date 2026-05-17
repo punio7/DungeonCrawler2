@@ -1,0 +1,137 @@
+{
+    "$schema": "schema/Class-Schema.json",
+    "Classes": [
+        {
+            "Id": "NoClass",
+            "Name": [
+                "bezklasowy",
+                "bezklasowego",
+                "bezklasowemu",
+                "bezklasowego",
+                "bezklasowym",
+                "bezklasowym",
+                "bezklasowy"
+            ],
+            "Stats": {}
+        },
+        {
+            "Id": "Barbarian",
+            "Name": [
+                "barbarzyńca",
+                "barbarzyńcy",
+                "barbarzyńcy",
+                "barbarzyńcę",
+                "barbarzyńcą",
+                "barbarzyńcy",
+                "barbarzyńco"
+            ],
+            "Stats": {
+                "Strength": 0.02,
+                "Vitality": 0.02
+            }
+        },
+        {
+            "Id": "Hunter",
+            "Name": ["łowca", "łowcy", "łowcy", "łowcę", "łowcą", "łowcy", "łowco"],
+            "Stats": {
+                "Dexterity": 0.02,
+                "Vitality": 0.02
+            }
+        },
+        {
+            "Id": "Knight",
+            "Name": ["rycerz", "rycerza", "rycerzowi", "rycerza", "rycerzem", "rycerzu", "rycerzu"],
+            "Stats": {
+                "Strength": 0.02,
+                "Endurance": 0.02
+            }
+        },
+        {
+            "Id": "Mercenary",
+            "Name": ["najemnik", "najemnika", "najemnikowi", "najemnika", "najemnikiem", "najemniku", "najemniku"],
+            "Stats": {
+                "Strength": 0.02,
+                "Agility": 0.02
+            }
+        },
+        {
+            "Id": "Duelist",
+            "Name": [
+                "szermierz",
+                "szermierza",
+                "szermierzowi",
+                "szermierza",
+                "szermierzem",
+                "szermierzu",
+                "szermierzu"
+            ],
+            "Stats": {
+                "Dexterity": 0.02,
+                "Agility": 0.02
+            }
+        },
+        {
+            "Id": "Guardsman",
+            "Name": [
+                "gwardzista",
+                "gwardzisty",
+                "gwardziście",
+                "gwardzistę",
+                "gwardzistą",
+                "gwardziście",
+                "gwardziście"
+            ],
+            "Stats": {
+                "Dexterity": 0.02,
+                "Endurance": 0.02
+            }
+        },
+        {
+            "Id": "Berserker",
+            "Name": [
+                "berserker",
+                "berserkera",
+                "berserkerowi",
+                "berserkera",
+                "berserkerem",
+                "berserkerze",
+                "berserkerze"
+            ],
+            "Stats": {
+                "Strength": 0.02,
+                "Dexterity": 0.02
+            }
+        },
+        {
+            "Id": "Paladin",
+            "Name": ["paladyn", "paladyna", "paladynowi", "paladyna", "paladynem", "paladynie", "paladynie"],
+            "Stats": {
+                "Agility": 0.02,
+                "Vitality": 0.02
+            }
+        },
+        {
+            "Id": "Watchman",
+            "Name": ["strażnik", "strażnika", "strażnikowi", "strażnika", "strażnikiem", "strażniku", "strażniku"],
+            "Stats": {
+                "Dexterity": 0.02,
+                "Agility": 0.02
+            }
+        },
+        {
+            "Id": "Monk",
+            "Name": ["mnich", "mnicha", "mnichowi", "mnicha", "mnichem", "mnichu", "mnichu"],
+            "Stats": {
+                "Endurance": 0.02,
+                "Vitality": 0.02
+            }
+        },
+        {
+            "Id": "Worker",
+            "Name": ["robotnik", "robotnika", "robotnikowi", "robotnika", "robotnikiem", "robotniku", "robotniku"],
+            "Stats": {
+                "Endurance": 0.01
+            }
+        }
+    ]
+}

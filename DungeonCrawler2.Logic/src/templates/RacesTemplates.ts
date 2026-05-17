@@ -1,10 +1,10 @@
-﻿import { RaceName } from '../enums/RaceName';
-import { IStats } from '../model/CharacterStats';
+﻿import { RaceId } from '../enums/RaceId';
+import { StatsTemplate } from './Common';
 
 export interface RaceTemplate {
     Id: string;
     Name: string[];
-    Stats: IStats;
+    Stats: StatsTemplate;
 }
 
 class RacesList {
@@ -35,7 +35,7 @@ export class RacesTemplates {
         this.list[raceTemplate.Id] = raceTemplate;
     }
 
-    getTemplate(raceId: RaceName): RaceTemplate {
+    getTemplate(raceId: RaceId): RaceTemplate {
         if (this.list[raceId] === undefined) {
             throw 'No race template defined for {0}!'.format(raceId);
         }

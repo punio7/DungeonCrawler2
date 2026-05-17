@@ -1,4 +1,4 @@
-export enum RaceName {
+export enum RaceId {
     Unknown = 'Unknown',
     Human = 'Human',
     Dwarf = 'Dwarf',
