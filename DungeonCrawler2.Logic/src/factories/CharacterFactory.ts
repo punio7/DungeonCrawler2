@@ -2,20 +2,20 @@
 import { Character } from '../model/Character';
 import { Stats } from '../model/CharacterStats';
 import { Equipment } from '../model/Equipment';
-import { GameData } from '../model/GameData';
+import { Data } from '../data/Data';
 import { ItemList } from '../model/ItemList';
-import { CharacterTemplate } from '../templates/CharacterTemplate';
+import { CharacterData } from '../data/CharacterData';
 
 export class CharacterFactory {
     spawnCharacter(characterId: string) {
-        let template = GameData.CharacterTemplates.getTemplate(characterId);
+        let template = Data.CharacterTemplates.getTemplate(characterId);
         let character = new Character();
         character = this.LoadFromTemplate(character, template);
 
         return character;
     }
 
-    LoadFromTemplate(character: Character, template: CharacterTemplate) {
+    LoadFromTemplate(character: Character, template: CharacterData) {
         character.Id = template.Id;
         character.Stats.Level = template.Level;
         character.Stats.statsBase = new Stats(template.Stats);

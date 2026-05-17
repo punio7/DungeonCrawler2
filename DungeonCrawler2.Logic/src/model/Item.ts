@@ -4,8 +4,8 @@ import { EntityBase } from './EntityBase';
 import { ItemList } from './ItemList';
 import { Local } from '../InitGameData';
 import { ItemLock } from './ItemLock';
-import { ItemTemplate } from '../templates/ItemTemplate';
-import { GameData } from './GameData';
+import { ItemTemplate } from '../data/ItemData';
+import { Data } from '../data/Data';
 import { Attributes, IAttributes, IStats, Stats } from './CharacterStats';
 
 export class Item extends EntityBase {
@@ -18,7 +18,7 @@ export class Item extends EntityBase {
     }
 
     private getTemplate(): ItemTemplate {
-        return GameData.ItemTemplates.getTemplate(this.Id);
+        return Data.ItemTemplates.getTemplate(this.Id);
     }
 
     getName(gramaCase = GramaCase.Mianownik) {

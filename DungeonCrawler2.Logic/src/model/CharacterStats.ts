@@ -1,4 +1,4 @@
-import { AttributesTemplate, StatsTemplate } from '../templates/Common';
+import { AttributesTemplate, StatsTemplate } from '../data/Common';
 import { Character } from './Character';
 
 export interface IStats {

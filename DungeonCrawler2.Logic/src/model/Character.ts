@@ -4,16 +4,16 @@ import { Equipment } from './Equipment';
 import { ItemList } from './ItemList';
 import { addStats, Attributes, CharacterStats, IAttributes, IStats, multiplyStats, Stats } from './CharacterStats';
 import { Local } from '../InitGameData';
-import { GameData } from './GameData';
-import { CharacterTemplate } from '../templates/CharacterTemplate';
+import { Data } from '../data/Data';
+import { CharacterData } from '../data/CharactersData';
 
 export class Character extends EntityBase {
     Inventory: ItemList = new ItemList();
     Equipment: Equipment = new Equipment();
     Stats: CharacterStats = new CharacterStats();
 
-    private getTemplate(): CharacterTemplate {
-        return GameData.CharacterTemplates.getTemplate(this.Id);
+    private getTemplate(): CharacterData {
+        return Data.CharacterTemplates.getTemplate(this.Id);
     }
 
     loadFromSave(savedCharacter: Character) {
@@ -51,11 +51,11 @@ export class Character extends EntityBase {
     }
 
     getRace() {
-        return GameData.Races.getTemplate(this.getTemplate().Race);
+        return Data.Races.getTemplate(this.getTemplate().Race);
     }
 
     getClass() {
-        return GameData.Classes.getTemplate(this.getTemplate().Class);
+        return Data.Classes.getTemplate(this.getTemplate().Class);
     }
 
     getHealthLevel(description: boolean) {

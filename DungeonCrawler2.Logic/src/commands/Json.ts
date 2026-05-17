@@ -1,7 +1,7 @@
 import { CommandParser } from '../commandsUtils/CommandParser';
 import { Command } from './Command';
 import { Game as GameVar } from '../InitGameData';
-import { GameData } from '../model/GameData';
+import { Data } from '../data/Data';
 
 export class Json extends Command {
     ExecuteBody(command: CommandParser) {
@@ -10,7 +10,7 @@ export class Json extends Command {
             return;
         }
         let game = GameVar;
-        let gameData = GameData;
+        let gameData = Data;
         Engine.Output(JSON.stringify(eval(argument)));
     }
 }

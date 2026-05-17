@@ -1,4 +1,4 @@
-import { LockTemplate } from '../templates/Common';
+import { LockTemplate } from '../data/Common';
 
 export class ItemLock {
     IsLocked: boolean;

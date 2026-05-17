@@ -4,19 +4,19 @@ import { ItemList } from '../model/ItemList';
 import { Room } from '../model/Room';
 import { RoomExit } from '../model/RoomExit';
 import { RoomExitsList } from '../model/RoomExitsList';
-import { RoomTemplate } from '../templates/RoomTemplate';
+import { RoomData } from '../data/RoomData';
 import { RoomDoor } from '../model/RoomDoor';
-import { GameData } from '../model/GameData';
+import { Data } from '../data/Data';
 
 export class RoomFactory {
-    spawnRoom(template: RoomTemplate) {
+    spawnRoom(template: RoomData) {
         let room = new Room();
         room.Id = template.Id;
         return room;
     }
 
     loadFromData(room: Room) {
-        const template = GameData.RoomTemplates.getTemplate(room.Id);
+        const template = Data.RoomTemplates.getTemplate(room.Id);
         let exitsModel = new RoomExitsList();
         template.Exits?.forEach((exit) => {
             let direction = exit.Direction;

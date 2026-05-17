@@ -1,4 +1,4 @@
-﻿import { ItemTemplate } from '../templates/ItemTemplate';
+﻿import { ItemTemplate } from '../data/ItemData';
 
 class ItemTemplatesList {
     [templateId: string]: ItemTemplate;

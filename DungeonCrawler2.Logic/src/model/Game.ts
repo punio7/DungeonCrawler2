@@ -1,6 +1,6 @@
 ﻿import { GlobalEvents } from '../GlobalEvents';
 import { Character } from './Character';
-import { GameData } from './GameData';
+import { Data } from '../data/Data';
 import { GlobalEventArgs } from './GlobalEventArgs';
 import { Item } from './Item';
 import { Player } from './Player';
@@ -47,7 +47,7 @@ export class GameModel {
     getRoom(roomId: number): Room {
         let room = this.Rooms[roomId];
         if (room === undefined) {
-            const roomTemplate = GameData.RoomTemplates.getTemplate(roomId);
+            const roomTemplate = Data.RoomTemplates.getTemplate(roomId);
             room = this.Rooms[roomId] = this.RoomFactory.spawnRoom(roomTemplate);
             this.RoomFactory.loadFromData(room);
         }
@@ -63,7 +63,7 @@ export class GameModel {
     }
 
     getItemType(itemTypeName: string): string {
-        return GameData.ItemTypes.getItemType(itemTypeName);
+        return Data.ItemTypes.getItemType(itemTypeName);
     }
 
     invokeGlobalEvent(name: string, args: GlobalEventArgs): boolean {

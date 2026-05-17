@@ -1,9 +1,9 @@
 ﻿import { Game } from '../InitGameData';
-import { GameData } from '../model/GameData';
+import { Data } from '../data/Data';
 import { Item } from '../model/Item';
 import { ItemList } from '../model/ItemList';
-import { ItemChanceOneOfTemplate, ItemChanceTemplate, ItemListTemplateElement, Stack } from '../templates/Common';
-import { ItemTemplate } from '../templates/ItemTemplate';
+import { ItemChanceOneOfTemplate, ItemChanceTemplate, ItemListTemplateElement, Stack } from '../data/Common';
+import { ItemTemplate } from '../data/ItemData';
 import { Random } from '../commonLogic/Random';
 import { ItemLock } from '../model/ItemLock';
 
@@ -53,7 +53,7 @@ export class ItemFactory {
     }
 
     spawnItemByTemplateId(templateId: string): Item {
-        let template: ItemTemplate = GameData.ItemTemplates.getTemplate(templateId);
+        let template: ItemTemplate = Data.ItemTemplates.getTemplate(templateId);
         let item = new Item();
         item.Id = template.Id;
         if (item.isContainer()) {

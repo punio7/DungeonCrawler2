@@ -1,20 +1,20 @@
 ﻿import { RaceId } from '../enums/RaceId';
 import { StatsTemplate } from './Common';
 
-export interface RaceTemplate {
+export interface RaceData {
     Id: string;
     Name: string[];
     Stats: StatsTemplate;
 }
 
 class RacesList {
-    [templateId: string]: RaceTemplate;
+    [templateId: string]: RaceData;
 }
 
-export class RacesTemplates {
+export class RacesData {
     list: RacesList = new RacesList();
 
-    constructor(races: RaceTemplate[] | undefined) {
+    constructor(races: RaceData[] | undefined) {
         if (races === undefined) {
             return;
         }
@@ -28,14 +28,14 @@ export class RacesTemplates {
         });
     }
 
-    addNewRaceTemplate(raceTemplate: RaceTemplate) {
+    addNewRaceTemplate(raceTemplate: RaceData) {
         if (this.list[raceTemplate.Id] !== undefined) {
             throw 'Race template {0} is already defined!'.format(raceTemplate.Id);
         }
         this.list[raceTemplate.Id] = raceTemplate;
     }
 
-    getTemplate(raceId: RaceId): RaceTemplate {
+    getTemplate(raceId: RaceId): RaceData {
         if (this.list[raceId] === undefined) {
             throw 'No race template defined for {0}!'.format(raceId);
         }

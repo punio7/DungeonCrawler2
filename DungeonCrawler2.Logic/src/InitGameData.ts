@@ -7,12 +7,12 @@ import { Races } from '../res/Races.json';
 import { Classes } from '../res/Classes.json';
 import { GameModel } from './model/Game';
 import { ItemTypes as ItemTypesList } from './model/ItemTypes';
-import { CharacterTemplates } from './model/CharacterTemplates';
+import { CharactersData } from './data/CharactersData';
 import { ItemTemplates } from './model/ItemTemplates';
-import { GameData } from './model/GameData';
+import { Data } from './data/Data';
 import { RoomTemplates } from './model/RoomTemplates';
-import { RacesTemplates } from './templates/RacesTemplates';
-import { ClassesData } from './templates/ClassesData';
+import { RacesData } from './data/RacesData';
+import { ClassesData } from './data/ClassesData';
 
 export var Local = LocalPl;
 export var Game: GameModel = new GameModel();
@@ -20,12 +20,12 @@ export var Version = '';
 
 export function InitGameData() {
     Game = new GameModel();
-    GameData.ItemTypes = new ItemTypesList(ItemTypes);
-    GameData.ItemTemplates = new ItemTemplates(ItemsTemplates);
-    GameData.CharacterTemplates = new CharacterTemplates(CharactersTemplates);
-    GameData.RoomTemplates = new RoomTemplates(GameTemplate.Rooms);
-    GameData.Races = new RacesTemplates(Races);
-    GameData.Classes = new ClassesData(Classes);
+    Data.ItemTypes = new ItemTypesList(ItemTypes);
+    Data.ItemTemplates = new ItemTemplates(ItemsTemplates);
+    Data.CharacterTemplates = new CharactersData(CharactersTemplates);
+    Data.RoomTemplates = new RoomTemplates(GameTemplate.Rooms);
+    Data.Races = new RacesData(Races);
+    Data.Classes = new ClassesData(Classes);
     Version = Engine.LoadData('version.txt').replace('\n', Engine.EndLine);
 
     Game.Player.Location = Game.StartingRoom;

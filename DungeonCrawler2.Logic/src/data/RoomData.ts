@@ -1,27 +1,26 @@
 import { Direction } from '../enums/Direction';
-import { CharacterTemplate } from './CharacterTemplate';
 import { ItemListTemplateElement } from './Common';
 
-export interface RoomTemplate {
+export interface RoomData {
     Id: number;
     Name?: string;
     Description?: string;
     IsNaturalLight?: boolean;
-    Exits?: ExitTemplate[];
+    Exits?: ExitData[];
     Items?: ItemListTemplateElement[];
     Characters?: string[];
     OnFirstEnterEvent?: string;
     OnEnterEvent?: string;
 }
 
-export interface ExitTemplate {
+export interface ExitData {
     Direction: Direction;
     RoomId: number;
     isHidden?: boolean;
-    Door?: DoorTemplate;
+    Door?: DoorData;
 }
 
-interface DoorTemplate {
+interface DoorData {
     IsLocked?: boolean;
     IsClosed?: boolean;
     KeyId?: string;

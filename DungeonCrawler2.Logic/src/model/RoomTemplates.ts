@@ -1,8 +1,8 @@
-import { RoomTemplate } from '../templates/RoomTemplate';
+import { RoomData } from '../data/RoomData';
 
 export class RoomTemplates {
-    [templateId: number]: RoomTemplate;
-    Templates: RoomTemplate[] = [];
+    [templateId: number]: RoomData;
+    Templates: RoomData[] = [];
 
     constructor(roomTemplates?: any) {
         if (roomTemplates === undefined) {
@@ -26,7 +26,7 @@ export class RoomTemplates {
         this.Templates[roomTemplate.Id] = roomTemplate;
     }
 
-    getTemplate(roomId: number): RoomTemplate {
+    getTemplate(roomId: number): RoomData {
         if (this[roomId] === undefined) {
             throw 'No Room template defined for Id {0}!'.format(roomId);
         }

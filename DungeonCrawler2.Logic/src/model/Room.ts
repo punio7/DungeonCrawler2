@@ -1,6 +1,6 @@
 ﻿import { Direction, DirectionHelper } from '../enums/Direction';
 import { CharacterList } from './CharacterList';
-import { GameData } from './GameData';
+import { Data } from '../data/Data';
 import { ItemList } from './ItemList';
 import { RoomExit } from './RoomExit';
 import { RoomExitsList } from './RoomExitsList';
@@ -28,7 +28,7 @@ export class Room {
     }
 
     getTemplate() {
-        return GameData.RoomTemplates.getTemplate(this.Id);
+        return Data.RoomTemplates.getTemplate(this.Id);
     }
 
     getName() {
