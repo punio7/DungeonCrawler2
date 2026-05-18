@@ -90,31 +90,38 @@ export class Character extends EntityBase {
     }
 
     recalculate() {
-        let statsTotal = new Stats();
-        // TODO: recalculate class stats
         let statsRace = new Stats(this.getRace().Stats);
-        let statsClass = new Stats(this.getClass().Stats);
-        this.Stats.statsBonus = this.calculateStatsBonus();
-        statsTotal = statsTotal
+        let statsClass = this.calculateClassStats();
+        let statsBonus = this.calculateStatsBonus();
+        let statsTotal = new Stats()
             .add(this.Stats.statsBase)
             .add(multiplyStats(this.Stats.statsBase, addStats(statsClass, statsRace)))
-            .add(this.Stats.statsBonus);
+            .add(statsBonus);
         this.Stats.statsTotal = statsTotal;
 
-        let attributesTotal = new Attributes();
         let attrStats = this.calculateAttributesFromStats(this.Stats.statsTotal);
         let attrLevel = this.calculateAttributesFromLevel();
-        let attrEq = this.calculateAttributesEquipment();
+        let attrEq = this.calculateAttributesFromEquipment();
         //TODO: recalculate attrBonus from buffs, debuffs, conditions etc.
-        this.Stats.attrModifier = this.calculateAttributesModifier();
-        attributesTotal = attributesTotal.add(attrStats).add(attrLevel).add(attrEq).add(this.Stats.attrBonus);
-        attributesTotal.Damage = (attrStats.Damage + this.Stats.attrBonus.Damage) * attrEq.Damage;
+        let attrBonus = new Attributes();
+        let attrModifier = this.calculateAttributesModifier();
+        let attributesTotal = new Attributes().add(attrStats).add(attrLevel).add(attrEq).add(attrBonus);
+        // damage attribute is a bonus modifier based on weapon damage
+        attributesTotal.Damage = (attrStats.Damage + attrBonus.Damage) * attrEq.Damage;
+        // character's total protection is the average protection of all equipped armor
         attributesTotal.ArmorProtection = attributesTotal.ArmorProtection / 6;
-        attributesTotal = attributesTotal.multiply(this.Stats.attrModifier);
+        attributesTotal = attributesTotal.multiply(attrModifier);
         this.Stats.attrTotal = attributesTotal;
     }
 
-    calculateStatsBonus(): IStats {
+    calculateClassStats() {
+        // Character's class bonuses increases the given
+        // amount every 2 levels
+        let classMultiply = Math.floor(this.Stats.Level / 2);
+        return new Stats(this.getClass().Stats).multiplyByNumber(classMultiply);
+    }
+
+    calculateStatsBonus() {
         let bonusStats = new Stats();
         for (let slot in this.Equipment.Array) {
             let item = this.Equipment.Array[slot];
@@ -145,11 +152,11 @@ export class Character extends EntityBase {
             Armor: 0,
             ArmorProtection: 0,
             Fatigue: Math.floor(0.1 * this.Stats.Level),
-            Damage: 0,
+            Damage: 0, //Damage stat calculations include the level
         });
     }
 
-    calculateAttributesModifier(): IAttributes {
+    calculateAttributesModifier() {
         //TODO: calculate attributes modifier from buffs, debuffs, conditions etc.
         return new Attributes({
             Attack: 1,
@@ -162,7 +169,7 @@ export class Character extends EntityBase {
         });
     }
 
-    calculateAttributesEquipment(): IAttributes {
+    calculateAttributesFromEquipment() {
         let attributes = new Attributes();
 
         for (let slot in this.Equipment.Array) {

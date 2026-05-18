@@ -29,6 +29,10 @@ export class Stats implements IStats {
     multiply(other: IStats) {
         return multiplyStats(this, other);
     }
+
+    multiplyByNumber(b: number) {
+        return multiplyStatsByNumber(this, b);
+    }
 }
 
 export interface IAttributes {
@@ -69,11 +73,8 @@ export class CharacterStats {
     Level: number = 1;
 
     statsBase: IStats = new Stats();
-    statsBonus: IStats = new Stats();
     statsTotal: IStats = new Stats();
 
-    attrBonus: IAttributes = new Attributes();
-    attrModifier: IAttributes = new Attributes();
     attrTotal: IAttributes = new Attributes();
 
     currentHealth: number = 100;
@@ -103,6 +104,16 @@ export function multiplyStats(a: IStats, b: IStats) {
         Agility: Math.round(a.Agility * b.Agility),
         Endurance: Math.round(a.Endurance * b.Endurance),
         Vitality: Math.round(a.Vitality * b.Vitality),
+    });
+}
+
+export function multiplyStatsByNumber(a: IStats, b: number) {
+    return new Stats({
+        Strength: a.Strength * b,
+        Dexterity: a.Dexterity * b,
+        Agility: a.Agility * b,
+        Endurance: a.Endurance * b,
+        Vitality: a.Vitality * b,
     });
 }
 
