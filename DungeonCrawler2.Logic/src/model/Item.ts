@@ -7,6 +7,7 @@ import { ItemLock } from './ItemLock';
 import { ItemTemplate } from '../data/ItemData';
 import { Data } from '../data/Data';
 import { Attributes, IAttributes, IStats, Stats } from './CharacterStats';
+import { EquipmentSlotHelper } from '../enums/EquipmentSlot';
 
 export class Item extends EntityBase {
     Stack?: number;
@@ -93,7 +94,14 @@ export class Item extends EntityBase {
     }
 
     getType() {
-        return ItemTypeHelper.parse(this.getTemplate().Type);
+        return ItemTypeHelper.parse(this.getTemplate().Type)!;
+    }
+
+    getEquipmentSlot() {
+        let type = this.getType();
+        let typeData = Data.ItemTypes.getItemType(type);
+        let slot = EquipmentSlotHelper.parse(typeData.Slot);
+        return slot;
     }
 
     isTakeable() {

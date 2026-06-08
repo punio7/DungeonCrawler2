@@ -4,7 +4,7 @@ import { RaceId } from '../enums/RaceId';
 import { IStats } from '../model/CharacterStats';
 import { ItemListTemplateElement } from './Common';
 
-interface EquipmentData {
+export interface EquipmentData {
     Slot: EquipmentSlot;
     Item: ItemListTemplateElement;
 }

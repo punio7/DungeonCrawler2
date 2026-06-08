@@ -1,109 +1,285 @@
 ﻿{
-  "$schema": "schema/ItemType-Schema.json",
-  "ItemTypes": [
-    {
-      "Id": "Weapon1H",
-      "Slot": "MainHand",
-      "Name": [
-        "broń jednoręczna",
-        "broni jednoręcznej",
-        "broni jednoręcznej",
-        "broń jednoręczną",
-        "bronią jednoręczną",
-        "broni jednoręcznej",
-        "broni jednoręczna"
-      ]
-    },
-    {
-      "Id": "Weapon2H",
-      "Slot": "MainHand",
-      "Name": [
-        "broń dwuręczna",
-        "broni dwuręcznej",
-        "broni dwuręcznej",
-        "broń dwuręczną",
-        "bronią dwuręczną",
-        "broni dwuręcznej",
-        "broni dwuręczna"
-      ]
-    },
-    {
-      "Id": "Shield",
-      "Slot": "OffHand",
-      "Name": [
-        "tarcza",
-        "tarczy",
-        "tarczy",
-        "tarczę",
-        "tarczą",
-        "tarczy",
-        "tarczo"
-      ]
-    },
-    {
-      "Id": "Armor",
-      "Slot": "Torso",
-      "Name": [
-        "pancerz",
-        "pancerza",
-        "pancerzowi",
-        "pancerz",
-        "pancerzem",
-        "pancerzu",
-        "pancerzu"
-      ]
-    },
-    {
-      "Id": "Shoulders",
-      "Slot": "Arms",
-      "Name": [
-        "naramienniki",
-        "naramienników",
-        "naramiennikom",
-        "naramienniki",
-        "naramiennikami",
-        "naramiennikach",
-        "naramienniki"
-      ]
-    },
-    {
-      "Id": "Gloves",
-      "Slot": "Hands",
-      "Name": [
-        "rękawice",
-        "rękawic",
-        "rękawicom",
-        "rękawice",
-        "rękawicami",
-        "rękawicach",
-        "rękawice"
-      ]
-    },
-    {
-      "Id": "Greaves",
-      "Slot": "Legs",
-      "Name": [
-        "nagolenniki",
-        "nagolenników",
-        "nagolennikom",
-        "nagolenniki",
-        "nagolennikami",
-        "nagolennikach",
-        "nagolenniki"
-      ]
-    },
-    {
-      "Id": "Boots",
-      "Slot": "Legs",
-      "Name": [
-        "buty",
-        "butów",
-        "butom",
-        "buty",
-        "butami",
-        "butach",
-        "buty"
-      ]
-    }
-  ]
+    "$schema": "schema/ItemType-Schema.json",
+    "ItemTypes": [
+        {
+            "Id": "Weapon1H",
+            "Slot": "MainHand",
+            "PlayerAllowed": true,
+            "Name": [
+                "broń jednoręczna",
+                "broni jednoręcznej",
+                "broni jednoręcznej",
+                "broń jednoręczną",
+                "bronią jednoręczną",
+                "broni jednoręcznej",
+                "broni jednoręczna"
+            ]
+        },
+        {
+            "Id": "Weapon2H",
+            "Slot": "MainHand",
+            "PlayerAllowed": true,
+            "Name": [
+                "broń dwuręczna",
+                "broni dwuręcznej",
+                "broni dwuręcznej",
+                "broń dwuręczną",
+                "bronią dwuręczną",
+                "broni dwuręcznej",
+                "broni dwuręczna"
+            ]
+        },
+        {
+            "Id": "Shield",
+            "Slot": "OffHand",
+            "PlayerAllowed": true,
+            "Name": ["tarcza", "tarczy", "tarczy", "tarczę", "tarczą", "tarczy", "tarczo"]
+        },
+        {
+            "Id": "Armor",
+            "Slot": "Torso",
+            "PlayerAllowed": true,
+            "Name": ["pancerz", "pancerza", "pancerzowi", "pancerz", "pancerzem", "pancerzu", "pancerzu"]
+        },
+        {
+            "Id": "Shoulders",
+            "Slot": "Arms",
+            "PlayerAllowed": true,
+            "Name": [
+                "naramienniki",
+                "naramienników",
+                "naramiennikom",
+                "naramienniki",
+                "naramiennikami",
+                "naramiennikach",
+                "naramienniki"
+            ]
+        },
+        {
+            "Id": "Gloves",
+            "Slot": "Hands",
+            "PlayerAllowed": true,
+            "Name": ["rękawice", "rękawic", "rękawicom", "rękawice", "rękawicami", "rękawicach", "rękawice"]
+        },
+        {
+            "Id": "Greaves",
+            "Slot": "Legs",
+            "PlayerAllowed": true,
+            "Name": [
+                "nagolenniki",
+                "nagolenników",
+                "nagolennikom",
+                "nagolenniki",
+                "nagolennikami",
+                "nagolennikach",
+                "nagolenniki"
+            ]
+        },
+        {
+            "Id": "Boots",
+            "Slot": "Feet",
+            "PlayerAllowed": true,
+            "Name": ["buty", "butów", "butom", "buty", "butami", "butach", "buty"]
+        },
+        {
+            "Id": "Helmet",
+            "Slot": "Head",
+            "PlayerAllowed": true,
+            "Name": ["hełm", "hełmu", "hełmowi", "hełm", "hełmem", "hełmie", "hełmie"]
+        },
+        {
+            "Id": "Shirt",
+            "Slot": "Shirt",
+            "PlayerAllowed": true,
+            "Name": ["koszula", "koszuli", "koszuli", "koszulę", "koszulą", "koszuli", "koszulo"]
+        },
+        {
+            "Id": "Pants",
+            "Slot": "Pants",
+            "PlayerAllowed": true,
+            "Name": ["spodnie", "spodni", "spodniom", "spodnie", "spodniami", "spodniach", "spodnie"]
+        },
+        {
+            "Id": "WildShield",
+            "Slot": "OffHand",
+            "PlayerAllowed": false,
+            "Name": [
+                "dzika tarcza",
+                "dzikiej tarczy",
+                "dzikiej tarczy",
+                "dziką tarczę",
+                "dziką tarczą",
+                "dzikiej tarczy",
+                "dzika tarczo"
+            ]
+        },
+        {
+            "Id": "WildArmor",
+            "Slot": "Torso",
+            "PlayerAllowed": false,
+            "Name": [
+                "dziki pancerz",
+                "dzikiego pancerza",
+                "dzikiemu pancerzowi",
+                "dziki pancerz",
+                "dzikim pancerzem",
+                "dzikim pancerzu",
+                "dziki pancerzu"
+            ]
+        },
+        {
+            "Id": "WildShoulders",
+            "Slot": "Arms",
+            "PlayerAllowed": false,
+            "Name": [
+                "dzikie naramienniki",
+                "dzikich naramienników",
+                "dzikim naramiennikom",
+                "dzikie naramienniki",
+                "dzikimi naramiennikami",
+                "dzikich naramiennikach",
+                "dzikie naramienniki"
+            ]
+        },
+        {
+            "Id": "WildGloves",
+            "Slot": "Hands",
+            "PlayerAllowed": false,
+            "Name": [
+                "dzikie rękawice",
+                "dzikich rękawic",
+                "dzikim rękawicom",
+                "dzikie rękawice",
+                "dzikimi rękawicami",
+                "dzikich rękawicach",
+                "dzikie rękawice"
+            ]
+        },
+        {
+            "Id": "WildGreaves",
+            "Slot": "Legs",
+            "PlayerAllowed": false,
+            "Name": [
+                "dzikie nagolenniki",
+                "dzikich nagolenników",
+                "dzikim nagolennikom",
+                "dzikie nagolenniki",
+                "dzikimi nagolennikami",
+                "dzikich nagolennikach",
+                "dzikie nagolenniki"
+            ]
+        },
+        {
+            "Id": "WildBoots",
+            "Slot": "Feet",
+            "PlayerAllowed": false,
+            "Name": [
+                "dzikie buty",
+                "dzikich butów",
+                "dzikim butom",
+                "dzikie buty",
+                "dzikimi butami",
+                "dzikich butach",
+                "dzikie buty"
+            ]
+        },
+        {
+            "Id": "WildHelmet",
+            "Slot": "Head",
+            "PlayerAllowed": false,
+            "Name": [
+                "dziki hełm",
+                "dzikiego hełmu",
+                "dzikiemu hełmowi",
+                "dziki hełm",
+                "dzikim hełmem",
+                "dzikim hełmie",
+                "dziki hełmie"
+            ]
+        },
+        {
+            "Id": "Ring",
+            "Slot": "RightRing",
+            "PlayerAllowed": true,
+            "Name": [
+                "pierścień",
+                "pierścienia",
+                "pierścieniowi",
+                "pierścień",
+                "pierścieniem",
+                "pierścieniu",
+                "pierścieniu"
+            ]
+        },
+        {
+            "Id": "Necklace",
+            "Slot": "Necklace",
+            "PlayerAllowed": true,
+            "Name": ["naszyjnik", "naszyjnika", "naszyjnikowi", "naszyjnik", "naszyjnikiem", "naszyjniku", "naszyjniku"]
+        },
+        {
+            "Id": "Potion",
+            "Name": ["mikstura", "mikstury", "miksturze", "miksturę", "miksturą", "miksturze", "miksturo"]
+        },
+        {
+            "Id": "Food",
+            "Name": ["jedzenie", "jedzenia", "jedzeniu", "jedzenie", "jedzeniem", "jedzeniu", "jedzenie"]
+        },
+        {
+            "Id": "Trash",
+            "Name": ["śmieć", "śmieci", "śmieci", "śmieć", "śmieciem", "śmieci", "śmieci"]
+        },
+        {
+            "Id": "Currency",
+            "Name": ["moneta", "monety", "monecie", "monetę", "monetą", "monecie", "moneto"]
+        },
+        {
+            "Id": "Container",
+            "Name": ["pojemnik", "pojemnika", "pojemnikowi", "pojemnik", "pojemnikiem", "pojemniku", "pojemniku"]
+        },
+        {
+            "Id": "StaticContainer",
+            "Name": [
+                "stacjonarny pojemnik",
+                "stacjonarnego pojemnika",
+                "stacjonarnemu pojemnikowi",
+                "stacjonarny pojemnik",
+                "stacjonarnym pojemnikiem",
+                "stacjonarnym pojemniku",
+                "stacjonarny pojemniku"
+            ]
+        },
+        {
+            "Id": "Quest",
+            "Name": [
+                "przedmiot zadania",
+                "przedmiotu zadania",
+                "przedmiotowi zadania",
+                "przedmiot zadania",
+                "przedmiotem zadania",
+                "przedmiocie zadania",
+                "przedmiocie zadania"
+            ]
+        },
+        {
+            "Id": "Key",
+            "Name": ["klucz", "klucza", "kluczowi", "klucz", "kluczem", "kluczu", "kluczu"]
+        },
+        {
+            "Id": "Static",
+            "Name": [
+                "obiekt statyczny",
+                "obiektu statycznego",
+                "obiektowi statycznemu",
+                "obiekt statyczny",
+                "obiektem statycznym",
+                "obiekcie statycznym",
+                "obiekcie statycznym"
+            ]
+        },
+        {
+            "Id": "Lever",
+            "Name": ["dźwignia", "dźwigni", "dźwigni", "dźwignię", "dźwignią", "dźwigni", "dźwignio"]
+        }
+    ]
 }

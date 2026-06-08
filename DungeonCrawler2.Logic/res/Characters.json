@@ -2,6 +2,31 @@
     "$schema": "schema/Character-Schema.json",
     "CharactersTemplates": [
         {
+            "Id": "player",
+            "Name": ["gracz", "gracza", "graczowi", "gracza", "graczem", "graczu", "graczu"],
+            "Description": "",
+            "Level": 1,
+            "Stats": {
+                "Strength": 10,
+                "Dexterity": 10,
+                "Agility": 10,
+                "Endurance": 10,
+                "Vitality": 10
+            },
+            "Race": "Unknown",
+            "Class": "NoClass",
+            "Equipment": [
+                {
+                    "Slot": "Shirt",
+                    "Item": "shirt-lien"
+                },
+                {
+                    "Slot": "Pants",
+                    "Item": "pants-lien"
+                }
+            ]
+        },
+        {
             "Id": "cave-rat",
             "Name": [
                 "szczur jaskiniowy",

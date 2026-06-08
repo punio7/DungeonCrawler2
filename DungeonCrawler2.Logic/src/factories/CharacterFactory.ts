@@ -4,7 +4,8 @@ import { Stats } from '../model/CharacterStats';
 import { Equipment } from '../model/Equipment';
 import { Data } from '../data/Data';
 import { ItemList } from '../model/ItemList';
-import { CharacterData } from '../data/CharacterData';
+import { CharacterData, EquipmentData } from '../data/CharactersData';
+import { EquipmentSlotHelper } from '../../bin/Debug/net48/dist/dungeon-crawler';
 
 export class CharacterFactory {
     spawnCharacter(characterId: string) {
@@ -30,7 +31,7 @@ export class CharacterFactory {
 
         if (template.Equipment !== undefined) {
             let equipmentModel = new Equipment();
-            template.Equipment.forEach((eq) => {
+            template.Equipment.forEach((eq: EquipmentData) => {
                 equipmentModel.equip(eq.Slot, Game.spawnItem(eq.Item));
             });
             character.Equipment = equipmentModel;

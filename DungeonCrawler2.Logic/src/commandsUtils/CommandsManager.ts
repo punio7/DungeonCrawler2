@@ -27,6 +27,9 @@ import { Open } from '../commands/Open';
 import { Close } from '../commands/Close';
 import { Unlock } from '../commands/Unlock';
 import { Lock } from '../commands/Lock';
+import { Remove } from '../commands/Remove';
+import { Wear } from '../commands/Wear';
+import { Equipment } from '../commands/Equipment';
 
 class CommandList {
     Close = new Close();
@@ -35,6 +38,7 @@ class CommandList {
     East = new East();
     Eval = new Eval();
     Exam = new Exam();
+    Equipment = new Equipment();
     Go = new Go();
     Inventory = new Inventory();
     Json = new Json();
@@ -44,6 +48,7 @@ class CommandList {
     North = new North();
     Open = new Open();
     Reload = new Reload();
+    Remove = new Remove();
     South = new South();
     Save = new Save();
     Scan = new Scan();
@@ -51,6 +56,7 @@ class CommandList {
     Test = new Test();
     Unlock = new Unlock();
     Up = new Up();
+    Wear = new Wear();
     West = new West();
 }
 

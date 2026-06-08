@@ -47,7 +47,7 @@
                 "Arms",
                 "Hands",
                 "Legs",
-                "Foot",
+                "Feet",
                 "Head",
                 "MainHand",
                 "OffHand",
@@ -73,7 +73,7 @@
                     "Slot": {
                         "$ref": "#/definitions/EquipmentSlot"
                     },
-                    "EquipableByPlayer": {
+                    "PlayerAllowed": {
                         "type": "boolean",
                         "default": false
                     },

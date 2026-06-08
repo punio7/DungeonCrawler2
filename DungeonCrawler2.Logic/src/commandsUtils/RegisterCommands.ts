@@ -23,6 +23,9 @@ import { Up } from '../commands/Up';
 import { West } from '../commands/West';
 import { Commands } from './CommandsManager';
 import { Lock } from '../commands/Lock';
+import { Remove } from '../commands/Remove';
+import { Wear } from '../commands/Wear';
+import { Equipment } from '../commands/Equipment';
 
 export function InitCommands() {
     Commands.SetDefaultCommand(new NoCommand());
@@ -35,6 +38,7 @@ export function InitCommands() {
     Commands.RegisterCommand('East', new East());
     Commands.RegisterCommand('Exam', new Exam());
     Commands.RegisterCommand('Eval', new Eval());
+    Commands.RegisterCommand('Equipment', new Equipment());
 
     Commands.RegisterCommand('Go', new Go());
 
@@ -50,6 +54,7 @@ export function InitCommands() {
 
     Commands.RegisterCommand('Open', new Open());
 
+    Commands.RegisterCommand('Remove', new Remove());
     Commands.RegisterCommand('Reload', new Reload());
 
     Commands.RegisterCommand('South', new South());
@@ -63,4 +68,5 @@ export function InitCommands() {
     Commands.RegisterCommand('Unlock', new Unlock());
 
     Commands.RegisterCommand('West', new West());
+    Commands.RegisterCommand('Wear', new Wear());
 }

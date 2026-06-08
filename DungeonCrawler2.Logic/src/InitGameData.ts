@@ -6,7 +6,7 @@ import { GameTemplate } from '../res/Game.json';
 import { Races } from '../res/Races.json';
 import { Classes } from '../res/Classes.json';
 import { GameModel } from './model/Game';
-import { ItemTypes as ItemTypesList } from './model/ItemTypes';
+import { ItemTypesData as ItemTypesList } from './data/ItemTypesData';
 import { CharactersData } from './data/CharactersData';
 import { ItemTemplates } from './model/ItemTemplates';
 import { Data } from './data/Data';
@@ -28,6 +28,7 @@ export function InitGameData() {
     Data.Classes = new ClassesData(Classes);
     Version = Engine.LoadData('version.txt').replace('\n', Engine.EndLine);
 
+    Game.CharacterFactory.LoadFromTemplate(Game.Player, Data.CharacterTemplates.getTemplate('player'));
     Game.Player.Location = Game.StartingRoom;
 }
 

@@ -123,8 +123,8 @@ export class Character extends EntityBase {
 
     calculateStatsBonus() {
         let bonusStats = new Stats();
-        for (let slot in this.Equipment.Array) {
-            let item = this.Equipment.Array[slot];
+        for (let slot in this.Equipment.List) {
+            let item = this.Equipment.List[slot];
             if (item.getStatsBonus() !== null) {
                 bonusStats = bonusStats.add(item.getStatsBonus()!);
             }
@@ -172,8 +172,8 @@ export class Character extends EntityBase {
     calculateAttributesFromEquipment() {
         let attributes = new Attributes();
 
-        for (let slot in this.Equipment.Array) {
-            let item = this.Equipment.Array[slot];
+        for (let slot in this.Equipment.List) {
+            let item = this.Equipment.List[slot];
             if (item.getAttributes() !== null) {
                 attributes = attributes.add(item.getAttributes()!);
             }

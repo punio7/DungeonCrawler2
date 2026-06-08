@@ -1,27 +1,31 @@
-﻿import { EnumHelper } from './EnumHelper';
+﻿import { Local } from '../InitGameData';
+import { EnumHelper } from './EnumHelper';
 
 export enum EquipmentSlot {
-    None = 0,
-    Torso = 1,
-    Arms = 2,
-    Hands = 3,
-    Legs = 4,
-    Feet = 5,
-    Head = 6,
-    MainHand = 7,
-    OffHand = 8,
-    Shirt = 9,
-    Pants = 10,
-    Coat = 11,
-    RightRing = 12,
-    LeftRing = 13,
-    Necklace = 14,
-    Torch = 15,
+    Head = 'Head',
+    Torso = 'Torso',
+    Arms = 'Arms',
+    Hands = 'Hands',
+    Legs = 'Legs',
+    Feet = 'Feet',
+    Shirt = 'Shirt',
+    Pants = 'Pants',
+    Coat = 'Coat',
+    Necklace = 'Necklace',
+    RightRing = 'RightRing',
+    LeftRing = 'LeftRing',
+    MainHand = 'MainHand',
+    OffHand = 'OffHand',
+    Torch = 'Torch',
 }
 
 class EquipmentSlotHelperClass extends EnumHelper<EquipmentSlot> {
     constructor() {
         super(EquipmentSlot);
+    }
+
+    getLocale(slot: EquipmentSlot): string {
+        return Local.EquipmentSlot[slot] || slot;
     }
 }
 

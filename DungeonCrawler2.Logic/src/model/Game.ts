@@ -62,7 +62,7 @@ export class GameModel {
         return this.CharacterFactory.spawnCharacter(characterId);
     }
 
-    getItemType(itemTypeName: string): string {
+    getItemType(itemTypeName: string) {
         return Data.ItemTypes.getItemType(itemTypeName);
     }
 

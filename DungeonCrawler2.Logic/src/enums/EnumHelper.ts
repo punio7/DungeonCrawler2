@@ -4,7 +4,8 @@
         this.source = source;
     }
 
-    parse(value: string): EnumType | null {
+    parse(value: string | undefined): EnumType | null {
+        if (value === undefined) return null;
         if (this.source.hasOwnProperty(value)) {
             return this.source[value] as EnumType;
         }

@@ -41,6 +41,12 @@ export class Look extends Command {
             return;
         }
 
+        item = Game.Player.getEquipment().find(argument, number)?.[0] || null;
+        if (item !== null) {
+            this.lookItem(item);
+            return;
+        }
+
         Engine.Output(Local.Commands.Look.NoObject.format(argument));
     }
 

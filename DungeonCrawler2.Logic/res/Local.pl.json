@@ -8,6 +8,23 @@
             "up": ["góra", "góry", "górze", "górę", "górą", "górze", "góro"],
             "down": ["dół", "dołu", "dołowi", "dół", "dołem", "dole", "dole"]
         },
+        "EquipmentSlot": {
+            "Head": "Głowa",
+            "Torso": "Ciało",
+            "Arms": "Ręce",
+            "Hands": "Dłonie",
+            "Legs": "Nogi",
+            "Feet": "Stopy",
+            "Shirt": "Koszula",
+            "Pants": "Spodnie",
+            "Coat": "Płaszcz",
+            "Necklace": "Naszyjnik",
+            "RightRing": "Prawy pierścień",
+            "LeftRing": "Lewy pierścień",
+            "MainHand": "Główna ręka",
+            "OffHand": "Drugą ręką",
+            "Torch": "Pochodnia"
+        },
         "Stats": {
             "HealthLevels": {
                 "Full": "w pełni zdrowia",
@@ -42,6 +59,10 @@
                 "Contains": "Zawiera w sobie:",
                 "LockedContainer": "Pojemnik jest zamknięty.",
                 "HealthLevel": "{0} jest {1}."
+            },
+            "Equipment": {
+                "YourEquipment": "Obecnie używasz:",
+                "NoEquipment": "{0}Ogólnie nic"
             },
             "Go": {
                 "WrongDirection": "Może lepiej zostać tutaj i zjeść kilka pierogów?",
@@ -95,6 +116,11 @@
                 "Opened": "Otwierasz drzwi.",
                 "TrapDoorOpened": "Otwierasz klapę."
             },
+            "Remove": {
+                "NoArgument": "Co chcesz zdjąć?",
+                "ItemNotFound": "Nie masz założonego czegoś takiego jak {0}.",
+                "Removed": "Zdejmujesz {0}."
+            },
             "Save": {
                 "Saved": "Gra została zapisana."
             },
@@ -132,6 +158,13 @@
                 "ContainerNotLocked": "{0} nie jest zamknięty na klucz.",
                 "ContainerKeyNotFound": "Nie masz klucza pasującego do {0}.",
                 "ContainerUnlocked": "Otwierasz {0} przy pomocy {1}."
+            },
+            "Wear": {
+                "NoArgument": "Co chcesz założyć?",
+                "NoItemFound": "Nie masz nic takiego jak {0}.",
+                "ItemNotEquippable": "Nie możesz założyć {0}.",
+                "NoFreeRingSlot": "Używasz już dwóch pierścieni, zdejmij jeden.",
+                "Equipped": "Zakładasz {0}."
             }
         },
         "GlobalEvents": {
