@@ -21,6 +21,7 @@ export enum ItemType {
     WildHelmet = 'WildHelmet',
     Ring = 'Ring',
     Necklace = 'Necklace',
+    Torch = 'Torch',
     Potion = 'Potion',
     Food = 'Food',
     Trash = 'Trash',

@@ -13,6 +13,11 @@ export class Remove extends Command {
             return;
         }
 
+        if (argument1.toLowerCase() === 'all') {
+            this.removeAll();
+            return;
+        }
+
         let number1 = command.getNumber(1);
         let foundInEq = Game.Player.getEquipment().find(argument1, number1);
         if (foundInEq === null) {
@@ -23,6 +28,14 @@ export class Remove extends Command {
         let [item, itemSlot] = foundInEq;
 
         this.remove(itemSlot, item);
+    }
+
+    removeAll() {
+        let equipment = Game.Player.getEquipment();
+        for (const eqSlot in equipment.List) {
+            let item = equipment.List[eqSlot];
+            this.remove(eqSlot as EquipmentSlot, item);
+        }
     }
 
     public remove(itemSlot: EquipmentSlot, item: Item) {

@@ -218,6 +218,20 @@
             "Name": ["naszyjnik", "naszyjnika", "naszyjnikowi", "naszyjnik", "naszyjnikiem", "naszyjniku", "naszyjniku"]
         },
         {
+            "Id": "Torch",
+            "Slot": "Torch",
+            "PlayerAllowed": true,
+            "Name": [
+                "źródło światła",
+                "źródła światła",
+                "źródłu światła",
+                "źródło światła",
+                "źródłem światła",
+                "źródle światła",
+                "źródle światła"
+            ]
+        },
+        {
             "Id": "Potion",
             "Name": ["mikstura", "mikstury", "miksturze", "miksturę", "miksturą", "miksturze", "miksturo"]
         },

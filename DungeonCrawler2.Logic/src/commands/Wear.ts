@@ -2,10 +2,8 @@ import { CommandParser } from '../commandsUtils/CommandParser';
 import { GramaCase } from '../enums/GramaCase';
 import { Game, Local } from '../InitGameData';
 import { Command } from './Command';
-import { Item } from '../model/Item';
 import { ItemType } from '../enums/ItemType';
-import { EquipmentSlot, EquipmentSlotHelper } from '../enums/EquipmentSlot';
-import { Data } from '../data/Data';
+import { EquipmentSlot } from '../enums/EquipmentSlot';
 import { Commands } from '../commandsUtils/CommandsManager';
 
 export class Wear extends Command {
@@ -38,7 +36,7 @@ export class Wear extends Command {
             return;
         }
 
-        let slot = this.getEquipmentSlot(item);
+        let slot = item.getEquipmentSlot();
         if (slot == null || !this.wearableSlots.includes(slot)) {
             Engine.Output(Local.Commands.Wear.ItemNotEquippable.format(item.getName(GramaCase.Dopelniacz)));
             return;
@@ -62,29 +60,12 @@ export class Wear extends Command {
         Engine.Output(Local.Commands.Wear.Equipped.format(item.getName(GramaCase.Biernik)));
     }
 
-    private getEquipmentSlot(item: Item): EquipmentSlot | null {
-        let type = item.getType();
-        let typeData = Data.ItemTypes.getItemType(type);
-        let slot = EquipmentSlotHelper.parse(typeData.Slot);
-        return slot;
-    }
-
     private getAvailableRingSlot(): EquipmentSlot | null {
         if (Game.Player.getEquipment().get(EquipmentSlot.RightRing) === null) {
             return EquipmentSlot.RightRing;
         }
         if (Game.Player.getEquipment().get(EquipmentSlot.LeftRing) === null) {
             return EquipmentSlot.LeftRing;
-        }
-        return null;
-    }
-
-    private getAvailableWeaponSlot(): EquipmentSlot | null {
-        if (Game.Player.getEquipment().get(EquipmentSlot.MainHand) === null) {
-            return EquipmentSlot.MainHand;
-        }
-        if (Game.Player.getEquipment().get(EquipmentSlot.OffHand) === null) {
-            return EquipmentSlot.OffHand;
         }
         return null;
     }

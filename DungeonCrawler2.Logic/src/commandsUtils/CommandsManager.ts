@@ -30,6 +30,8 @@ import { Lock } from '../commands/Lock';
 import { Remove } from '../commands/Remove';
 import { Wear } from '../commands/Wear';
 import { Equipment } from '../commands/Equipment';
+import { Hold } from '../commands/Hold';
+import { Wield } from '../commands/Wield';
 
 class CommandList {
     Close = new Close();
@@ -40,6 +42,7 @@ class CommandList {
     Exam = new Exam();
     Equipment = new Equipment();
     Go = new Go();
+    Hold = new Hold();
     Inventory = new Inventory();
     Json = new Json();
     Load = new Load();
@@ -58,6 +61,7 @@ class CommandList {
     Up = new Up();
     Wear = new Wear();
     West = new West();
+    Wield = new Wield();
 }
 
 interface CommandDictionary {

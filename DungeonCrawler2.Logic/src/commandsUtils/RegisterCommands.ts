@@ -26,6 +26,8 @@ import { Lock } from '../commands/Lock';
 import { Remove } from '../commands/Remove';
 import { Wear } from '../commands/Wear';
 import { Equipment } from '../commands/Equipment';
+import { Hold } from '../commands/Hold';
+import { Wield } from '../commands/Wield';
 
 export function InitCommands() {
     Commands.SetDefaultCommand(new NoCommand());
@@ -41,6 +43,8 @@ export function InitCommands() {
     Commands.RegisterCommand('Equipment', new Equipment());
 
     Commands.RegisterCommand('Go', new Go());
+
+    Commands.RegisterCommand('Hold', new Hold());
 
     Commands.RegisterCommand('Inventory', new Inventory());
 
@@ -69,4 +73,5 @@ export function InitCommands() {
 
     Commands.RegisterCommand('West', new West());
     Commands.RegisterCommand('Wear', new Wear());
+    Commands.RegisterCommand('Wield', new Wield());
 }

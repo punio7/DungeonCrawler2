@@ -69,6 +69,12 @@
                 "NoPassage": "Nie możesz tam pójść.",
                 "PassageClosed": "Przejście jest zamknięte."
             },
+            "Hold": {
+                "NoArgument": "Co chcesz trzymać?",
+                "NoItemFound": "Nie masz nic takiego jak {0}.",
+                "ItemNotEquippable": "{0} nie jest czymś, co można trzymać w drugiej ręce.",
+                "Equipped": "Chwytasz {0} w drugą rękę."
+            },
             "Inventory": {
                 "YourItems": "Obecnie przy sobie posiadasz:",
                 "NoItems": "{0}Ogólnie nic"
@@ -165,6 +171,12 @@
                 "ItemNotEquippable": "Nie możesz założyć {0}.",
                 "NoFreeRingSlot": "Używasz już dwóch pierścieni, zdejmij jeden.",
                 "Equipped": "Zakładasz {0}."
+            },
+            "Wield": {
+                "NoArgument": "W co chcesz się uzbroić?",
+                "NoItemFound": "Nie masz nic takiego jak {0}.",
+                "ItemNotEquippable": "{0} nie jest bronią.",
+                "Equipped": "Chwytasz {0} w główną rękę."
             }
         },
         "GlobalEvents": {
