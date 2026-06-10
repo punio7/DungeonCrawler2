@@ -71,10 +71,7 @@ export class Take extends Command {
         }
         this.takeItem(item, container.getInventory()!);
         Engine.Output(
-            Local.Commands.Take.TakeItemFromContainer.format(
-                item.getName(),
-                container.getName(GramaCase.Celownik).startWithUpper(),
-            ),
+            Local.Commands.Take.TakeItemFromContainer.format(item.getName(), container.getName(GramaCase.Celownik)),
         );
     }
 

@@ -35,10 +35,18 @@ class EngineClass {
                 messageToWrite += message[i];
             }
             else {
-                this.write(messageToWrite);
-                messageToWrite = "";
                 i++;
-                this.changeTextClass(message[i]);
+                if (i >= message.Length) {
+                    break;
+                }
+                if (message[i] === ' ') {
+                    messageToWrite += this.NonBreakingSpace;
+                }
+                else {
+                    this.write(messageToWrite);
+                    messageToWrite = "";
+                    this.changeTextClass(message[i]);
+                }
             }
         }
 

@@ -1,10 +1,10 @@
-﻿import { Commands } from '../commandsUtils/CommandsManager';
+﻿import { CommandsManager } from '../commandsUtils/CommandsManager';
 import { EngineUtils } from './EngineUtils';
 
 export var InputFunctions = 'true';
 
 function Execute(command: string) {
-    Commands.Execute(command);
+    CommandsManager.Execute(command);
 }
 
 function SkipPrinter() {
@@ -12,7 +12,7 @@ function SkipPrinter() {
 }
 
 function ResumeExecution() {
-    Commands.ExecuteNext();
+    CommandsManager.ExecuteNext();
 }
 
 declare global {

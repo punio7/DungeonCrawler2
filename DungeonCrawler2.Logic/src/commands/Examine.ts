@@ -1,4 +1,3 @@
-import { CommandCallback } from '../commandsUtils/CommandCallback';
 import { CommandParser } from '../commandsUtils/CommandParser';
 import { Commands } from '../commandsUtils/CommandsManager';
 import { GramaCase } from '../enums/GramaCase';
@@ -6,16 +5,15 @@ import { Game, Local } from '../InitGameData';
 import { Character } from '../model/Character';
 import { Item } from '../model/Item';
 import { Command } from './Command';
-import { Take } from './Take';
 
-export class Exam extends Command {
+export class Examine extends Command {
     ExecuteBody(command: CommandParser): void {
         let room = Game.getRoom(Game.Player.Location);
         let argument = command.getArgument(1);
         let number = command.getNumber(1);
 
         if (argument === null) {
-            Engine.Output(Local.Commands.Exam.NoArgument);
+            Engine.Output(Local.Commands.Examine.NoArgument);
             return;
         }
 
@@ -37,14 +35,14 @@ export class Exam extends Command {
             return;
         }
 
-        Engine.Output(Local.Commands.Exam.NoObject.format(argument));
+        Engine.Output(Local.Commands.Examine.NoObject.format(argument));
     }
 
     examCharacter(character: Character) {
         Engine.Output(Local.Commands.Look.YouLookAt.format(character.getName(GramaCase.Celownik)));
         Engine.Output(character.getDescription());
         Engine.Output(
-            Local.Commands.Exam.HealthLevel.format(
+            Local.Commands.Examine.HealthLevel.format(
                 character.getName().startWithUpper(),
                 character.getHealthLevel(true),
             ),
@@ -56,10 +54,10 @@ export class Exam extends Command {
         Engine.Output(item.getDescription());
         if (item.isContainer()) {
             if (item.isLocked()) {
-                Engine.Output(Local.Commands.Exam.LockedContainer);
+                Engine.Output(Local.Commands.Examine.LockedContainer);
                 return;
             }
-            Engine.Output(Local.Commands.Exam.Contains);
+            Engine.Output(Local.Commands.Examine.Contains);
             let items = item.getInventory()!;
             if (items.any()) {
                 Engine.Output(items.printShortFormat());

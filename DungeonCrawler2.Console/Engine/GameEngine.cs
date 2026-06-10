@@ -193,7 +193,16 @@ namespace DungeonCrawler2.Console.Engine
                 else
                 {
                     i++;
-                    ChangeColor(message[i]);
+                    if (i >= message.Length)
+                    {
+                        break;
+                    }
+                    if (message[i] == ' ')
+                    {
+                        System.Console.Write(' ');
+                    }
+                    else
+                        ChangeColor(message[i]);
                 }
             }
         }

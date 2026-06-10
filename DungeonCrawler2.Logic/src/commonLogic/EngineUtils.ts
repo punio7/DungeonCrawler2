@@ -27,6 +27,33 @@
     SkipPrinter() {
         this.skipPrinter = true;
     }
+
+    PrintColumns(items: string[], columns: number, columnLength: number) {
+        let output = '';
+        let columnNumber = 0;
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i];
+            output += item;
+            let numOfSpaces = columnLength - item.length;
+            output += Engine.NonBreakingSpace.repeat(numOfSpaces);
+            columnNumber++;
+
+            if (columnNumber > columns) {
+                Engine.Output(output);
+                columnNumber = 0;
+                output = '';
+            }
+        }
+        if (output !== '') {
+            Engine.Output(output);
+        }
+    }
+
+    OutputLines(lines: string[]) {
+        for (let i = 0; i < lines.length; i++) {
+            Engine.Output(lines[i]);
+        }
+    }
 }
 
 export var EngineUtils = new EngineUtilsClass();

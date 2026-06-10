@@ -5,7 +5,7 @@ import { Down } from '../commands/Down';
 import { Drop } from '../commands/Drop';
 import { East } from '../commands/East';
 import { Eval } from '../commands/Eval';
-import { Exam } from '../commands/Exam';
+import { Examine } from '../commands/Examine';
 import { Go } from '../commands/Go';
 import { Inventory } from '../commands/Inventory';
 import { Json } from '../commands/Json';
@@ -17,6 +17,7 @@ import { Scan } from '../commands/Scan';
 import { South } from '../commands/South';
 import { Take } from '../commands/Take';
 import { Test } from '../commands/Test';
+import { Put } from '../commands/Put';
 import { Up } from '../commands/Up';
 import { West } from '../commands/West';
 import { CommandTree } from './CommandTree';
@@ -32,6 +33,7 @@ import { Wear } from '../commands/Wear';
 import { Equipment } from '../commands/Equipment';
 import { Hold } from '../commands/Hold';
 import { Wield } from '../commands/Wield';
+import { Help } from '../commands/Help';
 
 class CommandList {
     Close = new Close();
@@ -39,9 +41,10 @@ class CommandList {
     Drop = new Drop();
     East = new East();
     Eval = new Eval();
-    Exam = new Exam();
+    Examine = new Examine();
     Equipment = new Equipment();
     Go = new Go();
+    Help = new Help();
     Hold = new Hold();
     Inventory = new Inventory();
     Json = new Json();
@@ -57,6 +60,7 @@ class CommandList {
     Scan = new Scan();
     Take = new Take();
     Test = new Test();
+    Put = new Put();
     Unlock = new Unlock();
     Up = new Up();
     Wear = new Wear();
@@ -68,14 +72,14 @@ interface CommandDictionary {
     [commandName: string]: Command;
 }
 
-class CommandsManager extends CommandList {
+export var Commands = new CommandList();
+
+class CommandsManagerClass {
     Tree: CommandTree;
-    isCommandExecuting: boolean;
-    commandQueue: any[];
-    Commands: CommandDictionary = {};
+    private isCommandExecuting: boolean;
+    private commandQueue: any[];
 
     constructor() {
-        super();
         this.Tree = new CommandTree();
         this.isCommandExecuting = false;
         this.commandQueue = [];
@@ -133,9 +137,8 @@ class CommandsManager extends CommandList {
 
     RegisterCommand<CommandName extends keyof CommandList>(name: CommandName, object: CommandList[CommandName]) {
         this.Tree.AddNewCommand(name, object);
-        let commandList = this as CommandList;
-        commandList[name] = object;
+        Commands[name] = object;
     }
 }
 
-export var Commands = new CommandsManager();
+export var CommandsManager = new CommandsManagerClass();

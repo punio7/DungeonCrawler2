@@ -21,7 +21,8 @@
                     {
                         "ItemId": "gold",
                         "Stack": 10
-                    }
+                    },
+                    "simple-iron-key"
                 ]
             },
             {
