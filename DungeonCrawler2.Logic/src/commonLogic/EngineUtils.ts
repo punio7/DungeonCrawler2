@@ -56,4 +56,26 @@
     }
 }
 
+enum EngineColors {
+    DarkBlue = '|b',
+    DarkGreen = '|g',
+    DarkCyan = '|c',
+    DarkRed = '|r',
+    DarkMagenta = '|p',
+    DarkYellow = '|y',
+    Gray = '|S',
+    DarkGray = '|s',
+    Blue = '|B',
+    Green = '|G',
+    Cyan = '|C',
+    Red = '|R',
+    Magenta = '|P',
+    Yellow = '|Y',
+    White = '|W',
+}
+
+enum EngineSpecialCharacters {
+    NonBreakingSpace = '| ;',
+}
+
 export var EngineUtils = new EngineUtilsClass();

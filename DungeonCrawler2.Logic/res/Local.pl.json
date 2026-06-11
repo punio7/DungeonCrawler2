@@ -45,13 +45,49 @@
                 "AlreadyClosed": "Drzwi są już zamknięte.",
                 "TrapDoorAlreadyClosed": "Klapa jest już zamknięta.",
                 "Closed": "Zamykasz drzwi.",
-                "TrapDoorClosed": "Zamykasz klapę."
+                "TrapDoorClosed": "Zamykasz klapę.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | close(cl)",
+                    "Użycia:",
+                    "| | | close kierunek - zamyka drzwi, zapadnię, klapę itp. w podanym kierunku.",
+                    "Sprawdź również:",
+                    "| | | open, unlock, lock"
+                ]
+            },
+            "Down": {
+                "Help": [
+                    "Synonimy:",
+                    "| | | down(d)",
+                    "Użycia:",
+                    "| | | down - przemieszcza gracza w dół drabiny/schodów itp.",
+                    "Sprawdź również:",
+                    "| | | north, south, east, west, up, go"
+                ]
             },
             "Drop": {
                 "NoArgument": "Co chcesz wyrzucić?",
                 "NoItems": "Przecież nic nie masz biedaku.",
                 "NoItemFound": "Nie masz czegoś takiego jak {0}.",
-                "Dropped": "Upuszczasz {0}."
+                "Dropped": "Upuszczasz {0}.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | drop(dr)",
+                    "Użycia:",
+                    "| | | drop \"nazwa przedmiotu\" - upuszcza podany przedmiot na ziemię.",
+                    "Sprawdź również:",
+                    "| | | take"
+                ]
+            },
+            "East": {
+                "Help": [
+                    "Synonimy:",
+                    "| | | east(e)",
+                    "Użycia:",
+                    "| | | east - przemieszcza gracza na wschód.",
+                    "Sprawdź również:",
+                    "| | | north, south, west, up, down, go"
+                ]
             },
             "Examine": {
                 "NoArgument": "Czemu chcesz się przyjęć?",
@@ -64,38 +100,85 @@
                     "| | | examine(ex)",
                     "Użycia:",
                     "| | | examine - działa tak samo jak scan.",
-                    "| | | examine \"nazwa przedmiotu\" - wyświetla opis wskazanego przedmiotu, oraz jego zawartość w przypadku pojemników. Przedmiot może się znajdować w inwentarzu gracza lub w jego obecnej lokacji.",
-                    "| | | examine \"nazwa postaci\" - wyświetla opis oraz wyposażenie wskazanej postaci. Postać musi znajdować się w lokacji gracza.",
+                    "| | | examine \"nazwa przedmiotu\" - wyświetla opis podanego przedmiotu, oraz jego zawartość w przypadku pojemników. Przedmiot może się znajdować w inwentarzu gracza lub w jego obecnej lokacji.",
+                    "| | | examine \"nazwa postaci\" - wyświetla opis oraz wyposażenie podanej postaci. Postać musi znajdować się w lokacji gracza.",
                     "Sprawdź również:",
                     "| | | look, scan, take, put"
                 ]
             },
             "Equipment": {
                 "YourEquipment": "Obecnie używasz:",
-                "NoEquipment": "{0}Ogólnie nic"
+                "NoEquipment": "{0}Ogólnie nic",
+                "Help": [
+                    "Synonimy:",
+                    "| | | equipment(eq)",
+                    "Użycia:",
+                    "| | | equipment - wyświetla wyposażenie używane przez gracza.",
+                    "Sprawdź również:",
+                    "| | | inventory, wear, wield, hold, remove"
+                ]
             },
             "Go": {
                 "WrongDirection": "Może lepiej zostać tutaj i zjeść kilka pierogów?",
                 "NoPassage": "Nie możesz tam pójść.",
-                "PassageClosed": "Przejście jest zamknięte."
+                "PassageClosed": "Przejście jest zamknięte.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | go(g)",
+                    "Użycia:",
+                    "| | | go \"kierunek\" - przemieszcza gracza w podanym kierunku.",
+                    "Sprawdź również:",
+                    "| | | north, south, west, east, up, down"
+                ]
             },
             "Help": {
                 "AvailableCommands": "Dostępne komendy:",
-                "NoHelp": "Brak pomocy na ten temat."
+                "NoHelp": "Brak pomocy na ten temat.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | help(he), manual(man), commands(com)",
+                    "Użycia:",
+                    "| | | help - wyświetla listę dostępnych komend i tematów pomocy.",
+                    "| | | help temat - wyświetla pomoc na podany temat"
+                ]
             },
             "Hold": {
                 "NoArgument": "Co chcesz trzymać?",
                 "NoItemFound": "Nie masz nic takiego jak {0}.",
                 "ItemNotEquippable": "{0} nie jest czymś, co można trzymać w drugiej ręce.",
-                "Equipped": "Chwytasz {0} w drugą rękę."
+                "Equipped": "Chwytasz {0} w drugą rękę.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | hold(h)",
+                    "Użycia:",
+                    "| | | hold \"nazwa przedmiotu\" - rozkazuje postaci gracza używać podanego przedmiotu w lewej ręce. Może to być broń, tarcza, lub źródło światła. Przedmiot musi się znajdować w inwentarzu gracza.",
+                    "Sprawdź również:",
+                    "| | | wield, wear, remove, equipment, inventory"
+                ]
             },
             "Inventory": {
                 "YourItems": "Obecnie przy sobie posiadasz:",
-                "NoItems": "{0}Ogólnie nic"
+                "NoItems": "{0}Ogólnie nic",
+                "Help": [
+                    "Synonimy:",
+                    "| | | inventory(i)",
+                    "Użycia:",
+                    "| | | inventory - wyświetla posiadane przez gracza przedmioty, z pominięciem wyposażenia.",
+                    "Sprawdź również:",
+                    "| | | equipment, wear, wield, hold, remove"
+                ]
             },
             "Load": {
                 "Loading": "Ładowanie gry...",
-                "Loaded": "Gra została załadowana."
+                "Loaded": "Gra została załadowana.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | load(loa)",
+                    "Użycia:",
+                    "| | | load - wczytuje wcześniej zapisany stan gry.",
+                    "Sprawdź również:",
+                    "| | | save"
+                ]
             },
             "Lock": {
                 "NoTarget": "Zamknąć co?",
@@ -112,17 +195,46 @@
                 "NotContainer": "{0} nie jest pojemnikiem.",
                 "ContainerNotLocked": "{0} nie jest zamknięty na klucz.",
                 "ContainerKeyNotFound": "Nie masz klucza pasującego do {0}.",
-                "ContainerLocked": "Zamykasz {0} na klucz przy pomocy {1}."
+                "ContainerLocked": "Zamykasz {0} na klucz przy pomocy {1}.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | lock(loc)",
+                    "Użycia:",
+                    "| | | lock \"kierunek\" - zamyka drzwi, zapadnię, klapę itp. w podanym kierunku na klucz.",
+                    "| | | lock \"nazwa pojemnika\" - zamyka pojemnik na klucz. Pojemnik musi znajdować się w lokacji gracza lub w jego inwentarzu.",
+                    "Sprawdź również:",
+                    "| | | open, unlock, close"
+                ]
             },
             "Look": {
                 "CantSee": "Nic nie widzisz w tej ciemności.",
                 "NoObject": "Tu nie ma nic takiego jak {0}.",
                 "YouLookAt": "Przyglądasz się {0}.",
                 "Exits": "Wyjścia",
-                "DefaultIdle": "leży na ziemi"
+                "DefaultIdle": "leży na ziemi",
+                "Help": [
+                    "Synonimy:",
+                    "| | | look(l)",
+                    "Użycia:",
+                    "| | | look - wyświetla opis lokacji w której obecnie znajduje się gracz.",
+                    "| | | look \"nazwa przedmiotu\" - wyświetla opis podanego przedmiotu. Przedmiot może się znajdować w inwentarzu gracza, jego ekwipunku lub w jego obecnej lokacji.",
+                    "| | | look \"nazwa postaci\" - wyświetla opis podanej postaci. Postać musi znajdować się w lokacji gracza.",
+                    "Sprawdź również:",
+                    "| | | examine, scan"
+                ]
             },
             "NoCommand": {
                 "NoCommand": "Chyba ty."
+            },
+            "North": {
+                "Help": [
+                    "Synonimy:",
+                    "| | | north(n)",
+                    "Użycia:",
+                    "| | | north - przemieszcza gracza na północ.",
+                    "Sprawdź również:",
+                    "| | | south, east, west, up, down, go"
+                ]
             },
             "Open": {
                 "NoDirection": "Otworzyć drzwi w którym kierunku?",
@@ -134,15 +246,39 @@
                 "Locked": "Drzwi są zamknięte na klucz.",
                 "TrapDoorLocked": "Klapa jest zamknięta na klucz.",
                 "Opened": "Otwierasz drzwi.",
-                "TrapDoorOpened": "Otwierasz klapę."
+                "TrapDoorOpened": "Otwierasz klapę.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | open(o)",
+                    "Użycia:",
+                    "| | | open kierunek - otwiera drzwi, zapadnię, klapę itp. w podanym kierunku.",
+                    "Sprawdź również:",
+                    "| | | close, unlock, lock"
+                ]
             },
             "Remove": {
                 "NoArgument": "Co chcesz zdjąć?",
                 "ItemNotFound": "Nie masz założonego czegoś takiego jak {0}.",
-                "Removed": "Zdejmujesz {0}."
+                "Removed": "Zdejmujesz {0}.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | remove(r)",
+                    "Użycia:",
+                    "| | | remove \"nazwa przedmiotu\" - rozkazuje postaci gracza przestać używać podanego przedmiotu i odłożyć go do inwentarza. Przedmiot musi być aktualnie używany przez gracza.",
+                    "Sprawdź również:",
+                    "| | | wear, wield, hold, equipment, inventory"
+                ]
             },
             "Save": {
-                "Saved": "Gra została zapisana."
+                "Saved": "Gra została zapisana.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | save(sa)",
+                    "Użycia:",
+                    "| | | save - zapisuje aktualny stan gry.",
+                    "Sprawdź również:",
+                    "| | | load"
+                ]
             },
             "Scan": {
                 "CantSee": "Nic nie widzisz w tej ciemności.",
@@ -151,7 +287,25 @@
                 "InDirection": "Na {0}:",
                 "NoOneThere": "nikogo nie ma",
                 "ClosedDoor": "zamknięte drzwi",
-                "ClosedTrapDoor": "zamknięta klapa"
+                "ClosedTrapDoor": "zamknięta klapa",
+                "Help": [
+                    "Synonimy:",
+                    "| | | scan(sc)",
+                    "Użycia:",
+                    "| | | scan - wyświetla listę postaci znajdujących się w okolicy.",
+                    "Sprawdź również:",
+                    "| | | look, examine"
+                ]
+            },
+            "South": {
+                "Help": [
+                    "Synonimy:",
+                    "| | | south(s)",
+                    "Użycia:",
+                    "| | | south - przemieszcza gracza na południe.",
+                    "Sprawdź również:",
+                    "| | | north, east, west, up, down, go"
+                ]
             },
             "Take": {
                 "NoArgument": "Wziąć co?",
@@ -162,7 +316,16 @@
                 "PickedUp": "Podnosisz {0}.",
                 "ContainerIsLocked": "{0} jest zamknięty.",
                 "IsNoContainer": "{0} nie jest pojemnikiem.",
-                "TakeItemFromContainer": "Wyjmujesz {0} z {1}."
+                "TakeItemFromContainer": "Wyjmujesz {0} z {1}.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | take(t), get(ge), pickup(pi)",
+                    "Użycia:",
+                    "| | | take \"nazwa przedmiotu\" - podnosi podany przedmiot i umieszcza go w inwentarzu gracza. Przedmiot musi znajdować się w lokacji gracza.",
+                    "| | | take \"nazwa przedmiotu\" \"nazwa pojemnika\" - wyjmuje podany przedmiot z pojemnika i umieszcza go w inwentarzu gracza. Pojemnik musi znajdować się w lokacji gracza lub w jego inwentarzu.",
+                    "Sprawdź również:",
+                    "| | | drop, examine, put"
+                ]
             },
             "Put": {
                 "NoArgument": "Co chcesz włożyć?",
@@ -171,7 +334,25 @@
                 "IsNoContainer": "{0} nie jest pojemnikiem.",
                 "ContainerIsLocked": "{0} jest zamknięty.",
                 "CannotPutIntoSelf": "Nie możesz włożyć {0} do samego siebie.",
-                "PutItemIntoContainer": "Wkładasz {0} do {1}."
+                "PutItemIntoContainer": "Wkładasz {0} do {1}.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | put(p)",
+                    "Użycia:",
+                    "| | | put \"nazwa przedmiotu\" \"nazwa pojemnika\" - wkłada podany przedmiot do pojemnika. Przedmiot musi znajdować się w inwentarzu gracza, a pojemnik musi znajdować się w lokacji gracza lub w jego inwentarzu.",
+                    "Sprawdź również:",
+                    "| | | take, examine"
+                ]
+            },
+            "Up": {
+                "Help": [
+                    "Synonimy:",
+                    "| | | up(u)",
+                    "Użycia:",
+                    "| | | up - przemieszcza gracza w górę drabiny/schodów itp.",
+                    "Sprawdź również:",
+                    "| | | north, south, east, west, down, go"
+                ]
             },
             "Unlock": {
                 "NoTarget": "Otworzyć co?",
@@ -186,20 +367,55 @@
                 "NotContainer": "{0} nie jest pojemnikiem.",
                 "ContainerNotLocked": "{0} nie jest zamknięty na klucz.",
                 "ContainerKeyNotFound": "Nie masz klucza pasującego do {0}.",
-                "ContainerUnlocked": "Otwierasz {0} przy pomocy {1}."
+                "ContainerUnlocked": "Otwierasz {0} przy pomocy {1}.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | unlock(un)",
+                    "Użycia:",
+                    "| | | unlock \"kierunek\" - otwiera drzwi, zapadnię, klapę itp. w podanym kierunku przy pomocy klucza. Gracz musi posiadać odpowiedni klucz w swoim inwentarzu.",
+                    "| | | unlock \"nazwa pojemnika\" - otwiera pojemnik przy pomocy klucza. Pojemnik musi się znajdować w lokacji gracza lub w jego inwentarzu. Gracz musi posiadać odpowiedni klucz w swoim inwentarzu.",
+                    "Sprawdź również:",
+                    "| | | open, lock"
+                ]
             },
             "Wear": {
                 "NoArgument": "Co chcesz założyć?",
                 "NoItemFound": "Nie masz nic takiego jak {0}.",
                 "ItemNotEquippable": "Nie możesz założyć {0}.",
                 "NoFreeRingSlot": "Używasz już dwóch pierścieni, zdejmij jeden.",
-                "Equipped": "Zakładasz {0}."
+                "Equipped": "Zakładasz {0}.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | wear(we)",
+                    "Użycia:",
+                    "| | | wear \"nazwa przedmiotu\" - rozkazuje postaci gracza założyć podany przedmiot. Przedmiot musi się znajdować w inwentarzu gracza i być czymś, co można założyć (np. zbroja, hełm, spodnie itp.).",
+                    "Sprawdź również:",
+                    "| | | remove, wield, hold, equipment, inventory"
+                ]
+            },
+            "West": {
+                "Help": [
+                    "Synonimy:",
+                    "| | | west(w)",
+                    "Użycia:",
+                    "| | | west - przemieszcza gracza na zachód.",
+                    "Sprawdź również:",
+                    "| | | north, south, east, up, down, go"
+                ]
             },
             "Wield": {
                 "NoArgument": "W co chcesz się uzbroić?",
                 "NoItemFound": "Nie masz nic takiego jak {0}.",
                 "ItemNotEquippable": "{0} nie jest bronią.",
-                "Equipped": "Chwytasz {0} w główną rękę."
+                "Equipped": "Chwytasz {0} w główną rękę.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | wield(w)",
+                    "Użycia:",
+                    "| | | wield \"nazwa przedmiotu\" - rozkazuje postaci gracza uzbroić się w podany przedmiot. Przedmiot musi się znajdować w inwentarzu gracza i być bronią.",
+                    "Sprawdź również:",
+                    "| | | hold, wear, remove, equipment, inventory"
+                ]
             }
         },
         "GlobalEvents": {

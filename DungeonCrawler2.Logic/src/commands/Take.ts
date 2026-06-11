@@ -62,6 +62,8 @@ export class Take extends Command {
             return;
         }
 
+        // TODO: take all
+
         let item = container.getInventory()!.find(name, number);
         if (item === null) {
             Engine.Output(

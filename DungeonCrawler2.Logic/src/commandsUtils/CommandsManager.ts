@@ -135,9 +135,8 @@ class CommandsManagerClass {
         this.Tree.SetDefaultCommand(commandObject);
     }
 
-    RegisterCommand<CommandName extends keyof CommandList>(name: CommandName, object: CommandList[CommandName]) {
+    RegisterCommand(name: string, object: Command) {
         this.Tree.AddNewCommand(name, object);
-        Commands[name] = object;
     }
 }
 

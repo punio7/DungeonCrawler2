@@ -1,81 +1,57 @@
-﻿import { Close } from '../commands/Close';
-import { Down } from '../commands/Down';
-import { Drop } from '../commands/Drop';
-import { East } from '../commands/East';
-import { Eval } from '../commands/Eval';
-import { Examine } from '../commands/Examine';
-import { Go } from '../commands/Go';
-import { Inventory } from '../commands/Inventory';
-import { Json } from '../commands/Json';
-import { Load } from '../commands/Load';
-import { Look } from '../commands/Look';
-import { NoCommand } from '../commands/NoCommand';
-import { North } from '../commands/North';
-import { Open } from '../commands/Open';
-import { Reload } from '../commands/Reload';
-import { Save } from '../commands/Save';
-import { Scan } from '../commands/Scan';
-import { South } from '../commands/South';
-import { Take } from '../commands/Take';
-import { Test } from '../commands/Test';
-import { Put } from '../commands/Put';
-import { Unlock } from '../commands/Unlock';
-import { Up } from '../commands/Up';
-import { West } from '../commands/West';
-import { CommandsManager } from './CommandsManager';
-import { Lock } from '../commands/Lock';
-import { Remove } from '../commands/Remove';
-import { Wear } from '../commands/Wear';
-import { Equipment } from '../commands/Equipment';
-import { Hold } from '../commands/Hold';
-import { Wield } from '../commands/Wield';
-import { Help } from '../commands/Help';
+﻿import { NoCommand } from '../commands/NoCommand';
+import { Commands, CommandsManager } from './CommandsManager';
 
 export function InitCommands() {
     CommandsManager.SetDefaultCommand(new NoCommand());
 
-    CommandsManager.RegisterCommand('Close', new Close());
+    CommandsManager.RegisterCommand('close', Commands.Close);
+    CommandsManager.RegisterCommand('commands', Commands.Help);
 
-    CommandsManager.RegisterCommand('Down', new Down());
-    CommandsManager.RegisterCommand('Drop', new Drop());
+    CommandsManager.RegisterCommand('down', Commands.Down);
+    CommandsManager.RegisterCommand('drop', Commands.Drop);
 
-    CommandsManager.RegisterCommand('East', new East());
-    CommandsManager.RegisterCommand('Examine', new Examine());
-    CommandsManager.RegisterCommand('Eval', new Eval());
-    CommandsManager.RegisterCommand('Equipment', new Equipment());
+    CommandsManager.RegisterCommand('east', Commands.East);
+    CommandsManager.RegisterCommand('examine', Commands.Examine);
+    CommandsManager.RegisterCommand('eval', Commands.Eval);
+    CommandsManager.RegisterCommand('equipment', Commands.Equipment);
 
-    CommandsManager.RegisterCommand('Go', new Go());
+    CommandsManager.RegisterCommand('go', Commands.Go);
+    CommandsManager.RegisterCommand('get', Commands.Take);
 
-    CommandsManager.RegisterCommand('Help', new Help());
-    CommandsManager.RegisterCommand('Hold', new Hold());
+    CommandsManager.RegisterCommand('help', Commands.Help);
+    CommandsManager.RegisterCommand('hold', Commands.Hold);
 
-    CommandsManager.RegisterCommand('Inventory', new Inventory());
+    CommandsManager.RegisterCommand('inventory', Commands.Inventory);
 
-    CommandsManager.RegisterCommand('Json', new Json());
+    CommandsManager.RegisterCommand('json', Commands.Json);
 
-    CommandsManager.RegisterCommand('Look', new Look());
-    CommandsManager.RegisterCommand('Lock', new Lock());
-    CommandsManager.RegisterCommand('Load', new Load());
+    CommandsManager.RegisterCommand('look', Commands.Look);
+    CommandsManager.RegisterCommand('lock', Commands.Lock);
+    CommandsManager.RegisterCommand('load', Commands.Load);
 
-    CommandsManager.RegisterCommand('North', new North());
+    CommandsManager.RegisterCommand('manual', Commands.Help);
 
-    CommandsManager.RegisterCommand('Open', new Open());
+    CommandsManager.RegisterCommand('north', Commands.North);
 
-    CommandsManager.RegisterCommand('Remove', new Remove());
-    CommandsManager.RegisterCommand('Reload', new Reload());
+    CommandsManager.RegisterCommand('open', Commands.Open);
 
-    CommandsManager.RegisterCommand('South', new South());
-    CommandsManager.RegisterCommand('Scan', new Scan());
-    CommandsManager.RegisterCommand('Save', new Save());
+    CommandsManager.RegisterCommand('remove', Commands.Remove);
+    CommandsManager.RegisterCommand('reload', Commands.Reload);
 
-    CommandsManager.RegisterCommand('Take', new Take());
-    CommandsManager.RegisterCommand('Test', new Test());
-    CommandsManager.RegisterCommand('Put', new Put());
+    CommandsManager.RegisterCommand('south', Commands.South);
+    CommandsManager.RegisterCommand('scan', Commands.Scan);
+    CommandsManager.RegisterCommand('save', Commands.Save);
 
-    CommandsManager.RegisterCommand('Up', new Up());
-    CommandsManager.RegisterCommand('Unlock', new Unlock());
+    CommandsManager.RegisterCommand('take', Commands.Take);
+    CommandsManager.RegisterCommand('test', Commands.Test);
 
-    CommandsManager.RegisterCommand('West', new West());
-    CommandsManager.RegisterCommand('Wear', new Wear());
-    CommandsManager.RegisterCommand('Wield', new Wield());
+    CommandsManager.RegisterCommand('put', Commands.Put);
+    CommandsManager.RegisterCommand('pickup', Commands.Take);
+
+    CommandsManager.RegisterCommand('up', Commands.Up);
+    CommandsManager.RegisterCommand('unlock', Commands.Unlock);
+
+    CommandsManager.RegisterCommand('west', Commands.West);
+    CommandsManager.RegisterCommand('wear', Commands.Wear);
+    CommandsManager.RegisterCommand('wield', Commands.Wield);
 }
