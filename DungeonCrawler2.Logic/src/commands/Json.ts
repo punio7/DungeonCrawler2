@@ -4,6 +4,10 @@ import { Game as GameVar } from '../InitGameData';
 import { Data } from '../data/Data';
 
 export class Json extends Command {
+    get acceptableStates() {
+        return [];
+    }
+
     ExecuteBody(command: CommandParser) {
         let argument = command.getArgument(1);
         if (argument === null) {

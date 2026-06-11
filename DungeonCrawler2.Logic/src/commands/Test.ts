@@ -3,6 +3,10 @@ import { Game } from '../InitGameData';
 import { Command } from './Command';
 
 export class Test extends Command {
+    get acceptableStates() {
+        return [];
+    }
+
     ExecuteBody(command: CommandParser) {
         Engine.Output(
             command.getCommand() +

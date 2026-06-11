@@ -4,6 +4,10 @@ import { LoadGame, Local } from '../InitGameData';
 import { Command } from './Command';
 
 export class Load extends Command {
+    get acceptableStates() {
+        return [];
+    }
+
     ExecuteBody(command: CommandParser) {
         let saveData = Engine.Load();
         Engine.Output(Local.Commands.Load.Loading);

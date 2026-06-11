@@ -37,6 +37,15 @@
             }
         },
         "Commands": {
+            "Common": {
+                "PlayerStateMessages": {
+                    "Generic": "Nie możesz teraz tego zrobić.",
+                    "Standing": "Stoisz sobie spokojnie.",
+                    "Fighting": "Jesteś zajęty walką!",
+                    "Dead": "Twój trud skończony.",
+                    "Talking": "Jesteś zajęty rozmową."
+                }
+            },
             "Close": {
                 "NoDirection": "Zamknąć drzwi w którym kierunku?",
                 "WrongDirection": "{0} nie jest kierunkiem.",

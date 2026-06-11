@@ -3,6 +3,10 @@ import { Command } from './Command';
 import { Game as GameVar } from '../InitGameData';
 
 export class Eval extends Command {
+    get acceptableStates() {
+        return [];
+    }
+
     ExecuteBody(command: CommandParser) {
         let argument = command.getArgument(1);
         if (argument === null) {

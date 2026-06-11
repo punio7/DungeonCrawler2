@@ -1,9 +1,11 @@
+import { PlayerState } from '../enums/PlayerState';
 import { Game } from '../InitGameData';
 import { Character } from './Character';
 
 export class Player extends Character {
     Location: number = 0;
     PreviousLocation: number = 0;
+    State = PlayerState.Standing;
 
     constructor() {
         super();
@@ -33,5 +35,13 @@ export class Player extends Character {
     canSee(): boolean {
         let room = Game.getRoom(this.Location);
         return room.hasLightSource();
+    }
+
+    getState() {
+        return this.State;
+    }
+
+    setState(state: PlayerState) {
+        this.State = state;
     }
 }

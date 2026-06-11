@@ -5,6 +5,10 @@ import { Local } from '../InitGameData';
 import { Command } from './Command';
 
 export class Help extends Command {
+    get acceptableStates() {
+        return [];
+    }
+
     ExecuteBody(command: CommandParser) {
         let argument1 = command.getArgument(1);
 

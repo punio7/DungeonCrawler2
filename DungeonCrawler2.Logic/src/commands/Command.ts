@@ -1,17 +1,45 @@
-﻿import { CommandCallback } from '../commandsUtils/CommandCallback';
+﻿import { Player } from '../../bin/Debug/net48/dist/dungeon-crawler';
+import { CommandCallback } from '../commandsUtils/CommandCallback';
 import { CommandParser } from '../commandsUtils/CommandParser';
 import { EngineUtils } from '../commonLogic/EngineUtils';
-import { Local } from '../InitGameData';
+import { PlayerState } from '../enums/PlayerState';
+import { Game, Local } from '../InitGameData';
 
 export abstract class Command {
     constructor() {}
 
+    get acceptableStates() {
+        return [PlayerState.Standing];
+    }
+
     Execute(command: CommandParser, commandCallback: CommandCallback) {
-        this.ExecuteBody(command, commandCallback);
+        if (this.validatePlayerState()) {
+            this.ExecuteBody(command, commandCallback);
+        }
         if (!commandCallback.interruptFlow) {
             commandCallback.CallIfNotCalled();
         }
     }
+
+    validatePlayerState() {
+        if (this.acceptableStates.length <= 0) {
+            return true;
+        }
+
+        if (this.acceptableStates.includes(Game.Player.getState())) {
+            return true;
+        }
+
+        let message = (Local.Commands.Common.PlayerStateMessages as any)[Game.Player.getState()] as string;
+        if (message) {
+            Engine.Output(message);
+        } else {
+            Engine.Output(Local.Commands.Common.PlayerStateMessages.Generic);
+        }
+
+        return false;
+    }
+
     abstract ExecuteBody(command: CommandParser, commandCallback: CommandCallback): void;
 
     Help() {
