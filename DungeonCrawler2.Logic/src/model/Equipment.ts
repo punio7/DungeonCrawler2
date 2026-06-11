@@ -1,5 +1,4 @@
-﻿import { Local } from '../../bin/Debug/net48/dist/dungeon-crawler';
-import { EquipmentSlot, EquipmentSlotHelper } from '../enums/EquipmentSlot';
+﻿import { EquipmentSlot, EquipmentSlotHelper } from '../enums/EquipmentSlot';
 import { Item } from './Item';
 
 class EquipmentList {

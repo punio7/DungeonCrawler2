@@ -1,6 +1,6 @@
-﻿import { Player } from '../../bin/Debug/net48/dist/dungeon-crawler';
-import { CommandCallback } from '../commandsUtils/CommandCallback';
+﻿import { CommandCallback } from '../commandsUtils/CommandCallback';
 import { CommandParser } from '../commandsUtils/CommandParser';
+import { CommandList } from '../commandsUtils/CommandsManager';
 import { EngineUtils } from '../commonLogic/EngineUtils';
 import { PlayerState } from '../enums/PlayerState';
 import { Game, Local } from '../InitGameData';
@@ -30,7 +30,7 @@ export abstract class Command {
             return true;
         }
 
-        let message = (Local.Commands.Common.PlayerStateMessages as any)[Game.Player.getState()] as string;
+        let message = Local.Commands.Common.PlayerStateMessages[Game.Player.getState()] as string;
         if (message) {
             Engine.Output(message);
         } else {
@@ -43,7 +43,8 @@ export abstract class Command {
     abstract ExecuteBody(command: CommandParser, commandCallback: CommandCallback): void;
 
     Help() {
-        let commandHelp = (Local.Commands as any)[this.constructor.name]?.Help as string[];
+        let helpTopic = this.constructor.name as keyof CommandList;
+        let commandHelp = (Local.Commands[helpTopic] as any).Help as string[] | undefined;
 
         if (commandHelp && commandHelp.length > 0) {
             EngineUtils.OutputLines(commandHelp);

@@ -35,7 +35,7 @@ import { Hold } from '../commands/Hold';
 import { Wield } from '../commands/Wield';
 import { Help } from '../commands/Help';
 
-class CommandList {
+export class CommandList {
     Close = new Close();
     Down = new Down();
     Drop = new Drop();

@@ -151,6 +151,13 @@ export class Item extends EntityBase {
         return new Attributes(this.getTemplate().Attributes!);
     }
 
+    getRequirements(): IStats | null {
+        if (this.getTemplate().Requirements === undefined) {
+            return null;
+        }
+        return new Stats(this.getTemplate().Requirements!);
+    }
+
     getValue() {
         return this.getTemplate().Value ?? 0;
     }

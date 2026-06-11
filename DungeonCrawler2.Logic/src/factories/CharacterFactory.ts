@@ -5,7 +5,6 @@ import { Equipment } from '../model/Equipment';
 import { Data } from '../data/Data';
 import { ItemList } from '../model/ItemList';
 import { CharacterData, EquipmentData } from '../data/CharactersData';
-import { EquipmentSlotHelper } from '../../bin/Debug/net48/dist/dungeon-crawler';
 
 export class CharacterFactory {
     spawnCharacter(characterId: string) {

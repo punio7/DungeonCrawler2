@@ -5,6 +5,8 @@ import { Command } from './Command';
 import { ItemType } from '../enums/ItemType';
 import { EquipmentSlot } from '../enums/EquipmentSlot';
 import { Commands } from '../commandsUtils/CommandsManager';
+import { Item } from '../model/Item';
+import { IStats } from '../model/CharacterStats';
 
 export class Wear extends Command {
     wearableSlots = [
@@ -55,8 +57,7 @@ export class Wear extends Command {
             Commands.Remove.remove(slot, equippedItem);
         }
 
-        Game.Player.getInventory().remove(item);
-        Game.Player.getEquipment().equip(slot, item);
+        this.equipItem(item, slot);
         Engine.Output(Local.Commands.Wear.Equipped.format(item.getName(GramaCase.Biernik)));
     }
 
@@ -68,5 +69,27 @@ export class Wear extends Command {
             return EquipmentSlot.LeftRing;
         }
         return null;
+    }
+
+    equipItem(item: Item, slot: EquipmentSlot) {
+        Game.Player.getInventory().remove(item);
+        Game.Player.getEquipment().equip(slot, item);
+        Game.Player.recalculate();
+
+        let itemRequirements = item.getRequirements();
+        if (itemRequirements === null) {
+            return;
+        }
+        let playerStats = Game.Player.Stats.statsTotal;
+        for (const key in itemRequirements) {
+            let statKey = key as keyof IStats;
+            if (playerStats[statKey] < itemRequirements[statKey]) {
+                let statLocal = Local.Stats[statKey];
+                Engine.Output(
+                    Local.Commands.Wear.RequirementsNotMet.format(statLocal, item.getName(GramaCase.Narzednik)),
+                );
+                return;
+            }
+        }
     }
 }

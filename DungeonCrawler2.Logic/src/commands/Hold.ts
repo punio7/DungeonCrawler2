@@ -5,8 +5,13 @@ import { Command } from './Command';
 import { ItemType } from '../enums/ItemType';
 import { EquipmentSlot } from '../enums/EquipmentSlot';
 import { Commands } from '../commandsUtils/CommandsManager';
+import { PlayerState } from '../enums/PlayerState';
 
 export class Hold extends Command {
+    get acceptableStates() {
+        return [PlayerState.Standing, PlayerState.Fighting];
+    }
+
     ExecuteBody(command: CommandParser) {
         let argument1 = command.getArgument(1);
         if (argument1 === null) {
@@ -45,8 +50,7 @@ export class Hold extends Command {
             Commands.Remove.remove(slot, holdingItem);
         }
 
-        Game.Player.getInventory().remove(item);
-        Game.Player.getEquipment().equip(slot, item);
+        Commands.Wear.equipItem(item, slot);
         Engine.Output(Local.Commands.Hold.Equipped.format(item.getName(GramaCase.Biernik)));
     }
 }

@@ -47,6 +47,10 @@
                         "description": "Specifies if the item is stackable"
                     },
 
+                    "Requirements": {
+                        "$ref": "Common-Schema.json#/definitions/Statistics"
+                    },
+
                     "BonusStats": {
                         "$ref": "Common-Schema.json#/definitions/Statistics"
                     },

@@ -26,6 +26,11 @@
             "Torch": "Pochodnia"
         },
         "Stats": {
+            "Strength": "siła",
+            "Dexterity": "zręczność",
+            "Agility": "zwinność",
+            "Endurance": "wytrzymałość",
+            "Vitality": "żywotność",
             "HealthLevels": {
                 "Full": "w pełni zdrowia",
                 "LightWounds": "lekko ranny",
@@ -64,6 +69,7 @@
                     "| | | open, unlock, lock"
                 ]
             },
+            "Eval": {},
             "Down": {
                 "Help": [
                     "Synonimy:",
@@ -177,6 +183,7 @@
                     "| | | equipment, wear, wield, hold, remove"
                 ]
             },
+            "Json": {},
             "Load": {
                 "Loading": "Ładowanie gry...",
                 "Loaded": "Gra została załadowana.",
@@ -265,6 +272,24 @@
                     "| | | close, unlock, lock"
                 ]
             },
+            "Put": {
+                "NoArgument": "Co chcesz włożyć?",
+                "NoContainer": "Gdzie chcesz to włożyć?",
+                "NoItemFound": "Nie masz nic takiego jak {0}.",
+                "IsNoContainer": "{0} nie jest pojemnikiem.",
+                "ContainerIsLocked": "{0} jest zamknięty.",
+                "CannotPutIntoSelf": "Nie możesz włożyć {0} do samego siebie.",
+                "PutItemIntoContainer": "Wkładasz {0} do {1}.",
+                "Help": [
+                    "Synonimy:",
+                    "| | | put(p)",
+                    "Użycia:",
+                    "| | | put \"nazwa przedmiotu\" \"nazwa pojemnika\" - wkłada podany przedmiot do pojemnika. Przedmiot musi znajdować się w inwentarzu gracza, a pojemnik musi znajdować się w lokacji gracza lub w jego inwentarzu.",
+                    "Sprawdź również:",
+                    "| | | take, examine"
+                ]
+            },
+            "Reload": {},
             "Remove": {
                 "NoArgument": "Co chcesz zdjąć?",
                 "ItemNotFound": "Nie masz założonego czegoś takiego jak {0}.",
@@ -336,23 +361,7 @@
                     "| | | drop, examine, put"
                 ]
             },
-            "Put": {
-                "NoArgument": "Co chcesz włożyć?",
-                "NoContainer": "Gdzie chcesz to włożyć?",
-                "NoItemFound": "Nie masz nic takiego jak {0}.",
-                "IsNoContainer": "{0} nie jest pojemnikiem.",
-                "ContainerIsLocked": "{0} jest zamknięty.",
-                "CannotPutIntoSelf": "Nie możesz włożyć {0} do samego siebie.",
-                "PutItemIntoContainer": "Wkładasz {0} do {1}.",
-                "Help": [
-                    "Synonimy:",
-                    "| | | put(p)",
-                    "Użycia:",
-                    "| | | put \"nazwa przedmiotu\" \"nazwa pojemnika\" - wkłada podany przedmiot do pojemnika. Przedmiot musi znajdować się w inwentarzu gracza, a pojemnik musi znajdować się w lokacji gracza lub w jego inwentarzu.",
-                    "Sprawdź również:",
-                    "| | | take, examine"
-                ]
-            },
+            "Test": {},
             "Up": {
                 "Help": [
                     "Synonimy:",
@@ -393,6 +402,7 @@
                 "ItemNotEquippable": "Nie możesz założyć {0}.",
                 "NoFreeRingSlot": "Używasz już dwóch pierścieni, zdejmij jeden.",
                 "Equipped": "Zakładasz {0}.",
+                "RequirementsNotMet": "Twoja {0} jest za mała, aby sprawnie posługiwać się {1}.",
                 "Help": [
                     "Synonimy:",
                     "| | | wear(we)",

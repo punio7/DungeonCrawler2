@@ -10,5 +10,6 @@ export interface ItemTemplate {
     IsStackable?: boolean;
     BonusStats?: StatsTemplate;
     Attributes?: AttributesTemplate;
+    Requirements?: StatsTemplate;
     Value?: number;
 }

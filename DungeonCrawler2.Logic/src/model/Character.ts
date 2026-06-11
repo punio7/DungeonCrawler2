@@ -114,14 +114,14 @@ export class Character extends EntityBase {
         this.Stats.attrTotal = attributesTotal;
     }
 
-    calculateClassStats() {
+    private calculateClassStats() {
         // Character's class bonuses increases the given
         // amount every 2 levels
         let classMultiply = Math.floor(this.Stats.Level / 2);
         return new Stats(this.getClass().Stats).multiplyByNumber(classMultiply);
     }
 
-    calculateStatsBonus() {
+    private calculateStatsBonus() {
         let bonusStats = new Stats();
         for (let slot in this.Equipment.List) {
             let item = this.Equipment.List[slot];
@@ -132,7 +132,7 @@ export class Character extends EntityBase {
         return bonusStats;
     }
 
-    calculateAttributesFromStats(stats: IStats) {
+    private calculateAttributesFromStats(stats: IStats) {
         return new Attributes({
             Attack: Math.floor(5 * stats.Dexterity + 0.25 * stats.Agility),
             Defense: Math.floor(5 * stats.Agility + 0.25 * stats.Dexterity),
@@ -144,7 +144,7 @@ export class Character extends EntityBase {
         });
     }
 
-    calculateAttributesFromLevel() {
+    private calculateAttributesFromLevel() {
         return new Attributes({
             Attack: 3 * this.Stats.Level,
             Defense: 3 * this.Stats.Level,
@@ -156,7 +156,7 @@ export class Character extends EntityBase {
         });
     }
 
-    calculateAttributesModifier() {
+    private calculateAttributesModifier() {
         //TODO: calculate attributes modifier from buffs, debuffs, conditions etc.
         return new Attributes({
             Attack: 1,
@@ -169,15 +169,40 @@ export class Character extends EntityBase {
         });
     }
 
-    calculateAttributesFromEquipment() {
+    private calculateAttributesFromEquipment() {
         let attributes = new Attributes();
 
         for (let slot in this.Equipment.List) {
             let item = this.Equipment.List[slot];
             if (item.getAttributes() !== null) {
-                attributes = attributes.add(item.getAttributes()!);
+                let multiplier = this.getRequirementMultiplier(item.getRequirements());
+                attributes = attributes.add(multiplier.multiply(item.getAttributes()!));
             }
         }
         return attributes;
+    }
+
+    private getRequirementMultiplier(requirements: IStats | null) {
+        if (requirements === null) {
+            return new Attributes({
+                Attack: 1,
+                Defense: 1,
+                Health: 1,
+                Armor: 1,
+                ArmorProtection: 1,
+                Fatigue: 1,
+                Damage: 1,
+            });
+        }
+        let statsTotal = this.Stats.statsTotal;
+        return new Attributes({
+            Attack: statsTotal.Dexterity >= requirements.Dexterity ? 1 : statsTotal.Dexterity / requirements.Dexterity,
+            Defense: statsTotal.Agility >= requirements.Agility ? 1 : statsTotal.Agility / requirements.Agility,
+            Health: statsTotal.Vitality >= requirements.Vitality ? 1 : statsTotal.Vitality / requirements.Vitality,
+            Armor: statsTotal.Endurance >= requirements.Endurance ? 1 : statsTotal.Endurance / requirements.Endurance,
+            ArmorProtection: 1,
+            Fatigue: 1,
+            Damage: statsTotal.Strength >= requirements.Strength ? 1 : statsTotal.Strength / requirements.Strength,
+        });
     }
 }

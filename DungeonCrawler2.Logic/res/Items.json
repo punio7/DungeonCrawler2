@@ -70,7 +70,20 @@
                 "krótki mieczu z brązu"
             ],
             "Description": "Ten krótki miecz z brązu został wykonany z cienkiego, ale bardzo wytrzymałościowego metalu. Jego rękojeść jest otoczona cienką warstwą drewna, a ostrze jest o wiele dłuższe niż przeciętny.",
-            "Type": "Weapon1H"
+            "Type": "Weapon1H",
+            "Attributes": {
+                "Attack": 2,
+                "Defense": 4,
+                "Damage": 2,
+                "Armor": 6
+            },
+            "Value": 36,
+            "Requirements": {
+                "Strength": 9,
+                "Dexterity": 6,
+                "Agility": 15,
+                "Endurance": 6
+            }
         },
         {
             "Id": "rat-skin",
