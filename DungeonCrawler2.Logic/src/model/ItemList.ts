@@ -20,7 +20,7 @@ export class ItemList extends EntityList<Item> {
             return;
         }
         if (item.isStackable()) {
-            let existingStack = Game.Player.getInventory().findById(item.Id);
+            let existingStack = this.findById(item.Id);
             if (existingStack !== null) {
                 existingStack.addStack(item.getStack());
                 return;

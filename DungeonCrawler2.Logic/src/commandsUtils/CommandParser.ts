@@ -3,7 +3,7 @@
     parsedCommand: string;
     parsedArguments: string[] | null;
     parsedNumbers: number[] | null;
-    parsedCount: number[] | null;
+    parsedCount: (number | null)[] | null;
     constructor(commandString: string) {
         this.commandString = commandString;
         this.parsedCommand = '';
@@ -84,14 +84,18 @@
             }
 
             // wyciąganie numeru dla argumentu
-            if (currentCommand[0].isNumber()) {
+            while (currentCommand[0].isNumber()) {
                 let currentIndex = 1;
                 while (currentIndex < currentCommand.length && currentCommand[currentIndex].isNumber()) {
                     currentIndex++;
                 }
-                if (currentCommand[currentIndex] === '.') {
-                    parsedNumber = Number.parseInt(currentCommand.slice(0, currentIndex), 10);
-                    this.parsedNumbers[currentArgumentNumber] = parsedNumber;
+                let currentChar = currentCommand[currentIndex];
+                if (currentChar === '.' || currentChar === '#') {
+                    if (currentChar === '#') {
+                        parsedCount = Number.parseInt(currentCommand.slice(0, currentIndex), 10);
+                    } else {
+                        parsedNumber = Number.parseInt(currentCommand.slice(0, currentIndex), 10);
+                    }
                     currentCommand = currentCommand.slice(currentIndex + 1);
 
                     if (currentCommand === '') {
@@ -101,11 +105,10 @@
             }
             //jezeli nie wskazano liczby, to domyślnie jest 1
             if (parsedNumber === null) {
-                this.parsedNumbers[currentArgumentNumber] = 1;
+                parsedNumber = 1;
             }
-            if (parsedCount === null) {
-                this.parsedCount[currentArgumentNumber] = 1;
-            }
+            this.parsedNumbers[currentArgumentNumber] = parsedNumber;
+            this.parsedCount[currentArgumentNumber] = parsedCount;
 
             //wyciąganie treści argumentu
             if (currentCommand[0] === '"') {

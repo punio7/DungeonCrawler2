@@ -12,9 +12,15 @@ export class Test extends Command {
             command.getCommand() +
                 ' ' +
                 command.getNumber(1) +
+                ' ' +
+                command.getCount(1) +
+                ' ' +
                 command.getArgument(1) +
                 ' ' +
                 command.getNumber(2) +
+                ' ' +
+                command.getCount(2) +
+                ' ' +
                 command.getArgument(2) +
                 ' ' +
                 Game.getName() +
@@ -37,6 +43,6 @@ export class Test extends Command {
         Engine.Output('|pDark Purple |PPurple'.format(Engine.NonBreakingSpace));
         Engine.Output('|yDark Yellow |YYellow'.format(Engine.NonBreakingSpace));
         Engine.Output('|sDark Grey{0}|SGrey'.format(Engine.NonBreakingSpace.repeat(3)));
-        throw 'Test exception';
+        //throw 'Test exception';
     }
 }

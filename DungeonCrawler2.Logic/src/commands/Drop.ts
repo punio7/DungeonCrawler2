@@ -25,8 +25,13 @@ export class Drop extends Command {
                 Engine.Output(Local.Commands.Drop.NoItemFound.format(argument));
                 return;
             }
+            let count = command.getCount(1);
 
-            this.dropItem(item);
+            if (item.isStackable() && count !== null && count < item.getStack()) {
+                this.dropCount(item, count);
+            } else {
+                this.dropItem(item);
+            }
         }
     }
 
@@ -40,5 +45,16 @@ export class Drop extends Command {
         Game.Player.getInventory().remove(item);
         Game.getRoom(Game.Player.Location).getItems().add(item);
         Engine.Output(Local.Commands.Drop.Dropped.format(item.getName(GramaCase.Biernik)));
+    }
+
+    dropCount(item: Item, count: number) {
+        item.addStack(-count);
+        let newItem = new Item();
+        //newItem.loadFromSave(item);
+        newItem.Id = item.Id;
+        newItem.setStack(count);
+        let roomItems = Game.getRoom(Game.Player.Location).getItems();
+        roomItems.add(newItem);
+        Engine.Output(Local.Commands.Drop.Dropped.format(newItem.getName(GramaCase.Biernik)));
     }
 }
