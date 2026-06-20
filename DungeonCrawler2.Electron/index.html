@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dungeon crawler 2!</title>
-    <link rel="stylesheet" href="css/bootstrap.css" />
+    <!--<link rel="stylesheet" href="css/bootstrap.css" />-->
+    <link rel="stylesheet" href="lib/paper/paper.css" />
     <link rel="stylesheet" href="css/style.css" />
 
     <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
@@ -22,19 +23,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md">
-                <h1>Dungeon crawler 2!</h1>
+                <h3>Dungeon Crawler</h3>
             </div>
         </div>
-        <div class="row container consoleContainer" style="height: 500px; overflow-y: scroll">
+        <div class="row container consoleContainer">
             <div id="consoleOutput" class="console">
             </div>
         </div>
         <div class="row">
-            <div class="col-md-9">
-                <input type="text" id="consoleInput" class="form-control" />
+            <div class="col-fill col">
+                <input type="text" id="consoleInput" class="form-control consoleInput" />
             </div>
-            <div class="col-md-3">
-                <button type="button" id="executeButton" class="btn btn-primary">Wykonaj</button>
+            <div class="md-3 col">
+                <button type="button" id="executeButton" class="paper-btn">Wykonaj</button>
             </div>
         </div>
     </div>

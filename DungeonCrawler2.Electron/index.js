@@ -1,6 +1,7 @@
-﻿
+﻿var comHistory = [];
+var historyIndex = -1;
 
-window.onload = function() {
+window.onload = function () {
     Init();
 
     $('#executeButton').click(() => {
@@ -9,12 +10,30 @@ window.onload = function() {
         Engine.Output(message);
         Engine.Input = message;
         Execute(Engine.Input);
+        if (message != '') {
+            comHistory.push(message);
+        }
+        historyIndex = comHistory.length - 1;
     });
 
-    //Enter key on input
     $("#consoleInput").keyup(function (event) {
+        //Enter key on input
         if (event.keyCode === 13) {
             $("#executeButton").click();
+        }
+        //Up and down keys to navigate command history
+        else if (event.keyCode === 38) {
+            if (historyIndex > -1) {
+                $("#consoleInput").val(comHistory[historyIndex--]);
+            }
+        }
+        else if (event.keyCode === 40) {
+            if (historyIndex < comHistory.length - 1) {
+                $("#consoleInput").val(comHistory[++historyIndex]);
+            }
+            else {
+                $("#consoleInput").val('');
+            }
         }
     });
 

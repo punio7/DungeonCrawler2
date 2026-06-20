@@ -15,6 +15,6 @@ export class Json extends Command {
         }
         let game = GameVar;
         let gameData = Data;
-        Engine.Output(JSON.stringify(eval(argument)));
+        Engine.Output(JSON.stringify(eval(argument), null, 1));
     }
 }

@@ -93,6 +93,17 @@ export class Item extends EntityBase {
         }
     }
 
+    splitStack(count: number) {
+        if (!this.isStackable() || count > this.getStack() || count <= 0) {
+            return null;
+        }
+        this.addStack(-count);
+        let newItem = new Item();
+        newItem.loadFromSave(this);
+        newItem.setStack(count);
+        return newItem;
+    }
+
     getType() {
         return ItemTypeHelper.parse(this.getTemplate().Type)!;
     }

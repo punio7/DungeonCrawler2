@@ -27,7 +27,7 @@ export class Drop extends Command {
             }
             let count = command.getCount(1);
 
-            if (item.isStackable() && count !== null && count < item.getStack()) {
+            if (item.isStackable() && count !== null && count < item.getStack() && count > 0) {
                 this.dropCount(item, count);
             } else {
                 this.dropItem(item);
@@ -48,11 +48,7 @@ export class Drop extends Command {
     }
 
     dropCount(item: Item, count: number) {
-        item.addStack(-count);
-        let newItem = new Item();
-        //newItem.loadFromSave(item);
-        newItem.Id = item.Id;
-        newItem.setStack(count);
+        let newItem = item.splitStack(count)!;
         let roomItems = Game.getRoom(Game.Player.Location).getItems();
         roomItems.add(newItem);
         Engine.Output(Local.Commands.Drop.Dropped.format(newItem.getName(GramaCase.Biernik)));
